@@ -14,6 +14,11 @@ origins = [
     "https://docbuilder-frontend.vercel.app", # Example
 ]
 
+# Add origins from environment variable
+cors_env = os.getenv("CORS_ORIGINS")
+if cors_env:
+    origins.extend([origin.strip() for origin in cors_env.split(",")])
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
