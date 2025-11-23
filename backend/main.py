@@ -11,7 +11,7 @@ app = FastAPI(title="AI Doc Builder API")
 # CORS
 origins = [
     "http://localhost:3000",
-    "https://docbuilder-frontend.vercel.app", # Example
+    "https://docbuilder-pearl.vercel.app", # Example
 ]
 
 # Add origins from environment variable
