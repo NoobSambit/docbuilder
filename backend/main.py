@@ -17,7 +17,7 @@ origins = [
 # Add origins from environment variable
 cors_env = os.getenv("CORS_ORIGINS")
 if cors_env:
-    origins.extend([origin.strip() for origin in cors_env.split(",")])
+    origins.extend([origin.strip().rstrip("/") for origin in cors_env.split(",")])
 
 app.add_middleware(
     CORSMiddleware,
