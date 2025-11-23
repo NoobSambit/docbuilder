@@ -5,8 +5,8 @@ Export completed projects to professional DOCX or PPTX formats with proper forma
 ## Overview
 
 The Export feature converts your AI-generated content into downloadable Microsoft Office documents:
-- **DOCX**: Word documents for reports and articles
-- **PPTX**: PowerPoint presentations for slide decks
+- **DOCX**: Word documents for reports and articles, with full support for bullet points and formatting.
+- **PPTX**: PowerPoint presentations for slide decks.
 
 ## How It Works
 
@@ -58,7 +58,7 @@ Authorization: Bearer <token>
 2. **Content Sections**
    - Section title (Heading 1)
    - Content paragraphs
-   - Bullet points (if present)
+   - Bullet points (rendered as native Word lists)
    - Spacing between sections
 
 3. **Footer**

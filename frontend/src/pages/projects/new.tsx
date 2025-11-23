@@ -53,8 +53,8 @@ export default function NewProject() {
     );
 
     return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-            <Card className="w-full max-w-lg animate-fade-up">
+        <div className="min-h-screen bg-muted/30 flex items-center justify-center p-4">
+            <Card className="w-full max-w-lg shadow-lg border-border/60">
                 <CardHeader>
                     <div className="flex items-center gap-2 mb-2">
                         <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => router.back()}>
@@ -69,7 +69,7 @@ export default function NewProject() {
                 <form onSubmit={handleSubmit}>
                     <CardContent className="space-y-6">
                         {error && (
-                            <div className="bg-destructive/10 text-destructive text-sm p-3 rounded-md">
+                            <div className="bg-destructive/10 text-destructive text-sm p-3 rounded-md border border-destructive/20">
                                 {error}
                             </div>
                         )}
@@ -86,6 +86,7 @@ export default function NewProject() {
                                 placeholder="e.g., Q3 Market Analysis"
                                 disabled={isSubmitting}
                                 autoFocus
+                                className="h-11"
                             />
                         </div>
 
@@ -96,28 +97,28 @@ export default function NewProject() {
                             <div className="grid grid-cols-2 gap-4">
                                 <div
                                     className={cn(
-                                        "cursor-pointer border rounded-lg p-4 flex flex-col items-center gap-2 transition-all hover:bg-accent hover:text-accent-foreground",
-                                        docType === 'docx' ? "border-primary bg-primary/5 ring-1 ring-primary" : "border-input"
+                                        "cursor-pointer border rounded-md p-4 flex flex-col items-center gap-2 transition-all hover:bg-accent hover:text-accent-foreground",
+                                        docType === 'docx' ? "border-foreground bg-foreground/5 ring-1 ring-foreground/10" : "border-input"
                                     )}
                                     onClick={() => setDocType('docx')}
                                 >
-                                    <FileText className={cn("h-8 w-8", docType === 'docx' ? "text-primary" : "text-muted-foreground")} />
+                                    <FileText className={cn("h-8 w-8", docType === 'docx' ? "text-foreground" : "text-muted-foreground")} />
                                     <span className="text-sm font-medium">Word Document</span>
                                 </div>
                                 <div
                                     className={cn(
-                                        "cursor-pointer border rounded-lg p-4 flex flex-col items-center gap-2 transition-all hover:bg-accent hover:text-accent-foreground",
-                                        docType === 'pptx' ? "border-primary bg-primary/5 ring-1 ring-primary" : "border-input"
+                                        "cursor-pointer border rounded-md p-4 flex flex-col items-center gap-2 transition-all hover:bg-accent hover:text-accent-foreground",
+                                        docType === 'pptx' ? "border-foreground bg-foreground/5 ring-1 ring-foreground/10" : "border-input"
                                     )}
                                     onClick={() => setDocType('pptx')}
                                 >
-                                    <Presentation className={cn("h-8 w-8", docType === 'pptx' ? "text-primary" : "text-muted-foreground")} />
+                                    <Presentation className={cn("h-8 w-8", docType === 'pptx' ? "text-foreground" : "text-muted-foreground")} />
                                     <span className="text-sm font-medium">Presentation</span>
                                 </div>
                             </div>
                         </div>
                     </CardContent>
-                    <CardFooter className="flex justify-end gap-3">
+                    <CardFooter className="flex justify-end gap-3 border-t border-border/40 pt-6">
                         <Button
                             type="button"
                             variant="ghost"
@@ -129,7 +130,7 @@ export default function NewProject() {
                         <Button
                             type="submit"
                             disabled={isSubmitting || !title.trim()}
-                            className="min-w-[120px]"
+                            className="min-w-[120px] bg-foreground text-background hover:bg-foreground/90"
                         >
                             {isSubmitting ? (
                                 <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Creating...</>

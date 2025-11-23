@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    /* Light Mode - Crisp & Clean */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -14,55 +15,56 @@
     --popover-foreground: 222.2 84% 4.9%;
 
     --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220 8.9% 46.1%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 220 14.3% 95.9%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
     --ring: 221.2 83.2% 53.3%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   .dark {
+    /* Dark Mode - Deep & Premium with Better Contrast */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 217.2 32.6% 10%;
     --card-foreground: 210 40% 98%;
 
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary-foreground: 222.2 84% 4.9%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 217.2 32.6% 15%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 217.2 32.6% 15%;
+    --muted-foreground: 215 20.2% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 217.2 32.6% 15%;
     --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --border: 217.2 32.6% 20%;
+    --input: 217.2 32.6% 15%;
+    --ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -70,7 +72,118 @@
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground antialiased;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
   }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 dark:bg-black/10 dark:border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-card/50 backdrop-blur-sm border border-border/50 shadow-xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500;
+  }
+}
+
+/* TipTap Editor Spacing - Match AI-generated content */
+.ProseMirror {
+  @apply focus:outline-none;
+}
+
+.ProseMirror > * + * {
+  margin-top: 0;
+}
+
+.ProseMirror p {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.625;
+}
+
+.ProseMirror h2 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.ProseMirror h3 {
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  padding-left: 1.5rem;
+}
+
+.ProseMirror li {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.ProseMirror > *:first-child {
+  margin-top: 0;
+}
+
+.ProseMirror > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Fix prose spacing for read-only content */
+.prose p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: 1.625 !important;
+}
+
+.prose > * + * {
+  margin-top: 0 !important;
+}
+
+.prose h2 {
+  margin-top: 1.5em !important;
+  margin-bottom: 0.5em !important;
+  line-height: 1.3 !important;
+}
+
+.prose h3 {
+  margin-top: 1.25em !important;
+  margin-bottom: 0.5em !important;
+  line-height: 1.3 !important;
+}
+
+.prose ul,
+.prose ol {
+  margin-top: 0.75em !important;
+  margin-bottom: 0.75em !important;
+}
+
+.prose li {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.prose > *:first-child {
+  margin-top: 0 !important;
+}
+
+.prose > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.prose strong {
+  font-weight: 600 !important;
 }

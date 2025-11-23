@@ -1,11 +1,3 @@
-# Content Generation
-
-Generate professional content for document sections using Google Gemini AI with automatic retry logic and status tracking.
-
-## Overview
-
-After creating an outline, the Content Generation feature populates each section with AI-generated content including full paragraphs and bullet point summaries.
-
 ## How It Works
 
 ```mermaid
@@ -19,9 +11,11 @@ sequenceDiagram
     User->>Frontend: Click "Generate" on section
     Frontend->>Backend: POST /projects/{id}/generate
     Backend->>Backend: Set status to "generating"
-    Backend->>Gemini API: Generate content prompt
-    Gemini API-->>Backend: JSON content response
-    Backend->>Backend: Parse and validate
+    Backend->>LangChain: Invoke Chain (Prompt | LLM | Parser)
+    LangChain->>Gemini API: Generate content
+    Gemini API-->>LangChain: Raw response
+    LangChain->>LangChain: Parse & Validate (Pydantic)
+    LangChain-->>Backend: Structured Data (Dict)
     Backend->>Firestore: Update section content
     Backend->>Backend: Set status to "done"
     Backend-->>Frontend: Generated content
@@ -62,12 +56,20 @@ sequenceDiagram
 ### 1. Status Update
 Section status changes from `"queued"` → `"generating"`
 
-### 2. LLM Prompt
+### 2. LangChain Chain Execution
+The backend uses a LangChain pipeline: `PromptTemplate | ChatGoogleGenerativeAI | PydanticOutputParser`.
+
+**Prompt Template:**
 ```python
-prompt = f"""
-SYSTEM: Return only JSON that adheres to {{ "title": "...", "text": "...", "bullets": ["..."], "word_count": N }}.
-USER: Generate content for section titled "{title}" for the topic "{topic}". Tone: Professional. Max words: {word_count}. Provide short bullet summary plus full section text. Return only JSON, no commentary.
-"""
+prompt = ChatPromptTemplate.from_messages([
+    ("system", """You are an expert content writer. {format_instructions}
+    CONTEXT:
+    - Topic: {topic}
+    - Section: {title}
+    - Target Words: {word_count}
+    """),
+    ("user", "Generate content for the section '{title}' about '{topic}'.")
+])
 ```
 
 ### 3. Response Processing
@@ -172,22 +174,6 @@ To regenerate content:
 4. Old content saved in refinement history (if refined)
 
 ## Best Practices
-
-### Before Generation
-- Review section titles for clarity
-- Adjust word counts as needed
-- Ensure outline is complete
-
-### After Generation
-- Review content for accuracy
-- Check tone and style
-- Verify bullet points are relevant
-- Use refinement for improvements
-
-### Batch Generation
-Generate all sections at once:
-```typescript
-const generateAllSections = async () => {
   for (const section of outline) {
     await generateContent(projectId, section.id);
     await delay(1000); // Rate limiting

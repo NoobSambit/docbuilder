@@ -65,6 +65,7 @@ class Project(ProjectBase):
 
 class SuggestOutlineRequest(BaseModel):
     topic: str
+    existing_sections: Optional[List[str]] = []  # Titles of existing sections for context
 
 class GenerateContentRequest(BaseModel):
     section_id: str
@@ -77,3 +78,64 @@ class RefineRequest(BaseModel):
 class CommentRequest(BaseModel):
     text: str
     user_id: str
+
+class UpdateSectionContentRequest(BaseModel):
+    content: str
+
+class PPTTheme(BaseModel):
+    name: str
+    display_name: str
+    background_color: str  # RGB hex
+    title_color: str
+    text_color: str
+    accent_color: str
+    font_title: str = "Arial"
+    font_body: str = "Arial"
+    description: str
+
+class ExportRequest(BaseModel):
+    theme: Optional[str] = "professional"  # theme name
+
+class AddSectionRequest(BaseModel):
+    title: str
+    position: Optional[int] = None  # If None, append to end
+
+class ReorderOutlineRequest(BaseModel):
+    section_ids: List[str]  # Array of section IDs in new order
+
+# LangChain Output Schemas (for structured LLM responses)
+class OutlineItemSchema(BaseModel):
+    """Schema for a single outline item returned by LLM"""
+    id: str = Field(description="Unique identifier for the section")
+    title: str = Field(description="Title of the section")
+    word_count: int = Field(description="Target word count for this section")
+
+class OutlineSchema(BaseModel):
+    """Schema for outline generation response"""
+    outline: List[OutlineItemSchema] = Field(description="Array of outline sections")
+
+class SectionContentSchema(BaseModel):
+    """Schema for section content generation response"""
+    title: str = Field(description="Section title")
+    text: str = Field(description="Generated content in HTML/Markdown format")
+    bullets: List[str] = Field(description="Key bullet points summarizing the section")
+    word_count: int = Field(description="Actual word count of generated content")
+
+class RefinementOutputSchema(BaseModel):
+    """Schema for section refinement response"""
+    text: str = Field(description="Refined content in HTML/Markdown format")
+    bullets: List[str] = Field(description="Updated bullet points")
+    diff_summary: str = Field(description="Summary of changes made during refinement")
+
+class UserRegistration(BaseModel):
+    email: str
+    password: str
+    display_name: str
+
+class UserProfile(BaseModel):
+    uid: str
+    email: str
+    display_name: Optional[str] = None
+
+class RenameProjectRequest(BaseModel):
+    title: str

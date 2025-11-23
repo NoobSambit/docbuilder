@@ -1,10 +1,10 @@
-# Content Refinement
+# Smart Content Refinement
 
 Iteratively refine generated content with AI-powered suggestions while maintaining complete version history.
 
 ## Overview
 
-The Content Refinement feature allows users to improve generated content by providing natural language instructions. Each refinement creates a new version while preserving the history for comparison and rollback.
+The Smart Content Refinement feature allows users to improve generated content by providing natural language instructions. The system uses context-aware AI to understand previous refinements and the current state of the document, ensuring that changes are applied intelligently. Each refinement creates a new version while preserving the history for comparison and rollback.
 
 ## How It Works
 
@@ -70,17 +70,27 @@ History:
 """
 ```
 
-### 2. LLM Prompt
+### 2. LangChain Execution
+
+The refinement process uses a dedicated chain with `RefinementOutputSchema`.
 
 ```python
-prompt = f"""
-SYSTEM: Return only JSON that adheres to {{ "text": "...", "diff_summary": "..." }}.
-CONTEXT:
-Original Text: {current_text}
-History:
-{history_str}
-USER: Refine the text based on these instructions: "{instructions}". Return the new text and a brief summary of changes (diff_summary). Return only JSON.
-"""
+# 1. Define Parser
+parser = PydanticOutputParser(pydantic_object=RefinementOutputSchema)
+
+# 2. Define Prompt
+prompt_template = ChatPromptTemplate.from_messages([
+    ("system", """You are an expert content editor. {format_instructions}
+    CONTEXT:
+    - Current Content: {current_text}
+    - History: {history_str}
+    """),
+    ("user", "Refine this content: {instructions}")
+])
+
+# 3. Invoke Chain
+chain = prompt_template | llm | parser
+result = chain.invoke({...})
 ```
 
 ### 3. Response Processing

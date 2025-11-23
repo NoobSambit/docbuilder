@@ -4,6 +4,7 @@ import { AuthProvider } from '@/context/AuthContext';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import Layout from '@/components/Layout';
 import { useRouter } from 'next/router';
+import { ThemeProvider } from 'next-themes';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta' });
@@ -14,15 +15,17 @@ export default function App({ Component, pageProps }: AppProps) {
 
     return (
         <AuthProvider>
-            <div className={`${inter.variable} ${jakarta.variable} font-sans`}>
-                {isAuthPage ? (
-                    <Component {...pageProps} />
-                ) : (
-                    <Layout>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                <div className={`${inter.variable} ${jakarta.variable} font-sans`}>
+                    {isAuthPage ? (
                         <Component {...pageProps} />
-                    </Layout>
-                )}
-            </div>
+                    ) : (
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
+                    )}
+                </div>
+            </ThemeProvider>
         </AuthProvider>
     );
 }

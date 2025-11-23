@@ -6,7 +6,11 @@ python-dotenv
 pytest
 httpx
 python-multipart
-google-generativeai
+langchain>=0.1.0
+langchain-google-genai>=1.0.0
+langchain-community>=0.0.20
 python-docx
 python-pptx
 markdown2
+bleach
+beautifulsoup4

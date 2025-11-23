@@ -67,6 +67,16 @@ The backend requires Google Cloud credentials for the Gemini LLM and general ser
 3. **Activate Provider**:
     - Change `LLM_PROVIDER` to `gemini` in `backend/.env`.
 
+### Deployment Friendly Setup (Raw JSON)
+
+For easier deployment (e.g., to platforms where you can't easily upload files), you can use the raw JSON content directly in the environment variable.
+
+1. **Minify JSON**: Convert your `service-account.json` content to a single line string. You can use an online tool or a simple script.
+2. **Set Variable**: Paste the minified JSON string into `GOOGLE_SERVICE_ACCOUNT_JSON` in `backend/.env` (or your deployment secrets).
+
+> [!CAUTION]
+> **SECURITY WARNING**: Never commit your `.env` file or `service-account.json` to version control (git). Ensure they are in `.gitignore`. If you accidentally expose your key, revoke it immediately in the Google Cloud Console.
+
 ## Troubleshooting
 
 - **"Cannot find module"**: Ensure you are running commands from the correct directory (`frontend` or `backend`).

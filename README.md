@@ -4,16 +4,27 @@ A full-stack application for AI-assisted document creation, refinement, and expo
 
 ## Features
 - **AI Outline Generation**: Suggests structured outlines based on a topic.
-- **Content Generation**: Generates section content using LLMs (Gemini).
-- **Refinement**: Iteratively refine content with AI instructions.
+- **Content Generation**: Generates section content using LLMs (Gemini 2.0 Flash).
+- **Smart Refinement**: Context-aware content refinement with history.
+- **Rich Content Generation**: Support for bullet points and structured formatting.
 - **History & Collaboration**: Tracks refinement history, supports comments and likes/dislikes.
-- **Export**: Download projects as DOCX or PPTX.
+- **Export**: Download projects as DOCX or PPTX with improved formatting.
 
 ## Tech Stack
 - **Frontend**: Next.js, React, TailwindCSS (via CDN/utility classes)
 - **Backend**: FastAPI, Python 3.9+
 - **Database**: Firebase Firestore
-- **AI**: Google Generative AI (Gemini)
+- **AI**: Google Generative AI (Gemini 2.0 Flash)
+- **Orchestration**: LangChain (Chains, Prompts, Parsers)
+
+## Architecture
+
+### AI Orchestration (LangChain)
+The application uses LangChain to manage LLM interactions. Key patterns include:
+- **LCEL Chains**: `Prompt | LLM | Parser` pipelines for clear logic flow.
+- **Structured Output**: Pydantic parsers ensure valid JSON responses for outlines and content.
+- **Caching**: SQLite caching reduces API costs and latency for repeated queries.
+
 
 ## Setup & Local Development
 
@@ -45,7 +56,7 @@ FIREBASE_CREDENTIALS=path/to/serviceAccountKey.json
 
 Run the server:
 ```bash
-uvicorn app.main:app --reload
+uvicorn main:app --reload
 ```
 Backend will be at `http://localhost:8000`.
 
@@ -84,7 +95,7 @@ Frontend will be at `http://localhost:3000`.
 **Render/Railway**:
 1. Connect GitHub repo.
 2. Set Build Command: `pip install -r requirements.txt`
-3. Set Start Command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+3. Set Start Command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
 4. Add Environment Variables (`GOOGLE_API_KEY`, `FIREBASE_CREDENTIALS` content as JSON string or file path).
 
 **Cloud Run**:
