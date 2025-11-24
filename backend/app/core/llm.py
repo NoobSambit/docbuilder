@@ -158,7 +158,16 @@ REQUIREMENTS:
                 outline_str += f"{idx}. {section_title}{marker}\n"
 
         # Style guidance based on document type
-        style_guidance = "STYLE: Keep content concise, scannable. Use bullet points. Max 120 words." if doc_type == "pptx" else "STYLE: Professional, comprehensive. Detailed explanations. Formal tone."
+        style_guidance = """STYLE FOR PRESENTATIONS:
+- Use bullet points (markdown format: - or *) for EVERY slide
+- Keep each bullet to 1-2 short sentences maximum
+- Focus on key takeaways, not long explanations
+- Max 120 words total per slide
+- Scannable, concise, impactful""" if doc_type == "pptx" else """STYLE FOR DOCUMENTS:
+- Use paragraphs for narrative sections (Introduction, Background, Conclusion)
+- Use bullet points for comparisons, lists, features, advantages, steps
+- Professional, comprehensive tone
+- Detailed explanations with proper analysis"""
 
         # Create LangChain prompt template
         prompt_template = ChatPromptTemplate.from_messages([
@@ -175,13 +184,49 @@ OUTLINE:
 
 {style_guidance}
 
+**CRITICAL FORMATTING INSTRUCTIONS:**
+
+First, analyze the section title to determine the most suitable format:
+
+1. **Use BULLET POINTS** (with <ul><li> HTML tags) when the section is:
+   - A comparison (e.g., "Mitosis vs. Meiosis", "Comparison of...", "Differences between...")
+   - A list of items (e.g., "Key Features", "Advantages", "Disadvantages", "Types of...")
+   - Step-by-step process (e.g., "How to...", "Steps for...", "Process of...")
+   - Summary or highlights (e.g., "Key Takeaways", "Summary", "Main Points")
+   - Multiple distinct concepts that are better presented as separate points
+
+2. **Use PARAGRAPHS** when the section is:
+   - An introduction or overview
+   - A narrative explanation
+   - A detailed analysis requiring flowing prose
+   - Background information or context
+
+**OUTPUT FORMAT:**
+- For bullet points: Use markdown unordered lists (- or *) which will be converted to HTML
+- For paragraphs: Write natural paragraphs separated by blank lines
+- You can mix both formats within the same section if appropriate
+- Use **bold** for emphasis and *italic* for secondary emphasis
+- Keep bullet points concise (1-2 sentences each)
+- Make paragraphs flow naturally with proper transitions
+
+Example bullet format:
+- First key point here
+- Second key point here
+- Third key point here
+
+Example paragraph format:
+Regular paragraph text here with **bold** and *italic* formatting.
+
+Another paragraph here.
+
 REQUIREMENTS:
 1. Stay within scope of "{title}" only
-2. Use markdown formatting with **bold** and *italic*
-3. Provide {word_count} words (±10%)
-4. Include 3-5 summary bullets
-5. High quality, professional content"""),
-            ("user", "Generate content for the section '{title}' about '{topic}'.")
+2. ANALYZE the section title and choose the appropriate format (bullets vs paragraphs)
+3. Use markdown formatting (will be converted to HTML automatically)
+4. Provide {word_count} words (±10%)
+5. Include 3-5 summary bullets in the "bullets" field (these are separate from the main content)
+6. High quality, professional content"""),
+            ("user", "Generate content for the section '{title}' about '{topic}'. First determine if this section should use bullet points or paragraphs based on the title, then generate accordingly.")
         ])
 
         # Build the LangChain chain
@@ -224,7 +269,13 @@ REQUIREMENTS:
                 history_str += f"{idx}. User: \"{prompt_text}\"\n"
 
         # Style guidance
-        style_guidance = "STYLE: Concise, scannable. Bullet points. Short sentences." if doc_type == "pptx" else "STYLE: Professional, comprehensive. Formal tone. Detailed."
+        style_guidance = """STYLE FOR PRESENTATIONS:
+- Maintain bullet point format (markdown: - or *)
+- Keep bullets short and scannable
+- Each bullet should be 1-2 sentences maximum""" if doc_type == "pptx" else """STYLE FOR DOCUMENTS:
+- Maintain existing format unless user requests a change
+- Professional, comprehensive tone
+- Detailed and well-structured"""
 
         # Create LangChain prompt template
         prompt_template = ChatPromptTemplate.from_messages([
@@ -246,13 +297,42 @@ HISTORY:
 
 {style_guidance}
 
+**CRITICAL: YOU MUST FOLLOW USER INSTRUCTIONS EXACTLY**
+
+When the user asks to:
+- "Convert to bullet points" → Transform the content into markdown bullet format (- or *) with clear, concise bullet points
+- "Make it a list" → Use markdown bullet format (- or *)
+- "Use bullets" → Use markdown bullet format (- or *)
+- "Return in points" → Use markdown bullet format (- or *)
+- "Add more detail" → Expand paragraphs while maintaining format
+- "Make it shorter" → Condense while maintaining format
+- "Change format" → Follow their specific format request (bullets/paragraphs)
+
+**FORMATTING RULES:**
+- For bullet points: Use markdown unordered lists (- or *) which will be converted to HTML
+- For paragraphs: Write natural paragraphs separated by blank lines
+- Use **bold** for emphasis and *italic* for secondary emphasis
+- Preserve current format unless user explicitly asks to change it
+- If content is currently in bullets and user says "return in points", keep it as bullets
+- If content is in paragraphs and user says "convert to bullets", change to markdown bullet format (- or *)
+
+Example bullet format:
+- First key point here
+- Second key point here
+
+Example paragraph format:
+Regular paragraph text here with **bold** and *italic* formatting.
+
+Another paragraph here.
+
 REQUIREMENTS:
-1. Follow user's instructions EXACTLY
-2. Preserve good aspects of current content
-3. Use markdown formatting with **bold** and *italic*
-4. Update bullets (3-5 points)
-5. Provide brief diff_summary (1-2 sentences)"""),
-            ("user", "Refine this content: {instructions}")
+1. **OBEY user's instructions EXACTLY - this is mandatory**
+2. If user specifies format (bullets/paragraphs), use that format
+3. Preserve good aspects of current content unless asked to change them
+4. Use markdown formatting (will be converted to HTML automatically)
+5. Update the "bullets" field (3-5 summary points - these are separate from main content)
+6. Provide brief diff_summary explaining what changed (1-2 sentences)"""),
+            ("user", "Refine this content based on my instructions: {instructions}\n\nIMPORTANT: Follow my instructions precisely. If I ask for bullet points, use markdown bullet format (- or *). If I ask for paragraphs, use regular paragraph text. Do not ignore my formatting requests.")
         ])
 
         # Build the LangChain chain
