@@ -409,18 +409,25 @@ export default function SectionUnit({
                                         <p className="text-muted-foreground mb-6 text-sm font-medium">No content yet. Choose how to create it:</p>
 
                                         {/* RAG Toggle */}
-                                        <div className="mb-4 flex items-center gap-2 px-4 py-2 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800/50 rounded-md">
-                                            <input
-                                                type="checkbox"
-                                                id={`rag-${section.id}`}
-                                                checked={useRag}
-                                                onChange={(e) => setUseRag(e.target.checked)}
-                                                className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
-                                            />
-                                            <label htmlFor={`rag-${section.id}`} className="text-sm font-medium text-blue-900 dark:text-blue-200 cursor-pointer flex items-center gap-1">
-                                                <span>🌐</span>
-                                                <span>Enhance with Web Research (RAG)</span>
-                                            </label>
+                                        <div className="mb-4 space-y-2">
+                                            <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800/50 rounded-md">
+                                                <input
+                                                    type="checkbox"
+                                                    id={`rag-${section.id}`}
+                                                    checked={useRag}
+                                                    onChange={(e) => setUseRag(e.target.checked)}
+                                                    className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                                                />
+                                                <label htmlFor={`rag-${section.id}`} className="text-sm font-medium text-blue-900 dark:text-blue-200 cursor-pointer flex items-center gap-1">
+                                                    <span>🌐</span>
+                                                    <span>Enhance with Web Research (RAG)</span>
+                                                </label>
+                                            </div>
+                                            {useRag && (
+                                                <div className="px-3 py-2 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/50 rounded text-xs text-amber-800 dark:text-amber-200">
+                                                    ⚠️ Note: RAG feature requires local deployment. Due to free tier backend limitations, web search may not work on hosted deployments.
+                                                </div>
+                                            )}
                                         </div>
 
                                         {/* Dual Options for Content Creation */}

@@ -631,6 +631,25 @@ async def refine_unit(project_id: str, unit_id: str, request: RefineRequest, cur
         # Get document type (default to docx if not specified)
         doc_type = project_data.get("doc_type", "docx")
 
+        # Find section position
+        section_idx = next((idx for idx, s in enumerate(sections) if s.id == unit_id), -1)
+        section_position = section_idx + 1
+        total_sections = len(sections)
+
+        # Build adjacent section context
+        previous_section_context = None
+        next_section_context = None
+
+        if section_idx > 0:
+            prev = sections[section_idx - 1]
+            previous_section_context = f"Title: '{prev.title}'"
+            if prev.bullets:
+                previous_section_context += f"\nKey points: {', '.join(prev.bullets[:3])}"
+
+        if section_idx < len(sections) - 1 and section_idx >= 0:
+            next_sec = sections[section_idx + 1]
+            next_section_context = f"Title: '{next_sec.title}'"
+
         # Call LLM with full context including document title and outline
         refinement_data = adapter.refine_section(
             current_text=target_section.content or "",
@@ -640,7 +659,12 @@ async def refine_unit(project_id: str, unit_id: str, request: RefineRequest, cur
             doc_title=project_data.get("title", "Document"),
             outline_context=outline_context,
             doc_type=doc_type,
-            section_title=target_section.title
+            section_title=target_section.title,
+            section_position=section_position,
+            total_sections=total_sections,
+            target_word_count=request.target_word_count,
+            previous_section_context=previous_section_context,
+            next_section_context=next_section_context
         )
 
         # Create Refinement record

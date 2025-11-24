@@ -14,10 +14,13 @@ python-pptx
 markdown2
 bleach
 beautifulsoup4
+html2text
 
 # RAG Dependencies
 faiss-cpu>=1.7.4
 sentence-transformers>=2.2.2
+langchain-huggingface>=0.0.1
+langchain-google-community>=1.0.0
 google-api-python-client>=2.100.0
 langchain-text-splitters>=0.0.1
 requests>=2.31.0

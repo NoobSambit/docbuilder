@@ -75,6 +75,7 @@ class GenerateContentRequest(BaseModel):
 class RefineRequest(BaseModel):
     prompt: str
     user_id: str
+    target_word_count: Optional[int] = None  # Optional explicit word count target
 
 class CommentRequest(BaseModel):
     text: str

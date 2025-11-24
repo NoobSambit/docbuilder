@@ -1,237 +1,38 @@
-## How It Works
+# ✍️ Content Generation
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant Frontend
-    participant Backend
-    participant Gemini API
-    participant Firestore
-    
-    User->>Frontend: Click "Generate" on section
-    Frontend->>Backend: POST /projects/{id}/generate
-    Backend->>Backend: Set status to "generating"
-    Backend->>LangChain: Invoke Chain (Prompt | LLM | Parser)
-    LangChain->>Gemini API: Generate content
-    Gemini API-->>LangChain: Raw response
-    LangChain->>LangChain: Parse & Validate (Pydantic)
-    LangChain-->>Backend: Structured Data (Dict)
-    Backend->>Firestore: Update section content
-    Backend->>Backend: Set status to "done"
-    Backend-->>Frontend: Generated content
-    Frontend-->>User: Display content
-```
+DocBuilder offers two powerful modes for generating content: **Standard Generation** and **RAG-Enhanced Generation**.
 
-## API Endpoint
+## 1. Standard Generation
 
-**Endpoint**: `POST /projects/{id}/generate`
+Fast, creative, and context-aware writing powered by Gemini 2.0 Flash.
 
-**Request:**
-```json
-{
-  "section_id": "s1",
-  "prompt_override": null
-}
-```
+### Context Awareness
+Unlike simple chatbots, DocBuilder provides the LLM with a "360-degree view" of your document:
+- **Document Context**: Title, type, and full outline.
+- **Position Awareness**: "You are writing Section 3 of 8".
+- **Adjacent Sections**: The AI sees the summary of the previous section and the title of the next one to create smooth transitions.
 
-**Response:**
-```json
-{
-  "id": "s1",
-  "title": "Introduction",
-  "word_count": 150,
-  "content": "Artificial intelligence is revolutionizing healthcare...",
-  "bullets": [
-    "AI improves diagnostic accuracy",
-    "Reduces treatment costs",
-    "Enables personalized medicine"
-  ],
-  "status": "done",
-  "version": 1
-}
-```
+### Format Intelligence
+The system analyzes the section title to decide the best format:
+- **Bullet Points**: For comparisons, lists, steps, or summaries.
+- **Paragraphs**: For narratives, introductions, and detailed analysis.
 
-## Generation Process
+## 2. RAG-Enhanced Generation (Retrieval-Augmented Generation)
 
-### 1. Status Update
-Section status changes from `"queued"` → `"generating"`
+For topics requiring up-to-date facts, statistics, or recent events, RAG mode is the game-changer.
 
-### 2. LangChain Chain Execution
-The backend uses a LangChain pipeline: `PromptTemplate | ChatGoogleGenerativeAI | PydanticOutputParser`.
+### The Workflow
+1.  **Search**: The system formulates a search query based on the section title and topic.
+2.  **Retrieve**: It searches the live web using Google Custom Search API.
+3.  **Read**: It scrapes the top 5 relevant webpages.
+4.  **Synthesize**: The content is fed into the LLM as "Research Context".
+5.  **Write**: The LLM generates the section, citing facts from the retrieved sources.
 
-**Prompt Template:**
-```python
-prompt = ChatPromptTemplate.from_messages([
-    ("system", """You are an expert content writer. {format_instructions}
-    CONTEXT:
-    - Topic: {topic}
-    - Section: {title}
-    - Target Words: {word_count}
-    """),
-    ("user", "Generate content for the section '{title}' about '{topic}'.")
-])
-```
+### Why Use RAG?
+- **Accuracy**: Reduces hallucinations by grounding the AI in real data.
+- **Currency**: Access to information published *after* the AI's training cutoff.
+- **Citations**: Provides transparency on where the information came from.
 
-### 3. Response Processing
-- Parse JSON response
-- Extract `text`, `bullets`, `word_count`
-- Update section in database
-- Set status to `"done"` or `"failed"`
+## Technical Implementation
 
-### 4. Retry Logic
-```python
-max_retries = 3
-for attempt in range(max_retries):
-    try:
-        content = llm.generate_section(title, topic, word_count)
-        break
-    except Exception as e:
-        if attempt == max_retries - 1:
-            section.status = "failed"
-            raise
-        time.sleep(2 ** attempt)  # Exponential backoff
-```
-
-## Status Values
-
-| Status | Description | User Action |
-|--------|-------------|-------------|
-| `queued` | Waiting to be generated | Click "Generate" |
-| `generating` | Currently generating | Wait (show spinner) |
-| `done` | Successfully generated | View/edit content |
-| `failed` | Generation failed | Retry generation |
-
-## Content Structure
-
-### Generated Content Fields
-
-**`content`** (string):
-- Full paragraph text
-- Professional tone
-- Approximately matches target word count
-- Markdown formatting supported
-
-**`bullets`** (array of strings):
-- 3-5 key points
-- Concise summaries
-- Used for PPTX slides
-
-**`word_count`** (integer):
-- Actual word count of generated content
-- May differ slightly from target
-
-## Frontend Integration
-
-```typescript
-const GenerateButton = ({ projectId, sectionId }: Props) => {
-  const [status, setStatus] = useState('queued');
-  
-  const generateContent = async () => {
-    setStatus('generating');
-    try {
-      const token = await auth.currentUser?.getIdToken();
-      const response = await axios.post(
-        `${API_URL}/projects/${projectId}/generate`,
-        { section_id: sectionId },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      
-      setStatus('done');
-      updateSection(response.data);
-    } catch (error) {
-      setStatus('failed');
-      console.error('Generation failed:', error);
-    }
-  };
-  
-  return (
-    <button onClick={generateContent} disabled={status === 'generating'}>
-      {status === 'generating' ? 'Generating...' : 'Generate Content'}
-    </button>
-  );
-};
-```
-
-## Customization
-
-### Custom Prompts
-
-Use `prompt_override` to customize generation:
-
-```json
-{
-  "section_id": "s1",
-  "prompt_override": "Write this section in a casual, conversational tone with examples"
-}
-```
-
-### Regeneration
-
-To regenerate content:
-1. Click "Generate" again
-2. Previous content is replaced
-3. Version number increments
-4. Old content saved in refinement history (if refined)
-
-## Best Practices
-  for (const section of outline) {
-    await generateContent(projectId, section.id);
-    await delay(1000); // Rate limiting
-  }
-};
-```
-
-## Error Handling
-
-### Generation Failures
-
-**Symptom**: Status changes to `"failed"`
-
-**Common Causes:**
-- API rate limits
-- Invalid JSON response
-- Network timeout
-- Gemini API errors
-
-**Solutions:**
-1. Wait 30 seconds and retry
-2. Check backend logs for details
-3. Reduce word count if too large
-4. Try with different section title
-
-### Partial Content
-
-**Symptom**: Content generated but incomplete
-
-**Solutions:**
-1. Use refinement to expand content
-2. Regenerate with higher word count
-3. Manually edit and expand
-
-## Performance
-
-### Generation Time
-- **Average**: 3-5 seconds per section
-- **Factors**: Word count, API load, network speed
-
-### Optimization Tips
-- Generate sections sequentially to avoid rate limits
-- Use reasonable word counts (50-400)
-- Implement progress indicators for user feedback
-
-## Limitations
-
-- **Word count accuracy**: ±20% of target
-- **Language**: English only (configurable)
-- **Tone**: Professional by default
-- **Citations**: Not included (future enhancement)
-
-## Related Documentation
-
-- [AI Outline Generation](ai-outline-generation.md)
-- [Content Refinement](refinement.md)
-- [API: Generation Endpoint](../api/generation.md)
-
----
-
-[← Back to Features](README.md) | [Next: Content Refinement →](refinement.md)
+See `backend/app/core/llm.py` -> `generate_section` and `backend/app/core/rag.py`.

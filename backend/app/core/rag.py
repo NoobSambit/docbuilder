@@ -8,10 +8,21 @@ with up-to-date, domain-specific information.
 from typing import List, Dict, Any, Optional
 import os
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.utilities import GoogleSearchAPIWrapper
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+# Use correct non-deprecated imports
+try:
+    from langchain_huggingface import HuggingFaceEmbeddings
+except ImportError:
+    # Fallback for older versions
+    from langchain_community.embeddings import HuggingFaceEmbeddings
+
+try:
+    from langchain_google_community import GoogleSearchAPIWrapper
+except ImportError:
+    # Fallback for older versions
+    from langchain_community.utilities import GoogleSearchAPIWrapper
 import requests
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
@@ -47,12 +58,23 @@ class WebSearchRetriever:
         self.search_enabled = bool(google_api_key and google_cse_id)
 
         if self.search_enabled:
-            self.search = GoogleSearchAPIWrapper(
-                google_api_key=google_api_key,
-                google_cse_id=google_cse_id
-            )
+            print(f"[RAG Init] Google Search API enabled")
+            print(f"[RAG Init] API Key: {google_api_key[:20]}... (truncated)")
+            print(f"[RAG Init] CSE ID: {google_cse_id}")
+            try:
+                self.search = GoogleSearchAPIWrapper(
+                    google_api_key=google_api_key,
+                    google_cse_id=google_cse_id,
+                    k=5  # Number of results
+                )
+                print("[RAG Init] GoogleSearchAPIWrapper initialized successfully")
+            except Exception as e:
+                print(f"[RAG Init ERROR] Failed to initialize GoogleSearchAPIWrapper: {e}")
+                self.search_enabled = False
         else:
-            print("Warning: Google Search API credentials not found. RAG will use mock data.")
+            print("[RAG Init] Warning: Google Search API credentials not found. RAG will use mock data.")
+            print(f"[RAG Init] GOOGLE_API_KEY present: {bool(google_api_key)}")
+            print(f"[RAG Init] GOOGLE_CSE_ID present: {bool(google_cse_id)}")
 
     def formulate_search_query(self, section_title: str, topic: str, doc_type: str = "docx") -> str:
         """
@@ -147,19 +169,34 @@ class WebSearchRetriever:
             print(f"[RAG Mock] Would search for: {query}")
             return [
                 Document(
-                    page_content=f"Mock research content about {query}. This is placeholder data for testing.",
-                    metadata={"source": "mock", "title": "Mock Result"}
+                    page_content=f"Mock research content about {query}. This is placeholder data for testing. "
+                    f"In a real scenario, this would contain actual web search results with relevant information.",
+                    metadata={"source": "mock", "title": f"Mock Result for: {query}"}
                 )
             ]
 
         try:
+            print(f"[RAG] Searching Google for: {query}")
+
             # Perform Google search
             search_results = self.search.results(query, num_results=num_results)
+            print(f"[RAG] Google returned {len(search_results) if search_results else 0} results")
 
-            for result in search_results:
+            if not search_results:
+                print("[RAG] No search results returned - using mock data")
+                return [
+                    Document(
+                        page_content=f"Mock research content about {query}. No real search results available.",
+                        metadata={"source": "mock", "title": "Fallback Mock Result"}
+                    )
+                ]
+
+            for idx, result in enumerate(search_results, 1):
                 url = result.get('link', '')
                 title = result.get('title', 'Untitled')
                 snippet = result.get('snippet', '')
+
+                print(f"[RAG] Processing result {idx}: {title[:50]}...")
 
                 # Fetch full page content
                 content = self.fetch_web_content(url)
@@ -173,12 +210,23 @@ class WebSearchRetriever:
                             "snippet": snippet
                         }
                     ))
+                    print(f"[RAG] Successfully fetched content from {url[:50]}...")
+                else:
+                    print(f"[RAG] Failed to fetch content from {url[:50]}...")
 
             print(f"[RAG] Retrieved {len(documents)} documents for query: {query}")
 
         except Exception as e:
+            import traceback
             print(f"[RAG Error] Search failed: {e}")
-            # Return empty list on error
+            print(f"[RAG Error] Traceback: {traceback.format_exc()}")
+            # Return mock data on error instead of empty list
+            return [
+                Document(
+                    page_content=f"Fallback mock content about {query} due to search error.",
+                    metadata={"source": "mock-error", "title": "Error Fallback"}
+                )
+            ]
 
         return documents
 

@@ -30,7 +30,7 @@ class LLMAdapter(ABC):
         pass
 
     @abstractmethod
-    def refine_section(self, current_text: str, history: List[Dict[str, Any]], instructions: str, current_bullets: Optional[List[str]] = None, doc_title: Optional[str] = None, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_title: Optional[str] = None) -> Dict[str, Any]:
+    def refine_section(self, current_text: str, history: List[Dict[str, Any]], instructions: str, current_bullets: Optional[List[str]] = None, doc_title: Optional[str] = None, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_title: Optional[str] = None, section_position: int = 0, total_sections: int = 0, target_word_count: Optional[int] = None, previous_section_context: Optional[str] = None, next_section_context: Optional[str] = None) -> Dict[str, Any]:
         pass
 
 class MockLLMAdapter(LLMAdapter):
@@ -59,7 +59,7 @@ class MockLLMAdapter(LLMAdapter):
             "word_count": 25
         }
 
-    def refine_section(self, current_text: str, history: List[Dict[str, Any]], instructions: str, current_bullets: Optional[List[str]] = None, doc_title: Optional[str] = None, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_title: Optional[str] = None) -> Dict[str, Any]:
+    def refine_section(self, current_text: str, history: List[Dict[str, Any]], instructions: str, current_bullets: Optional[List[str]] = None, doc_title: Optional[str] = None, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_title: Optional[str] = None, section_position: int = 0, total_sections: int = 0, target_word_count: Optional[int] = None, previous_section_context: Optional[str] = None, next_section_context: Optional[str] = None) -> Dict[str, Any]:
         return {
             "text": f"Refined version of: {current_text[:20]}... based on '{instructions}'",
             "bullets": current_bullets or ["Refined Point 1", "Refined Point 2", "Refined Point 3"],
@@ -302,20 +302,45 @@ REQUIREMENTS:
             print(f"LangChain Error in generate_section: {e}")
             raise ValueError(f"Failed to generate section: {str(e)}")
 
-    def refine_section(self, current_text: str, history: List[Dict[str, Any]], instructions: str, current_bullets: Optional[List[str]] = None, doc_title: Optional[str] = None, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_title: Optional[str] = None) -> Dict[str, Any]:
+    def refine_section(self, current_text: str, history: List[Dict[str, Any]], instructions: str, current_bullets: Optional[List[str]] = None, doc_title: Optional[str] = None, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_title: Optional[str] = None, section_position: int = 0, total_sections: int = 0, target_word_count: Optional[int] = None, previous_section_context: Optional[str] = None, next_section_context: Optional[str] = None) -> Dict[str, Any]:
         # Set up Pydantic output parser
         parser = PydanticOutputParser(pydantic_object=RefinementOutputSchema)
 
-        # Strip HTML for context
-        from bs4 import BeautifulSoup
-        clean_text = BeautifulSoup(current_text, 'html.parser').get_text() if '<' in current_text else current_text
+        # Keep the original HTML/markdown content for the prompt
+        # Don't strip it - the LLM needs to see the formatting to understand structure
+        # We'll use current_text as-is
 
-        # Build history context (last 7 refinements)
+        # Calculate current word count
+        import html2text
+        h2t = html2text.HTML2Text()
+        h2t.ignore_links = False
+        h2t.body_width = 0
+        plain_text = h2t.handle(current_text) if '<' in current_text else current_text
+        current_word_count = len(plain_text.split())
+
+        # Build outline context with position marker
+        outline_str = ""
+        if outline_context:
+            for idx, section_title_item in enumerate(outline_context, 1):
+                marker = " ← YOU ARE HERE" if idx == section_position else ""
+                outline_str += f"{idx}. {section_title_item}{marker}\n"
+
+        # Build history context (last 7 refinements) with more detail
         history_str = ""
         if history:
+            history_str = "PREVIOUS REFINEMENTS:\n"
             for idx, h in enumerate(history[-7:], 1):
                 prompt_text = h.get('prompt', 'No prompt')
-                history_str += f"{idx}. User: \"{prompt_text}\"\n"
+                diff = h.get('diff_summary', '')
+                likes = len(h.get('likes', []))
+                dislikes = len(h.get('dislikes', []))
+                reaction = "✓" if likes > 0 else ("✗" if dislikes > 0 else "○")
+
+                history_str += f"{idx}. {reaction} Request: \"{prompt_text}\"\n"
+                if diff:
+                    history_str += f"   Result: {diff}\n"
+
+            history_str += "\nNOTE: ✓ = User liked, ✗ = User disliked, ○ = Neutral. Learn from past refinements.\n"
 
         # Style guidance
         style_guidance = """STYLE FOR PRESENTATIONS:
@@ -326,23 +351,56 @@ REQUIREMENTS:
 - Professional, comprehensive tone
 - Detailed and well-structured"""
 
-        # Create LangChain prompt template
+        # Determine word count instruction based on user request
+        word_count_instruction = ""
+        instructions_lower = instructions.lower()
+        if "expand" in instructions_lower or "longer" in instructions_lower or "add more" in instructions_lower:
+            suggested_target = int(current_word_count * 1.3)
+            word_count_instruction = f"Expand to approximately {suggested_target} words (+30%)"
+        elif "shorter" in instructions_lower or "condense" in instructions_lower or "reduce" in instructions_lower:
+            suggested_target = int(current_word_count * 0.7)
+            word_count_instruction = f"Reduce to approximately {suggested_target} words (-30%)"
+        elif target_word_count:
+            word_count_instruction = f"Adjust to target: {target_word_count} words"
+        else:
+            word_count_instruction = f"Maintain approximately {current_word_count} words"
+
+        # Create LangChain prompt template with XML structure
         prompt_template = ChatPromptTemplate.from_messages([
             ("system", """You are an expert content editor. {format_instructions}
 
-CONTEXT:
-- Document: {doc_title}
-- Section: {section_title}
-- Type: {doc_type}
+<document_context>
+Title: {doc_title}
+Type: {doc_type}
+Total Sections: {total_sections}
+</document_context>
 
-CURRENT CONTENT:
+<current_section>
+Position: {section_position} of {total_sections}
+Title: {section_title}
+Current Word Count: {current_word_count} words
+Target Word Count: {target_word_count}
+</current_section>
+
+<document_outline>
+{outline_str}
+</document_outline>
+
+<adjacent_sections>
+{adjacent_context}
+</adjacent_sections>
+
+<current_content>
 {current_text}
+</current_content>
 
-CURRENT BULLETS:
+<summary_bullets>
 {current_bullets}
+</summary_bullets>
 
-HISTORY:
+<refinement_history>
 {history_str}
+</refinement_history>
 
 {style_guidance}
 
@@ -381,7 +439,19 @@ REQUIREMENTS:
 4. Use markdown formatting (will be converted to HTML automatically)
 5. Update the "bullets" field (3-5 summary points - these are separate from main content)
 6. Provide brief diff_summary explaining what changed (1-2 sentences)"""),
-            ("user", "Refine this content based on my instructions: {instructions}\n\nIMPORTANT: Follow my instructions precisely. If I ask for bullet points, use markdown bullet format (- or *). If I ask for paragraphs, use regular paragraph text. Do not ignore my formatting requests.")
+            ("user", """<user_instructions>
+{instructions}
+</user_instructions>
+
+<success_criteria>
+1. Follow the user's instructions precisely
+2. {word_count_instruction}
+3. Maintain document flow with adjacent sections
+4. Keep consistent with overall document theme
+5. Preserve or enhance key points from current bullets
+</success_criteria>
+
+IMPORTANT: If the user asks for transitions, use the adjacent section context to create smooth connections. If they ask to expand/condense, follow the word count target above.""")
         ])
 
         # Build the LangChain chain
@@ -389,15 +459,42 @@ REQUIREMENTS:
 
         # Execute the chain
         try:
+            # Convert HTML to markdown for better LLM understanding
+            h = html2text.HTML2Text()
+            h.ignore_links = False
+            h.body_width = 0  # Don't wrap lines
+
+            # Convert HTML to markdown (preserves structure)
+            if '<' in current_text:
+                markdown_text = h.handle(current_text)
+            else:
+                markdown_text = current_text
+
+            # Build adjacent sections context
+            adjacent_context = ""
+            if previous_section_context:
+                adjacent_context += f"Previous Section:\n{previous_section_context}\n\n"
+            if next_section_context:
+                adjacent_context += f"Next Section:\n{next_section_context}"
+            if not adjacent_context:
+                adjacent_context = "N/A (first or last section, or context not available)"
+
             result = chain.invoke({
                 "format_instructions": parser.get_format_instructions(),
                 "doc_title": doc_title or "Document",
                 "section_title": section_title or "Section",
                 "doc_type": doc_type.upper(),
-                "current_text": clean_text[:500],  # Limit context
+                "total_sections": total_sections,
+                "section_position": section_position,
+                "current_word_count": current_word_count,
+                "target_word_count": target_word_count or "Not specified",
+                "outline_str": outline_str or "Outline not available",
+                "adjacent_context": adjacent_context,
+                "current_text": markdown_text,  # Full content in markdown format
                 "current_bullets": "\n".join(f"• {b}" for b in (current_bullets or [])),
-                "history_str": history_str or "First refinement",
+                "history_str": history_str or "First refinement - no previous history",
                 "style_guidance": style_guidance,
+                "word_count_instruction": word_count_instruction,
                 "instructions": instructions
             })
 

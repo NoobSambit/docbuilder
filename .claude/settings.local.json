@@ -12,7 +12,9 @@
       "Bash(python:*)",
       "Bash(npx tsc:*)",
       "Bash(venvScriptspython.exe -m pip install -r requirements.txt)",
-      "Bash(.venvScriptspython.exe -m pip install -r requirements.txt)"
+      "Bash(.venvScriptspython.exe -m pip install -r requirements.txt)",
+      "Bash(tree:*)",
+      "Bash(dir /b /a:d:*)"
     ],
     "deny": [],
     "ask": []

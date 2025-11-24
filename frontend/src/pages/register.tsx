@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
-import { Loader2, Mail, Lock, ArrowLeft, Sparkles, FileText, Zap, User } from 'lucide-react';
+import { Loader2, Mail, Lock, ArrowLeft, Sparkles, FileText, Zap, User, Brain, Search, Wand2, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Register() {
@@ -26,6 +26,11 @@ export default function Register() {
 
         if (!displayName.trim()) {
             setError("Display name is required");
+            return;
+        }
+
+        if (password.length < 6) {
+            setError("Password must be at least 6 characters");
             return;
         }
 
@@ -52,44 +57,94 @@ export default function Register() {
 
             router.push('/dashboard');
         } catch (err: any) {
-            setError(err.message);
+            if (err.code === 'auth/email-already-in-use') {
+                setError('Email already in use. Please use a different email or login.');
+            } else if (err.code === 'auth/weak-password') {
+                setError('Password is too weak. Please use a stronger password.');
+            } else {
+                setError(err.message);
+            }
         } finally {
             setLoading(false);
         }
     };
 
     const features = [
-        { icon: Sparkles, title: "AI Generation", desc: "Draft documents in seconds" },
-        { icon: FileText, title: "Smart Formatting", desc: "Professional layouts automatically" },
-        { icon: Zap, title: "Instant Export", desc: "Download as Word or PDF" },
+        {
+            icon: Brain,
+            title: "AI Outline Generation",
+            desc: "Instantly create professional document structures with 5-8 intelligent sections"
+        },
+        {
+            icon: Search,
+            title: "Real-Time Web Research",
+            desc: "RAG system fetches current data from the web to enhance your content"
+        },
+        {
+            icon: Wand2,
+            title: "Context-Aware Refinement",
+            desc: "AI understands your entire document for smart, contextual improvements"
+        },
+        {
+            icon: Download,
+            title: "Professional Export",
+            desc: "Export to DOCX or PPTX with 4 custom themes and perfect formatting"
+        }
     ];
 
     return (
         <div className="min-h-screen flex bg-background">
             {/* Left Side - Visual (Desktop) */}
-            <div className="hidden lg:flex lg:w-1/2 bg-muted relative items-center justify-center border-r border-border overflow-hidden">
-                <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
-                <div className="relative z-10 p-12 max-w-lg w-full">
-                    <div className="mb-10">
-                        <h2 className="text-4xl font-bold mb-4 text-foreground tracking-tight">Join the Revolution</h2>
-                        <p className="text-lg text-muted-foreground leading-relaxed">
-                            Experience the future of document creation.
-                        </p>
-                    </div>
+            <div className="hidden lg:flex lg:w-1/2 relative items-center justify-center border-r border-border overflow-hidden bg-muted/30">
+                {/* Background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5" />
+                <div className="absolute inset-0 bg-grid-white/5" />
 
-                    <div className="space-y-6">
-                        {features.map((feature, idx) => (
-                            <div key={idx} className="flex items-start gap-4 p-4 rounded-lg bg-background/50 border border-border/50 backdrop-blur-sm">
-                                <div className="p-2 rounded-md bg-primary/10 text-primary shrink-0">
-                                    <feature.icon className="h-6 w-6" />
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-foreground">{feature.title}</h3>
-                                    <p className="text-sm text-muted-foreground">{feature.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                <div className="relative z-10 p-12 max-w-lg w-full">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <div className="flex items-center gap-2 mb-6">
+                            <Sparkles className="h-8 w-8 text-primary" />
+                            <h2 className="text-2xl font-bold text-foreground tracking-tight">DocBuilder AI</h2>
+                        </div>
+                        <div className="mb-10">
+                            <h1 className="text-4xl font-bold mb-4 text-foreground tracking-tight">
+                                Create Smarter Documents
+                            </h1>
+                            <p className="text-lg text-muted-foreground leading-relaxed">
+                                Join professionals using AI to create better documents 10x faster
+                            </p>
+                        </div>
+
+                        <div className="space-y-4">
+                            {features.map((feature, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.2 + idx * 0.1 }}
+                                    className="flex items-start gap-4 p-4 rounded-xl bg-background/50 border border-border/50 backdrop-blur-sm hover:border-primary/30 transition-colors"
+                                >
+                                    <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
+                                        <feature.icon className="h-5 w-5" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-foreground text-sm">{feature.title}</h3>
+                                        <p className="text-xs text-muted-foreground leading-relaxed">{feature.desc}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        <div className="mt-10 p-4 rounded-xl bg-primary/5 border border-primary/20">
+                            <p className="text-sm text-muted-foreground">
+                                <span className="font-semibold text-primary">Powered by:</span> Google Gemini 2.0 Flash • LangChain • RAG System
+                            </p>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
 
@@ -103,35 +158,52 @@ export default function Register() {
                 >
                     <div className="text-center lg:text-left">
                         <Link href="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors group">
-                            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" /> Back to Home
+                            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+                            Back to Home
                         </Link>
+
+                        {/* Mobile logo */}
+                        <div className="lg:hidden flex items-center justify-center gap-2 mb-6">
+                            <Sparkles className="h-6 w-6 text-primary" />
+                            <span className="text-xl font-bold">DocBuilder AI</span>
+                        </div>
+
                         <h1 className="text-3xl font-bold tracking-tight text-foreground">Create an account</h1>
                         <p className="text-muted-foreground mt-2">
-                            Enter your email below to create your account
+                            Start building intelligent documents in seconds
                         </p>
                     </div>
 
                     {/* Mobile Features (Visible only on small screens) */}
-                    <div className="lg:hidden grid grid-cols-3 gap-2 mb-6">
-                        {features.map((feature, idx) => (
-                            <div key={idx} className="flex flex-col items-center text-center p-2 rounded-md bg-muted/30 border border-border/40">
-                                <feature.icon className="h-5 w-5 text-primary mb-1" />
-                                <span className="text-xs font-medium text-foreground leading-tight">{feature.title}</span>
+                    <div className="lg:hidden grid grid-cols-2 gap-2 p-4 rounded-xl bg-muted/30 border border-border/40">
+                        {[
+                            { icon: Brain, label: "AI Generation" },
+                            { icon: Search, label: "Web Research" },
+                            { icon: Wand2, label: "Smart Refine" },
+                            { icon: Download, label: "Export" }
+                        ].map((item, idx) => (
+                            <div key={idx} className="flex items-center gap-2 text-center p-2">
+                                <item.icon className="h-4 w-4 text-primary shrink-0" />
+                                <span className="text-xs font-medium text-foreground">{item.label}</span>
                             </div>
                         ))}
                     </div>
 
-                    <form onSubmit={handleRegister} className="space-y-6">
+                    <form onSubmit={handleRegister} className="space-y-5">
                         {error && (
-                            <div className="p-4 text-sm text-destructive bg-destructive/10 rounded-md border border-destructive/20 flex items-center gap-2">
+                            <motion.div
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="p-4 text-sm text-destructive bg-destructive/10 rounded-lg border border-destructive/20 flex items-center gap-2"
+                            >
                                 <span className="w-1.5 h-1.5 rounded-full bg-destructive" />
                                 {error}
-                            </div>
+                            </motion.div>
                         )}
 
                         <div className="space-y-4">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium leading-none ml-1">
+                                <label className="text-sm font-medium leading-none ml-1 text-foreground">
                                     Display Name
                                 </label>
                                 <div className="relative">
@@ -142,13 +214,13 @@ export default function Register() {
                                         value={displayName}
                                         onChange={(e) => setDisplayName(e.target.value)}
                                         required
-                                        className="h-11 pl-10"
+                                        className="h-11 pl-10 bg-background"
                                     />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium leading-none ml-1">
+                                <label className="text-sm font-medium leading-none ml-1 text-foreground">
                                     Email
                                 </label>
                                 <div className="relative">
@@ -159,53 +231,64 @@ export default function Register() {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         required
-                                        className="h-11 pl-10"
+                                        className="h-11 pl-10 bg-background"
                                     />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium leading-none ml-1">
+                                <label className="text-sm font-medium leading-none ml-1 text-foreground">
                                     Password
                                 </label>
                                 <div className="relative">
                                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                                     <Input
                                         type="password"
+                                        placeholder="Min. 6 characters"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         required
-                                        className="h-11 pl-10"
+                                        className="h-11 pl-10 bg-background"
                                     />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium leading-none ml-1">
+                                <label className="text-sm font-medium leading-none ml-1 text-foreground">
                                     Confirm Password
                                 </label>
                                 <div className="relative">
                                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                                     <Input
                                         type="password"
+                                        placeholder="Re-enter password"
                                         value={confirmPassword}
                                         onChange={(e) => setConfirmPassword(e.target.value)}
                                         required
-                                        className="h-11 pl-10"
+                                        className="h-11 pl-10 bg-background"
                                     />
                                 </div>
                             </div>
                         </div>
 
-                        <Button type="submit" className="w-full h-11 text-base bg-foreground text-background hover:bg-foreground/90" disabled={loading}>
+                        <Button
+                            type="submit"
+                            className="w-full h-11 text-base bg-foreground text-background hover:bg-foreground/90 transition-colors group"
+                            disabled={loading}
+                        >
                             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                            Create Account
+                            {loading ? 'Creating account...' : 'Create Account'}
+                            {!loading && <Sparkles className="ml-2 h-4 w-4 group-hover:rotate-12 transition-transform" />}
                         </Button>
+
+                        <p className="text-xs text-muted-foreground text-center px-4">
+                            By creating an account, you agree to our Terms of Service and Privacy Policy
+                        </p>
                     </form>
 
                     <div className="text-center text-sm">
                         <span className="text-muted-foreground">Already have an account? </span>
-                        <Link href="/login" className="font-medium text-foreground hover:underline">
+                        <Link href="/login" className="font-medium text-primary hover:text-primary/80 transition-colors">
                             Sign in
                         </Link>
                     </div>
@@ -214,4 +297,3 @@ export default function Register() {
         </div>
     );
 }
-
