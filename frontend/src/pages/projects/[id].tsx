@@ -140,7 +140,7 @@ export default function ProjectDetails() {
         }
     };
 
-    const handleGenerateContent = async (sectionId: string) => {
+    const handleGenerateContent = async (sectionId: string, useRag: boolean = false) => {
         try {
             // Optimistic update
             setProject((prev: any) => ({
@@ -157,7 +157,7 @@ export default function ProjectDetails() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify({ section_id: sectionId })
+                body: JSON.stringify({ section_id: sectionId, use_rag: useRag })
             });
 
             if (!res.ok) throw new Error('Failed to generate content');

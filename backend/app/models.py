@@ -70,6 +70,7 @@ class SuggestOutlineRequest(BaseModel):
 class GenerateContentRequest(BaseModel):
     section_id: str
     prompt_override: Optional[str] = None
+    use_rag: Optional[bool] = False  # Enable web search RAG
 
 class RefineRequest(BaseModel):
     prompt: str

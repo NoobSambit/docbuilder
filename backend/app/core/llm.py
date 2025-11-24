@@ -26,7 +26,7 @@ class LLMAdapter(ABC):
         pass
 
     @abstractmethod
-    def generate_section(self, title: str, topic: str, word_count: int, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_position: int = 0) -> Dict[str, Any]:
+    def generate_section(self, title: str, topic: str, word_count: int, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_position: int = 0, use_rag: bool = False) -> Dict[str, Any]:
         pass
 
     @abstractmethod
@@ -51,7 +51,7 @@ class MockLLMAdapter(LLMAdapter):
 
         return base_sections
 
-    def generate_section(self, title: str, topic: str, word_count: int, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_position: int = 0) -> Dict[str, Any]:
+    def generate_section(self, title: str, topic: str, word_count: int, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_position: int = 0, use_rag: bool = False) -> Dict[str, Any]:
         return {
             "title": title,
             "text": f"This is the generated content for section '{title}' regarding '{topic}'. It is a mock response.",
@@ -79,6 +79,16 @@ class GeminiLLMAdapter(LLMAdapter):
             temperature=0.7,
             max_retries=3  # Built-in retry logic
         )
+
+        # Initialize RAG retriever (lazy loaded)
+        self._rag_retriever = None
+
+    def _get_rag_retriever(self):
+        """Lazy load RAG retriever"""
+        if self._rag_retriever is None:
+            from app.core.rag import get_rag_retriever
+            self._rag_retriever = get_rag_retriever()
+        return self._rag_retriever
 
     def generate_outline(self, topic: str, doc_type: str = "docx", existing_sections: Optional[List[str]] = None) -> List[Dict[str, Any]]:
         # Set up Pydantic output parser
@@ -146,9 +156,41 @@ REQUIREMENTS:
             print(f"LangChain Error in generate_outline: {e}")
             raise ValueError(f"Failed to generate outline: {str(e)}")
 
-    def generate_section(self, title: str, topic: str, word_count: int, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_position: int = 0) -> Dict[str, Any]:
+    def generate_section(self, title: str, topic: str, word_count: int, outline_context: Optional[List[str]] = None, doc_type: str = "docx", section_position: int = 0, use_rag: bool = False) -> Dict[str, Any]:
         # Set up Pydantic output parser
         parser = PydanticOutputParser(pydantic_object=SectionContentSchema)
+
+        # RAG: Retrieve web context if enabled
+        rag_context = ""
+        rag_metadata = {}
+        if use_rag:
+            try:
+                retriever = self._get_rag_retriever()
+                rag_result = retriever.get_relevant_context(
+                    section_title=title,
+                    topic=topic,
+                    doc_type=doc_type,
+                    top_k=5
+                )
+                if rag_result.get("context"):
+                    rag_context = f"""
+
+**WEB RESEARCH CONTEXT** (Use this information to enhance your content with factual, up-to-date details):
+
+{rag_result['context']}
+
+IMPORTANT: Incorporate insights from the above web research naturally into your content. Do NOT copy verbatim - synthesize and integrate the information.
+"""
+                    rag_metadata = {
+                        "rag_enabled": True,
+                        "sources": rag_result.get("sources", []),
+                        "query": rag_result.get("query", ""),
+                        "chunks_used": rag_result.get("chunks_used", 0)
+                    }
+                    print(f"[RAG] Retrieved {rag_result.get('chunks_used', 0)} relevant chunks for '{title}'")
+            except Exception as e:
+                print(f"[RAG Warning] Failed to retrieve context: {e}")
+                rag_metadata = {"rag_enabled": False, "error": str(e)}
 
         # Build outline context
         outline_str = ""
@@ -183,6 +225,7 @@ OUTLINE:
 {outline_str}
 
 {style_guidance}
+{rag_context}
 
 **CRITICAL FORMATTING INSTRUCTIONS:**
 
@@ -241,13 +284,19 @@ REQUIREMENTS:
                 "word_count": word_count,
                 "doc_type": doc_type.upper(),
                 "outline_str": outline_str,
-                "style_guidance": style_guidance
+                "style_guidance": style_guidance,
+                "rag_context": rag_context
             })
 
             # Convert markdown to HTML for storage
             import markdown2
             result_dict = result.dict()
             result_dict['text'] = markdown2.markdown(result_dict['text'])
+
+            # Add RAG metadata to response
+            if rag_metadata:
+                result_dict['rag_metadata'] = rag_metadata
+
             return result_dict
         except Exception as e:
             print(f"LangChain Error in generate_section: {e}")

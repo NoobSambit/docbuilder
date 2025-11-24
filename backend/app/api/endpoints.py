@@ -554,14 +554,15 @@ async def generate_content(project_id: str, request: GenerateContentRequest, cur
         # Get document type (default to docx if not specified)
         doc_type = project_data.get("doc_type", "docx")
 
-        # Generate with full context
+        # Generate with full context (with optional RAG)
         content_data = adapter.generate_section(
             title=target_section.title,
             topic=project_data.get("title", "Document"),
             word_count=target_section.word_count,
             outline_context=outline_context,
             doc_type=doc_type,
-            section_position=section_position
+            section_position=section_position,
+            use_rag=request.use_rag or False
         )
 
         # Update section
