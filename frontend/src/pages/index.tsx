@@ -282,7 +282,7 @@ export default function LandingPage() {
                                 <div className="flex-1">
                                     <div className="text-sm font-medium mb-2">Generated Content</div>
                                     <div className="text-xs text-muted-foreground bg-muted/30 rounded-lg p-3 border border-border/40">
-                                        According to the International Energy Agency's October 2024 report, global EV market share reached 18% in 2024, driven by strong growth in China and Europe...
+                                        According to the International Energy Agency&apos;s October 2024 report, global EV market share reached 18% in 2024, driven by strong growth in China and Europe...
                                     </div>
                                 </div>
                             </div>
