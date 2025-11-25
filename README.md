@@ -1,4 +1,4 @@
-# AI Document Builder
+# AI Document and Powerpoint Builder
 
 [![Next.js](https://img.shields.io/badge/Next.js-13.4.4-black)](https://nextjs.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Latest-009688)](https://fastapi.tiangolo.com/)

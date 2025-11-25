@@ -6,7 +6,6 @@ venv/
 .venv/
 .env
 
-# Node
 node_modules/
 .next/
 out/
