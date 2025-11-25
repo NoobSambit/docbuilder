@@ -30,9 +30,24 @@ app.add_middleware(
 
 app.include_router(endpoints.router)
 
+@app.get("/")
+async def root():
+    """Root endpoint - API is running"""
+    return {"message": "DocBuilder API is running", "docs": "/docs"}
+
+@app.head("/health")
 @app.get("/health")
 async def health_check():
-    return {"status": "ok"}
+    """
+    Health check endpoint for monitoring services like UptimeRobot.
+    Supports both GET and HEAD methods.
+    Returns 200 OK to prevent cold starts on Render free tier.
+    """
+    return {
+        "status": "healthy",
+        "service": "docbuilder-backend",
+        "timestamp": os.getenv("RENDER_GIT_COMMIT", "local")[:7] if os.getenv("RENDER_GIT_COMMIT") else "local"
+    }
 
 if __name__ == "__main__":
     import uvicorn
