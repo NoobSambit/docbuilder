@@ -185,7 +185,7 @@ Export documents with enterprise-grade formatting.
 **Frontend**:
 - Next.js 13, React 18, TypeScript 5
 - TailwindCSS 3 (utility-first styling)
-- Firebase SDK 9 (client auth)
+- Firebase SDK 9 (client auth)7
 - TipTap 2 (rich text editing)
 - DND Kit 6 (drag-drop)
 

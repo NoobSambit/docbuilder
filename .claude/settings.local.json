@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m pip install:*)",
+      "Bash(venvScriptspython.exe -m pip install sentence-transformers --upgrade)",
+      "Bash(.venvScriptspython.exe -m pip install sentence-transformers torch torchvision --upgrade)",
+      "Bash(python:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
