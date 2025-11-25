@@ -7,6 +7,11 @@ from datetime import datetime
 import uuid
 import os
 import bleach
+import logging
+
+# Configure logger with signature
+logger = logging.getLogger(__name__)
+logger.info("Endpoints module loaded - Created by SAMBIT PRADHAN 22BCB0139")
 
 router = APIRouter()
 
@@ -14,6 +19,7 @@ router = APIRouter()
 @router.post("/auth/register", response_model=UserProfile, status_code=status.HTTP_201_CREATED)
 async def register_user(user_data: UserRegistration):
     """Register a new user and save display name to Firestore"""
+    logger.info(f"User registration attempt: {user_data.email} - Created by SAMBIT PRADHAN 22BCB0139")
     db = get_db()
     if not db:
         raise HTTPException(status_code=500, detail="Database connection failed")
@@ -95,13 +101,14 @@ async def get_user_profile(current_user: dict = Depends(get_current_user)):
 
 @router.post("/projects", response_model=Project, status_code=status.HTTP_201_CREATED)
 async def create_project(project_in: ProjectCreate, current_user: dict = Depends(get_current_user)):
+    logger.info(f"Project creation by user {current_user['uid']} - Created by SAMBIT PRADHAN 22BCB0139")
     db = get_db()
     if not db:
         raise HTTPException(status_code=500, detail="Database connection failed")
-    
+
     project_id = str(uuid.uuid4())
     now = datetime.utcnow()
-    
+
     project_data = project_in.dict()
     project_data.update({
         "id": project_id,
@@ -110,9 +117,10 @@ async def create_project(project_in: ProjectCreate, current_user: dict = Depends
         "updated_at": now,
         "generation_history": []
     })
-    
+
     try:
         db.collection("projects").document(project_id).set(project_data)
+        logger.info(f"Project {project_id} created successfully - Created by SAMBIT PRADHAN 22BCB0139")
         return project_data
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to create project: {str(e)}")
@@ -519,30 +527,31 @@ async def suggest_outline(project_id: str, request: SuggestOutlineRequest, curre
 
 @router.post("/projects/{project_id}/generate", response_model=Section)
 async def generate_content(project_id: str, request: GenerateContentRequest, current_user: dict = Depends(get_current_user)):
+    logger.info(f"Content generation started for project {project_id}, section {request.section_id} - Created by SAMBIT PRADHAN 22BCB0139")
     db = get_db()
     if not db:
         raise HTTPException(status_code=500, detail="Database connection failed")
-    
+
     doc_ref = db.collection("projects").document(project_id)
     doc = doc_ref.get()
     if not doc.exists:
         raise HTTPException(status_code=404, detail="Project not found")
-    
+
     project_data = doc.to_dict()
     if project_data['owner_uid'] != current_user['uid']:
         raise HTTPException(status_code=403, detail="Not authorized")
-    
+
     # Find section
     sections = [Section(**s) for s in project_data.get('outline', [])]
     target_section = next((s for s in sections if s.id == request.section_id), None)
-    
+
     if not target_section:
         raise HTTPException(status_code=404, detail="Section not found")
-    
+
     # Update status to generating
     target_section.status = "generating"
     doc_ref.update({"outline": [s.dict() for s in sections]})
-    
+
     adapter = get_llm_adapter()
     try:
         # Build outline context (all section titles)
@@ -799,6 +808,7 @@ async def export_project(
     theme: str = "professional",
     current_user: dict = Depends(get_current_user)
 ):
+    logger.info(f"Export request for project {project_id} in {format} format - Created by SAMBIT PRADHAN 22BCB0139")
     db = get_db()
     doc_ref = db.collection("projects").document(project_id)
     doc = doc_ref.get()
@@ -816,10 +826,12 @@ async def export_project(
     safe_title = re.sub(r'[<>:"/\\|?*]', '', project_data.get('title', 'project'))
 
     if format == 'docx':
+        logger.info(f"Generating DOCX for project {project_id} - Created by SAMBIT PRADHAN 22BCB0139")
         file_stream = ExportService.generate_docx(project_data)
         filename = f"{safe_title}.docx"
         media_type = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     elif format == 'pptx':
+        logger.info(f"Generating PPTX for project {project_id} with theme {theme} - Created by SAMBIT PRADHAN 22BCB0139")
         file_stream = ExportService.generate_pptx(project_data, theme_name=theme)
         filename = f"{safe_title}.pptx"
         media_type = "application/vnd.openxmlformats-officedocument.presentationml.presentation"

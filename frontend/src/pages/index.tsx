@@ -401,18 +401,25 @@ export default function LandingPage() {
 
             {/* Footer */}
             <footer className="border-t border-border/40 bg-background">
-                <div className="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div className="flex items-center gap-2 text-lg font-semibold tracking-tight">
-                        <Sparkles className="h-5 w-5 text-primary" />
-                        DocBuilder AI
+                <div className="container mx-auto px-6 py-12">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-4">
+                        <div className="flex items-center gap-2 text-lg font-semibold tracking-tight">
+                            <Sparkles className="h-5 w-5 text-primary" />
+                            DocBuilder AI
+                        </div>
+                        <p className="text-muted-foreground text-sm">
+                            Powered by Google Gemini 2.0 Flash • &copy; 2024 DocBuilder AI. All rights reserved.
+                        </p>
+                        <div className="flex gap-6 text-sm text-muted-foreground">
+                            <Link href="#" className="hover:text-foreground transition-colors">Privacy</Link>
+                            <Link href="#" className="hover:text-foreground transition-colors">Terms</Link>
+                            <Link href="#" className="hover:text-foreground transition-colors">Contact</Link>
+                        </div>
                     </div>
-                    <p className="text-muted-foreground text-sm">
-                        Powered by Google Gemini 2.0 Flash • &copy; 2024 DocBuilder AI. All rights reserved.
-                    </p>
-                    <div className="flex gap-6 text-sm text-muted-foreground">
-                        <Link href="#" className="hover:text-foreground transition-colors">Privacy</Link>
-                        <Link href="#" className="hover:text-foreground transition-colors">Terms</Link>
-                        <Link href="#" className="hover:text-foreground transition-colors">Contact</Link>
+                    <div className="text-center pt-4 border-t border-border/20">
+                        <p className="text-xs text-muted-foreground/70 font-medium">
+                            Created by SAMBIT PRADHAN 22BCB0139
+                        </p>
                     </div>
                 </div>
             </footer>
