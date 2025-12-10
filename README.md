@@ -18,7 +18,7 @@ AI Document Builder is a full-stack web application that revolutionizes document
 
 ### Key Highlights
 
-- **🤖 AI-Powered Intelligence**: Google Gemini 2.0 Flash with LangChain orchestration
+- **🤖 AI-Powered Intelligence**: Groq with Llama 3.3 70B and LangChain orchestration
 - **🔍 Real-Time Knowledge**: RAG system with web search for current, factual content
 - **🎯 Context-Aware**: Full document awareness with adjacent section understanding
 - **📊 Professional Output**: DOCX and PPTX export with 4 custom themes
@@ -72,7 +72,7 @@ Generate professional document structures instantly based on your topic and docu
 Create high-quality content enhanced with real-time web research.
 
 **Standard Generation**:
-- Powered by Gemini 2.0 Flash
+- Powered by Groq Llama 3.3 70B (fast inference, free tier)
 - Context-aware with full outline visibility
 - Intelligent format detection (bullets vs paragraphs)
 - Rich HTML formatting with markdown support
@@ -160,7 +160,7 @@ Export documents with enterprise-grade formatting.
                          │
 ┌─────────────────────────────────────────────────────────┐
 │  SERVICES                                               │
-│  - LLM Adapter (Gemini 2.0 Flash)                     │
+│  - LLM Adapter (Groq Llama 3.3 70B)                   │
 │  - RAG Retriever (Google Search + FAISS)              │
 │  - Export Service (python-docx, python-pptx)          │
 └─────────────────────────────────────────────────────────┘
@@ -179,7 +179,7 @@ Export documents with enterprise-grade formatting.
 - Python 3.9+, FastAPI (async web framework)
 - LangChain (LLM orchestration with Pydantic validation)
 - Firebase Admin SDK (authentication + database)
-- Google Generative AI (Gemini 2.0 Flash)
+- Groq API (Llama 3.3 70B - fast inference, free tier)
 - FAISS, HuggingFace (RAG system)
 
 **Frontend**:
@@ -193,7 +193,8 @@ Export documents with enterprise-grade formatting.
 - Railway (backend hosting)
 - Vercel (frontend hosting)
 - Firebase Firestore (database)
-- Google Cloud APIs (LLM + Search)
+- Groq API (LLM inference)
+- Google Cloud APIs (Custom Search for RAG)
 
 ---
 
@@ -203,7 +204,7 @@ Export documents with enterprise-grade formatting.
 - Python 3.9+
 - Node.js 18+
 - Firebase Project
-- Google Cloud API Key (Gemini)
+- Groq API Key (free tier available at https://console.groq.com/)
 - Google Custom Search Engine (for RAG)
 
 ### Backend Setup
@@ -231,8 +232,8 @@ pip install -r requirements.txt
 4. **Configure environment** (create `backend/.env`):
 ```bash
 # LLM Configuration
-GOOGLE_API_KEY=your_gemini_api_key
-LLM_PROVIDER=gemini
+GROQ_API_KEY=your_groq_api_key
+LLM_PROVIDER=groq
 
 # Firebase
 FIREBASE_CREDENTIALS=path/to/serviceAccountKey.json
@@ -374,7 +375,7 @@ curl -X POST http://localhost:8000/projects/{project_id}/units/{section_id}/refi
 
 - **Backend**: Stateless design enables horizontal scaling
 - **Database**: Firestore auto-scales to millions of documents
-- **LLM**: Gemini handles 10 requests/second (rate limit)
+- **LLM**: Groq provides ultra-fast inference (300+ tokens/second)
 - **RAG**: In-memory FAISS (can migrate to Pinecone for scale)
 
 ---
@@ -435,7 +436,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Technologies**:
 - [LangChain](https://langchain.com/) - LLM orchestration framework
-- [Google Gemini](https://deepmind.google/technologies/gemini/) - Large Language Model
+- [Groq](https://groq.com/) - Ultra-fast LLM inference (Llama 3.3 70B)
 - [FAISS](https://github.com/facebookresearch/faiss) - Vector similarity search
 - [Firebase](https://firebase.google.com/) - Authentication and database
 - [FastAPI](https://fastapi.tiangolo.com/) - Modern Python web framework

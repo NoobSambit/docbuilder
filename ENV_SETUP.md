@@ -35,7 +35,7 @@ The frontend requires Firebase configuration to handle authentication.
 
 ## Backend Setup
 
-The backend requires Google Cloud credentials for the Gemini LLM and general server configuration.
+The backend requires Groq API credentials for the LLM and general server configuration.
 
 ### File Location
 `backend/.env`
@@ -44,38 +44,38 @@ The backend requires Google Cloud credentials for the Gemini LLM and general ser
 | Variable | Description | Default | How to Obtain |
 | :--- | :--- | :--- | :--- |
 | `PORT` | Server Port | `8000` | N/A |
-| `LLM_PROVIDER` | AI Provider (`mock` or `gemini`) | `mock` | Set to `gemini` to use real AI |
-| `GOOGLE_API_KEY` | Gemini API Key | | [Google AI Studio](https://aistudio.google.com/app/apikey) |
-| `GOOGLE_APPLICATION_CREDENTIALS` | Path to Service Account JSON | | Google Cloud Console -> IAM & Admin -> Service Accounts |
+| `LLM_PROVIDER` | AI Provider (`mock` or `groq`) | `mock` | Set to `groq` to use real AI |
+| `GROQ_API_KEY` | Groq API Key | | [Groq Console](https://console.groq.com/) |
+| `GOOGLE_CSE_ID` | Google Custom Search Engine ID (for RAG) | | [Programmable Search Engine](https://programmablesearchengine.google.com/) |
 
-### Steps to Enable Real AI (Gemini)
+### Steps to Enable Real AI (Groq)
 
-1. **Get Google API Key**:
-    - Visit [Google AI Studio](https://aistudio.google.com/app/apikey).
+1. **Get Groq API Key**:
+    - Visit [Groq Console](https://console.groq.com/).
+    - Sign up or log in.
+    - Navigate to API Keys section.
     - Create a new API key.
-    - Paste it into `backend/.env` as `GOOGLE_API_KEY`.
+    - Paste it into `backend/.env` as `GROQ_API_KEY`.
 
-2. **Get Service Account Credentials** (Optional, depending on specific Google Cloud usage beyond just API key):
-    - Go to [Google Cloud Console](https://console.cloud.google.com/).
-    - Navigate to **IAM & Admin** > **Service Accounts**.
-    - Create a service account or select an existing one.
-    - Go to the **Keys** tab -> **Add Key** -> **Create new key** -> **JSON**.
-    - Save the downloaded file to a secure location (e.g., `backend/service-account.json`).
-    - **IMPORTANT**: Add this file to `.gitignore`!
-    - Update `GOOGLE_APPLICATION_CREDENTIALS` in `backend/.env` with the path to this file (e.g., `./service-account.json`).
+2. **Activate Provider**:
+    - Change `LLM_PROVIDER` to `groq` in `backend/.env`.
 
-3. **Activate Provider**:
-    - Change `LLM_PROVIDER` to `gemini` in `backend/.env`.
+3. **Optional: Enable RAG (Web Research)**:
+    - Go to [Google Programmable Search Engine](https://programmablesearchengine.google.com/).
+    - Create a new search engine.
+    - Copy the Search Engine ID.
+    - Paste it into `backend/.env` as `GOOGLE_CSE_ID`.
 
-### Deployment Friendly Setup (Raw JSON)
+### Model Information
 
-For easier deployment (e.g., to platforms where you can't easily upload files), you can use the raw JSON content directly in the environment variable.
-
-1. **Minify JSON**: Convert your `service-account.json` content to a single line string. You can use an online tool or a simple script.
-2. **Set Variable**: Paste the minified JSON string into `GOOGLE_SERVICE_ACCOUNT_JSON` in `backend/.env` (or your deployment secrets).
+The application uses **Llama 3.3 70B Versatile** via Groq, which offers:
+- Ultra-fast inference (300+ tokens/second)
+- Free tier available
+- High-quality text generation
+- Excellent performance on document generation tasks
 
 > [!CAUTION]
-> **SECURITY WARNING**: Never commit your `.env` file or `service-account.json` to version control (git). Ensure they are in `.gitignore`. If you accidentally expose your key, revoke it immediately in the Google Cloud Console.
+> **SECURITY WARNING**: Never commit your `.env` file to version control (git). Ensure it is in `.gitignore`. If you accidentally expose your API key, revoke it immediately in the Groq Console.
 
 ## Troubleshooting
 

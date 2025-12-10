@@ -6,7 +6,7 @@ import uuid
 from dotenv import load_dotenv
 
 # LangChain imports
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.globals import set_llm_cache
@@ -66,16 +66,17 @@ class MockLLMAdapter(LLMAdapter):
             "diff_summary": f"Applied changes based on: {instructions}"
         }
 
-class GeminiLLMAdapter(LLMAdapter):
+class GroqLLMAdapter(LLMAdapter):
     def __init__(self):
-        api_key = os.getenv("GOOGLE_API_KEY")
+        api_key = os.getenv("GROQ_API_KEY")
         if not api_key:
-            raise ValueError("GOOGLE_API_KEY not found in environment variables")
+            raise ValueError("GROQ_API_KEY not found in environment variables")
 
-        # Initialize LangChain's ChatGoogleGenerativeAI
-        self.llm = ChatGoogleGenerativeAI(
-            model="gemini-2.0-flash",
-            google_api_key=api_key,
+        # Initialize LangChain's ChatGroq with Llama 3.3 70B
+        # This model offers excellent performance on Groq's free tier
+        self.llm = ChatGroq(
+            model="llama-3.3-70b-versatile",
+            groq_api_key=api_key,
             temperature=0.7,
             max_retries=3  # Built-in retry logic
         )
@@ -509,6 +510,6 @@ IMPORTANT: If the user asks for transitions, use the adjacent section context to
 
 def get_llm_adapter() -> LLMAdapter:
     provider = os.getenv("LLM_PROVIDER", "mock").lower()
-    if provider == "gemini":
-        return GeminiLLMAdapter()
+    if provider == "groq":
+        return GroqLLMAdapter()
     return MockLLMAdapter()
