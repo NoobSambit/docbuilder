@@ -203,7 +203,7 @@ function ContextMockup() {
         {/* Context feed */}
         <div className="mt-1 rounded-xl bg-white/[0.03] border border-white/8 p-3 space-y-1.5 shrink-0">
           <div className="text-[9px] uppercase font-bold text-white/25 tracking-widest mb-2">Context Fed to AI</div>
-          <div className="flex items-center gap-2 text-[9px] sm:text-[10px] text-white/50"><Hash className="w-3 h-3 text-purple-400 shrink-0" />Adjacent: <span className="text-white/70 font-mono hidden sm:inline">"Growth Drivers"</span> <span className="text-white/70 font-mono truncate">"Risk Factors"</span></div>
+          <div className="flex items-center gap-2 text-[9px] sm:text-[10px] text-white/50"><Hash className="w-3 h-3 text-purple-400 shrink-0" />Adjacent: <span className="text-white/70 font-mono hidden sm:inline">&ldquo;Growth Drivers&rdquo;</span> <span className="text-white/70 font-mono truncate">&ldquo;Risk Factors&rdquo;</span></div>
           <div className="flex items-center gap-2 text-[9px] sm:text-[10px] text-white/50"><BookOpen className="w-3 h-3 text-purple-400 shrink-0" />Refinement history: 3 reactions loaded</div>
         </div>
       </div>
@@ -499,7 +499,7 @@ export default function LandingPage() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black tracking-tighter mb-5 sm:mb-7 leading-[1.05] text-white">
               Documents<br className="hidden sm:block" /> that think.<br />
               <span className="bg-gradient-to-br from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                Research that's{'\u00A0'}real.
+                Research that&apos;s{'\u00A0'}real.
               </span>
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-white/45 mb-8 sm:mb-10 leading-relaxed max-w-lg">
@@ -559,7 +559,7 @@ export default function LandingPage() {
                 <div className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-blue-400 mb-1">Feature #1 · The Core Differentiator</div>
                 <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">RAG-Powered Web Research</h3>
                 <p className="text-xs sm:text-sm text-white/45 mt-2 leading-relaxed max-w-xl">
-                  Toggle <span className="text-white/70 font-semibold">"Enhance with Web Research"</span> and the system fires Google Custom Search, pulls top sources, runs FAISS vector embeddings to rank relevance, and weaves cited facts directly into your content. Zero hallucinations.
+                  Toggle <span className="text-white/70 font-semibold">&ldquo;Enhance with Web Research&rdquo;</span> and the system fires Google Custom Search, pulls top sources, runs FAISS vector embeddings to rank relevance, and weaves cited facts directly into your content. Zero hallucinations.
                 </p>
               </div>
             </div>
@@ -599,7 +599,7 @@ export default function LandingPage() {
                 <div className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-green-400 mb-1">Feature #3</div>
                 <h3 className="text-lg sm:text-xl font-black text-white tracking-tight">NLP Refinement</h3>
                 <p className="text-[11px] sm:text-xs text-white/40 mt-1.5 leading-relaxed">
-                  Type instructions like <span className="text-white/60 italic">"make this concise"</span>. The AI accesses past preference history and auto-adjusts word counts based on context.
+                  Type instructions like <span className="text-white/60 italic">&ldquo;make this concise&rdquo;</span>. The AI accesses past preference history and auto-adjusts word counts based on context.
                 </p>
               </div>
             </div>
