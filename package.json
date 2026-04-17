@@ -1,0 +1,14 @@
+{
+  "name": "docbuilder",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:all": "cd frontend && concurrently \"npm run dev\" \"npm run dev:backend\"",
+    "dev": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && ./venv/bin/python main.py 2>&1",
+    "build": "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

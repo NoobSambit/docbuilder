@@ -11,6 +11,21 @@ import {
 import React, { useState, useEffect } from 'react';
 
 // ─── Custom Premium SVG Icons ────────────────────────────────────────────────
+const LogoIcon = (p: any) => (
+  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...p}>
+    <defs>
+      <linearGradient id="logoGradIndex" x1="0" y1="0" x2="40" y2="40">
+        <stop stopColor="#3B82F6" />
+        <stop offset="1" stopColor="#8B5CF6" />
+      </linearGradient>
+    </defs>
+    <rect x="8" y="8" width="24" height="24" rx="6" fill="url(#logoGradIndex)" fillOpacity="0.15" stroke="url(#logoGradIndex)" strokeWidth="2" />
+    <path d="M16 14H24M16 20H24M16 26H20" stroke="url(#logoGradIndex)" strokeWidth="2.5" strokeLinecap="round" />
+    <circle cx="26" cy="26" r="4" fill="#8B5CF6" />
+    <path d="M26 24V28M24 26H28" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
 const RAGIcon = (p: any) => (
   <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...p}>
     <defs>
@@ -137,7 +152,7 @@ function RAGMockup() {
         <div className="rounded-xl border border-blue-500/20 bg-blue-500/[0.06] p-3 mt-auto">
           <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
             <div className="flex items-center gap-2">
-              <Sparkles className="w-3 h-3 text-blue-400" />
+              <LogoIcon className="w-3 h-3 text-blue-400" />
               <span className="text-[9px] sm:text-[10px] font-bold text-blue-400 uppercase tracking-widest">Generating Content</span>
             </div>
           </div>
@@ -443,7 +458,7 @@ function HeroMockup() {
                 className="absolute bottom-4 right-0 left-0 sm:left-auto sm:w-64 bg-[#1A1D24] border border-white/10 rounded-xl p-3 shadow-2xl flex items-center gap-3 backdrop-blur-md z-10 mx-2 sm:mx-0"
               >
                 <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 border border-blue-500/30 text-blue-400">
-                  <Sparkles className="w-4 h-4" />
+                  <LogoIcon className="w-4 h-4 text-blue-400" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-[10px] font-bold uppercase tracking-widest text-white/50 mb-1">Editor AI</div>
@@ -473,7 +488,7 @@ export default function LandingPage() {
       {/* ── Navbar ── */}
       <nav className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center sticky top-0 z-50 border-b border-white/6 backdrop-blur-xl bg-[#050709]/80">
         <div className="text-lg sm:text-xl font-bold tracking-tight flex items-center gap-2 text-white">
-          <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-blue-400" />
+          <LogoIcon className="h-5 w-5 sm:h-6 sm:w-6" />
           <span className="hidden sm:inline">DocBuilder AI</span>
           <span className="sm:hidden">DocBuilder</span>
         </div>
@@ -708,7 +723,7 @@ export default function LandingPage() {
       <footer className="container mx-auto px-4 sm:px-6 pt-6 pb-10 sm:pb-12 border-t border-white/6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-[10px] sm:text-xs text-white/25 text-center md:text-left">
           <div className="flex items-center gap-2 font-semibold text-white/50">
-            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400 shrink-0" />DocBuilder AI · © {new Date().getFullYear()}
+            <LogoIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />DocBuilder AI · © {new Date().getFullYear()}
           </div>
           <div className="flex gap-4 sm:gap-6 font-semibold tracking-wide">
             <Link href="#" className="hover:text-white/60 transition-colors">Privacy</Link>

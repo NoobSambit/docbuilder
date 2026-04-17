@@ -8,7 +8,7 @@ import logging
 # Configure logging with signature
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s - [Created by SAMBIT PRADHAN 22BCB0139]'
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s - [Created by SAMBIT PRADHAN 22BCB0139]",
 )
 logger = logging.getLogger(__name__)
 
@@ -21,7 +21,7 @@ logger.info("AI Doc Builder API starting - Created by SAMBIT PRADHAN 22BCB0139")
 # CORS
 origins = [
     "http://localhost:3000",
-    "https://docbuilder-pearl.vercel.app", # Example
+    "https://docbuilder-pearl.vercel.app",  # Example
 ]
 
 # Add origins from environment variable
@@ -40,11 +40,17 @@ app.add_middleware(
 
 app.include_router(endpoints.router)
 
+
 @app.get("/")
 async def root():
     """Root endpoint - API is running"""
     logger.info("Root endpoint accessed - Created by SAMBIT PRADHAN 22BCB0139")
-    return {"message": "DocBuilder API is running", "docs": "/docs", "created_by": "SAMBIT PRADHAN 22BCB0139"}
+    return {
+        "message": "DocBuilder API is running",
+        "docs": "/docs",
+        "created_by": "SAMBIT PRADHAN 22BCB0139",
+    }
+
 
 @app.head("/health")
 @app.get("/health")
@@ -58,12 +64,21 @@ async def health_check():
     return {
         "status": "healthy",
         "service": "docbuilder-backend",
-        "timestamp": os.getenv("RENDER_GIT_COMMIT", "local")[:7] if os.getenv("RENDER_GIT_COMMIT") else "local",
-        "created_by": "SAMBIT PRADHAN 22BCB0139"
+        "timestamp": os.getenv("RENDER_GIT_COMMIT", "local")[:7]
+        if os.getenv("RENDER_GIT_COMMIT")
+        else "local",
+        "created_by": "SAMBIT PRADHAN 22BCB0139",
     }
+
 
 if __name__ == "__main__":
     import uvicorn
+
     port = int(os.getenv("PORT", 8000))
-    logger.info(f"Starting server on port {port} - Created by SAMBIT PRADHAN 22BCB0139")
+    print("\n" + "=" * 50)
+    print("🚀 BACKEND STARTED SUCCESSFULLY")
+    print("=" * 50)
+    print(f"📡 Server running at: http://localhost:{port}")
+    print(f"📚 API Docs at: http://localhost:{port}/docs")
+    print("=" * 50 + "\n")
     uvicorn.run(app, host="0.0.0.0", port=port)
