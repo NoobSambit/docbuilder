@@ -1,0 +1,20 @@
+[
+  {
+    "theme": "01-akshara",
+    "screen": "02-scroll-showcase",
+    "status": "superseded",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-49bf1f21-a37b-4a33-8d12-3c2ab2699475.png",
+    "output": "rejected/01-akshara-02-scroll-showcase-v5-superseded.png",
+    "prompt": "01-akshara/prompts/02-scroll-showcase-v5-reference.txt",
+    "reason": "User requested colored application surfaces and explicit product-related activity. Remaining four batch requests were cancelled before returned artifacts."
+  },
+  {
+    "theme": "01-akshara",
+    "screen": "03-capabilities",
+    "status": "superseded",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-664f30c9-d03c-4af7-86a0-af25e1db2059.png",
+    "output": "rejected/01-akshara-03-capabilities-v5-superseded.png",
+    "prompt": "01-akshara/prompts/03-capabilities-v5-reference.txt",
+    "reason": "User requested colored application surfaces and explicit product-related activity. Remaining four batch requests were cancelled before returned artifacts."
+  }
+]

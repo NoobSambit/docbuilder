@@ -2,27 +2,28 @@
   {
     "theme": "01-akshara",
     "screen": "01-hero",
-    "prompt": "01-akshara/prompts/01-hero-v6-edit.txt",
-    "output": "01-akshara/mockups/01-hero.png",
+    "prompt": "01-akshara/prompts/01-hero-v7-authorship-edit.txt",
+    "output": "01-akshara/mockups/01-hero-v7.png",
     "status": "concept-reviewed",
-    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-c4120a44-1b60-4372-9335-64165ca9513e.png",
-    "review": "Compact headline now leaves mythology prominent; Ganesha and Vyasa unmistakable, source/brief/save UI dense and readable. Art retains a relatively realistic finish rather than strong visible brushwork; viable concept for user comparison, not approved artwork.",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-a42b82a7-23b8-4509-81f0-7d5aaac41c7a.png",
+    "review": "Ganesha drafts while Vyasa reviews report pages beside a laptop; no war. Burgundy topbar, sand outline and parchment editor visibly color the container. Brief/source/save controls and broad lower-half footprint retained. Art has a relatively realistic painterly finish.",
     "rejected_output": [
       "rejected/01-akshara-v1.png",
       "rejected/01-akshara-v2.png",
       "rejected/01-akshara-v4.png",
       "rejected/01-akshara-v5.png"
     ],
-    "brief_revision": "dense-epic-laptop-v5",
+    "brief_revision": "colored-authorship-laptop-v7",
     "dimensions": [
       1672,
       941
     ],
-    "prompt_sha256": "3ddd8a038ceb33938817d6d279b168812c4fcb9a154908c009b7aab9ee0cff49",
-    "image_sha256": "0daf4c292dcfcda93b9f02f66fb97140cad11798b25f0f4e7d63aba5482da02a",
+    "prompt_sha256": "f858ac1e1aac5613b2a038437b9f5e0bed9dd9f92146dd4137ce7a371e855ffd",
+    "image_sha256": "23c9ba77977dbbc21e83ba3caeb3e6a19a3a3d1a8a5ed49fc2b59deadb431e92",
     "aspect_ratio": 1.77683,
     "reviewed_by": "agent",
-    "user_approval": "pending review"
+    "user_approval": "pending review",
+    "planned_prompt": "01-akshara/prompts/01-hero.txt"
   },
   {
     "theme": "01-akshara",
@@ -30,74 +31,104 @@
     "prompt": "01-akshara/prompts/02-scroll-showcase.txt",
     "output": "01-akshara/mockups/02-scroll-showcase.png",
     "status": "pending",
-    "brief_revision": "dense-epic-laptop-v5"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "planned_prompt": "01-akshara/prompts/02-scroll-showcase.txt"
   },
   {
     "theme": "01-akshara",
     "screen": "03-capabilities",
     "prompt": "01-akshara/prompts/03-capabilities.txt",
     "output": "01-akshara/mockups/03-capabilities.png",
-    "brief_revision": "dense-epic-laptop-v5",
-    "status": "pending"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "status": "pending",
+    "planned_prompt": "01-akshara/prompts/03-capabilities.txt"
   },
   {
     "theme": "01-akshara",
     "screen": "04-outputs-close",
     "prompt": "01-akshara/prompts/04-outputs-close.txt",
     "output": "01-akshara/mockups/04-outputs-close.png",
-    "brief_revision": "dense-epic-laptop-v5",
-    "status": "pending"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "status": "pending",
+    "planned_prompt": "01-akshara/prompts/04-outputs-close.txt"
   },
   {
     "theme": "02-astra",
     "screen": "01-hero",
-    "prompt": "02-astra/prompts/01-hero.txt",
-    "output": "02-astra/mockups/01-hero.png",
-    "status": "pending",
-    "brief_revision": "dense-epic-laptop-v5"
+    "prompt": "02-astra/prompts/01-hero-v7-authorship-edit.txt",
+    "output": "02-astra/mockups/01-hero-v7.png",
+    "status": "concept-reviewed",
+    "brief_revision": "colored-authorship-laptop-v7",
+    "planned_prompt": "02-astra/prompts/01-hero.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-30297cd9-382c-44fd-8a50-dc5bb7aa7883.png",
+    "prompt_sha256": "364c0310623dcd29ef686803a969a46988422b5f5f931a3d457d60d14af52a5c",
+    "image_sha256": "f28792155e9048bc62ac7f91bd0ba887d49915518aed5db7bcdc5edb23433e47",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "aspect_ratio": 1.77683,
+    "review": "Krishna reviews sources and Arjuna drafts beside a laptop and report storyboard; no war scene. Midnight/slate chrome, copper controls and tinted document distinguish the whole container. Compact hero and substantial workspace retained. Native implementation must replace illustrative report graphics with grounded fixtures.",
+    "reviewed_by": "agent",
+    "user_approval": "pending review"
   },
   {
     "theme": "02-astra",
     "screen": "02-scroll-showcase",
-    "prompt": "02-astra/prompts/02-scroll-showcase.txt",
-    "output": "02-astra/mockups/02-scroll-showcase.png",
-    "status": "pending",
-    "brief_revision": "dense-epic-laptop-v5"
+    "prompt": "02-astra/prompts/02-scroll-showcase-v7-reference.txt",
+    "output": "02-astra/mockups/02-scroll-showcase-v7.png",
+    "status": "concept-reviewed",
+    "brief_revision": "colored-authorship-laptop-v7",
+    "planned_prompt": "02-astra/prompts/02-scroll-showcase.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-0fe7dddc-b868-4558-8887-75e11dafdd28.png",
+    "prompt_sha256": "a47ce45fa21e96ac2c2a0cbdcf01f3a004a16609722fbd0a2ab124cf61e72bb1",
+    "image_sha256": "d88cb49bd11645ae7d1875fcb852aaadbf863a575a22649e59f0ae3e1c5e090f",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "aspect_ratio": 1.77683,
+    "review": "Full viewport app retains midnight/copper color and peaceful writing scene. Four chapters, active Refine, original/suggested diff, accept/discard, checkpoint and restore are clear. Story strip is taller than requested; fine typography/pacing require implementation tuning.",
+    "reviewed_by": "agent",
+    "user_approval": "pending review"
   },
   {
     "theme": "02-astra",
     "screen": "03-capabilities",
     "prompt": "02-astra/prompts/03-capabilities.txt",
     "output": "02-astra/mockups/03-capabilities.png",
-    "brief_revision": "dense-epic-laptop-v5",
-    "status": "pending"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "status": "pending",
+    "planned_prompt": "02-astra/prompts/03-capabilities.txt"
   },
   {
     "theme": "02-astra",
     "screen": "04-outputs-close",
     "prompt": "02-astra/prompts/04-outputs-close.txt",
     "output": "02-astra/mockups/04-outputs-close.png",
-    "brief_revision": "dense-epic-laptop-v5",
-    "status": "pending"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "status": "pending",
+    "planned_prompt": "02-astra/prompts/04-outputs-close.txt"
   },
   {
     "theme": "03-neel",
     "screen": "01-hero",
-    "prompt": "03-neel/prompts/01-hero-v5.txt",
-    "output": "03-neel/mockups/01-hero.png",
+    "prompt": "03-neel/prompts/01-hero-v7-authorship-edit.txt",
+    "output": "03-neel/mockups/01-hero-v7.png",
     "status": "concept-reviewed",
-    "brief_revision": "dense-epic-laptop-v5",
-    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-ff46399f-5042-44f3-aaa2-90b3dc3c6394.png",
-    "prompt_sha256": "16da0907ca6f1bcd5ff0495e018c61cc91716125d3b88caf648761fded23a0d4",
-    "image_sha256": "fe4065dd94b194987a07860efc49fa3a79231bb17a5f3cbf9f8cbce1c7e5dd31",
+    "brief_revision": "colored-authorship-laptop-v7",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-22775bd9-8554-44c7-b10d-f57c443cf2bb.png",
+    "prompt_sha256": "3a0ad9770581e924316075b96490bb3e95bd45687f9df2fd61f7ecae4409bc43",
+    "image_sha256": "5e1db31639c07b5dcebc7ca2112673f03a1d841594a41b7bae9ba2f77d1966cb",
     "dimensions": [
       1672,
       941
     ],
     "aspect_ratio": 1.77683,
-    "review": "Recognizable Krishna garden and rich Pichwai detail; broad lower-half workspace, brief, included sources and saved state are readable. Exact hypothetical source prose and minor field spelling need native text fixtures during implementation.",
+    "review": "Krishna inspects notes at a garden desk with laptop and storyboard. Indigo topbar, blue outline, teal research and pale paper create distinct colored surfaces. Rich Pichwai-inspired detail. Headline remains larger than Akshara; exact type scale will be set with native HTML.",
     "reviewed_by": "agent",
-    "user_approval": "pending review"
+    "user_approval": "pending review",
+    "planned_prompt": "03-neel/prompts/01-hero.txt"
   },
   {
     "theme": "03-neel",
@@ -105,31 +136,46 @@
     "prompt": "03-neel/prompts/02-scroll-showcase.txt",
     "output": "03-neel/mockups/02-scroll-showcase.png",
     "status": "pending",
-    "brief_revision": "dense-epic-laptop-v5"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "planned_prompt": "03-neel/prompts/02-scroll-showcase.txt"
   },
   {
     "theme": "03-neel",
     "screen": "03-capabilities",
     "prompt": "03-neel/prompts/03-capabilities.txt",
     "output": "03-neel/mockups/03-capabilities.png",
-    "brief_revision": "dense-epic-laptop-v5",
-    "status": "pending"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "status": "pending",
+    "planned_prompt": "03-neel/prompts/03-capabilities.txt"
   },
   {
     "theme": "03-neel",
     "screen": "04-outputs-close",
     "prompt": "03-neel/prompts/04-outputs-close.txt",
     "output": "03-neel/mockups/04-outputs-close.png",
-    "brief_revision": "dense-epic-laptop-v5",
-    "status": "pending"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "status": "pending",
+    "planned_prompt": "03-neel/prompts/04-outputs-close.txt"
   },
   {
     "theme": "04-sabha",
     "screen": "01-hero",
-    "prompt": "04-sabha/prompts/01-hero.txt",
-    "output": "04-sabha/mockups/01-hero.png",
-    "status": "pending",
-    "brief_revision": "dense-epic-laptop-v5"
+    "prompt": "04-sabha/prompts/01-hero-v7-authorship-edit.txt",
+    "output": "04-sabha/mockups/01-hero-v7.png",
+    "status": "concept-reviewed",
+    "brief_revision": "colored-authorship-laptop-v7",
+    "planned_prompt": "04-sabha/prompts/01-hero.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-73ff3e97-3d75-48f1-b777-5026c8b3e5f5.png",
+    "prompt_sha256": "c831ab6f2386877780cc618b2952ee1037d4caf646d07e022afd4368549ac06c",
+    "image_sha256": "1fab244d98bb0cd148caf2b04f17ea25a880bb330c07a8c47749409b2bef181b",
+    "dimensions": [
+      1672,
+      940
+    ],
+    "aspect_ratio": 1.77872,
+    "review": "Assembly figures review sources, outline and report sheets beside a laptop; no battle. Aubergine topbar, lavender outline and mauve utility panes visibly theme the entire container. Dense readable future-product UI. Painting remains a miniature/realistic hybrid; illustrative charts need grounded demo fixtures.",
+    "reviewed_by": "agent",
+    "user_approval": "pending review"
   },
   {
     "theme": "04-sabha",
@@ -137,31 +183,46 @@
     "prompt": "04-sabha/prompts/02-scroll-showcase.txt",
     "output": "04-sabha/mockups/02-scroll-showcase.png",
     "status": "pending",
-    "brief_revision": "dense-epic-laptop-v5"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "planned_prompt": "04-sabha/prompts/02-scroll-showcase.txt"
   },
   {
     "theme": "04-sabha",
     "screen": "03-capabilities",
     "prompt": "04-sabha/prompts/03-capabilities.txt",
     "output": "04-sabha/mockups/03-capabilities.png",
-    "brief_revision": "dense-epic-laptop-v5",
-    "status": "pending"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "status": "pending",
+    "planned_prompt": "04-sabha/prompts/03-capabilities.txt"
   },
   {
     "theme": "04-sabha",
     "screen": "04-outputs-close",
     "prompt": "04-sabha/prompts/04-outputs-close.txt",
     "output": "04-sabha/mockups/04-outputs-close.png",
-    "brief_revision": "dense-epic-laptop-v5",
-    "status": "pending"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "status": "pending",
+    "planned_prompt": "04-sabha/prompts/04-outputs-close.txt"
   },
   {
     "theme": "05-vanam",
     "screen": "01-hero",
-    "prompt": "05-vanam/prompts/01-hero.txt",
-    "output": "05-vanam/mockups/01-hero.png",
-    "status": "pending",
-    "brief_revision": "dense-epic-laptop-v5"
+    "prompt": "05-vanam/prompts/01-hero-v7-authorship-edit.txt",
+    "output": "05-vanam/mockups/01-hero-v7.png",
+    "status": "concept-reviewed",
+    "brief_revision": "colored-authorship-laptop-v7",
+    "planned_prompt": "05-vanam/prompts/01-hero.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-5cb7529c-0d9d-4f4e-b2f8-ec324b762c6b.png",
+    "prompt_sha256": "dc622c12885a09510083ee4379698516722dd0260886719a4c2e2bb9915c4dde",
+    "image_sha256": "e538c949eeaaf00ff1f32369f49912f6ce6331432e522af1450871dc070b97db",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "aspect_ratio": 1.77683,
+    "review": "Vyasa drafts beside a laptop while Krishna reviews report sheets; no war. Forest topbar, sage outline, fern research and celadon paper distinguish large app surfaces. Rich manuscript/forest composition; illustration is a mural/realistic hybrid rather than fully flat Kerala painting.",
+    "reviewed_by": "agent",
+    "user_approval": "pending review"
   },
   {
     "theme": "05-vanam",
@@ -169,22 +230,25 @@
     "prompt": "05-vanam/prompts/02-scroll-showcase.txt",
     "output": "05-vanam/mockups/02-scroll-showcase.png",
     "status": "pending",
-    "brief_revision": "dense-epic-laptop-v5"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "planned_prompt": "05-vanam/prompts/02-scroll-showcase.txt"
   },
   {
     "theme": "05-vanam",
     "screen": "03-capabilities",
     "prompt": "05-vanam/prompts/03-capabilities.txt",
     "output": "05-vanam/mockups/03-capabilities.png",
-    "brief_revision": "dense-epic-laptop-v5",
-    "status": "pending"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "status": "pending",
+    "planned_prompt": "05-vanam/prompts/03-capabilities.txt"
   },
   {
     "theme": "05-vanam",
     "screen": "04-outputs-close",
     "prompt": "05-vanam/prompts/04-outputs-close.txt",
     "output": "05-vanam/mockups/04-outputs-close.png",
-    "brief_revision": "dense-epic-laptop-v5",
-    "status": "pending"
+    "brief_revision": "colored-authorship-laptop-v7",
+    "status": "pending",
+    "planned_prompt": "05-vanam/prompts/04-outputs-close.txt"
   }
 ]

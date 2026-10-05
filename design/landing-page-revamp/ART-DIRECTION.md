@@ -12,7 +12,8 @@ The user rejected all three completed early Akshara images. V1 looked like a che
 - Bold crop and layered painted scenes take inspiration from [Shopify Winter ’26 Renaissance Edition](https://www.shopify.com/editions/winter2026). Original artwork only; its assets and commerce content are not deliverables.
 - The supplied Devin screenshots inform the compact product layout, broad workspace, varied feature previews and aligned lower-page grid.
 - One substantial hero application begins around 40% of viewport height and occupies the lower half or more. It is the same application that expands and pins.
-- Clean solid paper, fine dividers, restrained corners and natural shadows. Art remains outside working prose.
+- Theme-colored topbars, sidebars, utility panes and tinted paper distinguish the workspaces. Dark Astra uses slate/copper with blue-gray paper; other directions use coordinated sand, blue/teal, lavender/plum and sage/forest surfaces. Fine dividers and restrained corners keep the colored regions precise. Art remains outside working prose.
+- Mythological figures perform work related to the product: inspect sources, arrange an outline, draft or revise pages and prepare a slide storyboard. Contemporary writing laptops and report pages can live inside the epic painting. No weapons, war, chariot charge or armor narrative.
 - Useful density comes from briefs, readable sections, inspected sources, reversible refinement, save state, version history and output previews. No invented dashboards, metrics or collaboration.
 - Four separate landscape screenshots cover each direction. Do not squeeze the entire lower page into a tall presentation board.
 
@@ -21,8 +22,8 @@ The user rejected all three completed early Akshara images. V1 looked like a che
 | Direction | Visible mythology | Palette and art medium |
 | --- | --- | --- |
 | Akshara | Ganesha writes while Vyasa dictates | Ivory, ink, vermilion; richly textured epic oil painting |
-| Astra | Krishna and Arjuna on a chariot | Midnight, chalk, copper; dramatic epic oil painting |
-| Neel | Krishna playing the flute in a garden | Paper, cobalt; detailed Pichwai-inspired painting |
+| Astra | Krishna guides Arjuna through sources and drafting at a desk | Midnight, slate, copper; epic writing-studio painting |
+| Neel | Krishna researches and arranges report pages in a garden | Blue, teal, cobalt; detailed Pichwai-inspired painting |
 | Sabha | Epic palace assembly with Krishna and scribes | Limestone, plum; intricate miniature gouache |
 | Vanam | Vyasa and Krishna beneath a banyan | Celadon, forest; refined Kerala-mural-inspired painting |
 
