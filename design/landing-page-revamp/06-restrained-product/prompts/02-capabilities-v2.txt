@@ -1,0 +1,14 @@
+Use case: ui-mockup.
+Edit target: supplied DocBuilder AI capabilities mockup. Render one premium, dense, sharply legible 1920x1080 landscape laptop website screenshot, no browser or deviceframe.
+
+Preserve the useful two-large-top and three-small-bottom product layout, with zero character illustrations. Redesign its heavy repeated header bars into five distinct cropped product demonstrations. All interface lettering and headings are clean modern SANS SERIF; no serif anywhere.
+Restore a small left aligned feather icon and "DocBuilder AI" wordmark in the top navigation at x130. Navigation56px tall, Workflow/Capabilities/FAQ in the center, Log in and compact Start creating on right.
+Left aligned small section heading at x150 y95: "Good work, from the first draft." at36px, brief subtitle16px. Productgrid starts y185. Outer page ivory#f7f6f1, sidepadding150px, 20px gutters. No large gaps.
+
+Top left: 780x320px cropped brief-and-outline appview, sage canvas, ivory surfaces, compact controls and small plain heading "Project brief". AudienceLeadership, PurposeExplain the transition, ToneAnalytical, LengthExecutive brief; next to this a draggable five-row outline. A darkteal compact Generate outline button in the footer. No fat fullwidth coloredheader.
+Top right: 780x320px cropped source inspector, soft bluegray canvas, small darkteal source-list pane and white selectedsource-detail pane. Titles"Renewables 2025"/"Energy Storage", publisher labels IEA/USDepartmentofEnergy, "2 sources included", "View source", "Add source". Example excerpt"Storage and grid flexibility help connect supply to demand." Remove the unverified publicationdate and 2030forecast. No pretendrealdata.
+Under each topview small22px heading and one16px explanation.
+Lower left: 520x270px refinementdiff, palepeach canvas. White panel with Original/Suggested in tinyheaders, crisp smalltext reddeletions and green additions, footer "Discard"/"Accept changes". Caption"Review before you replace."
+Lower middle: 520x270px checkpoint history, mutedlavender canvas, whitepanel simplethree-rowtimeline "Initial draft", "Research added", "Outline revised", smalltimestamp examples"Today,10:24AM"; top "Create checkpoint", rightrow "Restore". Caption"A version to come back to."
+Lower right: 520x270px section generation, coolceladon canvas, whitecompactfive-row statuslist: threerowscompleted, fourthpaused, fifthpending. Explicit state"Paused · 3 of 5 sections", footer "Resume generation". Caption"Pick up where you left off."
+Use functional small icons, consistent12-14px controls, sensible16px UI content, thinborders,8pxradius. These are flat crisp software surfaces, varied through the five product states. No imagery in these fivepanels, no glass, no gradients, no greenfullwidthheader repeated on everytile, no thickframes, no invented statistics.

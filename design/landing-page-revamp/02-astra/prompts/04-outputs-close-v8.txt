@@ -1,0 +1,17 @@
+Use case: ui-mockup.
+Generate a NEW lower landing page laptop viewport for DocBuilder AI. The reference supplies the teal/sage/copper brand palette and app style; do NOT repeat its hero composition or characters. 1920x1080 landscape, edge-to-edge webpage, no browser/deviceframe. This viewport contains finished output previews, a compactFAQ and finalCTA. It is a normal page after the expanded demo.
+
+Navigation y0-56 with DocBuilder AI, Workflow/Capabilities/FAQ, Log in/Start creating. Outerivory#f7f6f1, mainwidth1640 centered. Left heading at y95,36px "Ready for the work ahead.";16px "Check the details. Choose the layout. Export when you are ready." No oversized type.
+
+Upper productviews y175-570: two side-by-side output previews,20pxgap.
+LEFT a760px wide solid sage tinted previewframe with thin teal topbar "Document preview", "DOCX", compactExportbutton. Inside one portrait white report page at left, headingClean Energy Outlook and Executive brief, thin rule, five-rowtableofcontents and shortparagraph withoutstatistics. At right a compact exportlist DOCX/Markdown/HTML/Print with formaticons, not giantbuttons. Caption underframe22px "Documents that keep their structure."
+RIGHT a840pxwide bluegray tinted presentationpreviewframe, thintealbar "Presentation preview", theme dropdown "Editorial", compact "Export PPTX". A landscape16:9 title slide with titleClean Energy Outlook and subtitleFrom transition to a more resilient energy system, tasteful mutedwindturbine landscape image ONLY on rightthird of the slide; no numericcharts. Below slide three smallrealistic slidethumbnails labeled01Overview/02Drivers/03Risks and navigation1of6. Caption22px "Presentations you can make your own."
+These are outputpreviewUI panels, not tiltedpaper mockups. Crisp12-14px labels and clean sans.
+
+Lower y665-930: left60% clean FAQ with heading24px "A few things to know.", three compact ruled accordion rows:
+"Can I edit the outline and draft?"
+"Can I add my own sources?"
+"What can I export?"
+Firstexpanded smallanswer "Yes. Reorder sections, edit the draft and review suggested changes before applying them." Othersclosed withplusicons.
+Right40% one restraineddarktealCTA panel, heading26px "Your next idea starts here.", one16pxline "Shape a document or presentation worth sharing.", compactcopper "Start creating →". One subtleetched lotus-leaf outline in itscorner, no characterimages. Footer y985 thinrule, DocBuilder AI left and Workflow/Capabilities/FAQ right.
+Readable solid surfaces, tight practicalcomposition, fine1pxborders,8pxcorners, no giantwhitespace, no glass, no gaudygold, no repeatedart, no artificialmetriccards, no pricing or unlimitedusageclaims.

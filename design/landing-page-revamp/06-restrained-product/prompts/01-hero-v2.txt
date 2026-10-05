@@ -1,0 +1,12 @@
+Use case: ui-mockup.
+Edit target: the supplied DocBuilder AI hero mockup. Render one crisp 1920x1080 landscape laptop website viewport, no device frame or browser chrome.
+
+Make this a compact, polished modern software landing page. The current oversized headline must become a modest 42px medium-weight clean SANS SERIF headline, two lines: "Research, write." and "Present with purpose." Replace ALL serif lettering, including wordmark and document headings, with clean sans serif. This is a UI composition correction, not a decorative typography exercise.
+
+Preserve the one right-hand illustration of Krishna and Arjuna quietly researching and drafting at a laptop and open book. Keep it confined to the top right, not repeated anywhere. At 1920px width, navigation is 56px high, hero copy begins x150 y110; headline occupies at most 600x105px; supporting copy 16px two lines, compact 36px CTA and workflow link. The entire upper hero is only 340px high. A compact "Brief → Research → Refine → Present" row sits under the actions.
+
+The main workspace begins at y350, x150, width1620, extends below the bottom edge. Make it look like a real dense document application, with controls at 12-14px, document body16px, document heading26px. One 46px dark blue-green topbar: "Clean Energy Outlook", green check "Saved", "History", "Preview", "Export DOCX". One32px projectbrief bar below.
+Slim 218px solid deep teal outline rail with five section rows, pale text and muted copper active row. Wide solid warm-white paper editor; no translucent textures behind text. A 330px pale sage research inspector with Research/Refine/History tabs, two compact INCLUDED source records, each title, publisher, visible excerpt, reference marker[1]or[2], and external-link icon. Remove the duplicated third source-detail block in the current right rail.
+Editor: "Executive summary", three coherent sample paragraphs, superscript references, small "Key takeaways" and three concise bullet points. Toolbar horizontal at32px high. Use exact small labels from target, remove decorative sparkle graphics.
+Palette: ivory outer canvas, deep teal chrome#163f45, sage inspector#e1ebe4, ivory paper#fcfbf7, copper selection#b26639. Thin fine gray-green dividers, restrained10px outer corner radius, one subtle shadow.
+Avoid: oversized text, black serif headline, serif wordmark, sparse blank hero, gradients, shiny glass, gold UI trim, repeated mythology illustrations, extra floating cards, multiple appwindows, fakeanalytics, warped labels.

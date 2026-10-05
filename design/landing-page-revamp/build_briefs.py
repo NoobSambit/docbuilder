@@ -1,4 +1,7 @@
-"""Generate dense future-state laptop briefs; preserve image reviews."""
+"""Historical round-7 generator. Current round-8 prompts are recorded in manifest.json.
+
+Do not rerun for the current design: the repeated-art approach was rejected.
+"""
 from pathlib import Path
 import json
 
