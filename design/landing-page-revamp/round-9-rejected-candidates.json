@@ -1,0 +1,26 @@
+[
+  {
+    "theme": "01-akshara",
+    "screen": "03-capabilities",
+    "prompt": "01-akshara/prompts/03-capabilities-v9.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-2d38b827-2de4-4416-ae50-62499cbe6019.png",
+    "status": "rejected",
+    "reason": "Invented a global dashboard sidebar on a logged-out landing section; omitted from current gallery. Corrected through a layout-preserving recolor."
+  },
+  {
+    "theme": "03-neel",
+    "screen": "03-capabilities",
+    "prompt": "03-neel/prompts/03-capabilities-v9.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-835413cd-bb8b-44e4-867c-377d6daf50a7.png",
+    "status": "rejected",
+    "reason": "Invented a global dashboard sidebar on a logged-out landing section; omitted from current gallery. Corrected through a layout-preserving recolor."
+  },
+  {
+    "theme": "04-sabha",
+    "screen": "03-capabilities",
+    "prompt": "04-sabha/prompts/03-capabilities-v9.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-2dc33c2c-54b3-4121-9958-7eef2c9e8d2d.png",
+    "status": "rejected",
+    "reason": "Invented a global dashboard sidebar on a logged-out landing section; omitted from current gallery. Corrected through a layout-preserving recolor."
+  }
+]

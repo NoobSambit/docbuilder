@@ -1,0 +1,404 @@
+{
+  "date": "2026-10-05",
+  "checkpoint": "1cbbf76",
+  "feedback": {
+    "01-hero": "Accepted by user; retain artwork and composition.",
+    "02-scroll-showcase": "Revise; the application containers still look outdated.",
+    "03-capabilities": "Rejected; old-fashioned boxed UI and poor premium finish.",
+    "04-outputs-close": "Rejected; old-fashioned output panels and poor premium finish."
+  },
+  "manifest_before_revision": [
+    {
+      "theme": "01-akshara",
+      "screen": "01-hero",
+      "prompt": "01-akshara/prompts/01-hero-v8.txt",
+      "output": "01-akshara/mockups/01-hero-v8.png",
+      "status": "concept-reviewed",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-54e22f12-387d-48d4-bd9a-e17af948eda0.png",
+      "review": "Miniature-style Ganesha and Vyasa authorship scene, auburn chrome, copper selection and clay source rail. Broad lower-half application and compact hero. Sample citations, dates and forecast prose require replacement with grounded fixtures before implementation.",
+      "rejected_output": [
+        "rejected/01-akshara-v1.png",
+        "rejected/01-akshara-v2.png",
+        "rejected/01-akshara-v4.png",
+        "rejected/01-akshara-v5.png"
+      ],
+      "brief_revision": "restrained-product-laptop-v8",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "prompt_sha256": "087d28a098498f557c24372981ec14829382afcca610cab8ae3ab290476d90b3",
+      "image_sha256": "5401968d7b4d47c66d69168aa38df13ed7b03d822fac2f7f46a76c27af74723c",
+      "aspect_ratio": 1.77683,
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "planned_prompt": "01-akshara/prompts/01-hero-v8.txt",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "01-akshara",
+      "screen": "02-scroll-showcase",
+      "prompt": "01-akshara/prompts/02-scroll-showcase-v8.txt",
+      "output": "01-akshara/mockups/02-scroll-showcase-v8.png",
+      "status": "concept-reviewed",
+      "brief_revision": "restrained-product-laptop-v8",
+      "planned_prompt": "01-akshara/prompts/02-scroll-showcase-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-e690f67c-c3b5-4f1c-a79f-92053dd12c68.png",
+      "prompt_sha256": "6a35f219748ca24e1da4faa5d050f2ceb6561c603f022ce2c8ac0f5a0a53131d",
+      "image_sha256": "9bbea63055094f1501e47da55c763ff2aaa76f41e36275d64cf26bec027c917d",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Same themed application expands into a near-full-screen workspace; no mythology images in the working area. Outline, project brief, prose, pending refinement diff and accept/discard are visible. Color hierarchy preserved from hero. Sidebar mixes workflow milestones under a checkpoints label; implementation must use actual saved-version history. Generated report text is illustrative; production fixtures require verified sources.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "01-akshara",
+      "screen": "03-capabilities",
+      "prompt": "01-akshara/prompts/03-capabilities-v8.txt",
+      "output": "01-akshara/mockups/03-capabilities-v8.png",
+      "brief_revision": "restrained-product-laptop-v8",
+      "status": "concept-reviewed",
+      "planned_prompt": "01-akshara/prompts/03-capabilities-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-8d17890e-eff0-4896-bcee-96767f2aec2f.png",
+      "prompt_sha256": "664938a80744d077c902699e6872126a6d17d5391a3a31a592c6e3a255f0511e",
+      "image_sha256": "eed7a8ff0aedfc2ae8f81e6a17441bbea4e54d63256b62f3e190a9769ea18e40",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Product-only brief/source/diff/history/generation composition; colored panels match theme. Five useful states visible together with legible controls and no repeated hero artwork. Future-state agent-reviewed concept, awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "01-akshara",
+      "screen": "04-outputs-close",
+      "prompt": "01-akshara/prompts/04-outputs-close-v8.txt",
+      "output": "01-akshara/mockups/04-outputs-close-v8.png",
+      "brief_revision": "restrained-product-laptop-v8",
+      "status": "concept-reviewed",
+      "planned_prompt": "01-akshara/prompts/04-outputs-close-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-e5a35202-66f4-4333-b244-31739fe43c6e.png",
+      "prompt_sha256": "865c83c2f31e3e19628ce05e4166345df12e1cba919d3ec7b43bd70e47db2a02",
+      "image_sha256": "744098902fe8553ace325d5550ceef7cc9abb18661646bd2361eb87813aa4125",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Matching themed document and landscape deck previews, readable format choices, compact FAQ and botanical CTA. No repeated mythology scene. Browser print is correctly labeled; no numeric charts or publication-date claims. Static future-state agent-reviewed concept, awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "02-astra",
+      "screen": "01-hero",
+      "prompt": "06-restrained-product/prompts/01-hero-v2.txt",
+      "output": "02-astra/mockups/01-hero-v8.png",
+      "status": "concept-reviewed",
+      "brief_revision": "restrained-product-laptop-v8",
+      "planned_prompt": "06-restrained-product/prompts/01-hero-v2.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-63be0f2c-b04d-4791-90d0-fab007fbed1b.png",
+      "prompt_sha256": "fdb8316ee932cacee6cfcc479e0f712070e5fd6c58af4624fc2ed314b2ad6a9f",
+      "image_sha256": "fb8ba7b0123ff2841ef7e029c71a9fc12fc5133214edd31348c26b759d3e3727",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "One contained Krishna-Arjuna research scene; no war. Broad lower-half workspace, dark teal outline, light sage source inspector and compact workflow row. Headline corrected to sans. Agent-reviewed composition; generated sample prose is illustrative, not implementation evidence.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "02-astra",
+      "screen": "02-scroll-showcase",
+      "prompt": "02-astra/prompts/02-scroll-showcase-v8.txt",
+      "output": "02-astra/mockups/02-scroll-showcase-v8.png",
+      "status": "concept-reviewed",
+      "brief_revision": "restrained-product-laptop-v8",
+      "planned_prompt": "02-astra/prompts/02-scroll-showcase-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-48396046-99b0-48a6-bd1f-b0eadb094060.png",
+      "prompt_sha256": "16a48574920de2226a8bc486b97d437b3d9060ea3afbf52e733e131eea0676e6",
+      "image_sha256": "e44330848e5df861deaae1b5025d71bf5160d59c0f575c2caa00152d5db6d40d",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Hero art scrolls away; same teal application fills the viewport. Four chapter track, active Refine, pending original/suggested comparison and accept/discard are clear. No repeated characters. Composition reviewed; generated UI is still a static concept, not motion proof.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "02-astra",
+      "screen": "03-capabilities",
+      "prompt": "06-restrained-product/prompts/02-capabilities-v2.txt",
+      "output": "02-astra/mockups/03-capabilities-v8.png",
+      "brief_revision": "restrained-product-laptop-v8",
+      "status": "concept-reviewed",
+      "planned_prompt": "06-restrained-product/prompts/02-capabilities-v2.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-29f504ef-31b3-43c9-927a-84a504e5036e.png",
+      "prompt_sha256": "c5be225c1c81c94e686f8feaa6c798970c4cb4d129e8f5d39fb74c521b14e255",
+      "image_sha256": "6eb859713871e67f35fc657d6347fae946048b683ebe175c66711f736a033da0",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Product-only two-plus-three grid replaces repeated character illustrations. Brief, inspectable sources, refinement diff, checkpoints and paused generation are readable. Wordmark restored. Mint, blue, peach and lavender distinguish the product views. Agent-reviewed; awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "02-astra",
+      "screen": "04-outputs-close",
+      "prompt": "02-astra/prompts/04-outputs-close-v8.txt",
+      "output": "02-astra/mockups/04-outputs-close-v8.png",
+      "brief_revision": "restrained-product-laptop-v8",
+      "status": "concept-reviewed",
+      "planned_prompt": "02-astra/prompts/04-outputs-close-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-9ad66a46-c512-44bf-9119-87a99d30deb5.png",
+      "prompt_sha256": "d18adbd914243508f9f42290340a936c71907130f0999929f90f90b08df6a126",
+      "image_sha256": "20b2156314cb783fc83fbe599b4657f4b983346603f4a964265c4ff49241713c",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Dense paired document and 16:9 deck previews, format choices, FAQ and restrained botanical close. No repeated character illustration. Print is browser printing; generated PDF subtitle must not imply a new server PDF feature. Static future-state composition, awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "03-neel",
+      "screen": "01-hero",
+      "prompt": "03-neel/prompts/01-hero-v8.txt",
+      "output": "03-neel/mockups/01-hero-v8.png",
+      "status": "concept-reviewed",
+      "brief_revision": "restrained-product-laptop-v8",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-f8538527-4ac6-4320-9985-6b46f86c66b2.png",
+      "prompt_sha256": "800b91f6df09f1e1cfb4614f439872dd970c632bd472866bcd33457d767860f3",
+      "image_sha256": "cee724c36c1d8d81840a82537767df918496bfbb706f89c4f1432d659ea441e7",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Distinct Pichwai-inspired Krishna research garden with cobalt chrome, pale blue brief strip and celadon source rail. Broad lower-half app. Navigation actions sit beside links rather than far right. Generated sample source dates and figures are illustrative and must not become production evidence.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "planned_prompt": "03-neel/prompts/01-hero-v8.txt",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "03-neel",
+      "screen": "02-scroll-showcase",
+      "prompt": "03-neel/prompts/02-scroll-showcase-v8.txt",
+      "output": "03-neel/mockups/02-scroll-showcase-v8.png",
+      "status": "concept-reviewed",
+      "brief_revision": "restrained-product-laptop-v8",
+      "planned_prompt": "03-neel/prompts/02-scroll-showcase-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-20534a3e-f801-4dc5-aa59-8f83aa449d6b.png",
+      "prompt_sha256": "f041962ac260e8c9443eee0912396c70f2eda110d1c5d0755e93545e0c185c3e",
+      "image_sha256": "d7e1a50480629f1fa420adbbb5c2d929be61d122be476ba74c704c8fb5520e9f",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Same themed application expands into a near-full-screen workspace; no mythology images in the working area. Outline, project brief, prose, pending refinement diff and accept/discard are visible. Color hierarchy preserved from hero. Generated report text is illustrative; production fixtures require verified sources.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "03-neel",
+      "screen": "03-capabilities",
+      "prompt": "03-neel/prompts/03-capabilities-v8.txt",
+      "output": "03-neel/mockups/03-capabilities-v8.png",
+      "brief_revision": "restrained-product-laptop-v8",
+      "status": "concept-reviewed",
+      "planned_prompt": "03-neel/prompts/03-capabilities-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-c38dce18-a024-4c78-b9b9-ee6c69d5b5db.png",
+      "prompt_sha256": "a940e69ca1447ee2ba59a021057bc1d95162f3b12e50b5bbe111400b18a909c2",
+      "image_sha256": "9610401b1335fac4b36c9c311542bfaceee7cddca9d63c7d01449aa79d8d1ad6",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Product-only brief/source/diff/history/generation composition; colored panels match theme. Five useful states visible together with legible controls and no repeated hero artwork. Future-state agent-reviewed concept, awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "03-neel",
+      "screen": "04-outputs-close",
+      "prompt": "03-neel/prompts/04-outputs-close-v8.txt",
+      "output": "03-neel/mockups/04-outputs-close-v8.png",
+      "brief_revision": "restrained-product-laptop-v8",
+      "status": "concept-reviewed",
+      "planned_prompt": "03-neel/prompts/04-outputs-close-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-9541b44e-be90-4a12-83ca-93c869654815.png",
+      "prompt_sha256": "c59e80a3a27158c6cd7cd2703634e2934f84d6dced22a12242a922cdd3daf573",
+      "image_sha256": "3beb3a0c5e047b42f127a361756fc5be82776566cbbbe786dcccf4a0b386c753",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Matching themed document and landscape deck previews, readable format choices, compact FAQ and botanical CTA. No repeated mythology scene. Browser print is correctly labeled; no numeric charts or publication-date claims. Static future-state agent-reviewed concept, awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "04-sabha",
+      "screen": "01-hero",
+      "prompt": "04-sabha/prompts/01-hero-v8.txt",
+      "output": "04-sabha/mockups/01-hero-v8.png",
+      "status": "concept-reviewed",
+      "brief_revision": "restrained-product-laptop-v8",
+      "planned_prompt": "04-sabha/prompts/01-hero-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-d653fd13-9926-49c4-b23b-f556c1f8876f.png",
+      "prompt_sha256": "aa9e864885fdeefa68ed2b8eca090a1856abf441c6b2c8af797dc38227053794",
+      "image_sha256": "4a60e02f6fc8333f88c13e24d1545de152da2e3584f18134418e83d15881c796",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Saraswati reviews a presentation in a pearl library, with veena and lotus. Plum chrome, mauve selection, lavender inspector and solid light paper. One illustration only. Sample citations and forecast prose need grounded replacements before implementation.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "04-sabha",
+      "screen": "02-scroll-showcase",
+      "prompt": "04-sabha/prompts/02-scroll-showcase-v8.txt",
+      "output": "04-sabha/mockups/02-scroll-showcase-v8.png",
+      "status": "concept-reviewed",
+      "brief_revision": "restrained-product-laptop-v8",
+      "planned_prompt": "04-sabha/prompts/02-scroll-showcase-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-81e28b80-d050-4cf8-bc90-78fd226db5fb.png",
+      "prompt_sha256": "68ca431b04210ccab399d0928e13a65df7a4ec0d136cc23a799b1e119f170091",
+      "image_sha256": "0bbfcc254abcaa3c5d60902764012a0f7de7c50ddfd78b315abc552dc84fcdda",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Same themed application expands into a near-full-screen workspace; no mythology images in the working area. Outline, project brief, prose, pending refinement diff and accept/discard are visible. Color hierarchy preserved from hero. Generated report text is illustrative; production fixtures require verified sources.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "04-sabha",
+      "screen": "03-capabilities",
+      "prompt": "04-sabha/prompts/03-capabilities-v8.txt",
+      "output": "04-sabha/mockups/03-capabilities-v8.png",
+      "brief_revision": "restrained-product-laptop-v8",
+      "status": "concept-reviewed",
+      "planned_prompt": "04-sabha/prompts/03-capabilities-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-8927a0ab-6d9d-42d9-b548-ce72007db5ae.png",
+      "prompt_sha256": "0ac94681a08f267fd286f874e1343d5ec2f07593d362620f2a41e68f29ecdd82",
+      "image_sha256": "1ded8d56dd00420fbc09aa5a0adceab7e533d9f094dd149a9ed536ee76eb2fc0",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Product-only brief/source/diff/history/generation composition; colored panels match theme. Five useful states visible together with legible controls and no repeated hero artwork. Future-state agent-reviewed concept, awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "04-sabha",
+      "screen": "04-outputs-close",
+      "prompt": "04-sabha/prompts/04-outputs-close-v8.txt",
+      "output": "04-sabha/mockups/04-outputs-close-v8.png",
+      "brief_revision": "restrained-product-laptop-v8",
+      "status": "concept-reviewed",
+      "planned_prompt": "04-sabha/prompts/04-outputs-close-v8.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-8b70f6c7-a4e0-450d-b9e5-1ce6901efcd5.png",
+      "prompt_sha256": "31ddacc2afe7ec28e7e5e53fec47734cf8447f13321b3a2f80c8bd6258c34dfb",
+      "image_sha256": "ef6b171de7c32a9ddac8333a623eae766b6e9f9988fb27c51f775609233afd4b",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Matching themed document and landscape deck previews, readable format choices, compact FAQ and botanical CTA. No repeated mythology scene. Browser print is correctly labeled; no numeric charts or publication-date claims. Static future-state agent-reviewed concept, awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "05-vanam",
+      "screen": "01-hero",
+      "prompt": "05-vanam/prompts/01-hero-v7-authorship-edit.txt",
+      "output": "05-vanam/mockups/01-hero-v7.png",
+      "status": "deferred",
+      "brief_revision": "colored-authorship-laptop-v7",
+      "planned_prompt": "05-vanam/prompts/01-hero.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-5cb7529c-0d9d-4f4e-b2f8-ec324b762c6b.png",
+      "prompt_sha256": "dc622c12885a09510083ee4379698516722dd0260886719a4c2e2bb9915c4dde",
+      "image_sha256": "e538c949eeaaf00ff1f32369f49912f6ce6331432e522af1450871dc070b97db",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Archived fifth direction. Round 8 delivers four complete themes and supersedes the repeated-art approach.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review"
+    },
+    {
+      "theme": "05-vanam",
+      "screen": "02-scroll-showcase",
+      "prompt": "05-vanam/prompts/02-scroll-showcase.txt",
+      "output": "05-vanam/mockups/02-scroll-showcase.png",
+      "status": "deferred",
+      "brief_revision": "colored-authorship-laptop-v7",
+      "planned_prompt": "05-vanam/prompts/02-scroll-showcase.txt",
+      "review": "Archived fifth direction. Round 8 delivers four complete themes and supersedes the repeated-art approach."
+    },
+    {
+      "theme": "05-vanam",
+      "screen": "03-capabilities",
+      "prompt": "05-vanam/prompts/03-capabilities.txt",
+      "output": "05-vanam/mockups/03-capabilities.png",
+      "brief_revision": "colored-authorship-laptop-v7",
+      "status": "deferred",
+      "planned_prompt": "05-vanam/prompts/03-capabilities.txt",
+      "review": "Archived fifth direction. Round 8 delivers four complete themes and supersedes the repeated-art approach."
+    },
+    {
+      "theme": "05-vanam",
+      "screen": "04-outputs-close",
+      "prompt": "05-vanam/prompts/04-outputs-close.txt",
+      "output": "05-vanam/mockups/04-outputs-close.png",
+      "brief_revision": "colored-authorship-laptop-v7",
+      "status": "deferred",
+      "planned_prompt": "05-vanam/prompts/04-outputs-close.txt",
+      "review": "Archived fifth direction. Round 8 delivers four complete themes and supersedes the repeated-art approach."
+    }
+  ]
+}

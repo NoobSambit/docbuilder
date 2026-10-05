@@ -1,0 +1,5 @@
+Use case: ui-mockup.
+Image1 is the output-page EDIT TARGET. Image2 supplies the established site identity and software-label styling.
+Preserve image1's complete layout, density, two outputstages, compact exportmenu, reportpage, filmstrip, openFAQ, horizontalCTA, fine rules and allgeometry unchanged. Preserve the serif typography INSIDE the actual reportpage and presentation slides; those are finished content.
+Match only the WEBSITE interface to image2: its smallfeather mark and compact "DocBuilder AI" wordmark; clean sans headings on the outer website's "Ready to leave the workspace.", captions, "A few things to know." and "Your next idea starts here.", and the FAQanswer. Use image2's heading scale and quietcontrols. Keep siteheadings compact, no oversized letters.
+No otherchanges, no newcontainers, no bigbuttons, no newart, no borders aroundFAQ, no cardaroundCTA. Preserve full16:9 laptopcanvas and crispEnglish labels.

@@ -1,0 +1,6 @@
+Use case: ui-mockup.
+EDIT TARGET: supplied capability screenshot. Change ONLY its theme colors; preserve the entire page layout and allcomponentgeometry exactly.
+Color replacement: Cool chalk page, soft blue/celadon preview canvases, deep indigo history-preview backdrop, muted cobalt smallactions and subdued saffron highlights.
+This is a LOGGED-OUT LANDING SECTION with a single HORIZONTAL TOP NAVIGATION. There is NO GLOBAL SIDEBAR in the target. Do NOT add a sidebar, leftnavigationrail, dashboard, avatar, library, projects list or any othernew UI. The maincontent extends across the samewidth as the target.
+Keep the same compactwordmark and horizontalnav, modestheadline, two upper croppedproductpreviews and three lower ones, exactcaptions, inline diff, sourceinspector, historypopover and sectiongeneration state. Their lightweight layering and smallcontrols must stay unchanged. Recolor the five preview BACKDROPS and smallprimaryactions only; no extra darksection outside the five existingpreviews.
+Source labels exactly "Renewables 2025", "Energy Storage", "US Department of Energy", properlyspaced. Everyotherlabel, paragraph, icon, shadow and margin staysunchanged. Preserve landscape16:9 laptopcanvas and sharpness. No characterart, no newcontainers, no thickborders or largebuttons. This is a precise recolor, not a redesigned application.

@@ -36,6 +36,6 @@ Tiny inline markers demonstrate the proposed attribution UI. The final determini
 
 ## Comparison consistency
 
-All five directions have the same promise, project and four-chapter expansion/pin/release sequence. Each contains four separate laptop viewports: hero, full-screen refinement state, capability grid and outputs/FAQ/close. Palette, medium, mythological scene and crop distinguish the directions.
+The four current directions have the same promise, project and four-chapter expansion/pin/release sequence. Each contains four separate laptop viewports: hero, full-screen refinement state, capability grid and outputs/FAQ/close. Palette, medium, mythological scene and crop distinguish the directions.
 
 The UI uses modern plain-English labels. Mythology stays in original decorative art. Raster references are design artifacts, never the implemented interactive interface.

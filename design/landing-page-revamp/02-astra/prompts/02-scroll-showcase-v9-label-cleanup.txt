@@ -1,0 +1,5 @@
+Use case: ui-mockup.
+Image1 is the EDIT TARGET. Image2 only supplies the compact modern software label style.
+Keep image1's complete layout, density, charcoal-teal sidebar, light paper, pale sage contextpane, compact toolbar, pending diff and all geometry unchanged. Keep serif text on the DOCUMENT PAPER unchanged.
+Correct only interface lettering: brand "DocBuilder AI" and context heading "Refine selection" use the same compact sans style as image2's software labels. Replace the concatenated linkedsource names with exact normal-spaced text "Renewables 2025 · IEA" and "Energy Storage · US Department of Energy"; use two lines if needed. Every word must be properly spaced, no concatenatedgibberish.
+Replace sparkle icons on the Generate actions with a simple thin pencil icon. All other controls and sampleprose remain unchanged. Output one landscape16:9 laptopviewport, preserve fullcanvas and crispness. No new art, no extra borders, no enlargement, no changes to the layout.
