@@ -4,6 +4,7 @@ Welcome to the technical documentation for **DocBuilder**, the enterprise-grade 
 
 ## 🚀 Quick Links
 
+- **[Product and UI rebuild plan](PRODUCT_REBUILD_PLAN.md)**: Proposed production hardening, lightweight RAG, feature additions, full UI scope and free-tier release gates.
 - **[System Architecture](architecture/system-overview.md)**: High-level overview of the system components.
 - **[AI System Deep Dive](ai-system/llm-rag.md)**: How we use LLMs, RAG, and LangChain.
 - **[Features](features/outline-generation.md)**: Detailed breakdown of user-facing features.
