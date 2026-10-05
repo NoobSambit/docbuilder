@@ -1,20 +1,16 @@
-# Sabha · The hall of ideas
+# Sabha · The epic assembly
 
-An architectural, bright and assured home for structured ideas.
+An intricate epic assembly frames a rational compact product composition.
 
-- Palette: luminous limestone #F4F2EC, graphite #2D302E, muted terracotta #B35A43.
-- Type: one refined modern sans-serif family similar in proportions to a contemporary humanist grotesk; medium 48–56px marketing headings, 14px controls, calm 28px application titles; no huge bold serif.
-- Art: a premium architecture-publication photograph of a pale Indian assembly hall inspired by Sabha: one monumental limestone arch, a thin jali screen, a distant shallow reflecting pool and soft morning side light. Very clean geometry, subtle tactile stone, spacious crop, nearly monochrome, no gaudy palace, no hotels, no statues, no busy carvings. Large blank pale wall at left; architectural forms only at far right.
-- Product connection: The assembly hall gives ideas room and order.
-- Hero composition: Pale architectural photography, precise sans typography, one terracotta action color.
-- Implementation consideration: Do not let the architecture look like a hotel homepage; keep the AI editor prominent in the lower half.
+- Palette: limestone #EDE9DF, aubergine #342D3B, plum #634558; saffron and verdigris in art.
+- Artwork: An original richly detailed Indian miniature painting of the Mahabharata assembly hall. A cutaway palace with scalloped arches and jali screens reveals seated Pandava princes, an elder scholar and clearly blue Krishna in a peacock crown discussing a manuscript. A scribe records the meeting on palm leaves. Carpets, painted niches, a green reflecting pool and ordered columns create intricate layers. Deliberate architectural geometry and legible figure groups, not a noisy crowd. Matte gouache, fine ink contours, paper grain, lapis and terracotta details. Recognizable mythological narrative, not an empty hotel colonnade.
+- Implementation: Retain recognizable figure groups in mobile art crops.
 
-## Page sequence
+## Four laptop viewports
 
-1. Hero with large workspace in its lower half.
-2. Workspace expands, pins, and progresses through Outline → Generate → Refine → Export.
-3. Capability detail with thematic background imagery.
-4. Document and presentation examples.
-5. FAQ and image-backed final CTA.
+1. Compact hero with large lower-half application.
+2. Same application expanded into full-screen refinement showcase.
+3. Image-rich brief, research, refinement, history and generation stories.
+4. Document and slide outputs, FAQ, image-led close and footer.
 
-The mockups propose styling for real product functions; they do not claim the current application already looks this way. See the shared SCROLL-STORY.md for interaction and mobile behavior.
+Target 1920×1080,16:9; actual dimensions recorded after generation. Future-state concepts assume the product rebuild succeeds. See FUTURE-STATE-CONTRACT.md and SCROLL-STORY.md.

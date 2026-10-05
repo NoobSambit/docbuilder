@@ -1,30 +1,41 @@
-# Landing exploration — revised direction
+# Landing exploration — dense epic direction
 
-Design phase only. The logged-out page and product source remain untouched.
+Design phase only. The logged-out product UI has not been rebuilt. The concepts assume the complete [product rebuild plan](../../docs/PRODUCT_REBUILD_PLAN.md) succeeds.
 
-The first Akshara hero was rejected by the user. Its failure was compositional, not a need for more decorative detail: huge serif type, a literal stock devotional scene, saturated orange controls, and a heavy white editor window. It is archived in `rejected/01-akshara-v1.png`, excluded from the selected mockups.
+The user rejected all three completed early Akshara images. V1 looked like a cheap statue banner with oversized type; V2 and V4 made mythology too faint and left too much unused space. All remain in `rejected/`; none is a selected design. V3 was an interrupted/failed attempt and has no completed artifact.
 
-The revised direction takes the supplied Devin screenshots' restraint seriously: modest headline scale, generous whitespace, clean application surfaces, restrained image crops, and open alternating product stories after the showcase. The mythology lives in curated artwork and landscape. Modern product controls stay plain and useful.
+## Current design contract
 
-## Visual rules
+- Proper laptop viewports, targeting 1920×1080 and 16:9. Record actual output dimensions, rather than calling an image 1920px without checking.
+- Compact copy and useful density: roughly 44–48px marketing headings, 15–17px navigation/body, 14px application controls, 36–40px rows. Do not reduce everything to unreadable miniatures.
+- Recognizable Indian mythology carries the art direction. Figures are substantial, with a clear epic scene, rich painted materials and multiple coherent image crops.
+- Bold crop and layered painted scenes take inspiration from [Shopify Winter ’26 Renaissance Edition](https://www.shopify.com/editions/winter2026). Original artwork only; its assets and commerce content are not deliverables.
+- The supplied Devin screenshots inform the compact product layout, broad workspace, varied feature previews and aligned lower-page grid.
+- One substantial hero application begins around 40% of viewport height and occupies the lower half or more. It is the same application that expands and pins.
+- Clean solid paper, fine dividers, restrained corners and natural shadows. Art remains outside working prose.
+- Useful density comes from briefs, readable sections, inspected sources, reversible refinement, save state, version history and output previews. No invented dashboards, metrics or collaboration.
+- Four separate landscape screenshots cover each direction. Do not squeeze the entire lower page into a tall presentation board.
 
-- Headline about 48–56px at 1440px desktop width; no huge display serif or bold poster type.
-- Navigation 14–16px; body 17–18px; application controls 12–14px; editor title 26–30px.
-- One readable sans family for primary UI. Any serif is confined to manuscript imagery or a quiet output artifact.
-- Quiet charcoal or pale action buttons. Theme accent is used sparingly for selections and progress.
-- Artwork is a curated image plane with stable empty space, not a wall of literal deity statues.
-- Hairline boundaries, 10–14px outer workspace radius, minimal shadow, no chunky cards.
-- Application occupies the lower half of the hero; it expands to a flat full-screen workspace.
-- Lower page uses image-backed product examples and alternating editorial sections, not generic feature cards.
+## Five distinct painted worlds
 
-## Shared story
+| Direction | Visible mythology | Palette and art medium |
+| --- | --- | --- |
+| Akshara | Ganesha writes while Vyasa dictates | Ivory, ink, vermilion; richly textured epic oil painting |
+| Astra | Krishna and Arjuna on a chariot | Midnight, chalk, copper; dramatic epic oil painting |
+| Neel | Krishna playing the flute in a garden | Paper, cobalt; detailed Pichwai-inspired painting |
+| Sabha | Epic palace assembly with Krishna and scribes | Limestone, plum; intricate miniature gouache |
+| Vanam | Vyasa and Krishna beneath a banyan | Celadon, forest; refined Kerala-mural-inspired painting |
 
-Topic → outline → generated sections → contextual refinement → DOCX or PPTX export. After the pinned sequence, explain the depth of generation and refinement, show real output formats, answer three questions, and close with an image-backed CTA.
+Themes retain the same feature story so comparisons concern the design rather than different product promises.
 
-## Review threshold
+## Review gate
 
-Reject any image with a stock mythology-banner impression, huge or heavy headline, busy background behind copy, chunky SaaS UI, oversaturated CTA, miniature workspace, or missing narrative sequence. Imagegen text can contain small inconsistencies; the final implementation must use native HTML text and controls.
+Inspect every generated screen. Reject or revise if mythology is indistinct at thumbnail size, the app is too small, empty bands dominate, text is unreadable, component geometry drifts, future features contradict the plan, the same container cannot plausibly expand, or lower-page story/outputs are missing.
 
-## References
+“Reviewed concept” means the composition was inspected by the agent. It never means user approval, implementation proof, motion proof or responsive QA. Imagegen text imperfections are logged; implementation uses native HTML text and controls.
 
-The user supplied five Devin screenshots showing hero, feature previews and alternating workflow sections. These are the authoritative visual reference for this pass; live browser access was declined. The initial attached screenshot establishes the lower-half workspace requirement. No Devin brand art, copy, social proof or product features are reused.
+## Files and regeneration
+
+`build_briefs.py` generates the current twenty prompts while preserving review metadata. `manifest.json` tracks actual assets, dimensions and review status. `retired-screen-manifest.json` retains earlier tall-screen metadata. Old rejected edit prompts are historical; the four current screen stems are authoritative.
+
+The live Devin browser request was declined; no alternative access was used. The user-provided screenshots supply that reference. Shopify Winter ’26 was inspected in the browser for its painted figure crops and image-led composition.

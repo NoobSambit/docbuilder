@@ -2,25 +2,50 @@
   {
     "theme": "01-akshara",
     "screen": "01-hero",
-    "prompt": "01-akshara/prompts/01-hero.txt",
+    "prompt": "01-akshara/prompts/01-hero-v6-edit.txt",
     "output": "01-akshara/mockups/01-hero.png",
-    "status": "pending-revision",
-    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-f478cb3b-5ebd-42ae-acbe-34103c450d04.png",
-    "review": "USER REJECTED: stock devotional scene, huge serif typography, loud orange controls, chunky editor, insufficient restraint and premium quality. Regenerate from revised art direction; never use as an accepted deliverable.",
-    "rejected_output": "rejected/01-akshara-v1.png"
+    "status": "concept-reviewed",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-c4120a44-1b60-4372-9335-64165ca9513e.png",
+    "review": "Compact headline now leaves mythology prominent; Ganesha and Vyasa unmistakable, source/brief/save UI dense and readable. Art retains a relatively realistic finish rather than strong visible brushwork; viable concept for user comparison, not approved artwork.",
+    "rejected_output": [
+      "rejected/01-akshara-v1.png",
+      "rejected/01-akshara-v2.png",
+      "rejected/01-akshara-v4.png",
+      "rejected/01-akshara-v5.png"
+    ],
+    "brief_revision": "dense-epic-laptop-v5",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "prompt_sha256": "3ddd8a038ceb33938817d6d279b168812c4fcb9a154908c009b7aab9ee0cff49",
+    "image_sha256": "0daf4c292dcfcda93b9f02f66fb97140cad11798b25f0f4e7d63aba5482da02a",
+    "aspect_ratio": 1.77683,
+    "reviewed_by": "agent",
+    "user_approval": "pending review"
   },
   {
     "theme": "01-akshara",
     "screen": "02-scroll-showcase",
     "prompt": "01-akshara/prompts/02-scroll-showcase.txt",
     "output": "01-akshara/mockups/02-scroll-showcase.png",
+    "status": "pending",
+    "brief_revision": "dense-epic-laptop-v5"
+  },
+  {
+    "theme": "01-akshara",
+    "screen": "03-capabilities",
+    "prompt": "01-akshara/prompts/03-capabilities.txt",
+    "output": "01-akshara/mockups/03-capabilities.png",
+    "brief_revision": "dense-epic-laptop-v5",
     "status": "pending"
   },
   {
     "theme": "01-akshara",
-    "screen": "03-after-showcase",
-    "prompt": "01-akshara/prompts/03-after-showcase.txt",
-    "output": "01-akshara/mockups/03-after-showcase.png",
+    "screen": "04-outputs-close",
+    "prompt": "01-akshara/prompts/04-outputs-close.txt",
+    "output": "01-akshara/mockups/04-outputs-close.png",
+    "brief_revision": "dense-epic-laptop-v5",
     "status": "pending"
   },
   {
@@ -28,41 +53,74 @@
     "screen": "01-hero",
     "prompt": "02-astra/prompts/01-hero.txt",
     "output": "02-astra/mockups/01-hero.png",
-    "status": "pending"
+    "status": "pending",
+    "brief_revision": "dense-epic-laptop-v5"
   },
   {
     "theme": "02-astra",
     "screen": "02-scroll-showcase",
     "prompt": "02-astra/prompts/02-scroll-showcase.txt",
     "output": "02-astra/mockups/02-scroll-showcase.png",
+    "status": "pending",
+    "brief_revision": "dense-epic-laptop-v5"
+  },
+  {
+    "theme": "02-astra",
+    "screen": "03-capabilities",
+    "prompt": "02-astra/prompts/03-capabilities.txt",
+    "output": "02-astra/mockups/03-capabilities.png",
+    "brief_revision": "dense-epic-laptop-v5",
     "status": "pending"
   },
   {
     "theme": "02-astra",
-    "screen": "03-after-showcase",
-    "prompt": "02-astra/prompts/03-after-showcase.txt",
-    "output": "02-astra/mockups/03-after-showcase.png",
+    "screen": "04-outputs-close",
+    "prompt": "02-astra/prompts/04-outputs-close.txt",
+    "output": "02-astra/mockups/04-outputs-close.png",
+    "brief_revision": "dense-epic-laptop-v5",
     "status": "pending"
   },
   {
     "theme": "03-neel",
     "screen": "01-hero",
-    "prompt": "03-neel/prompts/01-hero.txt",
+    "prompt": "03-neel/prompts/01-hero-v5.txt",
     "output": "03-neel/mockups/01-hero.png",
-    "status": "pending"
+    "status": "concept-reviewed",
+    "brief_revision": "dense-epic-laptop-v5",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-ff46399f-5042-44f3-aaa2-90b3dc3c6394.png",
+    "prompt_sha256": "16da0907ca6f1bcd5ff0495e018c61cc91716125d3b88caf648761fded23a0d4",
+    "image_sha256": "fe4065dd94b194987a07860efc49fa3a79231bb17a5f3cbf9f8cbce1c7e5dd31",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "aspect_ratio": 1.77683,
+    "review": "Recognizable Krishna garden and rich Pichwai detail; broad lower-half workspace, brief, included sources and saved state are readable. Exact hypothetical source prose and minor field spelling need native text fixtures during implementation.",
+    "reviewed_by": "agent",
+    "user_approval": "pending review"
   },
   {
     "theme": "03-neel",
     "screen": "02-scroll-showcase",
     "prompt": "03-neel/prompts/02-scroll-showcase.txt",
     "output": "03-neel/mockups/02-scroll-showcase.png",
+    "status": "pending",
+    "brief_revision": "dense-epic-laptop-v5"
+  },
+  {
+    "theme": "03-neel",
+    "screen": "03-capabilities",
+    "prompt": "03-neel/prompts/03-capabilities.txt",
+    "output": "03-neel/mockups/03-capabilities.png",
+    "brief_revision": "dense-epic-laptop-v5",
     "status": "pending"
   },
   {
     "theme": "03-neel",
-    "screen": "03-after-showcase",
-    "prompt": "03-neel/prompts/03-after-showcase.txt",
-    "output": "03-neel/mockups/03-after-showcase.png",
+    "screen": "04-outputs-close",
+    "prompt": "03-neel/prompts/04-outputs-close.txt",
+    "output": "03-neel/mockups/04-outputs-close.png",
+    "brief_revision": "dense-epic-laptop-v5",
     "status": "pending"
   },
   {
@@ -70,20 +128,31 @@
     "screen": "01-hero",
     "prompt": "04-sabha/prompts/01-hero.txt",
     "output": "04-sabha/mockups/01-hero.png",
-    "status": "pending"
+    "status": "pending",
+    "brief_revision": "dense-epic-laptop-v5"
   },
   {
     "theme": "04-sabha",
     "screen": "02-scroll-showcase",
     "prompt": "04-sabha/prompts/02-scroll-showcase.txt",
     "output": "04-sabha/mockups/02-scroll-showcase.png",
+    "status": "pending",
+    "brief_revision": "dense-epic-laptop-v5"
+  },
+  {
+    "theme": "04-sabha",
+    "screen": "03-capabilities",
+    "prompt": "04-sabha/prompts/03-capabilities.txt",
+    "output": "04-sabha/mockups/03-capabilities.png",
+    "brief_revision": "dense-epic-laptop-v5",
     "status": "pending"
   },
   {
     "theme": "04-sabha",
-    "screen": "03-after-showcase",
-    "prompt": "04-sabha/prompts/03-after-showcase.txt",
-    "output": "04-sabha/mockups/03-after-showcase.png",
+    "screen": "04-outputs-close",
+    "prompt": "04-sabha/prompts/04-outputs-close.txt",
+    "output": "04-sabha/mockups/04-outputs-close.png",
+    "brief_revision": "dense-epic-laptop-v5",
     "status": "pending"
   },
   {
@@ -91,20 +160,31 @@
     "screen": "01-hero",
     "prompt": "05-vanam/prompts/01-hero.txt",
     "output": "05-vanam/mockups/01-hero.png",
-    "status": "pending"
+    "status": "pending",
+    "brief_revision": "dense-epic-laptop-v5"
   },
   {
     "theme": "05-vanam",
     "screen": "02-scroll-showcase",
     "prompt": "05-vanam/prompts/02-scroll-showcase.txt",
     "output": "05-vanam/mockups/02-scroll-showcase.png",
+    "status": "pending",
+    "brief_revision": "dense-epic-laptop-v5"
+  },
+  {
+    "theme": "05-vanam",
+    "screen": "03-capabilities",
+    "prompt": "05-vanam/prompts/03-capabilities.txt",
+    "output": "05-vanam/mockups/03-capabilities.png",
+    "brief_revision": "dense-epic-laptop-v5",
     "status": "pending"
   },
   {
     "theme": "05-vanam",
-    "screen": "03-after-showcase",
-    "prompt": "05-vanam/prompts/03-after-showcase.txt",
-    "output": "05-vanam/mockups/03-after-showcase.png",
+    "screen": "04-outputs-close",
+    "prompt": "05-vanam/prompts/04-outputs-close.txt",
+    "output": "05-vanam/mockups/04-outputs-close.png",
+    "brief_revision": "dense-epic-laptop-v5",
     "status": "pending"
   }
 ]

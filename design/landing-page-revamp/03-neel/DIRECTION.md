@@ -1,20 +1,16 @@
-# Neel · The story garden
+# Neel · The painted story garden
 
-A distinctive Indian painted world surrounding a calm and contemporary product.
+A richly painted Krishna garden gives a crisp cobalt-and-paper workspace character.
 
-- Palette: warm pearl #F3F1EA, deep ink-blue #172E5B, a single royal-indigo accent #285CCB.
-- Type: one refined modern sans-serif family similar in proportions to a contemporary humanist grotesk; medium 48–56px marketing headings, 14px controls, calm 28px application titles; no huge bold serif.
-- Art: an original contemporary interpretation of Pichwai painting: a single large elegant indigo peacock silhouette cropped at the far-right edge, two sparse pale lotus forms, delicate matte natural pigment and hazy blue sky. The visual is spacious, low saturation and museum-print quality; tiny hand-painted linework, subtle cream contour, no dense gold ornament, no crowded garden, no mandala wallpaper. It evokes Krishna's garden without a foreground deity.
-- Product connection: A thought grows through ordered chapters into a complete story.
-- Hero composition: A restrained hand-painted garden with white product surfaces and blue control accents.
-- Implementation consideration: The mural needs separate desktop and mobile crops; excessive ornament must be avoided.
+- Palette: warm white #F5F1E7, indigo #162E57, cobalt #315BA8; lotus pink and leaf green in art.
+- Artwork: A magnificent contemporary Pichwai-inspired Indian garden painting. Clearly recognizable blue Krishna with a peacock-feather crown plays a flute beneath a kadamba tree, in cream and yellow cloth with fine gold edging. Two peacocks, a layered lotus pond, dense leaves, graceful white cows and a scalloped pavilion form a sophisticated narrative tableau. Precise hand-painted mineral pigment, matte paper texture, richly layered flat space and tiny natural gold details. Krishna is substantial and immediately visible, never a faint symbol. No generic blue gradient, mandala wallpaper or cartoon mascot.
+- Implementation: Separate image crops; no ornament beneath utility text.
 
-## Page sequence
+## Four laptop viewports
 
-1. Hero with large workspace in its lower half.
-2. Workspace expands, pins, and progresses through Outline → Generate → Refine → Export.
-3. Capability detail with thematic background imagery.
-4. Document and presentation examples.
-5. FAQ and image-backed final CTA.
+1. Compact hero with large lower-half application.
+2. Same application expanded into full-screen refinement showcase.
+3. Image-rich brief, research, refinement, history and generation stories.
+4. Document and slide outputs, FAQ, image-led close and footer.
 
-The mockups propose styling for real product functions; they do not claim the current application already looks this way. See the shared SCROLL-STORY.md for interaction and mobile behavior.
+Target 1920×1080,16:9; actual dimensions recorded after generation. Future-state concepts assume the product rebuild succeeds. See FUTURE-STATE-CONTRACT.md and SCROLL-STORY.md.

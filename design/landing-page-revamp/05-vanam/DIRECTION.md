@@ -1,20 +1,16 @@
-# Vanam · Wisdom in the wild
+# Vanam · The forest manuscript
 
-A scholarly, organic page where knowledge becomes clear, useful work.
+A lush epic forest mural gives a scholarly green writing studio warmth and density.
 
-- Palette: misty celadon #EBEEE5, deep forest ink #183B32, muted emerald accent #2F6454.
-- Type: one refined modern sans-serif family similar in proportions to a contemporary humanist grotesk; medium 48–56px marketing headings, 14px controls, calm 28px application titles; no huge bold serif.
-- Art: a quiet contemporary Indian mural-style landscape of a single monumental banyan canopy and river mist, painted in muted celadon and deep forest ink with fine pigment texture. A tiny distant sage with a palm-leaf manuscript under the far-right tree evokes epic forest scholarship but occupies under five percent of the image. Asymmetric open sky, strong spare tree silhouette, no lush wallpaper, no cute cartoon, no huge character, no wellness icons.
-- Product connection: Forest manuscript traditions meet a practical AI writing studio.
-- Hero composition: Banyan silhouettes and celadon mist balance a clean literary interface.
-- Implementation consideration: The forest must read as an art direction for writing software rather than a wellness product.
+- Palette: celadon #E6EADF, forest #18382E, emerald #36654E; ochre and burnt orange in art.
+- Artwork: An original Kerala-mural-inspired epic forest illustration with refined natural pigments and crisp fine contours. Dignified white-bearded Vyasa writes palm-leaf manuscripts beneath a sprawling banyan; blue Krishna in a peacock-feather crown listens nearby. Both figures are substantial and clearly mythological. Layer large banyan roots, rich green foliage, river reflections, manuscript bundles, ochre robes, white cranes and stone steps. Intricate authored botanical detail, rhythmic flat shapes, refined copper details, mature museum-print finish. No anonymous tiny sage, blank mist field, wellness stock image or cute cartoon.
+- Implementation: Clear software promise; modern plain-English controls.
 
-## Page sequence
+## Four laptop viewports
 
-1. Hero with large workspace in its lower half.
-2. Workspace expands, pins, and progresses through Outline → Generate → Refine → Export.
-3. Capability detail with thematic background imagery.
-4. Document and presentation examples.
-5. FAQ and image-backed final CTA.
+1. Compact hero with large lower-half application.
+2. Same application expanded into full-screen refinement showcase.
+3. Image-rich brief, research, refinement, history and generation stories.
+4. Document and slide outputs, FAQ, image-led close and footer.
 
-The mockups propose styling for real product functions; they do not claim the current application already looks this way. See the shared SCROLL-STORY.md for interaction and mobile behavior.
+Target 1920×1080,16:9; actual dimensions recorded after generation. Future-state concepts assume the product rebuild succeeds. See FUTURE-STATE-CONTRACT.md and SCROLL-STORY.md.

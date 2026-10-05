@@ -1,0 +1,37 @@
+[
+  {
+    "theme": "01-akshara",
+    "screen": "03-after-showcase",
+    "prompt": "01-akshara/prompts/03-after-showcase.txt",
+    "output": "01-akshara/mockups/03-after-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "02-astra",
+    "screen": "03-after-showcase",
+    "prompt": "02-astra/prompts/03-after-showcase.txt",
+    "output": "02-astra/mockups/03-after-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "03-neel",
+    "screen": "03-after-showcase",
+    "prompt": "03-neel/prompts/03-after-showcase.txt",
+    "output": "03-neel/mockups/03-after-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "04-sabha",
+    "screen": "03-after-showcase",
+    "prompt": "04-sabha/prompts/03-after-showcase.txt",
+    "output": "04-sabha/mockups/03-after-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "05-vanam",
+    "screen": "03-after-showcase",
+    "prompt": "05-vanam/prompts/03-after-showcase.txt",
+    "output": "05-vanam/mockups/03-after-showcase.png",
+    "status": "pending"
+  }
+]
