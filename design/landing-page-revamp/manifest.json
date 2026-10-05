@@ -1,0 +1,110 @@
+[
+  {
+    "theme": "01-akshara",
+    "screen": "01-hero",
+    "prompt": "01-akshara/prompts/01-hero.txt",
+    "output": "01-akshara/mockups/01-hero.png",
+    "status": "pending-revision",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-f478cb3b-5ebd-42ae-acbe-34103c450d04.png",
+    "review": "USER REJECTED: stock devotional scene, huge serif typography, loud orange controls, chunky editor, insufficient restraint and premium quality. Regenerate from revised art direction; never use as an accepted deliverable.",
+    "rejected_output": "rejected/01-akshara-v1.png"
+  },
+  {
+    "theme": "01-akshara",
+    "screen": "02-scroll-showcase",
+    "prompt": "01-akshara/prompts/02-scroll-showcase.txt",
+    "output": "01-akshara/mockups/02-scroll-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "01-akshara",
+    "screen": "03-after-showcase",
+    "prompt": "01-akshara/prompts/03-after-showcase.txt",
+    "output": "01-akshara/mockups/03-after-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "02-astra",
+    "screen": "01-hero",
+    "prompt": "02-astra/prompts/01-hero.txt",
+    "output": "02-astra/mockups/01-hero.png",
+    "status": "pending"
+  },
+  {
+    "theme": "02-astra",
+    "screen": "02-scroll-showcase",
+    "prompt": "02-astra/prompts/02-scroll-showcase.txt",
+    "output": "02-astra/mockups/02-scroll-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "02-astra",
+    "screen": "03-after-showcase",
+    "prompt": "02-astra/prompts/03-after-showcase.txt",
+    "output": "02-astra/mockups/03-after-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "03-neel",
+    "screen": "01-hero",
+    "prompt": "03-neel/prompts/01-hero.txt",
+    "output": "03-neel/mockups/01-hero.png",
+    "status": "pending"
+  },
+  {
+    "theme": "03-neel",
+    "screen": "02-scroll-showcase",
+    "prompt": "03-neel/prompts/02-scroll-showcase.txt",
+    "output": "03-neel/mockups/02-scroll-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "03-neel",
+    "screen": "03-after-showcase",
+    "prompt": "03-neel/prompts/03-after-showcase.txt",
+    "output": "03-neel/mockups/03-after-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "04-sabha",
+    "screen": "01-hero",
+    "prompt": "04-sabha/prompts/01-hero.txt",
+    "output": "04-sabha/mockups/01-hero.png",
+    "status": "pending"
+  },
+  {
+    "theme": "04-sabha",
+    "screen": "02-scroll-showcase",
+    "prompt": "04-sabha/prompts/02-scroll-showcase.txt",
+    "output": "04-sabha/mockups/02-scroll-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "04-sabha",
+    "screen": "03-after-showcase",
+    "prompt": "04-sabha/prompts/03-after-showcase.txt",
+    "output": "04-sabha/mockups/03-after-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "05-vanam",
+    "screen": "01-hero",
+    "prompt": "05-vanam/prompts/01-hero.txt",
+    "output": "05-vanam/mockups/01-hero.png",
+    "status": "pending"
+  },
+  {
+    "theme": "05-vanam",
+    "screen": "02-scroll-showcase",
+    "prompt": "05-vanam/prompts/02-scroll-showcase.txt",
+    "output": "05-vanam/mockups/02-scroll-showcase.png",
+    "status": "pending"
+  },
+  {
+    "theme": "05-vanam",
+    "screen": "03-after-showcase",
+    "prompt": "05-vanam/prompts/03-after-showcase.txt",
+    "output": "05-vanam/mockups/03-after-showcase.png",
+    "status": "pending"
+  }
+]
