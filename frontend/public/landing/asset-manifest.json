@@ -1,0 +1,402 @@
+{
+  "akshara": {
+    "hero": {
+      "master": "design/landing-page-revamp/01-akshara/assets/hero-background-v4.png",
+      "sha256": "4589e0d134f3042bed8142c4abe953335875efaf645ed130ff9a363bf15b9fc4",
+      "derivatives": [
+        {
+          "file": "landing/akshara/hero-768.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 114072
+        },
+        {
+          "file": "landing/akshara/hero-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 263932
+        },
+        {
+          "file": "landing/akshara/hero-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 385968
+        }
+      ]
+    },
+    "capabilities": {
+      "master": "design/landing-page-revamp/01-akshara/assets/capabilities-background-v1.png",
+      "sha256": "dabfb12b95df4231cac68335d69825e75be8f7f795651727e39fc5ed94f7aa8b",
+      "derivatives": [
+        {
+          "file": "landing/akshara/capabilities-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 31102
+        },
+        {
+          "file": "landing/akshara/capabilities-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 121190
+        }
+      ]
+    },
+    "archive": {
+      "master": "design/landing-page-revamp/01-akshara/assets/archive-detail-v1.png",
+      "sha256": "37401cc9c02012f04ed8baed400ba0a516811753593c7d3cd4bdb81326495527",
+      "derivatives": [
+        {
+          "file": "landing/akshara/archive-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 29342
+        },
+        {
+          "file": "landing/akshara/archive-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 112132
+        }
+      ]
+    },
+    "outputs": {
+      "master": "design/landing-page-revamp/01-akshara/assets/outputs-background-v1.png",
+      "sha256": "78b67fa4f32cb132670f395facdc9a13c2c482bee4f6bc22e4d87a16deb3cf59",
+      "derivatives": [
+        {
+          "file": "landing/akshara/outputs-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 20704
+        },
+        {
+          "file": "landing/akshara/outputs-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 69754
+        }
+      ]
+    }
+  },
+  "astra": {
+    "hero": {
+      "master": "design/landing-page-revamp/02-astra/assets/hero-background-v4.png",
+      "sha256": "240387161a3816011111af650670b0735ab155dd060cd858a4c35a941f749044",
+      "derivatives": [
+        {
+          "file": "landing/astra/hero-768.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 117714
+        },
+        {
+          "file": "landing/astra/hero-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 264946
+        },
+        {
+          "file": "landing/astra/hero-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 384934
+        }
+      ]
+    },
+    "capabilities": {
+      "master": "design/landing-page-revamp/02-astra/assets/capabilities-background-v1.png",
+      "sha256": "f2b81fc72ceec4024c64fe97a2ec034e17a8e23dde33eb681fc4ac9e26bbb071",
+      "derivatives": [
+        {
+          "file": "landing/astra/capabilities-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 29990
+        },
+        {
+          "file": "landing/astra/capabilities-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 105750
+        }
+      ]
+    },
+    "archive": {
+      "master": "design/landing-page-revamp/02-astra/assets/archive-detail-v1.png",
+      "sha256": "04877fe7e1aae66a0af4f0999bfcf88640deee47bc2ba7e29679fb53b2fdb846",
+      "derivatives": [
+        {
+          "file": "landing/astra/archive-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 28446
+        },
+        {
+          "file": "landing/astra/archive-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 120258
+        }
+      ]
+    },
+    "outputs": {
+      "master": "design/landing-page-revamp/02-astra/assets/outputs-background-v1.png",
+      "sha256": "b2d461cd9af746a28e2191dc02d53c4d5f41f0b90ac55829d1d88463476d7f04",
+      "derivatives": [
+        {
+          "file": "landing/astra/outputs-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 32122
+        },
+        {
+          "file": "landing/astra/outputs-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 100960
+        }
+      ]
+    }
+  },
+  "neel": {
+    "hero": {
+      "master": "design/landing-page-revamp/03-neel/assets/hero-background-v4.png",
+      "sha256": "a1f374cfda62259efa8ccb970a56f33328508da193cbf2d319d19f39c2185a7e",
+      "derivatives": [
+        {
+          "file": "landing/neel/hero-768.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 164936
+        },
+        {
+          "file": "landing/neel/hero-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 393974
+        },
+        {
+          "file": "landing/neel/hero-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 578258
+        }
+      ]
+    },
+    "capabilities": {
+      "master": "design/landing-page-revamp/03-neel/assets/capabilities-background-v1.png",
+      "sha256": "1fce7671a08b4310f4e34a2077a9011d53edb65dcd9c740b3bb4f87e660ae92a",
+      "derivatives": [
+        {
+          "file": "landing/neel/capabilities-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 34928
+        },
+        {
+          "file": "landing/neel/capabilities-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 110030
+        }
+      ]
+    },
+    "archive": {
+      "master": "design/landing-page-revamp/03-neel/assets/archive-detail-v1.png",
+      "sha256": "872a1fb0fdfd10941273a1be0d7d80594fc6f10dd508ba29fb527420ed1a9b1d",
+      "derivatives": [
+        {
+          "file": "landing/neel/archive-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 26812
+        },
+        {
+          "file": "landing/neel/archive-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 98870
+        }
+      ]
+    },
+    "outputs": {
+      "master": "design/landing-page-revamp/03-neel/assets/outputs-background-v1.png",
+      "sha256": "fbc078f3ea29afedcce8ebc54a6b89e73a6c9790603d8faeca0f90d429625124",
+      "derivatives": [
+        {
+          "file": "landing/neel/outputs-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 38216
+        },
+        {
+          "file": "landing/neel/outputs-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 119202
+        }
+      ]
+    }
+  },
+  "sabha": {
+    "hero": {
+      "master": "design/landing-page-revamp/04-sabha/assets/hero-background-v4.png",
+      "sha256": "dd46790718595dae8195e3945facbbcab7e062e860d2680a88dc0223580821ad",
+      "derivatives": [
+        {
+          "file": "landing/sabha/hero-768.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 155030
+        },
+        {
+          "file": "landing/sabha/hero-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 363360
+        },
+        {
+          "file": "landing/sabha/hero-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 526934
+        }
+      ]
+    },
+    "capabilities": {
+      "master": "design/landing-page-revamp/04-sabha/assets/capabilities-background-v1.png",
+      "sha256": "a483e4c896ec9e90198b52b47fdec882756bae5e2e07b1839d6aec4f48954a23",
+      "derivatives": [
+        {
+          "file": "landing/sabha/capabilities-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 20032
+        },
+        {
+          "file": "landing/sabha/capabilities-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 68654
+        }
+      ]
+    },
+    "archive": {
+      "master": "design/landing-page-revamp/04-sabha/assets/archive-detail-v1.png",
+      "sha256": "ddc4f6081c9f15bdecfd1484f95fa2a7b7a16e35ab6bfa01ca0f36f1b0b9152b",
+      "derivatives": [
+        {
+          "file": "landing/sabha/archive-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 21566
+        },
+        {
+          "file": "landing/sabha/archive-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 83622
+        }
+      ]
+    },
+    "outputs": {
+      "master": "design/landing-page-revamp/04-sabha/assets/outputs-background-v1.png",
+      "sha256": "fa1e5eda34c69099a05d5f4c271c0e4ebd4106081b72daca00dbe85cf71051ef",
+      "derivatives": [
+        {
+          "file": "landing/sabha/outputs-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 22778
+        },
+        {
+          "file": "landing/sabha/outputs-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 63964
+        }
+      ]
+    }
+  },
+  "vanam": {
+    "hero": {
+      "master": "design/landing-page-revamp/05-vanam/assets/hero-background-v4.png",
+      "sha256": "633d5ba12fab9cc6e516e8ce6822db87556faf198b9816ba432e32d4045a3ef9",
+      "derivatives": [
+        {
+          "file": "landing/vanam/hero-768.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 157820
+        },
+        {
+          "file": "landing/vanam/hero-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 358412
+        },
+        {
+          "file": "landing/vanam/hero-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 521322
+        }
+      ]
+    },
+    "capabilities": {
+      "master": "design/landing-page-revamp/05-vanam/assets/capabilities-background-v1.png",
+      "sha256": "a79a7d702f51937d36bb675a7d778d64c724cb082996ee09985d8401aa5763e0",
+      "derivatives": [
+        {
+          "file": "landing/vanam/capabilities-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 51650
+        },
+        {
+          "file": "landing/vanam/capabilities-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 186452
+        }
+      ]
+    },
+    "archive": {
+      "master": "design/landing-page-revamp/05-vanam/assets/archive-detail-v1.png",
+      "sha256": "deea5d8349d13598fbd12b681ebc30ad1766e13adc821d189db7ba3c6199fac5",
+      "derivatives": [
+        {
+          "file": "landing/vanam/archive-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 33382
+        },
+        {
+          "file": "landing/vanam/archive-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 150012
+        }
+      ]
+    },
+    "outputs": {
+      "master": "design/landing-page-revamp/05-vanam/assets/outputs-background-v1.png",
+      "sha256": "7d91ce317afdaf0d86e3da17c26996555ee76af37f564d3c2d9469fb5d7c5268",
+      "derivatives": [
+        {
+          "file": "landing/vanam/outputs-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 56792
+        },
+        {
+          "file": "landing/vanam/outputs-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 189952
+        }
+      ]
+    }
+  }
+}
