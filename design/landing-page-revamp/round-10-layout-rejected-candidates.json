@@ -1,0 +1,23 @@
+[
+  {
+    "theme": "01-akshara",
+    "screen": "03-capabilities",
+    "prompt": "01-akshara/prompts/03-capabilities-v10-background-art.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-cfe18bc0-a510-4c3e-9afa-f54308ecb9f7.png",
+    "reason": "Added an enclosing stepped page frame, dropped the lower-left caption and changed source-feature support copy. Retain as art reference only; excluded from the active gallery."
+  },
+  {
+    "theme": "02-astra",
+    "screen": "03-capabilities",
+    "prompt": "02-astra/prompts/03-capabilities-v10-background-art.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-fa9d8594-1d03-4740-83f9-48b62968a669.png",
+    "reason": "Added an enclosing white header/page panel and omitted all three lower feature captions. Retain as art reference only; excluded from the active gallery."
+  },
+  {
+    "theme": "02-astra",
+    "screen": "03-capabilities",
+    "prompt": "02-astra/prompts/03-capabilities-v10-layout-fix.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-0b0587e6-21d9-49b3-9ce4-6835279e9c01.png",
+    "reason": "Layout and all five captions restored, but navigation wordmark was duplicated. Excluded pending a precise brand cleanup."
+  }
+]

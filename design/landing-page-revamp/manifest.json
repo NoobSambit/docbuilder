@@ -50,44 +50,76 @@
   {
     "theme": "01-akshara",
     "screen": "03-capabilities",
-    "prompt": "01-akshara/prompts/03-capabilities-v9-layout-lock.txt",
-    "output": "01-akshara/mockups/03-capabilities-v9.png",
-    "brief_revision": "compact-product-chrome-v9",
+    "prompt": "01-akshara/prompts/03-capabilities-v10-layout-fix.txt",
+    "output": "01-akshara/mockups/03-capabilities-v10.png",
+    "brief_revision": "scholarly-background-art-v10",
     "status": "concept-reviewed",
-    "planned_prompt": "01-akshara/prompts/03-capabilities-v9-layout-lock.txt",
-    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-d8d23e69-372f-4d2f-bc08-e7b201c45aaa.png",
-    "prompt_sha256": "56974d1d820b7395f2709ef90b52bc4e143270420d4d4a1f95a39e4b07964b21",
-    "image_sha256": "cb1df0c5894fffd29aa13a0e3cbdf80abcc5e9838a8fdea3f7ac972190536795",
+    "planned_prompt": "01-akshara/prompts/03-capabilities-v10-background-art.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-fdc7bccb-1f79-4ad8-93cf-3e164165d867.png",
+    "prompt_sha256": "e7376fce59ca95ee419f19a0c3f952e89661e489f40b743876ab5a57081aef0e",
+    "image_sha256": "2f5f32f51c5b143bf1e32d7b5131fc375a13795e1bbe455f7999edbeb19d2ab8",
     "dimensions": [
       1672,
       941
     ],
     "aspect_ratio": 1.77683,
-    "review": "Corrected logged-out page composition: horizontal top navigation, no global dashboard/sidebar/avatar. Five varied cropped product previews retain compact controls, source layering, inline diff, saved-version history and paused generation. Themed canvases and restrained actions replace heavy form framing. Minor source-label spacing remains illustrative; native UI uses exact strings. Awaiting user feedback.",
+    "review": "Warm manuscript desk and sandstone archive scenery support the original five-preview product composition. The enclosing outer frame is removed and all five captions are restored, including the source-feature support copy. Opaque UI remains readable and foreground controls retain compact scale. Minor generated source-row spacing remains illustrative; native UI must use Energy Storage with correct spaces and grounded text. No characters or added features. Awaiting user review.",
     "reviewed_by": "agent",
-    "user_approval": "pending review of revised UI",
-    "generation_mode": "built-in image_gen"
+    "user_approval": "pending review of background-art revision",
+    "generation_mode": "built-in image_gen",
+    "generation_chain": [
+      {
+        "prompt": "01-akshara/prompts/03-capabilities-v10-background-art.txt",
+        "inputs": [
+          "01-akshara/mockups/03-capabilities-v9.png"
+        ],
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-cfe18bc0-a510-4c3e-9afa-f54308ecb9f7.png",
+        "review": "Art reference retained; page frame and missing caption rejected.",
+        "prompt_sha256": "c0b50e3a2c427ca1cc2e2dc906c119ef98b1cad7fcdb8bfbf23debb8026bcc0b"
+      },
+      {
+        "prompt": "01-akshara/prompts/03-capabilities-v10-layout-fix.txt",
+        "inputs": [
+          "01-akshara/mockups/03-capabilities-v9.png",
+          "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-cfe18bc0-a510-4c3e-9afa-f54308ecb9f7.png"
+        ],
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-fdc7bccb-1f79-4ad8-93cf-3e164165d867.png",
+        "review": "Original composition and all five captions restored.",
+        "prompt_sha256": "e7376fce59ca95ee419f19a0c3f952e89661e489f40b743876ab5a57081aef0e"
+      }
+    ]
   },
   {
     "theme": "01-akshara",
     "screen": "04-outputs-close",
-    "prompt": "01-akshara/prompts/04-outputs-close-v9.txt",
-    "output": "01-akshara/mockups/04-outputs-close-v9.png",
-    "brief_revision": "compact-product-chrome-v9",
+    "prompt": "01-akshara/prompts/04-outputs-close-v10-background-art.txt",
+    "output": "01-akshara/mockups/04-outputs-close-v10.png",
+    "brief_revision": "scholarly-background-art-v10",
     "status": "concept-reviewed",
-    "planned_prompt": "01-akshara/prompts/04-outputs-close-v9.txt",
-    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-f983a82a-93c0-4dde-ab98-d2a2a594197e.png",
-    "prompt_sha256": "108c5bff9f01616c9f50f9d713391656271ef1efb33066cc429e1ac1ddea1dee",
-    "image_sha256": "e634248e2d8981713e5d907a6ebcdc25b2cc5956b9d938a878b83d110b91097f",
+    "planned_prompt": "01-akshara/prompts/04-outputs-close-v10-background-art.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-d607e4fe-366d-49c0-a686-7dc97f522ef8.png",
+    "prompt_sha256": "57c31977aca8d3ac16b905d57d8c740a881da48656f2c64a95ebab4c399b97be",
+    "image_sha256": "401660c37d12bb31c82874a4289a2b0fe257dedc0152aed8f4984d3db6d39dbc",
     "dimensions": [
       1672,
       941
     ],
     "aspect_ratio": 1.77683,
-    "review": "Matching modern artifact composition: report with a second page, compact anchored format menu, 16:9 deck and small filmstrip. Open ruled FAQ and horizontal closing action replace boxed sections. No global sidebar. Minor generated text needs exact native labels; this is a future-state design candidate awaiting feedback.",
+    "review": "Warm sandstone atelier, manuscript bundles and copper writing objects frame the finished report and deck. Distinct from Sabha library; readable light FAQ and closing row. Output artifacts remain dominant, export menu labels are correct, and no character art or new product feature is introduced. Native document text must use grounded fixtures. Awaiting user review.",
     "reviewed_by": "agent",
-    "user_approval": "pending review of revised UI",
-    "generation_mode": "built-in image_gen"
+    "user_approval": "pending review of background-art revision",
+    "generation_mode": "built-in image_gen",
+    "generation_chain": [
+      {
+        "prompt": "01-akshara/prompts/04-outputs-close-v10-background-art.txt",
+        "inputs": [
+          "01-akshara/mockups/04-outputs-close-v9.png"
+        ],
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-d607e4fe-366d-49c0-a686-7dc97f522ef8.png",
+        "review": "Background, foreground readability and feature story inspected.",
+        "prompt_sha256": "57c31977aca8d3ac16b905d57d8c740a881da48656f2c64a95ebab4c399b97be"
+      }
+    ]
   },
   {
     "theme": "02-astra",
@@ -134,44 +166,85 @@
   {
     "theme": "02-astra",
     "screen": "03-capabilities",
-    "prompt": "02-astra/prompts/03-capabilities-v9-label-cleanup.txt",
-    "output": "02-astra/mockups/03-capabilities-v9.png",
-    "brief_revision": "compact-product-chrome-v9",
+    "prompt": "02-astra/prompts/03-capabilities-v10-brand-fix.txt",
+    "output": "02-astra/mockups/03-capabilities-v10.png",
+    "brief_revision": "scholarly-background-art-v10",
     "status": "concept-reviewed",
-    "planned_prompt": "02-astra/prompts/03-capabilities-v9-label-cleanup.txt",
-    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-dfe9f979-08cf-4390-a1ce-ec696b32f91d.png",
-    "prompt_sha256": "01bdd9704211b38db9fe0cf623ac19e9362058cd5a229e01a703368f05116022",
-    "image_sha256": "ce5dd84f2c38f4240f3cadbde78fd4f1c3f926df8e9306e79b0544c511aa2675",
+    "planned_prompt": "02-astra/prompts/03-capabilities-v10-background-art.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-8def6cb3-7c0c-4d35-829c-5571d982b58e.png",
+    "prompt_sha256": "c7f7477000ab70a7e3903817b3e78ff66c2dd02115fe528e1e8c693a4d833e20",
+    "image_sha256": "415ac0f6b2b599b00e7ba07e907a4947075e931a6eca818b68052a001cfdc47e",
     "dimensions": [
       1672,
       941
     ],
     "aspect_ratio": 1.77683,
-    "review": "Capabilities now show five varied cropped product compositions: inline brief choices, layered source inspector, inline diff, saved-version popover and small resumed-generation controls. Heavy header bars and bordered form-grid architecture removed. One source-list label retains a missing space; implementation uses the exact source titles. Awaiting user review.",
+    "review": "Teal/sage lakeside pavilion, source folios and archival materials support the original five-preview composition. Outer page frame is removed, all five captions restored and duplicate wordmark removed. Foreground surfaces remain opaque and readable with compact controls. Minor generated spacing and decorative glyphs remain illustrative; native UI uses exact brand/source strings and grounded fixtures. No characters or new features. Awaiting user review.",
     "reviewed_by": "agent",
-    "user_approval": "pending review of revised UI",
-    "generation_mode": "built-in image_gen"
+    "user_approval": "pending review of background-art revision",
+    "generation_mode": "built-in image_gen",
+    "generation_chain": [
+      {
+        "prompt": "02-astra/prompts/03-capabilities-v10-background-art.txt",
+        "inputs": [
+          "02-astra/mockups/03-capabilities-v9.png"
+        ],
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-fa9d8594-1d03-4740-83f9-48b62968a669.png",
+        "review": "Art reference retained; enclosing frame and omitted captions rejected.",
+        "prompt_sha256": "5f80b8f809629a633e0c1a5d4738ba254e90bfe6bd68f751b243dd0702a28569"
+      },
+      {
+        "prompt": "02-astra/prompts/03-capabilities-v10-layout-fix.txt",
+        "inputs": [
+          "02-astra/mockups/03-capabilities-v9.png",
+          "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-fa9d8594-1d03-4740-83f9-48b62968a669.png"
+        ],
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-0b0587e6-21d9-49b3-9ce4-6835279e9c01.png",
+        "review": "Composition and captions restored; duplicate wordmark required cleanup.",
+        "prompt_sha256": "1cabcb6a77794c448a8c691f4956d88fd9a2c369eeb6d57d196ee9daf12f9c68"
+      },
+      {
+        "prompt": "02-astra/prompts/03-capabilities-v10-brand-fix.txt",
+        "inputs": [
+          "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-0b0587e6-21d9-49b3-9ce4-6835279e9c01.png"
+        ],
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-8def6cb3-7c0c-4d35-829c-5571d982b58e.png",
+        "review": "Duplicate wordmark removed; final composition inspected.",
+        "prompt_sha256": "c7f7477000ab70a7e3903817b3e78ff66c2dd02115fe528e1e8c693a4d833e20"
+      }
+    ]
   },
   {
     "theme": "02-astra",
     "screen": "04-outputs-close",
-    "prompt": "02-astra/prompts/04-outputs-close-v9-interface-cleanup.txt",
-    "output": "02-astra/mockups/04-outputs-close-v9.png",
-    "brief_revision": "compact-product-chrome-v9",
+    "prompt": "02-astra/prompts/04-outputs-close-v10-background-art.txt",
+    "output": "02-astra/mockups/04-outputs-close-v10.png",
+    "brief_revision": "scholarly-background-art-v10",
     "status": "concept-reviewed",
-    "planned_prompt": "02-astra/prompts/04-outputs-close-v9-interface-cleanup.txt",
-    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-043d663e-49f5-4c4a-baa9-7d0793a70fe5.png",
-    "prompt_sha256": "dd3966e71ec82e588b057a6fc2eb6af21e6672abec21fb17cbadab87fc635297",
-    "image_sha256": "21449b5a26a6f841632f7fc330452b2a7d4f6d4f8afd8810986ce7ae101186b1",
+    "planned_prompt": "02-astra/prompts/04-outputs-close-v10-background-art.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-e16ae4f3-6357-4b03-97e7-56f8cc4518d2.png",
+    "prompt_sha256": "8cd92db312fe7f6d9b52cee62fdf3033b6e4d0a60c261d6f59d6d162e7968298",
+    "image_sha256": "71accb4938044a5d096743544bedaea0602354b9be1db86fd554dc6e86842142",
     "dimensions": [
       1672,
-      940
+      941
     ],
-    "aspect_ratio": 1.77872,
-    "review": "Finished artifacts lead the composition: upright report pages and a modern 16:9 deck. Export is a small anchored menu; giant format cards and colored titlebars removed. FAQ is an open ruled list and the close is a horizontal page row. Site labels match the compact modern UI. Future-state candidate awaiting user feedback.",
+    "aspect_ratio": 1.77683,
+    "review": "Lakeside study pavilion, sage water and copper details appear around the modern finished-output previews. Report, slideshow, export menu and open FAQ remain readable; Browser print label is corrected. No characters or added features. Decorative environment is separate from actual slide content. Native sample prose requires grounded fixtures. Awaiting user review.",
     "reviewed_by": "agent",
-    "user_approval": "pending review of revised UI",
-    "generation_mode": "built-in image_gen"
+    "user_approval": "pending review of background-art revision",
+    "generation_mode": "built-in image_gen",
+    "generation_chain": [
+      {
+        "prompt": "02-astra/prompts/04-outputs-close-v10-background-art.txt",
+        "inputs": [
+          "02-astra/mockups/04-outputs-close-v9.png"
+        ],
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-e16ae4f3-6357-4b03-97e7-56f8cc4518d2.png",
+        "review": "Background, foreground readability and feature story inspected.",
+        "prompt_sha256": "8cd92db312fe7f6d9b52cee62fdf3033b6e4d0a60c261d6f59d6d162e7968298"
+      }
+    ]
   },
   {
     "theme": "03-neel",
@@ -218,44 +291,66 @@
   {
     "theme": "03-neel",
     "screen": "03-capabilities",
-    "prompt": "03-neel/prompts/03-capabilities-v9-layout-lock.txt",
-    "output": "03-neel/mockups/03-capabilities-v9.png",
-    "brief_revision": "compact-product-chrome-v9",
+    "prompt": "03-neel/prompts/03-capabilities-v10-background-art.txt",
+    "output": "03-neel/mockups/03-capabilities-v10.png",
+    "brief_revision": "scholarly-background-art-v10",
     "status": "concept-reviewed",
-    "planned_prompt": "03-neel/prompts/03-capabilities-v9-layout-lock.txt",
-    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-217fc445-a374-474c-b7aa-61247828d724.png",
-    "prompt_sha256": "3f06c1090c7601dbc278fddf5afef2cd80616644b95e5120345f632e586988f8",
-    "image_sha256": "dcb2a47d716b6585dc255f7270125b613efd1090e9fe163c80749a46c533059c",
+    "planned_prompt": "03-neel/prompts/03-capabilities-v10-background-art.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-9733448f-ef6b-44bd-b77d-1485fe5c3554.png",
+    "prompt_sha256": "72d42811e086b6e9bfda9116c0d99a134f1aafae34b6a17c1956ede92d72f460",
+    "image_sha256": "868963e09d9556c2ab2377854463ea17b985da0be8530259ba9aff2e6ce38b98",
     "dimensions": [
       1672,
       941
     ],
     "aspect_ratio": 1.77683,
-    "review": "Corrected logged-out page composition: horizontal top navigation, no global dashboard/sidebar/avatar. Five varied cropped product previews retain compact controls, source layering, inline diff, saved-version history and paused generation. Themed canvases and restrained actions replace heavy form framing. Minor source-label spacing remains illustrative; native UI uses exact strings. Awaiting user feedback.",
+    "review": "Indigo garden architecture, lotus foliage and manuscript materials support five opaque product previews. All five feature captions, inline diff, version history and paused generation are visible. Character-free setting differs from the other themes. Minor generated source-row spacing remains illustrative; native UI must render Energy Storage with proper spaces and use exact grounded text. Awaiting user review.",
     "reviewed_by": "agent",
-    "user_approval": "pending review of revised UI",
-    "generation_mode": "built-in image_gen"
+    "user_approval": "pending review of background-art revision",
+    "generation_mode": "built-in image_gen",
+    "generation_chain": [
+      {
+        "prompt": "03-neel/prompts/03-capabilities-v10-background-art.txt",
+        "inputs": [
+          "03-neel/mockups/03-capabilities-v9.png"
+        ],
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-9733448f-ef6b-44bd-b77d-1485fe5c3554.png",
+        "review": "Background, foreground readability and feature story inspected.",
+        "prompt_sha256": "72d42811e086b6e9bfda9116c0d99a134f1aafae34b6a17c1956ede92d72f460"
+      }
+    ]
   },
   {
     "theme": "03-neel",
     "screen": "04-outputs-close",
-    "prompt": "03-neel/prompts/04-outputs-close-v9.txt",
-    "output": "03-neel/mockups/04-outputs-close-v9.png",
-    "brief_revision": "compact-product-chrome-v9",
+    "prompt": "03-neel/prompts/04-outputs-close-v10-background-art.txt",
+    "output": "03-neel/mockups/04-outputs-close-v10.png",
+    "brief_revision": "scholarly-background-art-v10",
     "status": "concept-reviewed",
-    "planned_prompt": "03-neel/prompts/04-outputs-close-v9.txt",
-    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-de4f9f2d-6bc4-4a37-8a45-b3506830297a.png",
-    "prompt_sha256": "2f72a5b34fb0b068e86961c58a4dabe4a581fdbe253a36151b191c4d3f6e631f",
-    "image_sha256": "2c1f4367879e8a4fecc5e3014dd0015e5da48db79fbd62a7d0bdead0ca48e09c",
+    "planned_prompt": "03-neel/prompts/04-outputs-close-v10-background-art.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-d57d590e-0fd2-4f1d-b11e-f277f5c6dc48.png",
+    "prompt_sha256": "1fde60c545b21e912dee7f30f7d88ffe97db65a138eae38829f3c3030a610a9d",
+    "image_sha256": "260e5783e4519e9a282cf5e7cc58b2d8486b7317d54cec74958a4f1adb745545",
     "dimensions": [
       1672,
       941
     ],
     "aspect_ratio": 1.77683,
-    "review": "Matching modern artifact composition: report with a second page, compact anchored format menu, 16:9 deck and small filmstrip. Open ruled FAQ and horizontal closing action replace boxed sections. No global sidebar. Minor generated text needs exact native labels; this is a future-state design candidate awaiting feedback.",
+    "review": "Indigo garden-study pavilion with botanical margins and celadon desk materials frames the finished report/deck. Light sky and stone preserve heading and FAQ contrast; original output story remains intact. Browser print extra glyph is removed. No characters or added features. Sample prose and background lettering are illustrative; native text requires grounded fixtures. Awaiting user review.",
     "reviewed_by": "agent",
-    "user_approval": "pending review of revised UI",
-    "generation_mode": "built-in image_gen"
+    "user_approval": "pending review of background-art revision",
+    "generation_mode": "built-in image_gen",
+    "generation_chain": [
+      {
+        "prompt": "03-neel/prompts/04-outputs-close-v10-background-art.txt",
+        "inputs": [
+          "03-neel/mockups/04-outputs-close-v9.png"
+        ],
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-d57d590e-0fd2-4f1d-b11e-f277f5c6dc48.png",
+        "review": "Background, foreground readability and feature story inspected.",
+        "prompt_sha256": "1fde60c545b21e912dee7f30f7d88ffe97db65a138eae38829f3c3030a610a9d"
+      }
+    ]
   },
   {
     "theme": "04-sabha",

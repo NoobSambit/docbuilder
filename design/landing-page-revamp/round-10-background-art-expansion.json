@@ -1,0 +1,175 @@
+{
+  "date": "2026-10-06",
+  "baseline_commit": "fdfe6e4",
+  "request": "Apply supporting character-free backgrounds to Akshara, Astra and Neel capabilities and outputs too. Each theme has its own setting and palette.",
+  "previous_entries": [
+    {
+      "theme": "01-akshara",
+      "screen": "03-capabilities",
+      "prompt": "01-akshara/prompts/03-capabilities-v9-layout-lock.txt",
+      "output": "01-akshara/mockups/03-capabilities-v9.png",
+      "brief_revision": "compact-product-chrome-v9",
+      "status": "concept-reviewed",
+      "planned_prompt": "01-akshara/prompts/03-capabilities-v9-layout-lock.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-d8d23e69-372f-4d2f-bc08-e7b201c45aaa.png",
+      "prompt_sha256": "56974d1d820b7395f2709ef90b52bc4e143270420d4d4a1f95a39e4b07964b21",
+      "image_sha256": "cb1df0c5894fffd29aa13a0e3cbdf80abcc5e9838a8fdea3f7ac972190536795",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Corrected logged-out page composition: horizontal top navigation, no global dashboard/sidebar/avatar. Five varied cropped product previews retain compact controls, source layering, inline diff, saved-version history and paused generation. Themed canvases and restrained actions replace heavy form framing. Minor source-label spacing remains illustrative; native UI uses exact strings. Awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review of revised UI",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "01-akshara",
+      "screen": "04-outputs-close",
+      "prompt": "01-akshara/prompts/04-outputs-close-v9.txt",
+      "output": "01-akshara/mockups/04-outputs-close-v9.png",
+      "brief_revision": "compact-product-chrome-v9",
+      "status": "concept-reviewed",
+      "planned_prompt": "01-akshara/prompts/04-outputs-close-v9.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-f983a82a-93c0-4dde-ab98-d2a2a594197e.png",
+      "prompt_sha256": "108c5bff9f01616c9f50f9d713391656271ef1efb33066cc429e1ac1ddea1dee",
+      "image_sha256": "e634248e2d8981713e5d907a6ebcdc25b2cc5956b9d938a878b83d110b91097f",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Matching modern artifact composition: report with a second page, compact anchored format menu, 16:9 deck and small filmstrip. Open ruled FAQ and horizontal closing action replace boxed sections. No global sidebar. Minor generated text needs exact native labels; this is a future-state design candidate awaiting feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review of revised UI",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "02-astra",
+      "screen": "03-capabilities",
+      "prompt": "02-astra/prompts/03-capabilities-v9-label-cleanup.txt",
+      "output": "02-astra/mockups/03-capabilities-v9.png",
+      "brief_revision": "compact-product-chrome-v9",
+      "status": "concept-reviewed",
+      "planned_prompt": "02-astra/prompts/03-capabilities-v9-label-cleanup.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-dfe9f979-08cf-4390-a1ce-ec696b32f91d.png",
+      "prompt_sha256": "01bdd9704211b38db9fe0cf623ac19e9362058cd5a229e01a703368f05116022",
+      "image_sha256": "ce5dd84f2c38f4240f3cadbde78fd4f1c3f926df8e9306e79b0544c511aa2675",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Capabilities now show five varied cropped product compositions: inline brief choices, layered source inspector, inline diff, saved-version popover and small resumed-generation controls. Heavy header bars and bordered form-grid architecture removed. One source-list label retains a missing space; implementation uses the exact source titles. Awaiting user review.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review of revised UI",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "02-astra",
+      "screen": "04-outputs-close",
+      "prompt": "02-astra/prompts/04-outputs-close-v9-interface-cleanup.txt",
+      "output": "02-astra/mockups/04-outputs-close-v9.png",
+      "brief_revision": "compact-product-chrome-v9",
+      "status": "concept-reviewed",
+      "planned_prompt": "02-astra/prompts/04-outputs-close-v9-interface-cleanup.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-043d663e-49f5-4c4a-baa9-7d0793a70fe5.png",
+      "prompt_sha256": "dd3966e71ec82e588b057a6fc2eb6af21e6672abec21fb17cbadab87fc635297",
+      "image_sha256": "21449b5a26a6f841632f7fc330452b2a7d4f6d4f8afd8810986ce7ae101186b1",
+      "dimensions": [
+        1672,
+        940
+      ],
+      "aspect_ratio": 1.77872,
+      "review": "Finished artifacts lead the composition: upright report pages and a modern 16:9 deck. Export is a small anchored menu; giant format cards and colored titlebars removed. FAQ is an open ruled list and the close is a horizontal page row. Site labels match the compact modern UI. Future-state candidate awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review of revised UI",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "03-neel",
+      "screen": "03-capabilities",
+      "prompt": "03-neel/prompts/03-capabilities-v9-layout-lock.txt",
+      "output": "03-neel/mockups/03-capabilities-v9.png",
+      "brief_revision": "compact-product-chrome-v9",
+      "status": "concept-reviewed",
+      "planned_prompt": "03-neel/prompts/03-capabilities-v9-layout-lock.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-217fc445-a374-474c-b7aa-61247828d724.png",
+      "prompt_sha256": "3f06c1090c7601dbc278fddf5afef2cd80616644b95e5120345f632e586988f8",
+      "image_sha256": "dcb2a47d716b6585dc255f7270125b613efd1090e9fe163c80749a46c533059c",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Corrected logged-out page composition: horizontal top navigation, no global dashboard/sidebar/avatar. Five varied cropped product previews retain compact controls, source layering, inline diff, saved-version history and paused generation. Themed canvases and restrained actions replace heavy form framing. Minor source-label spacing remains illustrative; native UI uses exact strings. Awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review of revised UI",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "03-neel",
+      "screen": "04-outputs-close",
+      "prompt": "03-neel/prompts/04-outputs-close-v9.txt",
+      "output": "03-neel/mockups/04-outputs-close-v9.png",
+      "brief_revision": "compact-product-chrome-v9",
+      "status": "concept-reviewed",
+      "planned_prompt": "03-neel/prompts/04-outputs-close-v9.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-de4f9f2d-6bc4-4a37-8a45-b3506830297a.png",
+      "prompt_sha256": "2f72a5b34fb0b068e86961c58a4dabe4a581fdbe253a36151b191c4d3f6e631f",
+      "image_sha256": "2c1f4367879e8a4fecc5e3014dd0015e5da48db79fbd62a7d0bdead0ca48e09c",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Matching modern artifact composition: report with a second page, compact anchored format menu, 16:9 deck and small filmstrip. Open ruled FAQ and horizontal closing action replace boxed sections. No global sidebar. Minor generated text needs exact native labels; this is a future-state design candidate awaiting feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review of revised UI",
+      "generation_mode": "built-in image_gen"
+    }
+  ],
+  "protected_outputs": [
+    {
+      "output": "01-akshara/mockups/01-hero-v8.png",
+      "image_sha256": "5401968d7b4d47c66d69168aa38df13ed7b03d822fac2f7f46a76c27af74723c"
+    },
+    {
+      "output": "01-akshara/mockups/02-scroll-showcase-v9.png",
+      "image_sha256": "0574fc5ea78c454f1c5dccdc1b9f72e23118bbc425e50350297eee6033a171b9"
+    },
+    {
+      "output": "02-astra/mockups/01-hero-v8.png",
+      "image_sha256": "fb8ba7b0123ff2841ef7e029c71a9fc12fc5133214edd31348c26b759d3e3727"
+    },
+    {
+      "output": "02-astra/mockups/02-scroll-showcase-v9.png",
+      "image_sha256": "3b1dbe58666697c87169ec632ed9adba57d19d9c88c56911a49a653b5bde04ab"
+    },
+    {
+      "output": "03-neel/mockups/01-hero-v8.png",
+      "image_sha256": "cee724c36c1d8d81840a82537767df918496bfbb706f89c4f1432d659ea441e7"
+    },
+    {
+      "output": "03-neel/mockups/02-scroll-showcase-v9.png",
+      "image_sha256": "8feae60f9c0308de4cbbd085934aa8e3907ef09a4e0527b906cd8472eb13e634"
+    },
+    {
+      "output": "04-sabha/mockups/01-hero-v8.png",
+      "image_sha256": "4a60e02f6fc8333f88c13e24d1545de152da2e3584f18134418e83d15881c796"
+    },
+    {
+      "output": "04-sabha/mockups/02-scroll-showcase-v9.png",
+      "image_sha256": "b6e5cce3dad470307fdc449580c0ff50377a525fb2193ac10885c0a99b5412cb"
+    },
+    {
+      "output": "04-sabha/mockups/03-capabilities-v10.png",
+      "image_sha256": "fef47fb1c479de5135b03c3585e3bc63cc4b2c75ef6d899c7b75b29d1514c4a5"
+    },
+    {
+      "output": "04-sabha/mockups/04-outputs-close-v10.png",
+      "image_sha256": "022db0ec37e13f144d5ce017b66ea31eaf555347c554a2a7484f79c7d705e258"
+    }
+  ]
+}
