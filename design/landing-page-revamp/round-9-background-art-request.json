@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-06",
+  "baseline_commit": "8a77336",
+  "request": "Add distinct supporting background imagery to the two supplied Sabha capability and outputs sections; no characters. Keep modern UI foreground readable.",
+  "scope": "Two supplied Sabha screens. Other themes, all heroes and all expanded workspaces are outside this revision.",
+  "previous_entries": [
+    {
+      "theme": "04-sabha",
+      "screen": "03-capabilities",
+      "prompt": "04-sabha/prompts/03-capabilities-v9-layout-lock.txt",
+      "output": "04-sabha/mockups/03-capabilities-v9.png",
+      "brief_revision": "compact-product-chrome-v9",
+      "status": "concept-reviewed",
+      "planned_prompt": "04-sabha/prompts/03-capabilities-v9-layout-lock.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-e54e83bc-6591-4eaf-ab3d-a680eb24e1a2.png",
+      "prompt_sha256": "d4b04a3beddba7d8aec743b8c0e5dca47c5a597bf8c10bb0516ce04ed1e3ece7",
+      "image_sha256": "b654cc5d86597c615f5a88ce5a3bdeda45f93ac7b5b8a836b18847afbb366116",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Corrected logged-out page composition: horizontal top navigation, no global dashboard/sidebar/avatar. Five varied cropped product previews retain compact controls, source layering, inline diff, saved-version history and paused generation. Themed canvases and restrained actions replace heavy form framing. Minor source-label spacing remains illustrative; native UI uses exact strings. Awaiting user feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review of revised UI",
+      "generation_mode": "built-in image_gen"
+    },
+    {
+      "theme": "04-sabha",
+      "screen": "04-outputs-close",
+      "prompt": "04-sabha/prompts/04-outputs-close-v9.txt",
+      "output": "04-sabha/mockups/04-outputs-close-v9.png",
+      "brief_revision": "compact-product-chrome-v9",
+      "status": "concept-reviewed",
+      "planned_prompt": "04-sabha/prompts/04-outputs-close-v9.txt",
+      "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-5f832cbb-dff2-475b-99ea-e09bca3a1a4a.png",
+      "prompt_sha256": "668f29ff1587af15d7cc14d363d20735ed3345f673d292f1e0499244e609fd24",
+      "image_sha256": "2b4e43d13a2245468f767f63285403d4f26334b163b49b1f9e4c3cecc7f38e02",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "aspect_ratio": 1.77683,
+      "review": "Matching modern artifact composition: report with a second page, compact anchored format menu, 16:9 deck and small filmstrip. Open ruled FAQ and horizontal closing action replace boxed sections. No global sidebar. Minor generated text needs exact native labels; this is a future-state design candidate awaiting feedback.",
+      "reviewed_by": "agent",
+      "user_approval": "pending review of revised UI",
+      "generation_mode": "built-in image_gen"
+    }
+  ],
+  "protected_outputs": [
+    {
+      "output": "01-akshara/mockups/01-hero-v8.png",
+      "image_sha256": "5401968d7b4d47c66d69168aa38df13ed7b03d822fac2f7f46a76c27af74723c"
+    },
+    {
+      "output": "01-akshara/mockups/02-scroll-showcase-v9.png",
+      "image_sha256": "0574fc5ea78c454f1c5dccdc1b9f72e23118bbc425e50350297eee6033a171b9"
+    },
+    {
+      "output": "01-akshara/mockups/03-capabilities-v9.png",
+      "image_sha256": "cb1df0c5894fffd29aa13a0e3cbdf80abcc5e9838a8fdea3f7ac972190536795"
+    },
+    {
+      "output": "01-akshara/mockups/04-outputs-close-v9.png",
+      "image_sha256": "e634248e2d8981713e5d907a6ebcdc25b2cc5956b9d938a878b83d110b91097f"
+    },
+    {
+      "output": "02-astra/mockups/01-hero-v8.png",
+      "image_sha256": "fb8ba7b0123ff2841ef7e029c71a9fc12fc5133214edd31348c26b759d3e3727"
+    },
+    {
+      "output": "02-astra/mockups/02-scroll-showcase-v9.png",
+      "image_sha256": "3b1dbe58666697c87169ec632ed9adba57d19d9c88c56911a49a653b5bde04ab"
+    },
+    {
+      "output": "02-astra/mockups/03-capabilities-v9.png",
+      "image_sha256": "ce5dd84f2c38f4240f3cadbde78fd4f1c3f926df8e9306e79b0544c511aa2675"
+    },
+    {
+      "output": "02-astra/mockups/04-outputs-close-v9.png",
+      "image_sha256": "21449b5a26a6f841632f7fc330452b2a7d4f6d4f8afd8810986ce7ae101186b1"
+    },
+    {
+      "output": "03-neel/mockups/01-hero-v8.png",
+      "image_sha256": "cee724c36c1d8d81840a82537767df918496bfbb706f89c4f1432d659ea441e7"
+    },
+    {
+      "output": "03-neel/mockups/02-scroll-showcase-v9.png",
+      "image_sha256": "8feae60f9c0308de4cbbd085934aa8e3907ef09a4e0527b906cd8472eb13e634"
+    },
+    {
+      "output": "03-neel/mockups/03-capabilities-v9.png",
+      "image_sha256": "dcb2a47d716b6585dc255f7270125b613efd1090e9fe163c80749a46c533059c"
+    },
+    {
+      "output": "03-neel/mockups/04-outputs-close-v9.png",
+      "image_sha256": "2c1f4367879e8a4fecc5e3014dd0015e5da48db79fbd62a7d0bdead0ca48e09c"
+    },
+    {
+      "output": "04-sabha/mockups/01-hero-v8.png",
+      "image_sha256": "4a60e02f6fc8333f88c13e24d1545de152da2e3584f18134418e83d15881c796"
+    },
+    {
+      "output": "04-sabha/mockups/02-scroll-showcase-v9.png",
+      "image_sha256": "b6e5cce3dad470307fdc449580c0ff50377a525fb2193ac10885c0a99b5412cb"
+    }
+  ]
+}

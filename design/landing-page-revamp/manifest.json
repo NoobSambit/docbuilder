@@ -302,44 +302,69 @@
   {
     "theme": "04-sabha",
     "screen": "03-capabilities",
-    "prompt": "04-sabha/prompts/03-capabilities-v9-layout-lock.txt",
-    "output": "04-sabha/mockups/03-capabilities-v9.png",
-    "brief_revision": "compact-product-chrome-v9",
+    "prompt": "04-sabha/prompts/03-capabilities-v10-source-label-fix.txt",
+    "output": "04-sabha/mockups/03-capabilities-v10.png",
+    "brief_revision": "scholarly-background-art-v10",
     "status": "concept-reviewed",
-    "planned_prompt": "04-sabha/prompts/03-capabilities-v9-layout-lock.txt",
-    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-e54e83bc-6591-4eaf-ab3d-a680eb24e1a2.png",
-    "prompt_sha256": "d4b04a3beddba7d8aec743b8c0e5dca47c5a597bf8c10bb0516ce04ed1e3ece7",
-    "image_sha256": "b654cc5d86597c615f5a88ce5a3bdeda45f93ac7b5b8a836b18847afbb366116",
+    "planned_prompt": "04-sabha/prompts/03-capabilities-v10-background-art.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-7281ffe7-e79b-4628-841e-c6f69b49c445.png",
+    "prompt_sha256": "6b34a8dc20e59102257a91009a52bca3b27914ed4eceac373b5b356df210858c",
+    "image_sha256": "fef47fb1c479de5135b03c3585e3bc63cc4b2c75ef6d899c7b75b29d1514c4a5",
     "dimensions": [
       1672,
       941
     ],
     "aspect_ratio": 1.77683,
-    "review": "Corrected logged-out page composition: horizontal top navigation, no global dashboard/sidebar/avatar. Five varied cropped product previews retain compact controls, source layering, inline diff, saved-version history and paused generation. Themed canvases and restrained actions replace heavy form framing. Minor source-label spacing remains illustrative; native UI uses exact strings. Awaiting user feedback.",
+    "review": "Distinct manuscript, archival-book and library-window crops sit behind five modern product previews; the scholarly environment connects to the hero without characters. Foreground forms, source inspector, inline diff, history and paused generation remain opaque and readable. Targeted follow-up restores Renewables 2025 above IEA while retaining Energy Storage above US Department of Energy. Background book lettering and sample prose are illustrative, not grounded product data. Awaiting user review.",
     "reviewed_by": "agent",
-    "user_approval": "pending review of revised UI",
-    "generation_mode": "built-in image_gen"
+    "user_approval": "pending review of background-art revision",
+    "generation_mode": "built-in image_gen",
+    "generation_chain": [
+      {
+        "prompt": "04-sabha/prompts/03-capabilities-v10-background-art.txt",
+        "input": "04-sabha/mockups/03-capabilities-v9.png",
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-eec67c5b-75ba-4978-901f-83c9119a6002.png",
+        "review": "Background composition retained; first source title required correction.",
+        "prompt_sha256": "c12d447455a24c2a25ee30c048b07770da6b4704479d00a7c4a5ee1ee296dca1"
+      },
+      {
+        "prompt": "04-sabha/prompts/03-capabilities-v10-source-label-fix.txt",
+        "input": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-eec67c5b-75ba-4978-901f-83c9119a6002.png",
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-7281ffe7-e79b-4628-841e-c6f69b49c445.png",
+        "review": "Source title corrected and final composition inspected.",
+        "prompt_sha256": "6b34a8dc20e59102257a91009a52bca3b27914ed4eceac373b5b356df210858c"
+      }
+    ]
   },
   {
     "theme": "04-sabha",
     "screen": "04-outputs-close",
-    "prompt": "04-sabha/prompts/04-outputs-close-v9.txt",
-    "output": "04-sabha/mockups/04-outputs-close-v9.png",
-    "brief_revision": "compact-product-chrome-v9",
+    "prompt": "04-sabha/prompts/04-outputs-close-v10-background-art.txt",
+    "output": "04-sabha/mockups/04-outputs-close-v10.png",
+    "brief_revision": "scholarly-background-art-v10",
     "status": "concept-reviewed",
-    "planned_prompt": "04-sabha/prompts/04-outputs-close-v9.txt",
-    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-5f832cbb-dff2-475b-99ea-e09bca3a1a4a.png",
-    "prompt_sha256": "668f29ff1587af15d7cc14d363d20735ed3345f673d292f1e0499244e609fd24",
-    "image_sha256": "2b4e43d13a2245468f767f63285403d4f26334b163b49b1f9e4c3cecc7f38e02",
+    "planned_prompt": "04-sabha/prompts/04-outputs-close-v10-background-art.txt",
+    "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-c194cd0d-aca0-4c4b-b5f3-a935fa464f84.png",
+    "prompt_sha256": "93a9b2adc760040372c851b99bb47e2daea96e4a4204d6a8f218556212f40d42",
+    "image_sha256": "022db0ec37e13f144d5ce017b66ea31eaf555347c554a2a7484f79c7d705e258",
     "dimensions": [
       1672,
       941
     ],
     "aspect_ratio": 1.77683,
-    "review": "Matching modern artifact composition: report with a second page, compact anchored format menu, 16:9 deck and small filmstrip. Open ruled FAQ and horizontal closing action replace boxed sections. No global sidebar. Minor generated text needs exact native labels; this is a future-state design candidate awaiting feedback.",
+    "review": "Character-free library alcove adds depth around the finished report and deck. Pale stone arches, plum books and angled daylight appear at the edges while paper, slideshow, menu and FAQ remain readable. The warm environment continues at quiet page margins; no figures or added product features. Output prose is illustrative and native implementation must use exact grounded fixtures. Awaiting user review.",
     "reviewed_by": "agent",
-    "user_approval": "pending review of revised UI",
-    "generation_mode": "built-in image_gen"
+    "user_approval": "pending review of background-art revision",
+    "generation_mode": "built-in image_gen",
+    "generation_chain": [
+      {
+        "prompt": "04-sabha/prompts/04-outputs-close-v10-background-art.txt",
+        "input": "04-sabha/mockups/04-outputs-close-v9.png",
+        "source": "/home/noobsambit/.codex/generated_images/01a10bc4-c67b-7bf0-805f-0eb4eaa9589c/exec-c194cd0d-aca0-4c4b-b5f3-a935fa464f84.png",
+        "review": "Library environment and locked output composition inspected.",
+        "prompt_sha256": "93a9b2adc760040372c851b99bb47e2daea96e4a4204d6a8f218556212f40d42"
+      }
+    ]
   },
   {
     "theme": "05-vanam",
