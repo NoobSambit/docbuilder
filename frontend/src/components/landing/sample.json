@@ -1,0 +1,104 @@
+{
+  "title": "Clean Energy Outlook",
+  "subtitle": "A briefing for leadership",
+  "sources": [
+    {
+      "id": "iea",
+      "title": "Renewables 2025",
+      "publisher": "International Energy Agency",
+      "url": "https://www.iea.org/reports/renewables-2025",
+      "excerpt": "The report examines renewable deployment through 2030 across electricity, transport and heat, together with policy and market conditions.",
+      "kind": "Summary of report overview"
+    },
+    {
+      "id": "doe",
+      "title": "Energy Storage",
+      "publisher": "US Department of Energy",
+      "url": "https://www.energy.gov/energy-storage",
+      "excerpt": "Storage can retain wind and solar energy for periods when those resources are unavailable. The page describes batteries and pumped storage hydropower.",
+      "kind": "Summary of source page"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Executive summary",
+      "text": "Renewable deployment is shaped by policy and market conditions. The IEA’s Renewables 2025 examines electricity, transport and heat through 2030. [1] Storage gives variable wind and solar generation a way to serve demand at other times. The US Department of Energy describes both battery research and pumped storage hydropower. [2]",
+      "bullets": [
+        "Review the policy assumptions behind an outlook.",
+        "Consider storage alongside renewable generation.",
+        "Keep source evidence attached to the briefing."
+      ],
+      "sourceIds": ["iea", "doe"]
+    },
+    {
+      "title": "Market landscape",
+      "text": "The IEA considers policy changes, manufacturing trends and the financial health of renewable industries. Its outlook spans multiple energy uses rather than electricity alone. [1]",
+      "bullets": ["Electricity", "Transport", "Heat"],
+      "sourceIds": ["iea"]
+    },
+    {
+      "title": "Storage and flexibility",
+      "text": "The Department of Energy describes storage as a response to intermittent wind and solar supply. Pumped storage uses reservoirs at different elevations and generates power as water moves through a turbine. [2]",
+      "bullets": [
+        "Batteries retain energy for later use.",
+        "Pumped storage uses water and elevation."
+      ],
+      "sourceIds": ["doe"]
+    },
+    {
+      "title": "Risks and considerations",
+      "text": "A forecast depends on its assumptions. The IEA’s report assesses sector challenges as well as opportunities. [1] For this briefing, leadership should examine local conditions before applying a global outlook.",
+      "bullets": [
+        "Separate a forecast from an observed result.",
+        "Review local policy and project constraints."
+      ],
+      "sourceIds": ["iea"]
+    },
+    {
+      "title": "Next steps",
+      "text": "Use the linked sources to check scope and context. This sample recommends reviewing policy assumptions and assessing storage needs before developing a project-specific plan.",
+      "bullets": [
+        "Read the original sources.",
+        "Document assumptions for the decision."
+      ],
+      "sourceIds": []
+    }
+  ],
+  "refinement": {
+    "original": "Storage gives variable wind and solar generation a way to serve demand at other times.",
+    "suggestion": "Storage retains wind and solar energy for use when those resources are unavailable.",
+    "instruction": "Make the storage explanation more concise. Preserve the source."
+  },
+  "slides": [
+    {
+      "title": "Clean Energy Outlook",
+      "eyebrow": "Leadership briefing",
+      "body": "Renewables and the role of storage",
+      "sourceIds": ["iea", "doe"]
+    },
+    {
+      "title": "The scope of the outlook",
+      "eyebrow": "Renewable deployment",
+      "body": "Electricity, transport and heat\nPolicy and market conditions\nTechnology deployment through 2030",
+      "sourceIds": ["iea"]
+    },
+    {
+      "title": "Storage connects supply and demand",
+      "eyebrow": "Energy flexibility",
+      "body": "Retain energy from wind and solar\nUse it when those resources are unavailable\nReview batteries and pumped storage",
+      "sourceIds": ["doe"]
+    },
+    {
+      "title": "Decisions need local context",
+      "eyebrow": "Leadership considerations",
+      "body": "Review forecast assumptions\nAssess local policy and constraints\nDocument project-specific storage needs",
+      "sourceIds": ["iea", "doe"]
+    },
+    {
+      "title": "References",
+      "eyebrow": "Continue the research",
+      "body": "Renewables 2025\nInternational Energy Agency\n\nEnergy Storage\nUS Department of Energy",
+      "sourceIds": ["iea", "doe"]
+    }
+  ]
+}
