@@ -1,0 +1,520 @@
+.root {
+  --ink: #35251e;
+  --muted: #6c5749;
+  --accent: #873d2c;
+  --rail: #4c2923;
+  --tint: #f3e6d3;
+  --canvas: #e8dcc7;
+  --heroInk: #30221b;
+  --wash: #f8ecd5;
+  --hero-art: url("/landing/akshara/hero-1672.webp");
+  --hero-position: 50% 0%;
+  --mobile-position: 61% 0%;
+  color: var(--ink);
+  background: var(--canvas);
+  font-family: var(--font-inter), Arial, sans-serif;
+  isolation: isolate;
+}
+.root * {
+  box-sizing: border-box;
+}
+.root button,
+.root a,
+.root summary,
+.root select {
+  -webkit-tap-highlight-color: transparent;
+}
+.root button,
+.root a {
+  transition:
+    background-color 0.16s,
+    color 0.16s;
+}
+.root button {
+  cursor: pointer;
+}
+.root button:hover {
+  filter: brightness(0.92);
+}
+.root a:hover {
+  text-decoration: none;
+}
+.root :is(a, button, summary, input, textarea, select):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+.root button:focus-visible {
+  filter: none;
+}
+.root h1,
+.root h2 {
+  font-family: var(--font-jakarta), Arial, sans-serif;
+}
+.root h2 {
+  font-weight: 650;
+  letter-spacing: -1.1px;
+}
+.root svg {
+  flex-shrink: 0;
+}
+.skip {
+  position: fixed;
+  left: 16px;
+  top: -80px;
+  z-index: 100;
+  background: #fff;
+  padding: 12px;
+  color: #183e2f;
+}
+.skip:focus {
+  top: 16px;
+}
+.story {
+  height: 510svh;
+  position: relative;
+  scroll-margin-top: 0;
+}
+.stage {
+  --expansion: 0;
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  background: var(--canvas);
+}
+.heroArtwork {
+  position: absolute;
+  inset: 0;
+  height: max(100svh, 60vw);
+  background-image: var(--hero-art);
+  background-position: var(--hero-position);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  transform: translateY(var(--art-shift, 0));
+  opacity: calc(1 - var(--expansion));
+}
+.arrival {
+  opacity: calc(1 - var(--expansion));
+  transform: translateY(calc(var(--expansion) * -120px));
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.arrival a,
+.arrival button {
+  pointer-events: auto;
+}
+.heroNav {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+  position: absolute;
+  left: 3.5%;
+  right: 3.5%;
+  top: 14px;
+  height: 44px;
+  color: var(--heroInk);
+}
+.heroNav > a {
+  padding: 9px 0;
+}
+.heroNav > a > span {
+  font-size: 17px;
+}
+.desktopNav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 550;
+}
+.desktopNav :is(button, a) {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+}
+.navActions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  font-weight: 550;
+}
+.navActions > a:not(.primary) {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  background: var(--wash);
+  color: var(--heroInk);
+  padding: 0 10px;
+  border-radius: 3px;
+}
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 15px;
+  min-height: 36px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 3px;
+  background: var(--accent);
+  color: #fff;
+}
+.heroCopy {
+  position: absolute;
+  top: calc(10svh + 23px);
+  left: 6.6%;
+  color: var(--heroInk);
+  max-width: 430px;
+}
+.heroCopy h1 {
+  font-size: clamp(28px, 2.7vw, 43px);
+  font-weight: 750;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+  margin: 0 0 12px;
+}
+.heroCopy > p {
+  font-size: 13px;
+  line-height: 1.55;
+  max-width: 350px;
+  margin: 0 0 16px;
+}
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.heroActions > button {
+  min-height: 36px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+.heroSteps {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 10px;
+}
+.heroSteps button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 28px;
+}
+.heroSteps span {
+  opacity: 0.65;
+}
+.workspaceFrame {
+  position: relative;
+  z-index: 3;
+  top: calc(46svh * (1 - var(--expansion)));
+  width: calc(100% - (7% * (1 - var(--expansion))));
+  margin: 0 auto;
+  height: calc(72svh + 28svh * var(--expansion));
+  min-height: 550px;
+  border-radius: calc(7px * (1 - var(--expansion)));
+  overflow: hidden;
+  box-shadow: 0 8px 28px #25312430;
+  border: 1px solid #2c40252b;
+}
+.menuToggle,
+.mobileMenu {
+  display: none;
+}
+.temporaryLower {
+  padding: 60px 5%;
+  background: var(--tint);
+}
+.temporaryLower h2 {
+  font-size: 34px;
+}
+.temporaryLower > div {
+  margin-top: 70px;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 5%;
+  background: var(--tint);
+  font-size: 11px;
+  border-top: 1px solid #334d2820;
+}
+.footer > span:nth-child(2) {
+  color: var(--muted);
+}
+.footer label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 10px;
+}
+.footer select {
+  padding: 8px;
+  border-radius: 3px;
+  background: #fafaf4;
+  color: var(--ink);
+  font-size: 11px;
+}
+@media (min-width: 1700px) {
+  .heroCopy {
+    top: 13svh;
+    max-width: 550px;
+  }
+  .heroCopy h1 {
+    font-size: 50px;
+  }
+  .heroCopy > p {
+    font-size: 15px;
+    max-width: 450px;
+  }
+  .heroNav {
+    top: 20px;
+  }
+  .desktopNav {
+    font-size: 14px;
+  }
+  .primary {
+    min-height: 40px;
+    font-size: 13px;
+  }
+  .heroSteps {
+    font-size: 12px;
+  }
+  .heroActions > button {
+    font-size: 13px;
+  }
+}
+@media (max-width: 1100px) and (min-width: 761px) {
+  .heroCopy {
+    left: 4%;
+    top: 13svh;
+    max-width: 370px;
+  }
+  .heroCopy h1 {
+    font-size: 30px;
+  }
+  .heroCopy > p {
+    font-size: 12px;
+  }
+  .heroNav {
+    gap: 30px;
+  }
+  .desktopNav {
+    gap: 20px;
+  }
+  .workspaceFrame {
+    width: calc(100% - (4% * (1 - var(--expansion))));
+  }
+  .heroArtwork {
+    background-size: auto 100svh;
+  }
+}
+@media (max-width: 760px) {
+  .story {
+    height: auto;
+  }
+  .stage {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    padding-bottom: 25px;
+  }
+  .heroArtwork {
+    height: 290px;
+    top: 300px;
+    bottom: auto;
+    background-size: auto 100%;
+    background-position: var(--mobile-position);
+    transform: none;
+    opacity: 1;
+  }
+  .arrival {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    visibility: visible !important;
+    padding-top: 62px;
+  }
+  .heroNav {
+    left: 20px;
+    right: 20px;
+    top: 8px;
+    gap: 12px;
+  }
+  .heroNav > a > span {
+    font-size: 16px;
+  }
+  .desktopNav,
+  .navActions {
+    display: none;
+  }
+  .menuToggle {
+    display: flex;
+    margin-left: auto;
+    min-height: 44px;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+  }
+  .mobileMenu {
+    position: absolute;
+    top: 52px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 220px;
+    background: #fffefa;
+    color: var(--ink);
+    box-shadow: 0 6px 20px #25312425;
+    border: 1px solid #c7d0bf;
+    z-index: 20;
+  }
+  .mobileMenu :is(a, button) {
+    text-align: left;
+    padding: 12px;
+    min-height: 44px;
+    font-size: 13px;
+  }
+  .heroNav,
+  .heroCopy {
+    color: var(--ink);
+  }
+  .heroCopy {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 18px 22px 20px;
+    max-width: none;
+    min-height: 238px;
+    background: var(--wash);
+    color: var(--heroInk);
+  }
+  .heroNav {
+    color: var(--heroInk);
+  }
+  .menuToggle {
+    color: var(--heroInk);
+  }
+  .heroCopy h1 {
+    font-size: 32px;
+    line-height: 1.15;
+    letter-spacing: -1.4px;
+    margin-bottom: 12px;
+  }
+  .heroCopy > p {
+    font-size: 13px;
+    max-width: 350px;
+    margin-bottom: 15px;
+  }
+  .heroActions {
+    gap: 18px;
+  }
+  .heroActions :is(a, button) {
+    min-height: 44px;
+  }
+  .heroActions > button {
+    font-size: 11px;
+  }
+  .heroSteps {
+    display: none;
+  }
+  .workspaceFrame {
+    top: 0;
+    width: calc(100% - 24px);
+    height: auto;
+    min-height: 0;
+    margin-top: 280px;
+    border-radius: 5px;
+  }
+  .desktopBreak {
+    display: none;
+  }
+  .footer {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 24px 22px;
+  }
+  .footer > span:nth-child(2) {
+    display: none;
+  }
+  .footer label {
+    margin-left: auto;
+  }
+  .footer select {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce), (max-height: 600px) {
+  .root * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+  .story {
+    height: auto;
+  }
+  .stage {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    padding-bottom: 40px;
+  }
+  .arrival {
+    transform: none;
+    opacity: 1;
+    visibility: visible !important;
+  }
+  .heroArtwork {
+    transform: none;
+    opacity: 1;
+    height: max(100svh, 60vw);
+  }
+  .workspaceFrame {
+    top: 0;
+    margin-top: 46svh;
+    height: 75svh;
+    min-height: 650px;
+    width: 93%;
+    border-radius: 7px;
+  }
+  .arrival {
+    height: 46svh;
+  }
+  .heroCopy {
+    top: 95px;
+  }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 760px),
+  (max-height: 600px) and (max-width: 760px) {
+  .arrival {
+    height: auto;
+  }
+  .heroCopy {
+    top: 0;
+  }
+  .heroArtwork {
+    height: 290px;
+  }
+  .workspaceFrame {
+    height: auto;
+    min-height: 0;
+    margin-top: 280px;
+    width: calc(100% - 24px);
+  }
+}
