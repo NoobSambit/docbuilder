@@ -89,10 +89,12 @@ export function BriefPreview({
   const id = useId();
   return (
     <div className={styles.brief}>
-      <div className={styles.panelHeading}>
-        <strong>Project brief</strong>
-        <span>Document</span>
-      </div>
+      {!compact && (
+        <div className={styles.panelHeading}>
+          <strong>Project brief</strong>
+          <span>Document</span>
+        </div>
+      )}
       <label htmlFor={`${id}-purpose`}>Purpose</label>
       <textarea
         id={`${id}-purpose`}
@@ -173,12 +175,14 @@ export function SourcePreview({
       </div>
       {sample.sources.map((item) => (
         <div className={styles.sourceRow} key={item.id}>
-          <input
-            type="checkbox"
-            aria-label={`Include ${item.title}`}
-            checked={demo.included.includes(item.id)}
-            onChange={() => demo.toggleSource(item.id)}
-          />
+          <label className={styles.sourceCheck}>
+            <input
+              type="checkbox"
+              aria-label={`Include ${item.title}`}
+              checked={demo.included.includes(item.id)}
+              onChange={() => demo.toggleSource(item.id)}
+            />
+          </label>
           <button
             aria-pressed={source.id === item.id}
             onClick={() => demo.setInspectedSource(item.id)}
@@ -547,7 +551,11 @@ export default function Workspace({
             : "history";
     demo.setUtility(utility);
     demo.setPreview(chapter === 3);
-    demo.setMobilePane("document");
+    demo.setMobilePane(
+      matchMedia("(max-width: 1000px)").matches && chapter !== 3
+        ? "tools"
+        : "document",
+    );
     // Deliberately only tied to chapter transitions, so manual controls remain usable between them.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapter, expanded]);
@@ -573,6 +581,7 @@ export default function Workspace({
           </button>
           <button
             aria-pressed={demo.preview}
+            aria-label={demo.preview ? "Editor" : "Preview"}
             onClick={() => {
               demo.setPreview(!demo.preview);
               demo.setMobilePane("document");

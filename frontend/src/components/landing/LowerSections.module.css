@@ -403,7 +403,7 @@
   border-radius: 3px;
   white-space: nowrap;
 }
-@media (max-width: 1100px) and (min-width: 761px) {
+@media (max-width: 1100px) and (min-width: 1001px) {
   .capabilityGrid {
     gap: 16px;
   }
@@ -458,7 +458,7 @@
     font-size: 27px;
   }
 }
-@media (max-width: 760px) {
+@media (max-width: 1000px) {
   .capabilities,
   .outputs {
     padding: 28px 18px;
@@ -738,4 +738,37 @@
 }
 .deckReading [class*="slide"] p {
   line-height: 1.7;
+}
+@media (min-width: 1101px) {
+  .briefSurface {
+    min-height: 270px;
+    height: 270px;
+    overflow: auto;
+  }
+  .smallSurface {
+    min-height: 240px;
+    height: 240px;
+  }
+  .archiveBackdrop .smallSurface {
+    min-height: 216px;
+    height: 216px;
+  }
+  .smallSurface [class*="generation"] > p {
+    margin: 5px 0;
+  }
+  .smallSurface [class*="generation"] > button {
+    margin-top: 7px;
+  }
+}
+@media (max-width: 1000px) {
+  .deckReading [class*="slide"] h3 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  .deckReading [class*="slide"] p {
+    font-size: 11px;
+  }
+  .deckReading [class*="slide"] > div {
+    padding: 20px 13px;
+  }
 }

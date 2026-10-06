@@ -26,7 +26,7 @@ export default function LandingPage() {
 
   useEffect(() => {
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
-    const small = matchMedia("(max-width: 760px), (max-height: 600px)");
+    const small = matchMedia("(max-width: 1000px), (max-height: 600px)");
     let frame = 0;
     const update = () => {
       frame = 0;
@@ -73,7 +73,7 @@ export default function LandingPage() {
     const section = story.current;
     if (!section) return;
     const normal = matchMedia(
-      "(prefers-reduced-motion: reduce), (max-width: 760px), (max-height: 600px)",
+      "(prefers-reduced-motion: reduce), (max-width: 1000px), (max-height: 600px)",
     ).matches;
     if (normal) {
       chapterRef.current = index;
@@ -212,7 +212,7 @@ export default function LandingPage() {
               <Workspace
                 demo={demo}
                 chapter={chapter}
-                expanded={expanded || normalFlow}
+                expanded={expanded}
                 onChapter={goChapter}
               />
             </div>

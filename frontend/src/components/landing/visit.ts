@@ -96,7 +96,11 @@ export function useLandingTheme() {
       }
     };
     const leave = () => {
-      if (window.__docbuilderLanding?.preview) return;
+      if (
+        window.__docbuilderLanding?.preview ||
+        Date.now() - lastWrite >= VISIT_EXPIRY_MS
+      )
+        return;
       try {
         localStorage.setItem(
           VISIT_KEY,
