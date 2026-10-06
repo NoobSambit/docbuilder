@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowRight, Menu, X } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
+import LowerSections from "./LowerSections";
 import Workspace, { Brand, CHAPTERS } from "./Workspace";
 import { useDemo } from "./useDemo";
 import { useLandingTheme } from "./visit";
@@ -217,18 +218,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section className={styles.temporaryLower} id="capabilities">
-          <h2>Built for the work between idea and final draft.</h2>
-          <p>
-            Set the direction. Inspect the sources. Keep control of the changes.
-          </p>
-          <div id="faq">
-            <h2>Your next idea starts here.</h2>
-            <Link className={styles.primary} href={createHref}>
-              Start creating <ArrowRight size={14} />
-            </Link>
-          </div>
-        </section>
+        <LowerSections demo={demo} createHref={createHref} />
       </main>
       <footer className={styles.footer}>
         <Brand />
