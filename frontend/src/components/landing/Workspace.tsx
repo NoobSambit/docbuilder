@@ -450,6 +450,7 @@ export function EnergyIllustration() {
   return (
     <svg
       viewBox="0 0 500 320"
+      preserveAspectRatio="xMidYMid slice"
       role="img"
       aria-label="Schematic landscape with wind turbines and solar panels"
     >

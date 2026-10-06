@@ -37,7 +37,7 @@ export const THEMES: Record<LandingThemeId, LandingTheme> = {
   astra: {
     name: "Astra",
     scene: "Krishna guiding Arjuna through a draft",
-    heroPosition: "50% 0%",
+    heroPosition: "50% -8px",
     mobilePosition: "64% 0%",
     tokens: {
       ink: "#1b3538",
@@ -53,7 +53,7 @@ export const THEMES: Record<LandingThemeId, LandingTheme> = {
   neel: {
     name: "Neel",
     scene: "Krishna reviewing sources in a garden with cows and peacocks",
-    heroPosition: "50% 0%",
+    heroPosition: "50% -20px",
     mobilePosition: "62% 0%",
     tokens: {
       ink: "#1d3555",
@@ -69,7 +69,7 @@ export const THEMES: Record<LandingThemeId, LandingTheme> = {
   sabha: {
     name: "Sabha",
     scene: "Krishna and the Pandava scholars working together",
-    heroPosition: "50% 0%",
+    heroPosition: "50% -22px",
     mobilePosition: "62% 0%",
     tokens: {
       ink: "#3e2b3e",
@@ -85,7 +85,7 @@ export const THEMES: Record<LandingThemeId, LandingTheme> = {
   vanam: {
     name: "Vanam",
     scene: "Vyasa and Krishna writing beneath a banyan tree",
-    heroPosition: "50% 0%",
+    heroPosition: "50% -12px",
     mobilePosition: "63% 0%",
     tokens: {
       ink: "#223e30",

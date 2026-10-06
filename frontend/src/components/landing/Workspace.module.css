@@ -1044,3 +1044,18 @@
     min-height: 44px;
   }
 }
+.slide {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+}
+.slide > div {
+  min-width: 0;
+  background: var(--rail);
+  color: #fffdf2;
+}
+.slide > svg {
+  min-width: 0;
+  display: block;
+}
+.slide h3 {
+  overflow-wrap: normal;
+}

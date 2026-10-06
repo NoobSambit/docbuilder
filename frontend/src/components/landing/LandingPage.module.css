@@ -518,3 +518,22 @@
     width: calc(100% - 24px);
   }
 }
+/* A tonal wash follows the calm copy region without obscuring the authorship scene. */
+@media (min-width: 761px) {
+  .heroArtwork {
+    background-image:
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--wash) 82%, transparent),
+        color-mix(in srgb, var(--wash) 42%, transparent) 25%,
+        transparent 43%
+      ),
+      var(--hero-art);
+  }
+  .desktopNav {
+    background: var(--wash);
+    padding: 0 12px;
+    border-radius: 3px;
+    gap: 22px;
+  }
+}

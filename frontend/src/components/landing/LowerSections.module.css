@@ -675,3 +675,67 @@
     min-height: 44px;
   }
 }
+@media (min-width: 1101px) {
+  .capabilities,
+  .outputs {
+    padding-top: 28px;
+  }
+  .sectionHeading {
+    padding: 0;
+    background: transparent;
+    margin-bottom: 22px;
+  }
+  .sectionHeading > span {
+    display: none;
+  }
+  .sectionHeading h2 {
+    margin: 0 0 7px;
+  }
+  .capabilityGrid {
+    gap: 20px;
+  }
+  .briefSurface {
+    min-height: 270px;
+  }
+  .researchSurface {
+    height: 270px;
+  }
+  .smallSurface {
+    min-height: 220px;
+    height: 220px;
+  }
+  .archiveBackdrop {
+    padding: 12px 18px;
+  }
+  .archiveBackdrop .smallSurface {
+    min-height: 196px;
+    height: 196px;
+  }
+  .smallSurface [class*="versionList"] {
+    max-height: 82px;
+  }
+}
+.capabilities::before,
+.outputs::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(#fffdf2bd 0%, transparent 27%);
+}
+.outputGrid[data-output-focus="document"] .documentOutput > .outputSurface,
+.outputGrid[data-output-focus="presentation"]
+  .presentationOutput
+  > .outputSurface {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.deckReading [class*="slide"] h3 {
+  font-size: clamp(26px, 2.5vw, 38px);
+  line-height: 1.12;
+  margin: 22px 0 18px;
+  font-weight: 600;
+}
+.deckReading [class*="slide"] p {
+  line-height: 1.7;
+}
