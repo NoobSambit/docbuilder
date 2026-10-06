@@ -1,0 +1,554 @@
+[
+  {
+    "capture": "akshara-capabilities.png",
+    "sha256": "e377c56225ebf18af05f0dced8676bc3a24dcf2ffce832493ce572d359b3e68b",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "akshara-faq.png",
+    "sha256": "df7cbef4e80cdf337371d9f420574d5bf40b91d40b9a93f4930a0751cd8389ec",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "akshara-hero-1366x768.png",
+    "sha256": "d973c694b2ec0259592bd4380d28db28d3566077efeb195da5403d6b4bd0c1ff",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "akshara-hero-1440x900.png",
+    "sha256": "0413853a56236f92bfd14c496f0b310d212a8afda14adb4ab034f7dbec049b77",
+    "dimensions": [
+      1440,
+      900
+    ]
+  },
+  {
+    "capture": "akshara-hero-375x812.png",
+    "sha256": "2d69dc18ad0b173ef1ed1381e50074d441b725487ff86de8b6b8374a2b9ae59e",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "akshara-mobile-slide-1.png",
+    "sha256": "2202f4fc06a5d05507f294ffdd15eccce87914d79983b20619f25dbfeb61e939",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "akshara-mobile-slide-2.png",
+    "sha256": "5074033a302f870ed36b896debcdc7117db0ee2b2b1580cb9d0dbe1df278e4e1",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "akshara-mobile-slide-3.png",
+    "sha256": "14517ec37aa7d29755809f271952198c6bea2abdaf8a1130b9f891304be2bff6",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "akshara-mobile-slide-4.png",
+    "sha256": "396d8f6a683f92b7fcdb092a50ba4c24c4c1deda81350cba390e78e00f4fc407",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "akshara-mobile-slide-5.png",
+    "sha256": "55643c2bae1e6186b727f4f8a114507c6f5a62b77f952fac3392e90ec2f047a2",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "akshara-mobile-workspace.png",
+    "sha256": "4f039318a531e06b22a8c372ecdf3451d085f6d3ac0652841705bf7107f62168",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "akshara-outputs.png",
+    "sha256": "442a9f0b3c7ef3c6c2ba8074e9ef188e77a4df4f1c794544495778d15905b240",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "astra-capabilities.png",
+    "sha256": "e1f4ad803ae8b15e488dbfc28a36e56edc2a357486b1422fd3da0120196005dc",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "astra-faq.png",
+    "sha256": "667e0ded3a6bee18ee1538e76d5f934c2f4444934287fd773c59112615ad6d3b",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "astra-hero-1366x768.png",
+    "sha256": "7054ed782610bd113d311cdac60a24e30a61c1b6b1de18b681a427758b6e8ebc",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "astra-hero-1440x900.png",
+    "sha256": "91f526266eb2efdf592576efb801fe4a2134ffbe928e1593080dd6fbb841dcc6",
+    "dimensions": [
+      1440,
+      900
+    ]
+  },
+  {
+    "capture": "astra-hero-375x812.png",
+    "sha256": "7cae94f670f467b2f1c9675dbc4eb9d9cde0fb058b80bf8618ecbea8f539fc00",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "astra-mobile-slide-1.png",
+    "sha256": "f0de6ff897794b5a69f2187086e827089c135dda60dbe02b887e0fedd5036088",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "astra-mobile-slide-2.png",
+    "sha256": "a9ce0d44992d575d4945e2d1f819568c6478e24dc3adfb9df7c91a9b96939a99",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "astra-mobile-slide-3.png",
+    "sha256": "100335b1ed7fceb84615eeff67c43079fcda82bcabd406664f2d1f41f23e8656",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "astra-mobile-slide-4.png",
+    "sha256": "e70aa497241e776061b992818c8fafd7006e1a2f285dbdf7d223220f92e98746",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "astra-mobile-slide-5.png",
+    "sha256": "9518dc3912baf8dbe52b56b21c36b3d04dc053dc64c2732d0dee141b6237e387",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "astra-mobile-workspace.png",
+    "sha256": "2081232396a127024f99e407403b66b32ea40225d16582301af8772244478e38",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "astra-outputs.png",
+    "sha256": "6cbf2ad13ce709a811aabab13f3dcb55131b8d340706cd7e1c172c6272867653",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "chapter-1.png",
+    "sha256": "cf2cd9ae3b5603655ef64bf0e08d5a45bd1fe9f6a41bc9bd201fc3ade7886fd9",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "chapter-2.png",
+    "sha256": "56542efdf0e252441ceb6ffc4c8a21912d73c09803df27741b8c530e7a214c0d",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "chapter-3.png",
+    "sha256": "97a3ff2b5bd2fd6963dc7a2310a9b60f404768ecb60a09e3658fd65033d0061d",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "chapter-4.png",
+    "sha256": "d215e36a30bf42ae2fc8c2eb8afee0968fe173edb7dcccff1865120e0d8ccd20",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "neel-capabilities.png",
+    "sha256": "e56353f3912b63586bdf3afec8dbebb2bb3d8bf944d83b3cf0b78fcad5741c22",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "neel-faq.png",
+    "sha256": "441da8bccab7e94b5cbdc6bd0b668db9f45d99fb07e8d7f4da06e86eb3fc67f6",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "neel-hero-1366x768.png",
+    "sha256": "9f7beb8942a64b9b95ae4ea36c13e544d8e64d0818d836a3f46f11aa322ae487",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "neel-hero-1440x900.png",
+    "sha256": "b8bf400d7b7afdefe26a00a2a98d47b881020ef7616bc33563eca2e612a190bd",
+    "dimensions": [
+      1440,
+      900
+    ]
+  },
+  {
+    "capture": "neel-hero-375x812.png",
+    "sha256": "aa3a4e6a7f6bb2042a1c69c788702a40286d6e12327b2abf290d81f8b6ca404a",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "neel-mobile-slide-1.png",
+    "sha256": "3c8b517873f31ce4f83d6291dc4767852b80f2ca8ad5049fef219e592e3d49f3",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "neel-mobile-slide-2.png",
+    "sha256": "a7998679f17f7969b4e990b7aca219ed3670d2d41af06a544abe4336103f1de1",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "neel-mobile-slide-3.png",
+    "sha256": "10bfd07d22dc42198102801f05c0db1112c23042016609b670e057f6197779b0",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "neel-mobile-slide-4.png",
+    "sha256": "90d2d04bc63d57bf38b8f80c85fae4fa492f005ca33fed364c96af6f1d62b547",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "neel-mobile-slide-5.png",
+    "sha256": "29a16d1d01f3d1330b323bc9ed1206e51fb8356c921eb7e7483c8f820c2e40a4",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "neel-mobile-workspace.png",
+    "sha256": "63205a9c28520bbecd846fa1339177a2e961eebad7c2c0e47b4680f8b81cdd04",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "neel-outputs.png",
+    "sha256": "65a2ea3296dd00743f39cb4788a3125d5a68474fe21c52b851a28e8dbbe1b27f",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "reduced-motion.png",
+    "sha256": "7697506296419a7d190070e1105fea32f856c9a21d7e4dd6b0a2462a3b6f719c",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "responsive-1366x540.png",
+    "sha256": "6640526caacacb45d0c8f5bae17a2a7327138249ddb193a6516f15536ace7f4f",
+    "dimensions": [
+      1366,
+      540
+    ]
+  },
+  {
+    "capture": "responsive-320x700.png",
+    "sha256": "5457f0ef0facef5a5757c8e35c13e154308cc62a0a50a9cfd3552976ddf38e16",
+    "dimensions": [
+      320,
+      700
+    ]
+  },
+  {
+    "capture": "responsive-768x1024.png",
+    "sha256": "9c5c1c34ab0671165af52d2f8026390534b4acf4bc1d1f024fb8ae217ad2b74b",
+    "dimensions": [
+      768,
+      1024
+    ]
+  },
+  {
+    "capture": "responsive-834x1112.png",
+    "sha256": "d02a58c74a80f6b59d58a9d3a309a6cabd32f2afd875e4a983d7370bc5804839",
+    "dimensions": [
+      834,
+      1112
+    ]
+  },
+  {
+    "capture": "sabha-capabilities.png",
+    "sha256": "d12f0c8343711f257edd959efb619ad251476f4daad398a827c784b493458328",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "sabha-faq.png",
+    "sha256": "13d1f67e6937563f7663a6697c05ad1179dc0529956d8397a4e95304fe6a237c",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "sabha-hero-1366x768.png",
+    "sha256": "c4d5413fd8b99aad6c52490f0f81892f5f49b4d78369eb186834ae44d300732c",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "sabha-hero-1440x900.png",
+    "sha256": "256a6ecff373e80c7579863ca25e8085f68e91ea4d8470aee18ecec11750273e",
+    "dimensions": [
+      1440,
+      900
+    ]
+  },
+  {
+    "capture": "sabha-hero-375x812.png",
+    "sha256": "7b0a2c25f35331177c55cb0ae2d430a31222b8171b2e837f0e2691ae88a24988",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "sabha-mobile-slide-1.png",
+    "sha256": "dc9588674b59a832852101b5ed740878a9d2a1a9e3091dd2162a4e0f5e95c14f",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "sabha-mobile-slide-2.png",
+    "sha256": "b97fd9bd9d1579251c611ab54d220b6ddcb9b3258978f4ec1eff11a732a80aaf",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "sabha-mobile-slide-3.png",
+    "sha256": "76d5013e102136bf21a44c12850e8af4c51dfd8013b3727d4f456227218930a3",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "sabha-mobile-slide-4.png",
+    "sha256": "a0bcaed55f9c4b4607db2665b00455898435180b799a566aace48a76ba5c9468",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "sabha-mobile-slide-5.png",
+    "sha256": "fc52a35dc3d9845a0d284ccbbba932c557e2f83e93200d3eff804426fdde111c",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "sabha-mobile-workspace.png",
+    "sha256": "3d55f79b01dec353d74e808834b714c91b6d5a249e5bd9914ed86a9bb78a175d",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "sabha-outputs.png",
+    "sha256": "61ab18e755fc05f2d34a73c087e93938a4973de9ec871d670d74b0d3979ae03f",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "vanam-capabilities.png",
+    "sha256": "89b56b96410c9e7f833f3ba291d9dd8e580471b812b2c6ca504a8485cc3fb740",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "vanam-faq.png",
+    "sha256": "025c394add4afc95e2902ba9c43a6e3d7fc4131f430df8aad52db2ca02c3cda7",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "vanam-hero-1366x768.png",
+    "sha256": "86e17ab67dd776b7603e0de6247e5d3df053bc8a9877e8578cd7f4659ebc14e6",
+    "dimensions": [
+      1366,
+      768
+    ]
+  },
+  {
+    "capture": "vanam-hero-1440x900.png",
+    "sha256": "fb0abceab834c04f2e972303c6937d3791fbc287193b99ebb21f4d1d2aeed25b",
+    "dimensions": [
+      1440,
+      900
+    ]
+  },
+  {
+    "capture": "vanam-hero-375x812.png",
+    "sha256": "a0fd6c0a3fac93ddb2dc45cdc78619378320ad0ffd2a2c23d43dafa3dea1b738",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "vanam-mobile-slide-1.png",
+    "sha256": "78ceb8786137bdeab22c7e9bd84208251ae92a6fc4f0b66f4dbece2bf85d8352",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "vanam-mobile-slide-2.png",
+    "sha256": "198d5f7b3f4d1e7e4d225cf39aa2717bf3426c63a3da8d035055d086b833c3a3",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "vanam-mobile-slide-3.png",
+    "sha256": "3438d720e38eaf16d2e8df7dde6a35e0f0e197e657bcc4a6eeeb5b41ec617591",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "vanam-mobile-slide-4.png",
+    "sha256": "6d5400606d134fdf9f1a8169cb7e153a9c456b75032c837ab252df440ee55f29",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "vanam-mobile-slide-5.png",
+    "sha256": "ec070af86f1677162673772c630ec69589abf484da4e86f6e1c63176706daa44",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "vanam-mobile-workspace.png",
+    "sha256": "cab560fa53282ec43ee4657210e3cca05225d6ed2ea4f192b8c028184a630107",
+    "dimensions": [
+      375,
+      812
+    ]
+  },
+  {
+    "capture": "vanam-outputs.png",
+    "sha256": "8ef7656040f26b1f875ec84a51698b3c3ee4efd755cc27df90a0b2e323ef527f",
+    "dimensions": [
+      1366,
+      768
+    ]
+  }
+]

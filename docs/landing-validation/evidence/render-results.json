@@ -1,0 +1,253 @@
+[
+  {
+    "theme": "akshara",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/akshara/hero-1672.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 2000,
+    "overflow": false,
+    "axeViolations": []
+  },
+  {
+    "theme": "akshara",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/akshara/hero-1672.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 212,
+    "overflow": false
+  },
+  {
+    "theme": "akshara",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/akshara/hero-768.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 124,
+    "overflow": false,
+    "axeViolations": []
+  },
+  {
+    "theme": "astra",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/astra/hero-1672.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 184,
+    "overflow": false,
+    "axeViolations": []
+  },
+  {
+    "theme": "astra",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/astra/hero-1672.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 236,
+    "overflow": false
+  },
+  {
+    "theme": "astra",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/astra/hero-768.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 156,
+    "overflow": false,
+    "axeViolations": []
+  },
+  {
+    "theme": "neel",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/neel/hero-1672.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 192,
+    "overflow": false,
+    "axeViolations": []
+  },
+  {
+    "theme": "neel",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/neel/hero-1672.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 208,
+    "overflow": false
+  },
+  {
+    "theme": "neel",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/neel/hero-768.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 128,
+    "overflow": false,
+    "axeViolations": []
+  },
+  {
+    "theme": "sabha",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/sabha/hero-1672.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 180,
+    "overflow": false,
+    "axeViolations": []
+  },
+  {
+    "theme": "sabha",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/sabha/hero-1672.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 200,
+    "overflow": false
+  },
+  {
+    "theme": "sabha",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/sabha/hero-768.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 128,
+    "overflow": false,
+    "axeViolations": []
+  },
+  {
+    "theme": "vanam",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/vanam/hero-1672.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 176,
+    "overflow": false,
+    "axeViolations": []
+  },
+  {
+    "theme": "vanam",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/vanam/hero-1672.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 196,
+    "overflow": false
+  },
+  {
+    "theme": "vanam",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "initialArt": [
+      "http://127.0.0.1:3100/landing/vanam/hero-768.webp"
+    ],
+    "errors": [],
+    "initialCLS": 0,
+    "localLCPms": 120,
+    "overflow": false,
+    "axeViolations": []
+  },
+  {
+    "viewport": {
+      "width": 834,
+      "height": 1112
+    },
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 320,
+      "height": 700
+    },
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 540
+    },
+    "overflow": false
+  },
+  {
+    "beforeHydration": "All five overrides select correct artwork with application JS blocked"
+  }
+]

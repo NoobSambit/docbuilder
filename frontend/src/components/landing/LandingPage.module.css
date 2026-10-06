@@ -86,10 +86,11 @@
 .heroArtwork {
   position: absolute;
   inset: 0;
-  height: max(100svh, 60vw);
+  /* Overscan accommodates the individually tuned upward crops. */
+  height: calc(100svh + 24px);
   background-image: var(--hero-art);
   background-position: var(--hero-position);
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
   transform: translateY(var(--art-shift, 0));
   opacity: calc(1 - var(--expansion));
@@ -473,7 +474,7 @@
   .heroArtwork {
     transform: none;
     opacity: 1;
-    height: max(100svh, 60vw);
+    height: max(calc(100svh + 24px), 60vw);
   }
   .workspaceFrame {
     top: 0;
