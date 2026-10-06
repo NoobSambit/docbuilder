@@ -1,4 +1,4 @@
-import { useEffect, useId } from "react";
+import { useEffect, useId, useState } from "react";
 import {
   BookOpen,
   Check,
@@ -170,7 +170,7 @@ export function SourcePreview({
   return (
     <div className={styles.sourcePanel}>
       <div className={styles.panelHeading}>
-        <strong>Sources for this section</strong>
+        <strong>Project sources</strong>
         <span>{demo.included.length} included</span>
       </div>
       {sample.sources.map((item) => (
@@ -228,6 +228,7 @@ export function RefinePreview({
         <strong>Refine selection</strong>
         <Sparkles size={14} aria-hidden="true" />
       </div>
+      <p className={styles.helper}>Executive summary · selected excerpt</p>
       {!compact && (
         <p className={styles.instruction}>{sample.refinement.instruction}</p>
       )}
@@ -265,6 +266,7 @@ export function RefinePreview({
 }
 
 export function HistoryPreview({ demo }: { demo: DemoState }) {
+  const [name, setName] = useState("Review checkpoint");
   return (
     <div className={styles.history}>
       <div className={styles.panelHeading}>
@@ -291,9 +293,24 @@ export function HistoryPreview({ demo }: { demo: DemoState }) {
           </div>
         ))}
       </div>
-      <button onClick={() => demo.checkpoint()}>
-        <Check size={14} aria-hidden="true" /> Add checkpoint
-      </button>
+      <form
+        className={styles.checkpointForm}
+        onSubmit={(event) => {
+          event.preventDefault();
+          if (name.trim()) demo.checkpoint(name.trim());
+        }}
+      >
+        <input
+          aria-label="Checkpoint name"
+          value={name}
+          maxLength={60}
+          onChange={(event) => setName(event.target.value)}
+          required
+        />
+        <button type="submit" aria-label="Add named checkpoint">
+          <Check size={14} aria-hidden="true" /> Add
+        </button>
+      </form>
     </div>
   );
 }

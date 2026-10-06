@@ -55,7 +55,8 @@ for i, item in enumerate(data['slides']):
     slide = prs.slides.add_slide(prs.slide_layouts[6]); slide.background.fill.solid(); slide.background.fill.fore_color.rgb=RGBColor.from_string('F6F4EB')
     box(slide,.7,.5,11,.5,item['eyebrow'].upper(),14)
     box(slide,.7,1.4,7,2,item['title'],36,bold=True)
-    box(slide,.7,3.7,7,2.5,item['body'],23)
+    if i != len(data['slides']) - 1:
+        box(slide,.7,3.7,7,2.5,item['body'],23)
     # Editable, schematic energy landscape, not a chart or photographic evidence.
     shape=slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(8.7), Inches(1.4), Inches(3.8), Inches(4.8)); shape.fill.solid(); shape.fill.fore_color.rgb=RGBColor.from_string('D9E4CF'); shape.line.fill.background()
     for x,y in [(9.5,3.4),(11,2.5)]:
@@ -65,7 +66,9 @@ for i, item in enumerate(data['slides']):
     box(slide,8.9,5.7,3.4,.4,'Schematic illustration',10)
     if i == len(data['slides']) - 1:
         for j, source in enumerate(data['sources']):
-            linkbox=box(slide,.7,5.8+j*.3,7,.35,source['url'],11)
+            box(slide,.7,3.55+j*1.5,7,.45,source['title'],20)
+            box(slide,.7,4.02+j*1.5,7,.35,source['publisher'],14)
+            linkbox=box(slide,.7,4.42+j*1.5,7,.35,source['url'],11)
             linkbox.text_frame.paragraphs[0].runs[0].hyperlink.address=source['url']
     box(slide,.7,6.7,11.8,.45,f'DocBuilder sample presentation                                      {i+1} / {len(data["slides"])}',12)
     notes='Source-grounded sample. Separately authored presentation, not instant report conversion.\n'

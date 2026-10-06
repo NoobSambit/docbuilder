@@ -81,7 +81,10 @@ export default function LandingPage() {
       setExpanded(true);
       section
         .querySelector('[data-workspace="stable-shell"]')
-        ?.scrollIntoView({ behavior: "auto", block: "start" });
+        ?.scrollIntoView({
+          behavior: "instant" as ScrollBehavior,
+          block: "start",
+        });
     } else {
       const top = section.getBoundingClientRect().top + window.scrollY;
       // Land well inside a chapter, avoiding rounding errors at the boundary.

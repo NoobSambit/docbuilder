@@ -1095,3 +1095,59 @@
     font-size: 11px;
   }
 }
+.checkpointForm {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.checkpointForm input {
+  min-width: 0;
+  width: 100%;
+  height: 32px;
+  background: #fffefa;
+  border: 1px solid #566c4e66;
+  border-radius: 3px;
+  padding: 5px 7px;
+  font-size: 10px;
+}
+.checkpointForm button {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  min-height: 32px;
+  background: var(--accent);
+  color: #fff;
+  padding: 0 9px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+@media (max-width: 1000px) {
+  .checkpointForm input,
+  .checkpointForm button {
+    min-height: 44px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 1000px) {
+  .topbar {
+    height: 76px;
+    row-gap: 0;
+  }
+  .topbar .projectTitle {
+    display: flex;
+    order: 3;
+    flex-basis: 100%;
+    margin: 0;
+    height: 20px;
+    font-size: 10px;
+    gap: 8px;
+  }
+  .topbar .sampleBadge {
+    display: inline-block;
+    font-size: 9px;
+  }
+}
+.outline button:focus-visible {
+  outline-color: #fff9dc;
+  outline-offset: 1px;
+}

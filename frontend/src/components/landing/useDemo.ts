@@ -91,6 +91,8 @@ export function useDemo() {
     setMessage(`${label} added to sample history in this preview.`);
   };
   const accept = () => {
+    setSelected(0);
+    setPreview(false);
     setAccepted(true);
     setSuggestion(false);
     checkpoint("Refinement accepted", { accepted: true });

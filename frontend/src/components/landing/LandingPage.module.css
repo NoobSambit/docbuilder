@@ -230,16 +230,6 @@
 .mobileMenu {
   display: none;
 }
-.temporaryLower {
-  padding: 60px 5%;
-  background: var(--tint);
-}
-.temporaryLower h2 {
-  font-size: 34px;
-}
-.temporaryLower > div {
-  margin-top: 70px;
-}
 .footer {
   display: flex;
   align-items: center;
@@ -561,4 +551,7 @@
   .workspaceFrame {
     margin-top: max(46svh, 340px);
   }
+}
+.heroNav :is(a, button):focus-visible {
+  outline-color: var(--heroInk);
 }
