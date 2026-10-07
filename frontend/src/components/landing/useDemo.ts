@@ -2,6 +2,18 @@ import { useEffect, useState } from "react";
 import sample from "./sample.json";
 
 export type UtilityTab = "brief" | "research" | "refine" | "history";
+export interface ParagraphFormat {
+  bold: boolean;
+  italic: boolean;
+  list: "none" | "bullet" | "number";
+  style: string;
+}
+const defaultFormat: ParagraphFormat = {
+  bold: false,
+  italic: false,
+  list: "none",
+  style: "Paragraph",
+};
 export type OutlineSection = (typeof sample.sections)[number];
 interface Snapshot {
   id: number;
@@ -47,6 +59,52 @@ export function useDemo() {
   const [length, setLength] = useState(sample.brief.length);
   const [starter, setStarter] = useState("Executive brief");
   const [sections, setSections] = useState<OutlineSection[]>(freshSections);
+  const [formats, setFormats] = useState<Record<string, ParagraphFormat>>({});
+  const [editorPast, setEditorPast] = useState<
+    {
+      sections: OutlineSection[];
+      formats: Record<string, ParagraphFormat>;
+      accepted: boolean;
+    }[]
+  >([]);
+  const [editorFuture, setEditorFuture] = useState<typeof editorPast>([]);
+  const rememberEdit = () => {
+    setEditorPast((previous) => [...previous, { sections, formats, accepted }]);
+    setEditorFuture([]);
+  };
+  const format = formats[sections[selected].id] || defaultFormat;
+  const formatParagraph = (change: Partial<ParagraphFormat>) => {
+    rememberEdit();
+    setFormats((previous) => ({
+      ...previous,
+      [sections[selected].id]: { ...format, ...change },
+    }));
+  };
+  const undoEdit = () => {
+    const last = editorPast[editorPast.length - 1];
+    if (!last) return;
+    setEditorFuture((previous) => [
+      ...previous,
+      { sections, formats, accepted },
+    ]);
+    setSections(last.sections);
+    setFormats(last.formats);
+    setAccepted(last.accepted);
+    setEditorPast((previous) => previous.slice(0, -1));
+    setSelected(Math.min(selected, last.sections.length - 1));
+    setMessage("Last editor change undone.");
+  };
+  const redoEdit = () => {
+    const last = editorFuture[editorFuture.length - 1];
+    if (!last) return;
+    setEditorPast((previous) => [...previous, { sections, formats, accepted }]);
+    setSections(last.sections);
+    setFormats(last.formats);
+    setAccepted(last.accepted);
+    setEditorFuture((previous) => previous.slice(0, -1));
+    setSelected(Math.min(selected, last.sections.length - 1));
+    setMessage("Editor change reapplied.");
+  };
   const titles = sections.map((section) => section.title);
   const setTitles = (next: string[]) =>
     setSections((previous) =>
@@ -110,6 +168,7 @@ export function useDemo() {
     setMessage(`${label} added to sample history in this preview.`);
   };
   const accept = () => {
+    rememberEdit();
     setSelected(
       Math.max(
         0,
@@ -160,6 +219,7 @@ export function useDemo() {
     });
   };
   const updateSection = (id: string, changes: Partial<OutlineSection>) => {
+    rememberEdit();
     setSections((previous) =>
       previous.map((section) =>
         section.id === id ? { ...section, ...changes } : section,
@@ -245,10 +305,20 @@ export function useDemo() {
     setSlide(0);
     setGeneration("paused");
     setGenerated(3);
+    setFormats({});
+    setEditorPast([]);
+    setEditorFuture([]);
     setVersions(initialVersions());
     setMessage("Sample restarted. Your selected artwork theme is preserved.");
   };
   return {
+    formats,
+    format,
+    formatParagraph,
+    undoEdit,
+    redoEdit,
+    canUndo: editorPast.length > 0,
+    canRedo: editorFuture.length > 0,
     selected,
     setSelected,
     utility,

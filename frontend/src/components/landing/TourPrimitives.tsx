@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from "react";
+import { ReactNode, useState } from "react";
 import * as Select from "@radix-ui/react-select";
 import * as Menu from "@radix-ui/react-dropdown-menu";
 import { Check, ChevronDown, ChevronUp, GripVertical } from "lucide-react";
@@ -30,9 +30,9 @@ export function TourSelect({
   options: string[];
   onChange: (value: string) => void;
 }) {
-  const anchor = useRef<HTMLDivElement>(null);
+  const [anchor, setAnchor] = useState<HTMLDivElement | null>(null);
   return (
-    <div className={styles.selectAnchor} ref={anchor}>
+    <div className={styles.selectAnchor} ref={setAnchor}>
       <Select.Root value={value} onValueChange={onChange}>
         <Select.Trigger className={styles.select} aria-label={label}>
           <Select.Value />
@@ -40,7 +40,7 @@ export function TourSelect({
             <ChevronDown size={20} />
           </Select.Icon>
         </Select.Trigger>
-        <Select.Portal container={anchor.current}>
+        <Select.Portal container={anchor}>
           <Select.Content
             className={styles.popup}
             position="popper"
@@ -82,15 +82,15 @@ export function TourMenu({
   label: string;
   children: ReactNode;
 }) {
-  const anchor = useRef<HTMLDivElement>(null);
+  const [anchor, setAnchor] = useState<HTMLDivElement | null>(null);
   return (
-    <div className={styles.menuAnchor} ref={anchor}>
+    <div className={styles.menuAnchor} ref={setAnchor}>
       <Menu.Root modal={false}>
         <Menu.Trigger className={styles.menuTrigger} aria-label={label}>
           {trigger}
           <ChevronDown size={19} />
         </Menu.Trigger>
-        <Menu.Portal container={anchor.current}>
+        <Menu.Portal container={anchor}>
           <Menu.Content className={styles.popup} align="end" sideOffset={0}>
             {children}
           </Menu.Content>
