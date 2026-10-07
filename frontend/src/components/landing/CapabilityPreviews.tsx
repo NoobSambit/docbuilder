@@ -1,5 +1,10 @@
+import { useState } from "react";
 import {
   ArrowUpRight,
+  Bold,
+  Italic,
+  Underline,
+  Plus,
   Check,
   FileText,
   History,
@@ -19,6 +24,14 @@ export default function CapabilityPreviews({
   artReady: boolean;
 }) {
   const demo = useDemo();
+  const [briefTab, setBriefTab] = useState<"brief" | "document">("brief");
+  const [sourcePicker, setSourcePicker] = useState(false);
+  const [draftFormat, setDraftFormat] = useState({
+    bold: false,
+    italic: false,
+    underline: false,
+  });
+  const [outlineSaved, setOutlineSaved] = useState(false);
   const source =
     sample.sources.find((item) => item.id === demo.inspectedSource) ||
     sample.sources[1];
@@ -35,7 +48,7 @@ export default function CapabilityPreviews({
       </header>
       <div className={styles.grid}>
         <figure className={styles.wide}>
-          <div className={styles.stage}>
+          <div className={`${styles.stage} ${styles.briefStage}`}>
             <div className={styles.brief}>
               <div className={styles.toolbar}>
                 <FileText size={15} aria-hidden="true" />
@@ -46,10 +59,70 @@ export default function CapabilityPreviews({
               </div>
               <div className={styles.briefColumns}>
                 <div className={styles.briefFields}>
-                  <span className={styles.tab}>Project brief</span>
-                  <div>
-                    <span className={styles.label}>Goal</span>
-                    <p className={styles.goal}>{sample.brief.goal}</p>
+                  <div
+                    className={styles.tabs}
+                    role="tablist"
+                    aria-label="Brief preview"
+                    onKeyDown={(event) => {
+                      if (
+                        !["ArrowLeft", "ArrowRight", "Home", "End"].includes(
+                          event.key,
+                        )
+                      )
+                        return;
+                      event.preventDefault();
+                      const next =
+                        event.key === "Home"
+                          ? "brief"
+                          : event.key === "End"
+                            ? "document"
+                            : briefTab === "brief"
+                              ? "document"
+                              : "brief";
+                      setBriefTab(next);
+                      document
+                        .getElementById(`capability-${next}-tab`)
+                        ?.focus();
+                    }}
+                  >
+                    <button
+                      role="tab"
+                      id="capability-brief-tab"
+                      tabIndex={briefTab === "brief" ? 0 : -1}
+                      aria-selected={briefTab === "brief"}
+                      aria-controls="capability-brief-content"
+                      onClick={() => setBriefTab("brief")}
+                    >
+                      Project brief
+                    </button>
+                    <button
+                      role="tab"
+                      id="capability-document-tab"
+                      tabIndex={briefTab === "document" ? 0 : -1}
+                      aria-selected={briefTab === "document"}
+                      aria-controls="capability-brief-content"
+                      onClick={() => setBriefTab("document")}
+                    >
+                      Document
+                    </button>
+                  </div>
+                  <div
+                    id="capability-brief-content"
+                    role="tabpanel"
+                    aria-labelledby={
+                      briefTab === "brief"
+                        ? "capability-brief-tab"
+                        : "capability-document-tab"
+                    }
+                  >
+                    <span className={styles.label}>
+                      {briefTab === "brief" ? "Goal" : "Executive summary"}
+                    </span>
+                    <p className={styles.goal}>
+                      {briefTab === "brief"
+                        ? sample.brief.goal
+                        : "A leadership briefing on renewable deployment, storage and the questions behind an energy transition."}
+                    </p>
                   </div>
                   <div className={styles.choices}>
                     <label>
@@ -76,12 +149,39 @@ export default function CapabilityPreviews({
                         <option>Formal</option>
                       </select>
                     </label>
+                    <label>
+                      Length
+                      <select
+                        value={demo.length}
+                        onChange={(event) => demo.setLength(event.target.value)}
+                      >
+                        <option>Executive brief</option>
+                        <option>Short report</option>
+                        <option>Detailed report</option>
+                      </select>
+                    </label>
                   </div>
                 </div>
                 <div className={styles.outline}>
-                  <strong>
-                    Draft outline <span>· 5 sections</span>
-                  </strong>
+                  <div className={styles.outlineHeading}>
+                    <strong>
+                      Draft outline <span>· 5 sections</span>
+                    </strong>
+                    <button
+                      className={styles.primary}
+                      onClick={() => {
+                        demo.generateOutline();
+                        setOutlineSaved(true);
+                      }}
+                    >
+                      Generate outline
+                    </button>
+                  </div>
+                  {outlineSaved && (
+                    <small className={styles.outlineStatus} role="status">
+                      Sample outline saved
+                    </small>
+                  )}
                   {demo.sections.map((section, index) => (
                     <div className={styles.outlineRow} key={section.id}>
                       <span>{index + 1}</span>
@@ -127,29 +227,68 @@ export default function CapabilityPreviews({
                   <strong>Clean energy transition</strong>
                   <span>Draft</span>
                 </div>
+                <div
+                  className={styles.formatting}
+                  role="toolbar"
+                  aria-label="Format draft excerpt"
+                >
+                  <span>Paragraph</span>
+                  {(
+                    [
+                      ["bold", Bold],
+                      ["italic", Italic],
+                      ["underline", Underline],
+                    ] as const
+                  ).map(([format, Icon]) => (
+                    <button
+                      key={format}
+                      aria-label={format}
+                      aria-pressed={draftFormat[format]}
+                      onClick={() =>
+                        setDraftFormat((previous) => ({
+                          ...previous,
+                          [format]: !previous[format],
+                        }))
+                      }
+                    >
+                      <Icon size={13} aria-hidden="true" />
+                    </button>
+                  ))}
+                </div>
                 <h4>Storage and flexibility</h4>
-                <p>
-                  Renewable deployment is shaped by policy and market
-                  conditions.{" "}
-                  <a
-                    href={sample.sources[0].url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    [1]
-                  </a>
-                </p>
-                <p>
-                  Storage saves wind and solar electricity for periods when
-                  those resources are unavailable.{" "}
-                  <a
-                    href={sample.sources[1].url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    [2]
-                  </a>
-                </p>
+                <div
+                  className={styles.draftText}
+                  style={{
+                    fontWeight: draftFormat.bold ? 600 : 400,
+                    fontStyle: draftFormat.italic ? "italic" : "normal",
+                    textDecoration: draftFormat.underline
+                      ? "underline"
+                      : "none",
+                  }}
+                >
+                  <p>
+                    Renewable deployment is shaped by policy and market
+                    conditions.{" "}
+                    <a
+                      href={sample.sources[0].url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      [1]
+                    </a>
+                  </p>
+                  <p>
+                    Storage saves wind and solar electricity for periods when
+                    those resources are unavailable.{" "}
+                    <a
+                      href={sample.sources[1].url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      [2]
+                    </a>
+                  </p>
+                </div>
               </div>
               <aside className={styles.inspector} aria-label="Source inspector">
                 <div className={styles.toolbar}>
@@ -181,9 +320,44 @@ export default function CapabilityPreviews({
                       ? "Storage retains wind and solar energy for later use, through batteries and pumped hydropower."
                       : "An outlook for renewables through 2030 across electricity, transport and heat."}
                   </p>
-                  <a href={source.url} target="_blank" rel="noreferrer">
-                    View source <ArrowUpRight size={13} aria-hidden="true" />
-                  </a>
+                  <div className={styles.sourceActions}>
+                    <a href={source.url} target="_blank" rel="noreferrer">
+                      View source <ArrowUpRight size={13} aria-hidden="true" />
+                    </a>
+                    <button
+                      aria-expanded={sourcePicker}
+                      aria-controls="capability-source-picker"
+                      onClick={() => setSourcePicker((value) => !value)}
+                    >
+                      Add source <Plus size={13} aria-hidden="true" />
+                    </button>
+                  </div>
+                  {sourcePicker && (
+                    <div
+                      id="capability-source-picker"
+                      className={styles.sourcePicker}
+                    >
+                      <small>Available sample sources</small>
+                      {sample.sources.map((item) => (
+                        <button
+                          key={item.id}
+                          disabled={demo.included.includes(item.id)}
+                          onClick={() => {
+                            demo.toggleSource(item.id);
+                            demo.setInspectedSource(item.id);
+                            setSourcePicker(false);
+                          }}
+                        >
+                          {item.title}
+                          <span>
+                            {demo.included.includes(item.id)
+                              ? "Included"
+                              : "Add"}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </aside>
             </div>
@@ -196,15 +370,13 @@ export default function CapabilityPreviews({
         <figure>
           <div className={styles.stage}>
             <div className={`${styles.surface} ${styles.refinement}`}>
-              <div className={styles.toolbar}>
-                <strong>Review suggestion</strong>
-                <Sparkles size={14} aria-hidden="true" />
-              </div>
               <div className={styles.comparison}>
                 {demo.suggestion ? (
                   <>
-                    <del>{sample.refinement.original}</del>
-                    <ins>{sample.refinement.suggestion}</ins>
+                    <del>Energy storage helps save</del>{" "}
+                    <ins>Storage saves</ins> renewable electricity{" "}
+                    <del>for times when wind and solar output is lower.</del>{" "}
+                    <ins>for later use.</ins>{" "}
                   </>
                 ) : (
                   <p>
@@ -222,6 +394,9 @@ export default function CapabilityPreviews({
                 </a>
               </div>
               <div className={styles.actions}>
+                <span>
+                  <Sparkles size={12} aria-hidden="true" /> Review suggestion
+                </span>
                 {demo.suggestion ? (
                   <>
                     <button onClick={demo.discard}>Discard</button>
@@ -262,23 +437,31 @@ export default function CapabilityPreviews({
                   + Checkpoint
                 </button>
               </div>
-              {recent.map((version) => (
-                <div className={styles.version} key={version.id}>
-                  <span className={styles.dot} />
-                  <div>
-                    <strong>
-                      {version.label.replace(/^(Restored )+/, "Restored ")}
-                    </strong>
-                    <small>Version {version.id}</small>
-                  </div>
-                  <button
-                    aria-label={`Restore version ${version.id}`}
-                    onClick={() => demo.restore(version)}
+              <div className={styles.versionList}>
+                {recent.map((version) => (
+                  <div
+                    className={styles.version}
+                    key={version.id}
+                    data-selected={
+                      version.id === demo.versions[demo.versions.length - 1].id
+                    }
                   >
-                    Restore
-                  </button>
-                </div>
-              ))}
+                    <span className={styles.dot} />
+                    <div>
+                      <strong>
+                        {version.label.replace(/^(Restored )+/, "Restored ")}
+                      </strong>
+                      <small>Version {version.id}</small>
+                    </div>
+                    <button
+                      aria-label={`Restore version ${version.id}`}
+                      onClick={() => demo.restore(version)}
+                    >
+                      Restore
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <figcaption>
@@ -296,20 +479,44 @@ export default function CapabilityPreviews({
                 </span>
               </div>
               {demo.sections.map((section, index) => (
-                <div className={styles.sequenceRow} key={section.id}>
+                <div
+                  className={styles.sequenceRow}
+                  key={section.id}
+                  data-current={
+                    index === demo.generated && demo.generation !== "complete"
+                  }
+                >
                   <span
                     className={
-                      index < demo.generated ? styles.ready : styles.pending
+                      index < demo.generated
+                        ? styles.ready
+                        : index === demo.generated
+                          ? styles.current
+                          : styles.pending
                     }
                   >
                     {index < demo.generated ? (
                       <Check size={11} aria-hidden="true" />
+                    ) : index === demo.generated ? (
+                      demo.generation === "paused" ? (
+                        <Pause size={10} aria-hidden="true" />
+                      ) : (
+                        <Play size={10} aria-hidden="true" />
+                      )
                     ) : (
                       index + 1
                     )}
                   </span>
                   <span>{section.title}</span>
-                  <small>{index < demo.generated ? "Ready" : "Pending"}</small>
+                  <small>
+                    {index < demo.generated
+                      ? "Ready"
+                      : index === demo.generated
+                        ? demo.generation === "paused"
+                          ? "Paused"
+                          : "Writing"
+                        : "Pending"}
+                  </small>
                 </div>
               ))}
               <div className={styles.sequenceActions}>

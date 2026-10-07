@@ -9,12 +9,7 @@
   scroll-margin-top: 0;
 }
 .capabilities.loaded {
-  background-image:
-    linear-gradient(
-      color-mix(in srgb, var(--tour-shell) 68%, transparent),
-      color-mix(in srgb, var(--tour-shell) 58%, transparent)
-    ),
-    var(--capabilities-art);
+  background-image: var(--capabilities-art);
 }
 .outputs.loaded {
   background-image: linear-gradient(#fffefa15, #fffefa35), var(--outputs-art);
@@ -469,7 +464,6 @@
     margin: 0 0 7px;
   }
 }
-.capabilities::before,
 .outputs::before {
   content: "";
   position: absolute;
