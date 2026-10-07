@@ -1774,3 +1774,577 @@
     font-size: 25px;
   }
 }
+.tour[data-tour-chapter="present"] .narration {
+  height: 104px;
+  padding-top: 9px;
+}
+.presentOutputs {
+  display: grid;
+  grid-template-columns: minmax(0, 47fr) minmax(0, 53fr);
+  gap: 18px;
+  padding: 0 27px;
+  flex: 1;
+  min-height: 0;
+}
+.outputFigure {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+}
+.outputRegion {
+  border: 1px solid var(--tour-border);
+  border-radius: 6px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--tour-shell);
+}
+.outputHeading {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 62px;
+  padding: 0 17px 0 22px;
+}
+.outputHeading h3 {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 550;
+}
+.outputHeading .menuTrigger {
+  background: var(--tour-accent);
+  color: var(--tour-on-accent);
+  height: 44px;
+  min-width: 193px;
+  gap: 17px;
+  font-size: 18px;
+  padding: 0 16px;
+}
+.outputHeading .menuTrigger:hover {
+  background: var(--tour-selected);
+}
+.outputHeading .popup {
+  width: 210px;
+}
+.markdownIcon {
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 750;
+  width: 24px;
+  height: 19px;
+  text-align: center;
+}
+.downloadNotice {
+  font-size: 12px;
+  padding: 8px 12px;
+  color: var(--tour-muted);
+  border-top: 1px solid var(--tour-border);
+}
+.reportWindow {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: auto;
+  padding: 3px 35px 0;
+  isolation: isolate;
+}
+.reportPage {
+  position: relative;
+  width: 84%;
+  max-width: 590px;
+  min-height: 740px;
+  padding: 28px 46px;
+  background: var(--tour-paper);
+  color: var(--tour-ink);
+  box-shadow: var(--tour-shadow);
+  font:
+    18px/1.3 Georgia,
+    "Times New Roman",
+    serif;
+}
+.reportStack {
+  position: absolute;
+  left: 70px;
+  right: 24px;
+  top: 3px;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+.reportStack > div {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 65%;
+  height: 780px;
+  background: var(--tour-paper);
+  box-shadow: var(--tour-shadow);
+  border: 1px solid var(--tour-border);
+}
+.reportStack > div:last-child {
+  right: 44px;
+  background-image: linear-gradient(var(--tour-border) 3px, transparent 3px);
+  background-size: 65% 16px;
+  background-position: 25px 290px;
+  background-repeat: repeat-y;
+}
+.reportStack > div:last-child::before {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 128px;
+  width: 90px;
+  height: 130px;
+  background: url("/landing/tour/wind-landscape.webp") center / cover;
+}
+.reportPage .reportProject {
+  font-size: 21px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+.reportPage > h3 {
+  font-size: 46px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+.reportContents {
+  border-top: 1px solid var(--tour-border);
+  margin-bottom: 20px;
+  padding-top: 9px;
+}
+.reportPage h4 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 20px 0 3px;
+}
+.reportContents h4 {
+  font-size: 18px;
+  margin: 0 0 5px;
+}
+.reportContents > a {
+  display: flex;
+  gap: 22px;
+  font-size: 17px;
+  margin: 2px 0;
+  color: inherit;
+}
+.reportPage section p {
+  margin: 0 0 14px;
+}
+.reportPage section + section {
+  border-top: 1px solid var(--tour-border);
+  padding-top: 10px;
+  margin-top: 20px;
+}
+.reportPage ul {
+  list-style: disc;
+  padding-left: 19px;
+  margin: 5px 0;
+}
+.reportReferences {
+  border-top: 1px solid var(--tour-border);
+  padding-top: 8px;
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.reportReferences a {
+  display: block;
+}
+.reportPage footer {
+  font:
+    12px/1.4 var(--font-inter, Arial),
+    Arial,
+    sans-serif;
+  color: var(--tour-muted);
+  border-top: 1px solid var(--tour-border);
+  margin-top: 20px;
+  padding-top: 12px;
+}
+.deckViewer {
+  padding: 0 13px 14px;
+  overflow: auto;
+  min-height: 0;
+  flex: 1;
+}
+.slideViewport {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border: 1px solid var(--tour-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.outputSlide {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  color: var(--tour-ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+.outputSlide > div:first-child {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 25px 34px;
+}
+.coverSlide > div:first-child {
+  background: var(--tour-rail);
+  color: var(--tour-on-accent);
+}
+.outputSlide h4 {
+  font-size: clamp(32px, 3.65vw, 62px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+.outputSlide p {
+  font-size: clamp(16px, 1.55vw, 26px);
+  line-height: 1.25;
+  padding-top: 12px;
+  white-space: pre-line;
+}
+.outputSlide small {
+  font:
+    12px/1.4 var(--font-inter, Arial),
+    Arial,
+    sans-serif;
+  color: var(--tour-muted);
+  padding-top: 25px;
+}
+.contentSlide > div:first-child {
+  background: var(--tour-paper);
+}
+.contentSlide h4 {
+  font-size: clamp(25px, 2.3vw, 40px);
+}
+.contentSlide p {
+  font:
+    18px/1.6 var(--font-inter, Arial),
+    Arial,
+    sans-serif;
+}
+.energyImage {
+  background: url("/landing/tour/wind-landscape.webp") center / cover;
+  min-width: 0;
+}
+.outputFilmstrip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.thumbnails {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  min-width: 0;
+}
+.tour .thumbnails > button {
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: 1px solid var(--tour-border);
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 0;
+}
+.tour .thumbnails > button[aria-pressed="true"] {
+  outline: 3px solid var(--tour-accent);
+  outline-offset: 2px;
+}
+.thumbnailSlide > div:first-child {
+  padding: 8px 10px;
+  justify-content: flex-start;
+}
+.thumbnailSlide h4 {
+  font-size: 12px;
+  letter-spacing: -0.3px;
+  line-height: 1.05;
+  text-align: left;
+}
+.thumbnailLines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 9px;
+}
+.thumbnailLines i {
+  height: 3px;
+  width: 100%;
+  background: var(--tour-border);
+}
+.thumbnailLines i:nth-child(2) {
+  width: 70%;
+}
+.thumbnailLines i:nth-child(3) {
+  width: 86%;
+}
+.paging {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 15px;
+  color: var(--tour-muted);
+  flex-shrink: 0;
+}
+.tour .paging button {
+  height: 32px;
+  width: 30px;
+  border: 1px solid var(--tour-border);
+  border-radius: 6px;
+}
+.outputFigure figcaption {
+  font-size: 16px;
+  color: var(--tour-muted);
+  padding: 7px 4px;
+}
+.completion {
+  flex-shrink: 0;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid var(--tour-border);
+  margin: 0 30px;
+  padding: 5px 0;
+  font-size: 15px;
+}
+.completion > span {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--tour-muted);
+}
+.completion i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tour-added-ink);
+  color: var(--tour-on-accent);
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+}
+.completion > a {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 42px;
+  border-radius: 6px;
+  background: var(--tour-accent);
+  color: var(--tour-on-accent);
+  padding: 8px 24px;
+  font-size: 16px;
+}
+.tour .reviewEdit {
+  color: var(--tour-accent);
+  text-decoration: underline;
+  font-size: 13px;
+}
+@media (max-width: 1500px) and (min-width: 1001px) {
+  .tour[data-tour-chapter="present"] .narration {
+    height: 98px;
+  }
+  .presentOutputs {
+    padding: 0 22px;
+    gap: 16px;
+  }
+  .outputHeading {
+    height: 59px;
+    padding: 0 14px;
+    gap: 8px;
+  }
+  .outputHeading h3 {
+    font-size: 16px;
+    gap: 13px;
+  }
+  .outputHeading .menuTrigger {
+    min-width: 155px;
+    font-size: 15px;
+    gap: 12px;
+    padding: 0 12px;
+  }
+  .reportWindow {
+    padding: 3px 25px 0;
+  }
+  .reportPage {
+    padding: 25px 34px;
+    width: 86%;
+    font-size: 16px;
+  }
+  .reportPage > h3 {
+    font-size: 37px;
+  }
+  .reportPage h4 {
+    font-size: 25px;
+  }
+  .reportContents h4 {
+    font-size: 16px;
+  }
+  .reportContents a {
+    font-size: 15px;
+  }
+  .reportPage .reportProject {
+    font-size: 18px;
+  }
+  .outputSlide > div:first-child {
+    padding: 20px 25px;
+  }
+  .contentSlide p {
+    font-size: 15px;
+  }
+  .thumbnails {
+    gap: 8px;
+  }
+  .thumbnailSlide > div:first-child {
+    padding: 6px;
+  }
+  .thumbnailSlide h4 {
+    font-size: 10px;
+  }
+  .thumbnailLines {
+    gap: 3px;
+    margin-top: 7px;
+  }
+  .thumbnailLines i {
+    height: 2px;
+  }
+  .paging {
+    font-size: 13px;
+    gap: 5px;
+  }
+}
+@media (max-width: 1000px) {
+  .tour[data-tour-chapter="present"] .narration {
+    height: auto;
+    padding: 20px 18px;
+  }
+  .presentOutputs {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 0 12px;
+    gap: 20px;
+  }
+  .outputRegion {
+    min-height: 0;
+  }
+  .outputHeading {
+    height: auto;
+    min-height: 62px;
+    padding: 9px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .outputHeading h3 {
+    font-size: 16px;
+    gap: 10px;
+  }
+  .outputHeading .menuTrigger {
+    min-width: 150px;
+    font-size: 14px;
+    gap: 10px;
+  }
+  .reportWindow {
+    height: 520px;
+    flex: none;
+    padding: 0 12px;
+  }
+  .reportPage {
+    width: 93%;
+    padding: 22px 20px;
+    font-size: 16px;
+  }
+  .reportPage > h3 {
+    font-size: 33px;
+  }
+  .reportPage .reportProject {
+    font-size: 18px;
+  }
+  .reportPage h4 {
+    font-size: 23px;
+  }
+  .reportContents h4 {
+    font-size: 16px;
+  }
+  .reportContents > a {
+    font-size: 15px;
+  }
+  .deckViewer {
+    padding: 0 10px 15px;
+  }
+  .outputSlide > div:first-child {
+    padding: 14px;
+  }
+  .outputSlide h4 {
+    font-size: clamp(22px, 4.4vw, 42px);
+    letter-spacing: -0.6px;
+  }
+  .outputSlide p {
+    font-size: clamp(14px, 2.5vw, 22px);
+    padding-top: 9px;
+  }
+  .contentSlide h4 {
+    font-size: clamp(19px, 3.5vw, 28px);
+  }
+  .contentSlide p {
+    font-size: clamp(11px, 2vw, 16px);
+    line-height: 1.35;
+  }
+  .contentSlide small {
+    display: none;
+  }
+  .outputFilmstrip {
+    display: block;
+  }
+  .thumbnails {
+    gap: 8px;
+    margin: 8px 3px;
+  }
+  .thumbnailSlide > div:first-child {
+    padding: 4px;
+  }
+  .thumbnailSlide h4 {
+    font-size: 9px;
+    letter-spacing: -0.25px;
+  }
+  .thumbnailLines {
+    margin-top: 5px;
+    gap: 2px;
+  }
+  .thumbnailLines i {
+    height: 2px;
+  }
+  .paging {
+    justify-content: flex-end;
+    padding-top: 7px;
+  }
+  .tour .paging button {
+    min-height: 44px;
+    width: 44px;
+  }
+  .completion {
+    margin: 0 15px;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    font-size: 14px;
+  }
+  .completion > a {
+    min-height: 44px;
+    font-size: 14px;
+    padding: 9px 16px;
+  }
+}

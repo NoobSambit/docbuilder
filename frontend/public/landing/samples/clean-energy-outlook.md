@@ -4,7 +4,7 @@ A briefing for leadership
 
 ## Executive summary
 
-Renewable deployment is shaped by policy and market conditions. The IEA’s Renewables 2025 examines electricity, transport and heat through 2030. [1] Storage gives variable wind and solar generation a way to serve demand at other times. The US Department of Energy describes both battery research and pumped storage hydropower. [2]
+Renewable deployment is shaped by policy and market conditions. [1] Storage saves renewable electricity for later use. [2] This brief considers the transition, the role of storage and questions for leadership.
 
 - Review the policy assumptions behind an outlook.
 - Consider storage alongside renewable generation.
@@ -41,7 +41,7 @@ Use the linked sources to check scope and context. This sample recommends review
 
 ## References
 
-- [Renewables 2025](https://www.iea.org/reports/renewables-2025) — International Energy Agency
+- [Renewables 2025](https://www.iea.org/reports/renewables-2025) — IEA
 - [Energy Storage](https://www.energy.gov/energy-storage) — US Department of Energy
 
 DocBuilder sample project. Illustrative briefing, not investment advice. Sources verified 6 October 2026.

@@ -123,6 +123,12 @@
       "sourceIds": ["iea", "doe"]
     },
     {
+      "title": "Next steps",
+      "eyebrow": "From context to a decision",
+      "body": "Read the original sources\nDocument assumptions\nAssess project-specific storage needs",
+      "sourceIds": ["iea", "doe"]
+    },
+    {
       "title": "References",
       "eyebrow": "Continue the research",
       "body": "Renewables 2025\nInternational Energy Agency\n\nEnergy Storage\nUS Department of Energy",

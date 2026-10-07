@@ -1,5 +1,4 @@
 import { useEffect, useId, useRef, useState } from "react";
-import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
@@ -28,11 +27,8 @@ import {
   OutlineNavigation,
   SourcesInspector,
 } from "./TourDraft";
-import {
-  InlineSuggestion,
-  RefineInspector,
-  SourceReferences,
-} from "./TourRefine";
+import { InlineSuggestion, RefineInspector } from "./TourRefine";
+import TourPresent from "./TourPresent";
 import styles from "./Tour.module.css";
 
 export const TOUR_CHAPTERS = [
@@ -476,71 +472,81 @@ export default function Tour({
         <h2>{HEADLINES[chapter]}</h2>
         <p>{SUPPORT[chapter]}</p>
       </div>
-      <nav className={styles.mobilePanels} aria-label="Tour panels">
-        {["outline", "document", "tools"].map((pane) => (
-          <button
-            key={pane}
-            aria-pressed={demo.mobilePane === pane}
-            onClick={() => demo.setMobilePane(pane)}
-          >
-            {pane === "outline"
-              ? chapter === 0
-                ? "Project brief"
-                : "Outline"
-              : pane === "document"
+      {chapter !== 3 && (
+        <nav className={styles.mobilePanels} aria-label="Tour panels">
+          {["outline", "document", "tools"].map((pane) => (
+            <button
+              key={pane}
+              aria-pressed={demo.mobilePane === pane}
+              onClick={() => demo.setMobilePane(pane)}
+            >
+              {pane === "outline"
                 ? chapter === 0
-                  ? "Your outline"
-                  : "Draft"
-                : chapter === 0
-                  ? "Section details"
-                  : chapter === 2
-                    ? "Refine"
-                    : "Sources"}
-          </button>
-        ))}
-      </nav>
-      <div className={styles.panes} data-pane={demo.mobilePane} ref={panes}>
-        {chapter === 0 ? (
-          <>
-            <BriefComposer demo={demo} onChapter={onChapter} />
-            <BriefOutline
-              demo={demo}
-              expandedItems={expandedItems}
-              toggleItem={(id) =>
-                setExpandedItems((previous) =>
-                  previous.includes(id)
-                    ? previous.filter((item) => item !== id)
-                    : [...previous, id],
-                )
-              }
-            />
-            <SectionInspector
-              key={demo.sections[demo.selected].id}
-              demo={demo}
-              onChapter={onChapter}
-            />
-          </>
-        ) : (
-          <>
-            <OutlineNavigation demo={demo} onChapter={onChapter} />
-            <DraftEditor demo={demo} refine={chapter === 2}>
-              {chapter === 2 && <InlineSuggestion demo={demo} />}
-            </DraftEditor>
-            {chapter === 2 ? (
-              <RefineInspector demo={demo} />
-            ) : (
-              <SourcesInspector demo={demo} />
-            )}
-            {chapter === 1 && (
-              <CitationConnector
-                host={panes}
-                sourceId={demo.inspectedSource}
-                selected={demo.selected}
+                  ? "Project brief"
+                  : "Outline"
+                : pane === "document"
+                  ? chapter === 0
+                    ? "Your outline"
+                    : "Draft"
+                  : chapter === 0
+                    ? "Section details"
+                    : chapter === 2
+                      ? "Refine"
+                      : "Sources"}
+            </button>
+          ))}
+        </nav>
+      )}
+      {chapter === 3 ? (
+        <TourPresent
+          demo={demo}
+          createHref={createHref}
+          onChapter={onChapter}
+        />
+      ) : (
+        <div className={styles.panes} data-pane={demo.mobilePane} ref={panes}>
+          {chapter === 0 ? (
+            <>
+              <BriefComposer demo={demo} onChapter={onChapter} />
+              <BriefOutline
+                demo={demo}
+                expandedItems={expandedItems}
+                toggleItem={(id) =>
+                  setExpandedItems((previous) =>
+                    previous.includes(id)
+                      ? previous.filter((item) => item !== id)
+                      : [...previous, id],
+                  )
+                }
               />
-            )}
-          </>
-        )}
-      </div>
+              <SectionInspector
+                key={demo.sections[demo.selected].id}
+                demo={demo}
+                onChapter={onChapter}
+              />
+            </>
+          ) : (
+            <>
+              <OutlineNavigation demo={demo} onChapter={onChapter} />
+              <DraftEditor demo={demo} refine={chapter === 2}>
+                {chapter === 2 && <InlineSuggestion demo={demo} />}
+              </DraftEditor>
+              {chapter === 2 ? (
+                <RefineInspector demo={demo} />
+              ) : (
+                <SourcesInspector demo={demo} />
+              )}
+              {chapter === 1 && (
+                <CitationConnector
+                  host={panes}
+                  sourceId={demo.inspectedSource}
+                  selected={demo.selected}
+                />
+              )}
+            </>
+          )}
+        </div>
+      )}
       <span className={styles.liveStatus} role="status" aria-live="polite">
         {demo.message}
       </span>

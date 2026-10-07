@@ -349,6 +349,7 @@ export function DraftEditor({
           )}
         </div>
       </div>
+      {refine && <SourceReferences />}
     </section>
   );
 }

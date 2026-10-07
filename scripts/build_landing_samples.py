@@ -17,6 +17,10 @@ ROOT = Path(__file__).resolve().parents[1]
 data = json.loads((ROOT / 'frontend/src/components/landing/sample.json').read_text())
 out = ROOT / 'frontend/public/landing/samples'
 out.mkdir(parents=True, exist_ok=True)
+# Prepared downloads use the approved concise wording, independently of local preview edits.
+for item in data['sections']:
+    if item.get('id') == 'executive':
+        item['text'] = item['text'].replace(data['refinement']['original'], data['refinement']['suggestion'])
 notice = 'DocBuilder sample project. Illustrative briefing, not investment advice. Sources verified 6 October 2026.'
 
 def hyperlink(paragraph, text, url):

@@ -12,3 +12,5 @@ Verified primary sources on 2026-10-06:
 Source inspector excerpts are explicitly labelled summaries, not verbatim quotations. Next steps are sample analysis, not facts attributed to a source. No invented numerical projections or confidence scores appear.
 
 The files were opened by headless LibreOffice and rendered as two document pages and five presentation slides for visual inspection. Browser download checks follow the page implementation.
+
+Tour rebuild update: prepared report downloads now contain the storyboard's accepted sentence, “Storage saves renewable electricity for later use. [2]”. The separately authored deck has six slides, including Next steps. The live tour preview uses its local Accept/Discard state; prepared downloads do not follow arbitrary text edits, outline order, formatting or artwork palette. The tour's wind illustration is a crop of approved artwork; the prepared PPTX retains its editable schematic illustration.
