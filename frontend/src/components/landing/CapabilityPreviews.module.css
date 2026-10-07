@@ -61,7 +61,7 @@
   content: "";
   position: absolute;
   z-index: -1;
-  inset: -12px -14px;
+  inset: -12px -24px -12px -32px;
   pointer-events: none;
   background: linear-gradient(
     to right,
@@ -72,11 +72,23 @@
   -webkit-backdrop-filter: blur(16px);
   mask-image:
     linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent),
-    linear-gradient(to right, #000 80%, transparent);
+    linear-gradient(
+      to right,
+      transparent,
+      #000 40px,
+      #000 calc(100% - 56px),
+      transparent
+    );
   mask-composite: intersect;
   -webkit-mask-image:
     linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent),
-    linear-gradient(to right, #000 80%, transparent);
+    linear-gradient(
+      to right,
+      transparent,
+      #000 40px,
+      #000 calc(100% - 56px),
+      transparent
+    );
   -webkit-mask-composite: source-in;
 }
 .heading p,
