@@ -79,12 +79,10 @@ export default function LandingPage() {
       chapterRef.current = index;
       setChapter(index);
       setExpanded(true);
-      section
-        .querySelector('[data-workspace="stable-shell"]')
-        ?.scrollIntoView({
-          behavior: "instant" as ScrollBehavior,
-          block: "start",
-        });
+      section.querySelector('[data-workspace="stable-shell"]')?.scrollIntoView({
+        behavior: "instant" as ScrollBehavior,
+        block: "start",
+      });
     } else {
       const top = section.getBoundingClientRect().top + window.scrollY;
       // Land well inside a chapter, avoiding rounding errors at the boundary.
@@ -217,6 +215,7 @@ export default function LandingPage() {
                 chapter={chapter}
                 expanded={expanded}
                 onChapter={goChapter}
+                createHref={createHref}
               />
             </div>
           </div>

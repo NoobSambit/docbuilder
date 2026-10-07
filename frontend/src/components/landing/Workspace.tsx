@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import sample from "./sample.json";
+import Tour from "./Tour";
 import { DemoState, UtilityTab } from "./useDemo";
 import styles from "./Workspace.module.css";
 
@@ -545,12 +546,14 @@ interface WorkspaceProps {
   chapter: number;
   expanded: boolean;
   onChapter: (index: number) => void;
+  createHref: string;
 }
 export default function Workspace({
   demo,
   chapter,
   expanded,
   onChapter,
+  createHref,
 }: WorkspaceProps) {
   useEffect(() => {
     if (!expanded) return;
@@ -572,6 +575,17 @@ export default function Workspace({
     // Deliberately only tied to chapter transitions, so manual controls remain usable between them.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapter, expanded]);
+  if (expanded && chapter === 0)
+    return (
+      <div className={styles.workspace} data-workspace="stable-shell">
+        <Tour
+          demo={demo}
+          chapter={chapter}
+          onChapter={onChapter}
+          createHref={createHref}
+        />
+      </div>
+    );
   const tabs: UtilityTab[] = ["brief", "research", "refine", "history"];
   return (
     <div className={styles.workspace} data-workspace="stable-shell">
