@@ -11,6 +11,29 @@
 .capabilities.loaded {
   background-image: var(--capabilities-art);
 }
+/* Feather the artwork seam without washing the section or blurring its UI. */
+.capabilities.loaded::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -24px;
+  left: 0;
+  right: 0;
+  height: 56px;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  mask-image: linear-gradient(transparent, #000 35%, #000 60%, transparent);
+  -webkit-mask-image: linear-gradient(
+    transparent,
+    #000 35%,
+    #000 60%,
+    transparent
+  );
+}
+.capabilities > .container {
+  z-index: 1;
+}
 .outputs.loaded {
   background-image: linear-gradient(#fffefa15, #fffefa35), var(--outputs-art);
 }
