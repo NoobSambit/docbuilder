@@ -1151,3 +1151,9 @@
   outline-color: #fff9dc;
   outline-offset: 1px;
 }
+/* Expanded-tour chrome is scoped; capability/hero preview helpers keep their geometry. */
+.tourWorkspace {
+  background: var(--tour-shell);
+  color: var(--tour-ink);
+  font-family: var(--font-inter, Arial), Arial, sans-serif;
+}

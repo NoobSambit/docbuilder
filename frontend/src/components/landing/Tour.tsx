@@ -282,6 +282,11 @@ function SectionInspector({
   const [subsections, setSubsections] = useState(section.subsections);
   const id = useId();
   const inputs = useRef<(HTMLInputElement | null)[]>([]);
+  useEffect(() => {
+    setHeading(section.title);
+    setGuidance(section.guidance);
+    setSubsections([...section.subsections]);
+  }, [section.title, section.guidance, section.subsections]);
   return (
     <aside className={styles.inspector} aria-label="Selected section inspector">
       <header className={styles.paneHeading}>
@@ -304,7 +309,7 @@ function SectionInspector({
       <label className={styles.field}>
         Section guidance
         <textarea
-          rows={3}
+          rows={2}
           value={guidance}
           onChange={(e) => setGuidance(e.target.value)}
         />

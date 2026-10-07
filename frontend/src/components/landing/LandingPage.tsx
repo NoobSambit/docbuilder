@@ -32,7 +32,19 @@ export default function LandingPage() {
       frame = 0;
       const normal = reduced.matches || small.matches;
       setNormalFlow(normal);
-      if (!story.current || !stage.current || normal) return;
+      if (!story.current || !stage.current) return;
+      if (normal) {
+        stage.current.style.setProperty("--expansion", "0");
+        const shell = story.current.querySelector(
+          '[data-workspace="stable-shell"]',
+        );
+        const isExpanded = !!shell && shell.getBoundingClientRect().top <= 80;
+        if (isExpanded !== expandedRef.current) {
+          expandedRef.current = isExpanded;
+          setExpanded(isExpanded);
+        }
+        return;
+      }
       const viewport = window.innerHeight;
       const local = Math.max(0, -story.current.getBoundingClientRect().top);
       const expansion = Math.min(1, local / (viewport * 0.8));
@@ -79,6 +91,7 @@ export default function LandingPage() {
       chapterRef.current = index;
       setChapter(index);
       setExpanded(true);
+      expandedRef.current = true;
       section.querySelector('[data-workspace="stable-shell"]')?.scrollIntoView({
         behavior: "instant" as ScrollBehavior,
         block: "start",
@@ -93,6 +106,23 @@ export default function LandingPage() {
     }
     setMenuOpen(false);
   }, []);
+  // Local review links select a chapter without touching visit/theme preference logic.
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+    const name = query.get("tourChapter");
+    const index = CHAPTERS.findIndex(
+      (chapterName) => chapterName.toLowerCase() === name,
+    );
+    if (index < 0) return;
+    const frame = requestAnimationFrame(() => {
+      if (query.get("tourEdit") === "accepted") demo.accept();
+      if (query.get("tourEdit") === "discarded") demo.discard();
+      goChapter(index);
+    });
+    return () => cancelAnimationFrame(frame);
+    // Bootstrap once; changes made by the visitor must not be overwritten.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [goChapter]);
   const closeMenu = () => setMenuOpen(false);
 
   return (
@@ -209,7 +239,10 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className={styles.workspaceFrame}>
+            <div
+              className={styles.workspaceFrame}
+              data-tour-expanded={expanded}
+            >
               <Workspace
                 demo={demo}
                 chapter={chapter}

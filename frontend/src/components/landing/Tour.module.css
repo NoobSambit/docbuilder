@@ -2348,3 +2348,79 @@
     padding: 9px 16px;
   }
 }
+/* Geometry corrections measured against the selected full-resolution frames. */
+@media (min-width: 1001px) {
+  .chapterTrack {
+    grid-template-columns: 19% 20.5% 19% minmax(0, 1fr) auto;
+    gap: 0;
+  }
+  .chapterTrack > button[aria-current]::after {
+    width: min(212px, 85%);
+    right: auto;
+  }
+  .rail .menuTrigger {
+    min-height: 36px;
+  }
+}
+@media (max-width: 1000px) {
+  .tour .grip,
+  .tour .iconButton {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+  }
+  .tour .outlineNumber {
+    width: 44px;
+    height: 44px;
+  }
+  .tour .sourceRecord button {
+    min-height: 44px;
+  }
+  .tour .tourHistory button,
+  .tour .resolvedEdit button,
+  .tour .reviewEdit {
+    min-height: 44px;
+  }
+}
+@media (max-width: 600px) {
+  .outlineItem .outlineNumber {
+    display: none;
+  }
+  .paneHeading .ready {
+    order: 3;
+    width: 100%;
+    margin-top: 2px;
+  }
+  .outputFigure figcaption {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) and (min-width: 1001px),
+  (max-height: 600px) and (min-width: 1001px) {
+  .tour {
+    height: auto;
+    min-height: 900px;
+  }
+  .panes {
+    min-height: 680px;
+  }
+  .panes > :is(aside, section) {
+    overflow: visible;
+  }
+  .presentOutputs {
+    min-height: 640px;
+  }
+}
+@media (min-width: 1001px) {
+  .rail .field {
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .rail .starters {
+    padding-top: 12px;
+    margin-bottom: 9px;
+  }
+  .tour .rail .starters button {
+    min-height: 57px;
+  }
+}

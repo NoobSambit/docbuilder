@@ -358,6 +358,9 @@ export function SourcesInspector({ demo }: { demo: DemoState }) {
     sample.sources.find((s) => s.id === demo.inspectedSource) ||
     sample.sources[1];
   const index = sample.sources.indexOf(source);
+  const usedSection =
+    demo.sections.find((section) => section.sourceIds.includes(source.id)) ||
+    demo.sections[0];
   return (
     <aside
       className={`${styles.inspector} ${styles.sourcesInspector}`}
@@ -450,7 +453,7 @@ export function SourcesInspector({ demo }: { demo: DemoState }) {
       </div>
       <div className={styles.usedSource}>
         <h4>Used in this section</h4>
-        <p>{demo.sections[demo.selected].title}</p>
+        <p>{usedSection.title}</p>
         <blockquote>
           {index === 1
             ? `${demo.accepted ? sample.refinement.suggestion : sample.refinement.original} [2]`
@@ -485,6 +488,7 @@ export function CitationConnector({
     const root = host.current;
     if (!root) return;
     let frame = 0;
+    let active = true;
     const update = () => {
       frame = 0;
       if (matchMedia("(max-width: 1000px)").matches) {
@@ -528,7 +532,7 @@ export function CitationConnector({
       });
     };
     const schedule = () => {
-      if (!frame) frame = requestAnimationFrame(update);
+      if (active && !frame) frame = requestAnimationFrame(update);
     };
     const observer = new ResizeObserver(schedule);
     observer.observe(root);
@@ -537,12 +541,23 @@ export function CitationConnector({
         "section, aside, [data-citation-source], [data-source-row]",
       )
       .forEach((element) => observer.observe(element));
+    const mutations = new MutationObserver(schedule);
+    const editor = root.querySelector("section");
+    if (editor)
+      mutations.observe(editor, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributes: true,
+      });
     root.addEventListener("scroll", schedule, true);
     window.addEventListener("resize", schedule);
     document.fonts?.ready.then(schedule);
     schedule();
     return () => {
+      active = false;
       observer.disconnect();
+      mutations.disconnect();
       root.removeEventListener("scroll", schedule, true);
       window.removeEventListener("resize", schedule);
       cancelAnimationFrame(frame);

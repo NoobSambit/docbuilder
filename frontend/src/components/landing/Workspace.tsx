@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from "react";
+import { useId, useState } from "react";
 import {
   BookOpen,
   Check,
@@ -555,29 +555,12 @@ export default function Workspace({
   onChapter,
   createHref,
 }: WorkspaceProps) {
-  useEffect(() => {
-    if (!expanded) return;
-    const utility: UtilityTab =
-      chapter === 0
-        ? "brief"
-        : chapter === 1
-          ? "research"
-          : chapter === 2
-            ? "refine"
-            : "history";
-    demo.setUtility(utility);
-    demo.setPreview(chapter === 3);
-    demo.setMobilePane(
-      matchMedia("(max-width: 1000px)").matches && chapter !== 3
-        ? "tools"
-        : "document",
-    );
-    // Deliberately only tied to chapter transitions, so manual controls remain usable between them.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [chapter, expanded]);
   if (expanded)
     return (
-      <div className={styles.workspace} data-workspace="stable-shell">
+      <div
+        className={`${styles.workspace} ${styles.tourWorkspace}`}
+        data-workspace="stable-shell"
+      >
         <Tour
           demo={demo}
           chapter={chapter}

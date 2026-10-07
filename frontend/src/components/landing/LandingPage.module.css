@@ -556,3 +556,14 @@
 .heroNav :is(a, button):focus-visible {
   outline-color: var(--heroInk);
 }
+/* Only the expanded tour changes the normal-flow frame; arrival retains its footprint. */
+@media (prefers-reduced-motion: reduce), (max-height: 600px) {
+  .workspaceFrame[data-tour-expanded="true"] {
+    height: auto;
+    min-height: 0;
+  }
+}
+.workspaceFrame[data-tour-expanded="true"] {
+  border: 0;
+  box-shadow: none;
+}
