@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useId, useState } from "react";
 import * as Select from "@radix-ui/react-select";
 import * as Menu from "@radix-ui/react-dropdown-menu";
 import { Check, ChevronDown, ChevronUp, GripVertical } from "lucide-react";
@@ -150,6 +150,7 @@ export function SortableList({
   onMove: (from: number, to: number) => void;
   children: ReactNode;
 }) {
+  const id = useId();
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
     useSensor(KeyboardSensor, {
@@ -158,6 +159,7 @@ export function SortableList({
   );
   return (
     <DndContext
+      id={`tour-drag-${id}`}
       sensors={sensors}
       collisionDetection={closestCenter}
       onDragEnd={({ active, over }) => {
@@ -165,7 +167,11 @@ export function SortableList({
           onMove(ids.indexOf(String(active.id)), ids.indexOf(String(over.id)));
       }}
     >
-      <SortableContext items={ids} strategy={verticalListSortingStrategy}>
+      <SortableContext
+        id={`tour-sort-${id}`}
+        items={ids}
+        strategy={verticalListSortingStrategy}
+      >
         {children}
       </SortableContext>
     </DndContext>

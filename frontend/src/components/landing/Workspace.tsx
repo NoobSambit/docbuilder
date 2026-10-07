@@ -9,14 +9,13 @@ import {
   History,
   Pause,
   Play,
-  Presentation,
   RotateCcw,
   Sparkles,
   X,
 } from "lucide-react";
 import sample from "./sample.json";
 import Tour from "./Tour";
-import { DemoState, UtilityTab } from "./useDemo";
+import { DemoState } from "./useDemo";
 import styles from "./Workspace.module.css";
 
 export const CHAPTERS = ["Brief", "Research", "Refine", "Present"] as const;
@@ -555,202 +554,18 @@ export default function Workspace({
   onChapter,
   createHref,
 }: WorkspaceProps) {
-  if (expanded)
-    return (
-      <div
-        className={`${styles.workspace} ${styles.tourWorkspace}`}
-        data-workspace="stable-shell"
-      >
-        <Tour
-          demo={demo}
-          chapter={chapter}
-          onChapter={onChapter}
-          createHref={createHref}
-        />
-      </div>
-    );
-  const tabs: UtilityTab[] = ["brief", "research", "refine", "history"];
   return (
-    <div className={styles.workspace} data-workspace="stable-shell">
-      <div className={styles.topbar}>
-        <Brand />
-        <span className={styles.projectTitle}>
-          {sample.title}{" "}
-          <span className={styles.sampleBadge}>Sample project</span>
-        </span>
-        <div className={styles.topActions}>
-          <button
-            onClick={() => {
-              demo.setUtility("history");
-              demo.setMobilePane("tools");
-            }}
-            aria-label="Open sample history"
-          >
-            <History size={15} aria-hidden="true" />
-            <span>History</span>
-          </button>
-          <button
-            aria-pressed={demo.preview}
-            aria-label={demo.preview ? "Editor" : "Preview"}
-            onClick={() => {
-              demo.setPreview(!demo.preview);
-              demo.setMobilePane("document");
-            }}
-          >
-            <Eye size={15} aria-hidden="true" />
-            <span>{demo.preview ? "Editor" : "Preview"}</span>
-          </button>
-          <ExportControl output={demo.preview ? demo.output : "document"} />
-        </div>
-      </div>
-      <nav className={styles.chapterNav} aria-label="Sample workflow chapters">
-        {CHAPTERS.map((name, index) => (
-          <button
-            key={name}
-            aria-current={chapter === index ? "step" : undefined}
-            onClick={() => onChapter(index)}
-          >
-            <span>0{index + 1}</span>
-            {name}
-          </button>
-        ))}
-        <span className={styles.chapterHint}>{CHAPTER_COPY[chapter]}</span>
-      </nav>
-      <div className={styles.briefStrip}>
-        <span>
-          Audience <strong>{demo.audience}</strong>
-        </span>
-        <span>
-          Purpose <strong>{demo.purpose}</strong>
-        </span>
-        <span>
-          Tone <strong>{demo.tone}</strong>
-        </span>
-        <button
-          onClick={() => {
-            demo.setUtility("brief");
-            demo.setMobilePane("tools");
-          }}
-        >
-          Edit brief
-        </button>
-      </div>
-      <nav className={styles.mobileTabs} aria-label="Workspace panels">
-        {["outline", "document", "tools"].map((tab) => (
-          <button
-            key={tab}
-            aria-pressed={demo.mobilePane === tab}
-            onClick={() => demo.setMobilePane(tab)}
-          >
-            {tab === "tools" ? "Research & tools" : tab}
-          </button>
-        ))}
-      </nav>
-      <div className={styles.body} data-mobile-pane={demo.mobilePane}>
-        <aside className={styles.outline} aria-label="Sample outline">
-          <div className={styles.outlineHeading}>
-            Outline <span>{demo.titles.length} sections</span>
-          </div>
-          {demo.titles.map((title, index) => (
-            <button
-              key={index}
-              aria-pressed={demo.selected === index}
-              onClick={() => {
-                demo.setSelected(index);
-                demo.setMobilePane("document");
-              }}
-            >
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              {title}
-            </button>
-          ))}
-          <button
-            className={styles.outlineAction}
-            onClick={() => {
-              demo.setUtility("brief");
-              demo.setMobilePane("tools");
-            }}
-          >
-            <Sparkles size={14} aria-hidden="true" /> Shape your brief
-          </button>
-          <div className={styles.outlineBrief}>
-            <span>PROJECT BRIEF</span>
-            <dl>
-              <dt>Audience</dt>
-              <dd>{demo.audience}</dd>
-              <dt>Purpose</dt>
-              <dd>{demo.purpose}</dd>
-              <dt>Tone</dt>
-              <dd>{demo.tone}</dd>
-            </dl>
-          </div>
-          <div className={styles.outlineBottom}>
-            <Check size={13} aria-hidden="true" /> Local sample · no quota used
-          </div>
-        </aside>
-        <div className={styles.editor}>
-          <div className={styles.editorToolbar}>
-            <span>
-              <FileText size={14} aria-hidden="true" />{" "}
-              {demo.preview ? "Reading view" : "Document"}
-            </span>
-            <span>Source-backed example</span>
-            {demo.preview && (
-              <select
-                aria-label="Select output example"
-                value={demo.output}
-                onChange={(event) =>
-                  demo.setOutput(
-                    event.target.value as "document" | "presentation",
-                  )
-                }
-              >
-                <option value="document">Document example</option>
-                <option value="presentation">Separate deck example</option>
-              </select>
-            )}
-          </div>
-          <div className={styles.paperScroll}>
-            {demo.preview && demo.output === "presentation" ? (
-              <SlidePreview demo={demo} />
-            ) : (
-              <DocumentPaper demo={demo} full={demo.preview} />
-            )}
-          </div>
-        </div>
-        <aside className={styles.utility} aria-label="Sample writing tools">
-          <div className={styles.utilityTabs}>
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                aria-pressed={demo.utility === tab}
-                onClick={() => demo.setUtility(tab)}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-          <div className={styles.utilityContent}>
-            {demo.utility === "brief" ? (
-              <BriefPreview demo={demo} />
-            ) : demo.utility === "research" ? (
-              <SourcePreview demo={demo} />
-            ) : demo.utility === "refine" ? (
-              <RefinePreview demo={demo} />
-            ) : (
-              <>
-                <HistoryPreview demo={demo} />
-                <GenerationPreview demo={demo} />
-              </>
-            )}
-          </div>
-        </aside>
-      </div>
-      <div className={styles.status} role="status">
-        <Check size={12} aria-hidden="true" />
-        <span>{demo.message}</span>
-        <span className={styles.localLabel}>Interactive sample</span>
-      </div>
+    <div
+      className={`${styles.workspace} ${styles.tourWorkspace}`}
+      data-workspace="stable-shell"
+    >
+      <Tour
+        demo={demo}
+        chapter={chapter}
+        expanded={expanded}
+        onChapter={onChapter}
+        createHref={createHref}
+      />
     </div>
   );
 }

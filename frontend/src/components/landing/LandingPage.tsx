@@ -49,7 +49,10 @@ export default function LandingPage() {
       const local = Math.max(0, -story.current.getBoundingClientRect().top);
       const expansion = Math.min(1, local / (viewport * 0.8));
       stage.current.style.setProperty("--expansion", expansion.toFixed(4));
-      stage.current.style.setProperty("--art-shift", `${-local * 0.4}px`);
+      stage.current.style.setProperty(
+        "--art-shift",
+        `${-Math.min(local * 0.12, 24)}px`,
+      );
       const isExpanded = expansion >= 0.98;
       if (isExpanded !== expandedRef.current) {
         expandedRef.current = isExpanded;
@@ -239,9 +242,12 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
+            <div className={styles.tourBackdrop} aria-hidden="true" />
             <div
               className={styles.workspaceFrame}
               data-tour-expanded={expanded}
+              role="region"
+              aria-label="Product tour window"
             >
               <Workspace
                 demo={demo}

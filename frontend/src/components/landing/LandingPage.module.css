@@ -93,7 +93,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   transform: translateY(var(--art-shift, 0));
-  opacity: calc(1 - var(--expansion));
+  opacity: 1;
 }
 .arrival {
   opacity: calc(1 - var(--expansion));
@@ -563,7 +563,52 @@
     min-height: 0;
   }
 }
+
+/* A floating tour window stays inset while its native scroll story is pinned. */
+.tourBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: var(--expansion);
+  background: color-mix(in srgb, var(--rail) 22%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(0.85);
+  backdrop-filter: blur(14px) saturate(0.85);
+}
+.workspaceFrame {
+  border-color: var(--tour-border);
+  border-radius: 12px;
+}
 .workspaceFrame[data-tour-expanded="true"] {
-  border: 0;
-  box-shadow: none;
+  border: 1px solid var(--tour-border);
+  box-shadow: 0 24px 80px color-mix(in srgb, var(--rail) 38%, transparent);
+}
+@media (min-width: 1001px) and (min-height: 601px) and (prefers-reduced-motion: no-preference) {
+  .stage {
+    --tour-inset: clamp(32px, 4vw, 64px);
+    --tour-pinned-width: min(1440px, calc(100% - 2 * var(--tour-inset)));
+    --tour-pinned-height: min(820px, calc(100svh - 96px));
+    --tour-pinned-top: calc((100svh - var(--tour-pinned-height)) / 2);
+  }
+  .workspaceFrame {
+    top: calc(
+      46svh * (1 - var(--expansion)) + var(--tour-pinned-top) * var(--expansion)
+    );
+    width: calc(
+      93% * (1 - var(--expansion)) + var(--tour-pinned-width) * var(--expansion)
+    );
+    height: calc(
+      72svh * (1 - var(--expansion)) + var(--tour-pinned-height) *
+        var(--expansion)
+    );
+    min-height: 0;
+    border-radius: calc(12px + 4px * var(--expansion));
+  }
+}
+@media (max-width: 1000px),
+  (max-height: 600px),
+  (prefers-reduced-motion: reduce) {
+  .tourBackdrop {
+    display: none;
+  }
 }

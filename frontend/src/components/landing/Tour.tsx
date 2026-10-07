@@ -2,7 +2,6 @@ import { useEffect, useId, useRef, useState } from "react";
 import {
   ArrowDown,
   ArrowRight,
-  BookOpen,
   Check,
   ChevronDown,
   ChevronRight,
@@ -396,11 +395,13 @@ function SectionInspector({
 export default function Tour({
   demo,
   chapter,
+  expanded = true,
   onChapter,
   createHref,
 }: {
   demo: DemoState;
   chapter: number;
+  expanded?: boolean;
   onChapter: (index: number) => void;
   createHref: string;
 }) {
@@ -420,11 +421,17 @@ export default function Tour({
     <div
       className={styles.tour}
       data-tour-chapter={TOUR_CHAPTERS[chapter].toLowerCase()}
+      data-tour-expanded={expanded}
     >
       <header className={styles.projectbar}>
-        <span className={styles.brand}>
-          <BookOpen size={37} />
-          DocBuilder AI
+        <span
+          className={styles.windowControls}
+          data-window-controls
+          aria-hidden="true"
+        >
+          <i className={styles.windowClose} />
+          <i className={styles.windowMinimize} />
+          <i className={styles.windowZoom} />
         </span>
         <span className={styles.projectTitle}>
           {sample.title}

@@ -317,3 +317,50 @@ it("actual deck paging changes the logical slide and selected thumbnail", () => 
     screen.getByRole("group", { name: "Slide 1 of 6: Clean Energy Outlook" }),
   ).toBeInTheDocument();
 });
+
+import Workspace from "../src/components/landing/Workspace";
+function ArrivalStateHarness({ expanded }: { expanded: boolean }) {
+  const demo = useDemo();
+  return (
+    <Workspace
+      demo={demo}
+      chapter={0}
+      expanded={expanded}
+      onChapter={jest.fn()}
+      createHref="/register"
+    />
+  );
+}
+it("shows the new Brief from arrival and preserves its mounted inputs through expansion", () => {
+  const { container, rerender } = render(
+    <ArrivalStateHarness expanded={false} />,
+  );
+  const shell = container.querySelector('[data-workspace="stable-shell"]');
+  const tour = container.querySelector('[data-tour-chapter="brief"]');
+  expect(tour).toHaveAttribute("data-tour-expanded", "false");
+  expect(shell.querySelectorAll("[data-window-controls] i")).toHaveLength(3);
+  expect(shell).not.toHaveTextContent("DocBuilder");
+  expect(
+    screen.getByRole("heading", { name: "Project brief" }),
+  ).toBeInTheDocument();
+  expect(
+    screen.getByRole("heading", { name: "Your outline" }),
+  ).toBeInTheDocument();
+  expect(
+    screen.getByRole("heading", { name: "Selected section" }),
+  ).toBeInTheDocument();
+  expect(screen.queryByRole("article")).not.toBeInTheDocument();
+  const heading = screen.getByRole("textbox", { name: "Section heading" });
+  fireEvent.change(heading, { target: { value: "Unsaved local heading" } });
+  rerender(<ArrivalStateHarness expanded />);
+  expect(container.querySelector('[data-workspace="stable-shell"]')).toBe(
+    shell,
+  );
+  expect(container.querySelector('[data-tour-chapter="brief"]')).toBe(tour);
+  expect(tour).toHaveAttribute("data-tour-expanded", "true");
+  expect(screen.getByRole("textbox", { name: "Section heading" })).toBe(
+    heading,
+  );
+  expect(heading).toHaveValue("Unsaved local heading");
+  expect(screen.queryByText("Shape your brief")).not.toBeInTheDocument();
+});

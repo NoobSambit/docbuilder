@@ -28,7 +28,7 @@ Measured from the four selected 1672 × 941 PNGs at original resolution. Coordin
 
 ## Construction boundaries
 
-`Workspace` is imported only by `LandingPage`; `Brand`, `BriefPreview`, `SourcePreview`, `RefinePreview`, `HistoryPreview`, `GenerationPreview`, `DocumentPaper`, `SlidePreview` and `EnergyIllustration` are also consumed by lower sections. Expanded tour uses separate scoped component/CSS; legacy helper geometry stays unchanged. Shared fixture/hooks supply local state.
+`Workspace` is imported only by `LandingPage`; `Brand`, `BriefPreview`, `SourcePreview`, `RefinePreview`, `HistoryPreview`, `GenerationPreview`, `DocumentPaper`, `SlidePreview` and `EnergyIllustration` are also consumed by lower sections. The shared tour stays mounted from the initial hero preview through expansion, with scoped chrome sizing; legacy helper geometry stays unchanged for lower-section consumers. Shared fixture/hooks supply local state.
 
 Radix Select and Dropdown Menu are the primary primitive approach, fully restyled. Registry verified MIT licenses and React/ReactDOM peers `^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc`; installed React is 18.2.0. No Next/Tailwind peer requirements or stack upgrade. Sources: https://www.radix-ui.com/primitives/docs/components/select, https://www.radix-ui.com/primitives/docs/components/dropdown-menu, https://github.com/radix-ui/primitives/blob/main/LICENSE.
 
@@ -36,7 +36,7 @@ Radix Select and Dropdown Menu are the primary primitive approach, fully restyle
 
 | Requirement | Current implementation evidence |
 | --- | --- |
-| Persistent projectbar / Brief–Research–Refine–Present track / narration | `Tour.tsx` keeps header/navigation mounted while stage bodies change; `Tour.module.css` uses 60px + 64px chrome and 110/110/94/104px narration bands. |
+| Persistent projectbar / Brief–Research–Refine–Present track / narration | `Tour.tsx` keeps header/navigation mounted while stage bodies change; `Tour.module.css` retains the measured layout as the original reference and now adapts chrome and density to the user-requested floating window. |
 | Measured stage-specific pane geometry | Shared CSS uses Brief 29.7/44.6/25.7, Research 28.38/42.63/28.99, Refine 29.5/44.75/25.75 ratios with 5–6px gutters. Present uses 47.3/52.7 output regions. No whole-application scaling. |
 | Editable brief and five-section outline | `BriefComposer`, `BriefOutline`, `SectionInspector`: goal, audience, tone, length, starter; expanded details; local heading/guidance/subsection editing; up to eight sections and six subsections. Dnd-kit pointer/keyboard sorting retains section identity/selection. |
 | Brief contains an outline, with no finished report or duplicate tree | Brief body mounts only composer + outline editor + selected-section inspector. Legacy capability preview helpers stay outside this branch. |
@@ -57,7 +57,7 @@ Radix Select and Dropdown Menu are the primary primitive approach, fully restyle
 - `cd frontend && DOCBUILDER_BUILD_DIR=.next-tour npm run build`: PASS. Next 13.4.4 built all eight pages, including unchanged auth/product routes. Build emitted existing stale Browserslist/baseline-data notices; no stack upgrade was made.
 - `cd frontend && npm run lint`: PASS, zero warnings/errors.
 - `cd frontend && npx tsc --noEmit --incremental false`: PASS.
-- `cd frontend && npm run test:tour`: PASS, 19 tests in the existing Jest/jsdom harness. Covers brief/outline editing and identity, adding/reordering, source inclusion, pending/accepted/discarded wording, original/undo/redo, checkpoint restore, restart/theme isolation, local playback, all theme tokens; actual rendered React state tests exercise Accept/Discard → report, source context and deck paging. These are non-browser state tests, with no layout/viewport assertions.
+- `cd frontend && npm run test:tour`: PASS, 20 tests in the existing Jest/jsdom harness. Covers brief/outline editing and identity, adding/reordering, source inclusion, pending/accepted/discarded wording, original/undo/redo, checkpoint restore, restart/theme isolation, local playback, all theme tokens; actual rendered React state tests exercise Accept/Discard → report, source context and deck paging. These are non-browser state tests, with no layout/viewport assertions.
 - `git diff --check`: PASS.
 - Prepared artifact inspection: DOCX/PPTX ZIP integrity and all XML parse; DOCX has accepted sentence and both source hyperlink relationships; PPTX has six slides and 16:9 geometry; Markdown/HTML contain accepted wording and both source URLs. Browser print keeps the existing `?print=1` reading-view mechanism.
 - Installed compatibility: React/ReactDOM 18.2.0, Next 13.4.4 and Tailwind 3.3.2 remain unchanged. Radix Select 2.3.8 / Dropdown Menu 2.1.25 installed without peer conflicts.
@@ -88,3 +88,19 @@ Use the original 1672 × 941 reference size for the user's visual comparison. Th
 No browser automation, screenshots, viewport-testing sessions, visual diff, Lighthouse or browser QA agents were used. Reference inspection/measurement and the source/state gates support implementation delivery; they do not prove browser-verified pixel perfection. Font rasterization, pane scrolling, responsive rendering and the live connector remain for the user's visual review.
 
 The local suggestion is the prepared storyboard edit, not an AI response to arbitrary instructions. The toolbar formats the current section paragraph. Prepared downloads are static reviewed examples; arbitrary preview text, outline ordering, formatting and theme edits do not change them. The prepared PPTX retains an editable schematic illustration. Secondary slide artwork comes from small reference thumbnail crops and will look softer when enlarged in the full-slide viewport; the cover uses the larger approved artwork crop.
+
+
+## Arrival correction after user visual review
+
+The first delivered version mistakenly kept the legacy body behind `if (expanded)` and mounted the new tour only at full expansion. The user's supplied screenshot exposed that split. `Workspace.tsx` now always renders the shared `Tour`, including the new Brief composer, editable outline and inspector on arrival. The projectbar/track/narration begin at compact 46/44/78px heights and grow from the existing inherited `--expansion` progress to the reference geometry; the working controls remain readable. The existing hero artwork, copy, frame footprint and scroll controller are unchanged. The fully expanded chapter compositions are unchanged.
+
+A focused non-browser React test proves that arrival shows all three new Brief regions, contains no finished report, and preserves the same shell, tour and unsaved inspector input as expansion changes. Dnd-kit contexts now receive stable React `useId` identifiers because they are also rendered in initial server markup. This correction is folded into checkpoint 7, keeping exactly seven local commits. No browser automation or screenshot capture was performed.
+
+
+## Floating-window and density correction
+
+The user's next screenshots rejected full-size pane typography in the arrival preview and requested an inset, blurred-backdrop window during the pinned tour. This latest direction supersedes the original full-screen shell geometry. The tour now uses native 14px body / 20px pane-heading sizes on arrival, growing to 16px / 24px while pinned, with proportionately smaller labels, inputs, buttons, numbered circles, rows, icons and pane padding. No whole-app transform scaling is used.
+
+The pinned desktop frame is centered, capped at 1440×820px, leaves at least 48px above/below it, keeps visible side gutters and retains 16px rounded corners, a themed border and shadow. A 14px blurred, lightly dimmed backdrop sits behind the window; the original hero artwork remains visible beneath it. The native scroll chapter sequence and natural release into lower sections remain. Small/short/reduced-motion layouts retain readable normal flow.
+
+The inner DocBuilder brand has been replaced with three native red/yellow/green decorative macOS-style dots. Project title and Restart remain in the titlebar. The outer hero brand/copy, artwork assets, theme selection, shared demo state, product routes and backend are unchanged. The existing arrival-continuity test now also asserts three dots and absence of inner DocBuilder branding. All changes remain folded into local checkpoint 7. Browser testing remains excluded.

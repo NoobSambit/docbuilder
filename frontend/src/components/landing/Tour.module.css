@@ -2486,3 +2486,478 @@
 .outputFigure figcaption small {
   font-size: 12px;
 }
+
+/* macOS-style window chrome is decorative; chapter controls provide navigation. */
+.windowControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.windowControls i {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #00000016;
+  border-radius: 50%;
+}
+.windowClose {
+  background: #ff605c;
+}
+.windowMinimize {
+  background: #ffbd44;
+}
+.windowZoom {
+  background: #00ca4e;
+}
+.panes > :is(aside, section),
+.reportWindow,
+.deckViewer {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--tour-muted) 30%, transparent)
+    transparent;
+}
+.panes > :is(aside, section)::-webkit-scrollbar,
+.reportWindow::-webkit-scrollbar,
+.deckViewer::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.panes > :is(aside, section)::-webkit-scrollbar-thumb,
+.reportWindow::-webkit-scrollbar-thumb,
+.deckViewer::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--tour-muted) 30%, transparent);
+  border-radius: 10px;
+}
+@media (min-width: 1001px) {
+  .tour {
+    --tour-density: 1;
+    --tour-body-size: calc(14px + 2px * var(--tour-density));
+    --tour-label-size: calc(13px + 1px * var(--tour-density));
+    --tour-detail-size: calc(13px + 2px * var(--tour-density));
+    --tour-heading-size: calc(20px + 4px * var(--tour-density));
+    --tour-control-height: calc(36px + 4px * var(--tour-density));
+    font-size: var(--tour-body-size);
+  }
+  .tour[data-tour-expanded="false"] {
+    --tour-density: var(--expansion, 0);
+  }
+  .tour .projectbar {
+    height: calc(42px + 8px * var(--tour-density));
+    padding: 0 22px;
+  }
+  .tour .projectTitle {
+    font-size: calc(14px + 2px * var(--tour-density));
+    gap: 14px;
+  }
+  .tour .projectTitle small {
+    font-size: var(--tour-label-size);
+  }
+  .tour .restart {
+    min-height: 32px;
+    height: calc(32px + 4px * var(--tour-density));
+    font-size: 13px;
+    border-radius: 6px;
+    gap: 9px;
+    padding: 0 12px;
+  }
+  .tour .restart svg {
+    width: 17px;
+    height: 17px;
+  }
+  .tour .chapterTrack {
+    height: calc(38px + 10px * var(--tour-density));
+    padding: 0 22px;
+    grid-template-columns: 19% 20.5% 19% minmax(0, 1fr) auto;
+  }
+  .tour .chapterTrack > button {
+    font-size: calc(14px + 3px * var(--tour-density));
+    gap: 16px;
+  }
+  .tour .chapterTrack > button > span {
+    font-size: calc(14px + 4px * var(--tour-density));
+  }
+  .tour .chapterTrack i {
+    width: 22px;
+    height: 22px;
+  }
+  .tour .chapterTrack i svg {
+    width: 15px;
+    height: 15px;
+  }
+  .tour .chapterTrack .continue {
+    font-size: 13px;
+    gap: 10px;
+    padding-left: 20px;
+  }
+  .tour .chapterTrack .continue svg {
+    width: 20px;
+    height: 20px;
+  }
+  .tour .narration {
+    height: calc(64px + 20px * var(--tour-density));
+    padding: 8px 22px;
+  }
+  .tour .narration h2 {
+    font-size: calc(24px + 8px * var(--tour-density));
+    letter-spacing: -0.8px;
+  }
+  .tour .narration p {
+    font-size: calc(14px + 4px * var(--tour-density));
+  }
+  .tour[data-tour-chapter="refine"] .narration,
+  .tour[data-tour-chapter="present"] .narration {
+    height: calc(64px + 20px * var(--tour-density));
+    padding: 8px 22px;
+  }
+  .tour .rail,
+  .tour .navigationRail {
+    padding: calc(12px + 2px * var(--tour-density))
+      calc(18px + 4px * var(--tour-density));
+  }
+  .tour .outlineEditor,
+  .tour .draftEditor,
+  .tour .inspector {
+    padding: calc(12px + 2px * var(--tour-density))
+      calc(14px + 4px * var(--tour-density));
+  }
+  .tour .paneHeading {
+    gap: 10px;
+    margin-bottom: 9px;
+  }
+  .tour .paneHeading h3,
+  .tour .inspector .paneHeading h3 {
+    font-size: var(--tour-heading-size);
+  }
+  .tour .paneHeading > span,
+  .tour .paneHeading .ready {
+    font-size: var(--tour-label-size);
+    gap: 7px;
+  }
+  .tour .rail .menuTrigger {
+    font-size: 12px;
+    gap: 8px;
+    min-height: 32px;
+  }
+  .tour .rail .menuTrigger svg:first-child {
+    width: 20px;
+    height: 20px;
+  }
+  .tour .rail .field {
+    font-size: var(--tour-body-size);
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .tour .fieldPair {
+    gap: 16px;
+  }
+  .tour :is(input, textarea) {
+    font-size: var(--tour-body-size);
+    padding: 6px 10px;
+    margin-top: 4px;
+  }
+  .tour input,
+  .tour .select {
+    min-height: var(--tour-control-height);
+  }
+  .tour .select {
+    font-size: var(--tour-body-size);
+    padding: 6px 10px;
+    margin-top: 4px;
+    gap: 8px;
+  }
+  .tour textarea {
+    min-height: calc(56px + 8px * var(--tour-density));
+  }
+  .tour .primary {
+    min-height: var(--tour-control-height);
+    padding: 6px 12px;
+    font-size: var(--tour-body-size);
+    gap: 9px;
+  }
+  .tour .primary svg {
+    width: 20px;
+    height: 20px;
+  }
+  .tour .secondary {
+    min-height: calc(32px + 4px * var(--tour-density));
+    font-size: 13px;
+    padding: 5px 11px;
+    gap: 7px;
+  }
+  .tour .secondary svg {
+    width: 18px;
+    height: 18px;
+  }
+  .tour .rail .starters {
+    margin-top: 12px;
+    padding-top: 9px;
+    margin-bottom: 10px;
+  }
+  .tour .rail .starters button {
+    min-height: calc(44px + 8px * var(--tour-density));
+    gap: 14px;
+  }
+  .tour .starters strong {
+    font-size: var(--tour-body-size);
+  }
+  .tour .starters small {
+    font-size: 12px;
+  }
+  .tour .starters button > svg {
+    width: 23px;
+    height: 23px;
+  }
+  .tour .selectionDot {
+    width: 22px;
+    height: 22px;
+  }
+  .tour .starters button[aria-pressed="true"] .selectionDot {
+    box-shadow: inset 0 0 0 5px var(--tour-rail);
+  }
+  .tour .briefChecklist {
+    margin-top: 12px;
+    padding-top: 8px;
+  }
+  .tour .briefChecklist span {
+    font-size: var(--tour-label-size);
+    gap: 10px;
+    padding: 2px 0;
+  }
+  .tour .outlineEditor .paneHeading {
+    padding-left: 5px;
+  }
+  .tour .outlineItem {
+    min-height: calc(54px + 10px * var(--tour-density));
+    gap: calc(10px + 2px * var(--tour-density));
+    padding: calc(8px + 2px * var(--tour-density)) 6px;
+  }
+  .tour .outlineNumber {
+    width: calc(30px + 6px * var(--tour-density));
+    height: calc(30px + 6px * var(--tour-density));
+    min-height: 30px;
+    font-size: var(--tour-label-size);
+  }
+  .tour .grip {
+    width: 24px;
+    height: 32px;
+    min-height: 32px;
+  }
+  .tour .grip svg {
+    width: 19px;
+    height: 19px;
+  }
+  .tour .iconButton {
+    width: 28px;
+    min-width: 28px;
+    height: 32px;
+    min-height: 32px;
+  }
+  .tour .iconButton svg {
+    width: 19px;
+    height: 19px;
+  }
+  .tour .outlineTitle strong {
+    font-size: var(--tour-body-size);
+  }
+  .tour .outlineTitle span,
+  .tour .outlineText li {
+    font-size: var(--tour-detail-size);
+  }
+  .tour .outlineText li {
+    line-height: 1.65;
+  }
+  .tour .outlineText li::before {
+    margin-right: 12px;
+  }
+  .tour .outlineHint {
+    font-size: 12px;
+    padding: 9px 6px;
+  }
+  .tour .selectedHeading {
+    font-size: calc(18px + 2px * var(--tour-density));
+    padding-bottom: 9px;
+    margin-bottom: 12px !important;
+  }
+  .tour .inspector .field {
+    font-size: var(--tour-label-size);
+    margin-bottom: calc(12px + 3px * var(--tour-density));
+  }
+  .tour .inspector :is(input, textarea) {
+    font-size: var(--tour-body-size);
+  }
+  .tour .inspector textarea {
+    min-height: calc(60px + 8px * var(--tour-density));
+  }
+  .tour .subsection {
+    min-height: var(--tour-control-height);
+    margin: 4px 0;
+    padding: 0 5px;
+  }
+  .tour .subsection input {
+    min-height: calc(34px + 4px * var(--tour-density));
+    padding: 2px;
+    margin: 0;
+    font-size: var(--tour-body-size);
+  }
+  .tour .subsection .grip {
+    width: 24px;
+  }
+  .tour .addSubsection {
+    min-height: var(--tour-control-height);
+    padding: 5px 12px;
+    font-size: var(--tour-label-size);
+  }
+  .tour .nextAction {
+    font-size: var(--tour-label-size);
+    margin-top: 12px;
+    gap: 12px;
+  }
+  .tour .nextAction span {
+    width: 32px;
+    height: 32px;
+  }
+  .tour .outlineNav button {
+    min-height: 64px;
+    gap: 16px;
+    padding: 8px;
+  }
+  .tour .outlineNav button > span:first-child {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+  .tour .outlineNav strong,
+  .tour .sourceRecord strong {
+    font-size: 16px;
+  }
+  .tour .outlineNav small,
+  .tour .sourceRecord small {
+    font-size: 14px;
+  }
+  .tour .carriedBrief {
+    margin-top: 18px;
+    padding-top: 12px;
+  }
+  .tour .carriedBrief h4 {
+    font-size: 18px;
+  }
+  .tour .carriedBrief h4 small {
+    font-size: 14px;
+  }
+  .tour .carriedBrief p,
+  .tour .carriedBrief > div {
+    font-size: 14px;
+  }
+  .tour .draftEditor > h3,
+  .tour .draftContinuation h3 {
+    font-size: 26px;
+  }
+  .tour .draftContent,
+  .tour .draftContinuation p,
+  .tour .takeaways {
+    font-size: 16px;
+  }
+  .tour .draftContent h4 {
+    font-size: 22px;
+  }
+  .tour .sourceSummary p {
+    font-size: 16px;
+  }
+  .tour .sourcesInspector .paneHeading h3 {
+    font-size: 23px;
+    white-space: normal;
+  }
+  .tour .sourceSummary h3 {
+    font-size: 22px;
+  }
+  .tour .sourcesInspector .paneHeading {
+    margin-bottom: 22px;
+  }
+  .tour .refineInspector h3 {
+    font-size: 24px;
+  }
+  .tour .suggestedText {
+    font-size: 16px;
+  }
+  .tour .instructionField input {
+    font-size: 14px;
+  }
+  .tour .formatting button:not(.select) {
+    width: 36px;
+    min-height: 34px;
+    height: 36px;
+  }
+  .tour .formatting .select {
+    font-size: 14px;
+  }
+  .tour .presentOutputs {
+    padding: 0 20px;
+    gap: 16px;
+  }
+  .tour .outputHeading {
+    padding: 0 14px;
+    height: 56px;
+  }
+  .tour .outputHeading h3 {
+    font-size: 16px;
+    gap: 12px;
+  }
+  .tour .outputHeading .menuTrigger {
+    min-width: 158px;
+    height: 38px;
+    font-size: 15px;
+    padding: 0 12px;
+    gap: 12px;
+  }
+  .tour .reportWindow {
+    padding: 3px 26px 0;
+  }
+  .tour .reportPage {
+    padding: 25px 34px;
+    font-size: 16px;
+  }
+  .tour .reportPage > h3 {
+    font-size: 38px;
+  }
+  .tour .reportPage .reportProject {
+    font-size: 18px;
+  }
+  .tour .reportPage h4 {
+    font-size: 25px;
+  }
+  .tour .reportContents h4 {
+    font-size: 17px;
+  }
+  .tour .reportContents > a {
+    font-size: 16px;
+  }
+  .tour .slideViewport {
+    container-type: inline-size;
+  }
+  .tour .outputSlide:not(.thumbnailSlide) h4 {
+    font-size: clamp(28px, 7cqw, 52px);
+  }
+  .tour .outputSlide:not(.thumbnailSlide) p {
+    font-size: clamp(16px, 3cqw, 23px);
+  }
+  .tour .contentSlide:not(.thumbnailSlide) h4 {
+    font-size: clamp(24px, 5cqw, 36px);
+  }
+  .tour .contentSlide:not(.thumbnailSlide) p {
+    font-size: 16px;
+  }
+  .tour .outputFigure figcaption {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1001px) {
+  .tour .chapterTrack > button[aria-current]::after {
+    width: calc(112px + 44px * var(--tour-density));
+    max-width: 85%;
+  }
+  .tour .popup {
+    font-size: var(--tour-body-size);
+  }
+  .tour .menuItem {
+    min-height: var(--tour-control-height);
+  }
+}
