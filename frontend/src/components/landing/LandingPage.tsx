@@ -6,6 +6,11 @@ import { useAuth } from "@/context/AuthContext";
 import LowerSections from "./LowerSections";
 import Workspace, { Brand, CHAPTERS } from "./Workspace";
 import { useDemo } from "./useDemo";
+import {
+  getTourPhase,
+  TOUR_EXPANSION_SPAN,
+  TOUR_CHAPTER_SPAN,
+} from "./tourProgress";
 import { useLandingTheme } from "./visit";
 import { LandingThemeId, THEME_IDS, THEMES, themeStyles } from "./themes";
 import styles from "./LandingPage.module.css";
@@ -19,10 +24,14 @@ export default function LandingPage() {
   const stage = useRef<HTMLDivElement>(null);
   const [chapter, setChapter] = useState(0);
   const [expanded, setExpanded] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
+  const [released, setReleased] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [normalFlow, setNormalFlow] = useState(false);
   const chapterRef = useRef(0);
   const expandedRef = useRef(false);
+  const modalRef = useRef(false);
+  const releasedRef = useRef(false);
 
   useEffect(() => {
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
@@ -35,6 +44,16 @@ export default function LandingPage() {
       if (!story.current || !stage.current) return;
       if (normal) {
         stage.current.style.setProperty("--expansion", "0");
+        stage.current.style.setProperty("--tour-release", "0");
+        stage.current.style.setProperty("--tour-window-focus", "0");
+        if (releasedRef.current) {
+          releasedRef.current = false;
+          setReleased(false);
+        }
+        if (modalRef.current) {
+          modalRef.current = false;
+          setModalActive(false);
+        }
         const shell = story.current.querySelector(
           '[data-workspace="stable-shell"]',
         );
@@ -47,21 +66,37 @@ export default function LandingPage() {
       }
       const viewport = window.innerHeight;
       const local = Math.max(0, -story.current.getBoundingClientRect().top);
-      const expansion = Math.min(1, local / (viewport * 0.8));
+      const pinEnd =
+        (story.current.offsetHeight - stage.current.offsetHeight) / viewport;
+      const phase = getTourPhase(local / viewport, pinEnd);
+      const expansion = phase.expansion;
+      stage.current.style.setProperty(
+        "--tour-window-focus",
+        phase.windowFocus.toFixed(4),
+      );
+      if (phase.released !== releasedRef.current) {
+        releasedRef.current = phase.released;
+        setReleased(phase.released);
+      }
+      stage.current.style.setProperty(
+        "--tour-release",
+        phase.release.toFixed(4),
+      );
+      if (phase.modalActive !== modalRef.current) {
+        modalRef.current = phase.modalActive;
+        setModalActive(phase.modalActive);
+      }
       stage.current.style.setProperty("--expansion", expansion.toFixed(4));
       stage.current.style.setProperty(
         "--art-shift",
         `${-Math.min(local * 0.12, 24)}px`,
       );
-      const isExpanded = expansion >= 0.98;
+      const isExpanded = phase.expanded;
       if (isExpanded !== expandedRef.current) {
         expandedRef.current = isExpanded;
         setExpanded(isExpanded);
       }
-      const index = Math.min(
-        3,
-        Math.max(0, Math.floor((local / viewport - 0.8) / 0.825)),
-      );
+      const index = phase.chapter;
       if (index !== chapterRef.current) {
         chapterRef.current = index;
         setChapter(index);
@@ -103,7 +138,10 @@ export default function LandingPage() {
       const top = section.getBoundingClientRect().top + window.scrollY;
       // Land well inside a chapter, avoiding rounding errors at the boundary.
       window.scrollTo({
-        top: top + window.innerHeight * (0.8 + index * 0.825 + 0.04),
+        top:
+          top +
+          window.innerHeight *
+            (TOUR_EXPANSION_SPAN + index * TOUR_CHAPTER_SPAN + 0.04),
         behavior: "auto",
       });
     }
@@ -148,12 +186,21 @@ export default function LandingPage() {
           id="workflow"
           aria-label="Interactive sample workflow"
         >
-          <div className={styles.stage} ref={stage}>
+          <div
+            className={styles.stage}
+            ref={stage}
+            data-tour-expanded={expanded}
+            data-tour-modal-active={modalActive}
+            data-tour-released={released}
+          >
             <div className={styles.heroArtwork} aria-hidden="true" />
             <div
               className={styles.arrival}
               style={{
-                visibility: expanded && !normalFlow ? "hidden" : "visible",
+                visibility:
+                  (expanded || modalActive || released) && !normalFlow
+                    ? "hidden"
+                    : "visible",
               }}
             >
               <header className={styles.heroNav}>
@@ -246,6 +293,8 @@ export default function LandingPage() {
             <div
               className={styles.workspaceFrame}
               data-tour-expanded={expanded}
+              data-tour-modal-active={modalActive}
+              data-tour-released={released}
               role="region"
               aria-label="Product tour window"
             >

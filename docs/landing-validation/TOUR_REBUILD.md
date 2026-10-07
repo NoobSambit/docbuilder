@@ -1,6 +1,6 @@
 # Expanded product tour — implementation evidence
 
-Scope: expanding/pinned landing container only; baseline `47d2f34`. Seven local implementation checkpoints; no push/deploy. Both Vercel configs retain `git.deploymentEnabled: false`. No browser tests, screenshot capture or visual-diff sessions are authorized for this rebuild. Visual acceptance belongs to the user.
+Scope: expanding/pinned landing container only; baseline `47d2f34`. Seven original local implementation checkpoints; no push/deploy. Both Vercel configs retain `git.deploymentEnabled: false`. No browser tests, screenshot capture or visual-diff sessions are authorized for this rebuild. Visual acceptance belongs to the user.
 
 ## Reference measurement map (before implementation)
 
@@ -50,14 +50,14 @@ Radix Select and Dropdown Menu are the primary primitive approach, fully restyle
 | Reversible scroll / chapter navigation / release | `LandingPage.tsx` preserves the existing 0.8-viewport expansion and 0.825-viewport chapter pacing. Buttons use native scroll positions. The stable Workspace root remains mounted; Present releases to existing capabilities. Local query bootstrap adds deterministic review links. |
 | Readable responsive source / keyboard / reduced motion | Below 1000px, chapter/pane controls choose one readable pane; Present stacks outputs and retains 16:9. Below 600px, slide body text sits in a readable transcript beneath the logical slide rather than being squeezed into the frame. Narrow controls use 44px targets. Short/reduced-motion views use a normal-flow tour. Radix manages popup keyboard/focus behavior; drag handles support keyboard sorting; native disclosures, explicit labels and focus styles remain. |
 | Preserve other landing/product surfaces | Diff against `47d2f34` confirms no changes to `LowerSections.tsx`, its CSS, `visit.ts`, global styles, pages, context/auth, backend, original hero art or either Vercel config. Shared helper data follows the approved fixture; helper layout styles remain unchanged except the new scoped outer tour class. |
-| Seven local checkpoints; no push/deploy | First six: `bf2cffc`, `42e1590`, `11d398c`, `7a05571`, `ddab375`, `8ea3d79`. The final evidence/polish commit is HEAD after this report is committed; use `git log 47d2f34..HEAD --oneline --reverse` for all seven IDs. No push, deployment or browser command was run. |
+| Seven local checkpoints; no push/deploy | First six: `bf2cffc`, `42e1590`, `11d398c`, `7a05571`, `ddab375`, `8ea3d79`. The seventh original evidence/polish commit is `4f5d576`. A separate local follow-up checkpoint `79843f4` appeared during user review and has been preserved. No push, deployment or browser command was run. |
 
 ## Actual non-browser checks — 7 October 2026
 
 - `cd frontend && DOCBUILDER_BUILD_DIR=.next-tour npm run build`: PASS. Next 13.4.4 built all eight pages, including unchanged auth/product routes. Build emitted existing stale Browserslist/baseline-data notices; no stack upgrade was made.
 - `cd frontend && npm run lint`: PASS, zero warnings/errors.
 - `cd frontend && npx tsc --noEmit --incremental false`: PASS.
-- `cd frontend && npm run test:tour`: PASS, 20 tests in the existing Jest/jsdom harness. Covers brief/outline editing and identity, adding/reordering, source inclusion, pending/accepted/discarded wording, original/undo/redo, checkpoint restore, restart/theme isolation, local playback, all theme tokens; actual rendered React state tests exercise Accept/Discard → report, source context and deck paging. These are non-browser state tests, with no layout/viewport assertions.
+- `cd frontend && npm run test:tour`: PASS, 23 tests in the existing Jest/jsdom harness. Covers brief/outline editing and identity, adding/reordering, source inclusion, pending/accepted/discarded wording, original/undo/redo, checkpoint restore, restart/theme isolation, local playback, all theme tokens; actual rendered React state tests exercise Accept/Discard → report, source context and deck paging. These are non-browser state tests, with no layout/viewport assertions.
 - `git diff --check`: PASS.
 - Prepared artifact inspection: DOCX/PPTX ZIP integrity and all XML parse; DOCX has accepted sentence and both source hyperlink relationships; PPTX has six slides and 16:9 geometry; Markdown/HTML contain accepted wording and both source URLs. Browser print keeps the existing `?print=1` reading-view mechanism.
 - Installed compatibility: React/ReactDOM 18.2.0, Next 13.4.4 and Tailwind 3.3.2 remain unchanged. Radix Select 2.3.8 / Dropdown Menu 2.1.25 installed without peer conflicts.
@@ -94,13 +94,31 @@ The local suggestion is the prepared storyboard edit, not an AI response to arbi
 
 The first delivered version mistakenly kept the legacy body behind `if (expanded)` and mounted the new tour only at full expansion. The user's supplied screenshot exposed that split. `Workspace.tsx` now always renders the shared `Tour`, including the new Brief composer, editable outline and inspector on arrival. The projectbar/track/narration begin at compact 46/44/78px heights and grow from the existing inherited `--expansion` progress to the reference geometry; the working controls remain readable. The existing hero artwork, copy, frame footprint and scroll controller are unchanged. The fully expanded chapter compositions are unchanged.
 
-A focused non-browser React test proves that arrival shows all three new Brief regions, contains no finished report, and preserves the same shell, tour and unsaved inspector input as expansion changes. Dnd-kit contexts now receive stable React `useId` identifiers because they are also rendered in initial server markup. This correction is folded into checkpoint 7, keeping exactly seven local commits. No browser automation or screenshot capture was performed.
+A focused non-browser React test proves that arrival shows all three new Brief regions, contains no finished report, and preserves the same shell, tour and unsaved inspector input as expansion changes. Dnd-kit contexts now receive stable React `useId` identifiers because they are also rendered in initial server markup. This correction is included in the follow-up state after the original seven implementation checkpoints. No browser automation or screenshot capture was performed.
 
 
 ## Floating-window and density correction
 
 The user's next screenshots rejected full-size pane typography in the arrival preview and requested an inset, blurred-backdrop window during the pinned tour. This latest direction supersedes the original full-screen shell geometry. The tour now uses native 14px body / 20px pane-heading sizes on arrival, growing to 16px / 24px while pinned, with proportionately smaller labels, inputs, buttons, numbered circles, rows, icons and pane padding. No whole-app transform scaling is used.
 
-The pinned desktop frame is centered, capped at 1440×820px, leaves at least 48px above/below it, keeps visible side gutters and retains 16px rounded corners, a themed border and shadow. A 14px blurred, lightly dimmed backdrop sits behind the window; the original hero artwork remains visible beneath it. The native scroll chapter sequence and natural release into lower sections remain. Small/short/reduced-motion layouts retain readable normal flow.
+The pinned desktop frame is centered, capped at 1600px wide, keeps an exact 16:9 aspect ratio, leaves at least 32px above/below it, keeps visible side gutters and retains 16px rounded corners, a themed border and shadow. A 14px blurred, lightly dimmed backdrop sits behind the window; the original hero artwork remains visible beneath it. The native scroll chapter sequence and natural release into lower sections remain. Small/short/reduced-motion layouts retain readable normal flow.
 
-The inner DocBuilder brand has been replaced with three native red/yellow/green decorative macOS-style dots. Project title and Restart remain in the titlebar. The outer hero brand/copy, artwork assets, theme selection, shared demo state, product routes and backend are unchanged. The existing arrival-continuity test now also asserts three dots and absence of inner DocBuilder branding. All changes remain folded into local checkpoint 7. Browser testing remains excluded.
+The inner DocBuilder brand has been replaced with three native red/yellow/green decorative macOS-style dots. Project title and Restart remain in the titlebar. The outer hero brand/copy, artwork assets, theme selection, shared demo state, product routes and backend are unchanged. The existing arrival-continuity test now also asserts three dots and absence of inner DocBuilder branding. The floating-window follow-up is recorded in local checkpoint `79843f4`; subsequent corrections are in the working tree. Browser testing remains excluded.
+
+
+### Final geometry clarification
+
+The user clarified that text and control sizes were already sufficient and requested only a larger expanded container with a 16:9 aspect ratio. Typography and control density were left unchanged. Pinned width is now the smallest of 1600px, the available viewport width minus side insets, and the available height minus 64px converted to 16:9 width. Height is derived from that same width; the fully expanded frame explicitly uses `aspect-ratio: 16 / 9` and automatic height. It remains an inset, rounded window over the blurred backdrop.
+
+
+### Modal release into normal page flow
+
+The user identified that the backdrop remained active while the completed Present window left the screen. `tourProgress.ts` now derives a distinct release phase from the actual sticky-section bounds. The backdrop fades during the last 0.15 viewport heights of pinning and is disabled when pinning ends; the window returns to its ordinary border radius and shadow as lower content enters. Expanded geometry, font/control sizes and demo edits are retained. Reverse scrolling restores the modal treatment and chapter progress. Three focused non-browser phase tests cover completion, reverse scrolling and the Present handoff.
+
+
+### Restore the original normal-state dimensions
+
+The user's final sizing correction requires the completed window to return to its original normal footprint, not merely lose the backdrop. A separate `windowFocus` value now reversibly shrinks to zero at release. This restores the same 93% width and `max(72svh, 550px)` height used by the arrival preview, plus its compact density. The normal window is centered inside the releasing stage so the completed content remains contained rather than being clipped at the old hero offset. Present content and local edits are preserved. The pinned phase alone retains the larger exact 16:9 window. The completion regression asserts `expanded=false`, `windowFocus=0` and `released=true`; an explicit end-boundary guard avoids floating-point rounding keeping the modal active.
+
+
+Final follow-up checks: production build, lint, TypeScript, all 23 focused non-browser state tests and `git diff --check` passed after the normal-size restoration. A separate local checkpoint `79843f4` appeared while these changes were being made; its history is preserved. The latest release/normal-size corrections remain in the working tree, with no extra commit, push or deployment.

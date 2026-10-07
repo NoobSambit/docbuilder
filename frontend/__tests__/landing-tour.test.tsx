@@ -364,3 +364,32 @@ it("shows the new Brief from arrival and preserves its mounted inputs through ex
   expect(heading).toHaveValue("Unsaved local heading");
   expect(screen.queryByText("Shape your brief")).not.toBeInTheDocument();
 });
+
+import { getTourPhase } from "../src/components/landing/tourProgress";
+describe("tour modal handoff", () => {
+  it("returns to a normal window when the sticky tour finishes", () => {
+    for (const progress of [4.1, 4.4, 5]) {
+      const phase = getTourPhase(progress, 4.1);
+      expect(phase.modalActive).toBe(false);
+      expect(phase.release).toBe(1);
+      expect(phase.expanded).toBe(false);
+      expect(phase.windowFocus).toBe(0);
+      expect(phase.released).toBe(true);
+      expect(phase.chapter).toBe(3);
+    }
+  });
+  it("restores the modal when native scrolling reverses into the tour", () => {
+    expect(getTourPhase(4.4, 4.1).modalActive).toBe(false);
+    expect(getTourPhase(3.8, 4.1).modalActive).toBe(true);
+    expect(getTourPhase(2.6, 4.1).chapter).toBe(2);
+    expect(getTourPhase(0, 4.1).modalActive).toBe(false);
+  });
+  it("keeps Present active while the backdrop fades before release", () => {
+    expect(getTourPhase(3.8, 4.1).release).toBe(0);
+    const phase = getTourPhase(4, 4.1);
+    expect(phase.chapter).toBe(3);
+    expect(phase.modalActive).toBe(true);
+    expect(phase.release).toBeGreaterThan(0);
+    expect(phase.release).toBeLessThan(1);
+  });
+});

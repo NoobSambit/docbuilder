@@ -2538,7 +2538,7 @@
     font-size: var(--tour-body-size);
   }
   .tour[data-tour-expanded="false"] {
-    --tour-density: var(--expansion, 0);
+    --tour-density: var(--tour-window-focus, var(--expansion, 0));
   }
   .tour .projectbar {
     height: calc(42px + 8px * var(--tour-density));
