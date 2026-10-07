@@ -46,31 +46,42 @@
 }
 .heading h2 {
   font-size: clamp(25px, 2.3vw, 36px);
-  line-height: 1.45;
+  line-height: 1.2;
   letter-spacing: -1px;
   margin: 0 0 8px;
   font-weight: 650;
 }
 .heading p {
   font-size: 16px;
-  line-height: 1.9;
+  line-height: 1.5;
 }
-/* Content-width ink strips provide reliable contrast on every artwork crop. */
-.heading :is(h2, p) > span,
-.grid figcaption :is(h3, p) > span {
-  background: var(--rail);
-  color: var(--tour-on-accent);
-  padding: 3px 8px;
-  border-radius: 2px;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+/* Calm reading areas belong to each copy block, rather than each text line. */
+.heading::before,
+.grid figcaption::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -12px -14px;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--preview-shell) 82%, transparent),
+    color-mix(in srgb, var(--preview-shell) 70%, transparent)
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  mask-image:
+    linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent),
+    linear-gradient(to right, #000 80%, transparent);
+  mask-composite: intersect;
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent),
+    linear-gradient(to right, #000 80%, transparent);
+  -webkit-mask-composite: source-in;
 }
-.heading p > span,
-.grid figcaption p > span {
-  color: var(--preview-paper);
-}
-.heading h2 > span {
-  padding: 4px 9px;
+.heading p,
+.grid figcaption p {
+  color: var(--preview-muted);
 }
 .grid {
   display: grid;
@@ -590,18 +601,18 @@
 .grid figcaption {
   position: relative;
   isolation: isolate;
-  padding: 12px 3px 0;
+  padding: 14px 3px 2px;
 }
 .grid figcaption h3 {
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.3;
   font-weight: 650;
   letter-spacing: -0.4px;
   margin: 0 0 5px;
 }
 .grid figcaption p {
   font-size: 14px;
-  line-height: 1.9;
+  line-height: 1.5;
 }
 .formatting {
   display: flex;

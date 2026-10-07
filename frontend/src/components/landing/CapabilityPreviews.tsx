@@ -40,12 +40,10 @@ export default function CapabilityPreviews({
     <div className={styles.previews}>
       <header className={styles.heading}>
         <h2 id="capabilities-heading">
-          <span>Built for the work between idea and final draft.</span>
+          Built for the work between idea and final draft.
         </h2>
         <p>
-          <span>
-            Set the direction. Inspect the sources. Keep control of the changes.
-          </span>
+          Set the direction. Inspect the sources. Keep control of the changes.
         </p>
       </header>
       <div className={styles.grid}>
@@ -217,12 +215,8 @@ export default function CapabilityPreviews({
             </div>
           </div>
           <figcaption>
-            <h3>
-              <span>Start with a clear direction.</span>
-            </h3>
-            <p>
-              <span>Shape the brief and outline before the draft begins.</span>
-            </p>
+            <h3>Start with a clear direction.</h3>
+            <p>Shape the brief and outline before the draft begins.</p>
           </figcaption>
         </figure>
         <figure className={styles.wide}>
@@ -369,12 +363,8 @@ export default function CapabilityPreviews({
             </div>
           </div>
           <figcaption>
-            <h3>
-              <span>Know what the draft is built on.</span>
-            </h3>
-            <p>
-              <span>Inspect the evidence and choose the sources you keep.</span>
-            </p>
+            <h3>Know what the draft is built on.</h3>
+            <p>Inspect the evidence and choose the sources you keep.</p>
           </figcaption>
         </figure>
         <figure>
@@ -425,12 +415,8 @@ export default function CapabilityPreviews({
             </div>
           </div>
           <figcaption>
-            <h3>
-              <span>Review before you replace.</span>
-            </h3>
-            <p>
-              <span>See the change before applying it.</span>
-            </p>
+            <h3>Review before you replace.</h3>
+            <p>See the change before applying it.</p>
           </figcaption>
         </figure>
         <figure>
@@ -479,12 +465,8 @@ export default function CapabilityPreviews({
             </div>
           </div>
           <figcaption>
-            <h3>
-              <span>A version to come back to.</span>
-            </h3>
-            <p>
-              <span>Keep checkpoints and restore earlier work.</span>
-            </p>
+            <h3>A version to come back to.</h3>
+            <p>Keep checkpoints and restore earlier work.</p>
           </figcaption>
         </figure>
         <figure>
@@ -562,12 +544,8 @@ export default function CapabilityPreviews({
             </div>
           </div>
           <figcaption>
-            <h3>
-              <span>Continue where you left off.</span>
-            </h3>
-            <p>
-              <span>Pause between sections. Resume from the checkpoint.</span>
-            </p>
+            <h3>Continue where you left off.</h3>
+            <p>Pause between sections. Resume from the checkpoint.</p>
           </figcaption>
         </figure>
       </div>
