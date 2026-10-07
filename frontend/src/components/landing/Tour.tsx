@@ -251,6 +251,7 @@ function BriefOutline({
               aria-label={`Edit ${section.title}`}
               onClick={() => {
                 demo.setSelected(index);
+                demo.setMobilePane("tools");
                 requestAnimationFrame(() =>
                   document
                     .querySelector<HTMLInputElement>("[data-section-heading]")
@@ -370,6 +371,7 @@ function SectionInspector({
       </div>
       <button
         className={styles.primary}
+        disabled={!heading.trim()}
         onClick={() => {
           if (!heading.trim()) return;
           demo.updateSection(section.id, {

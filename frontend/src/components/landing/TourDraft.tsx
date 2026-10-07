@@ -18,7 +18,6 @@ import {
 import sample from "./sample.json";
 import { DemoState } from "./useDemo";
 import { MenuAction, TourMenu, TourSelect } from "./TourPrimitives";
-import { SourceReferences } from "./TourRefine";
 import styles from "./Tour.module.css";
 
 export function OutlineNavigation({
@@ -351,6 +350,25 @@ export function DraftEditor({
       </div>
       {refine && <SourceReferences />}
     </section>
+  );
+}
+export function SourceReferences() {
+  return (
+    <details className={styles.sourceDisclosure}>
+      <summary>
+        <Link2 size={20} />
+        Sources and references (2)
+        <ChevronRight size={20} />
+      </summary>
+      <div>
+        {sample.sources.map((source, index) => (
+          <a key={source.id} href={source.url} target="_blank" rel="noreferrer">
+            [{index + 1}] {source.title} — {source.publisher}
+            <ExternalLink size={17} />
+          </a>
+        ))}
+      </div>
+    </details>
   );
 }
 export function SourcesInspector({ demo }: { demo: DemoState }) {

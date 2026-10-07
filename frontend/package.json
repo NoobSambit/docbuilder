@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:landing": "node ../scripts/verify_landing.cjs"
+    "test:landing": "node ../scripts/verify_landing.cjs",
+    "test:tour": "jest __tests__/landing-tour.test.tsx --runInBand"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

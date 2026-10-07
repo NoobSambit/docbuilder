@@ -53,9 +53,6 @@ function OutputExport({ presentation = false }: { presentation?: boolean }) {
           </MenuLink>
         </>
       )}
-      <p className={styles.downloadNotice}>
-        Prepared sample files. Preview edits and artwork theme stay here.
-      </p>
     </TourMenu>
   );
 }
@@ -83,6 +80,7 @@ function Report({ demo }: { demo: DemoState }) {
   return (
     <div
       className={styles.reportWindow}
+      data-report-window
       tabIndex={0}
       aria-label="Scrollable portrait document preview"
     >
@@ -99,7 +97,25 @@ function Report({ demo }: { demo: DemoState }) {
         <div className={styles.reportContents}>
           <h4>Contents</h4>
           {demo.sections.map((section, index) => (
-            <a key={section.id} href={`#tour-report-${section.id}`}>
+            <a
+              key={section.id}
+              href={`#tour-report-${section.id}`}
+              onClick={(event) => {
+                const target = document.getElementById(
+                  `tour-report-${section.id}`,
+                );
+                const reportWindow = event.currentTarget.closest<HTMLElement>(
+                  "[data-report-window]",
+                );
+                if (target && reportWindow) {
+                  event.preventDefault();
+                  reportWindow.scrollTo({
+                    top: target.offsetTop,
+                    behavior: "auto",
+                  });
+                }
+              }}
+            >
               {String(index + 1).padStart(2, "0")}
               <span>{section.title}</span>
             </a>
@@ -158,6 +174,7 @@ export function OutputSlide({
   return (
     <div
       className={`${styles.outputSlide} ${index === 0 ? styles.coverSlide : styles.contentSlide} ${thumbnail ? styles.thumbnailSlide : ""}`}
+      data-slide-kind={index}
       aria-hidden={thumbnail || undefined}
     >
       <div>
@@ -211,6 +228,9 @@ function Deck({ demo }: { demo: DemoState }) {
         aria-label={`Slide ${demo.slide + 1} of ${sample.slides.length}: ${sample.slides[demo.slide].title}`}
       >
         <OutputSlide index={demo.slide} />
+      </div>
+      <div className={styles.slideTranscript}>
+        <p>{sample.slides[demo.slide].body}</p>
       </div>
       <div className={styles.outputFilmstrip}>
         <div className={styles.thumbnails}>
@@ -275,7 +295,10 @@ export default function TourPresent({
             <Report demo={demo} />
           </div>
           <figcaption>
-            A structured document with its sources attached.
+            <span>A structured document with its sources attached.</span>
+            <small title="Prepared files; preview edits and artwork theme stay here.">
+              Prepared sample downloads
+            </small>
           </figcaption>
         </figure>
         <figure className={styles.outputFigure}>
@@ -290,7 +313,10 @@ export default function TourPresent({
             <Deck demo={demo} />
           </div>
           <figcaption>
-            A separate presentation with editable layouts.
+            <span>A separate presentation with editable layouts.</span>
+            <small title="Prepared files; preview edits and artwork theme stay here.">
+              Prepared sample downloads
+            </small>
           </figcaption>
         </figure>
       </div>

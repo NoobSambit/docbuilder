@@ -166,9 +166,9 @@
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: minmax(0, 29.5fr) minmax(0, 44.5fr) minmax(0, 26fr);
+  grid-template-columns: minmax(0, 29.7fr) minmax(0, 44.6fr) minmax(0, 25.7fr);
   gap: 5px;
-  padding: 0 5px;
+  padding: 0 3px 0 5px;
   position: relative;
 }
 .panes > :is(aside, section) {
@@ -857,9 +857,12 @@
   }
 }
 .tour[data-tour-chapter="research"] .panes {
-  grid-template-columns: minmax(0, 28.3fr) minmax(0, 42.5fr) minmax(0, 29.2fr);
+  grid-template-columns: minmax(0, 28.38fr) minmax(0, 42.63fr) minmax(
+      0,
+      28.99fr
+    );
   gap: 6px;
-  padding: 0 6px;
+  padding: 0 4px 0 7px;
 }
 .navigationRail {
   padding: 16px 23px 18px;
@@ -1780,7 +1783,7 @@
 }
 .presentOutputs {
   display: grid;
-  grid-template-columns: minmax(0, 47fr) minmax(0, 53fr);
+  grid-template-columns: minmax(0, 47.3fr) minmax(0, 52.7fr);
   gap: 18px;
   padding: 0 27px;
   flex: 1;
@@ -1842,12 +1845,7 @@
   height: 19px;
   text-align: center;
 }
-.downloadNotice {
-  font-size: 12px;
-  padding: 8px 12px;
-  color: var(--tour-muted);
-  border-top: 1px solid var(--tour-border);
-}
+
 .reportWindow {
   flex: 1;
   min-height: 0;
@@ -2423,4 +2421,68 @@
   .tour .rail .starters button {
     min-height: 57px;
   }
+}
+.outputSlide[data-slide-kind="1"] .energyImage,
+.outputSlide[data-slide-kind="4"] .energyImage {
+  background-image: url("/landing/tour/market-landscape.webp");
+}
+.outputSlide[data-slide-kind="2"] .energyImage {
+  background-image: url("/landing/tour/storage-landscape.webp");
+}
+.outputSlide[data-slide-kind="3"] .energyImage {
+  background-image: url("/landing/tour/risks-landscape.webp");
+}
+.reportStack > div:last-child::before {
+  background-image: url("/landing/tour/market-landscape.webp");
+}
+.sourceSelected .includeSource input:focus-visible + span,
+.sourceSelected button:focus-visible {
+  outline-color: var(--tour-on-accent);
+}
+
+@media (min-width: 1001px) {
+  .tour[data-tour-chapter="refine"] .panes {
+    grid-template-columns: minmax(0, 29.5fr) minmax(0, 44.75fr) minmax(
+        0,
+        25.75fr
+      );
+    gap: 6px;
+    padding: 0 3px 0 7px;
+  }
+}
+.slideTranscript {
+  display: none;
+}
+@media (max-width: 600px) {
+  .fieldPair {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .chapterTrack > button > span {
+    display: none;
+  }
+  .outputSlide:not(.thumbnailSlide) p {
+    display: none;
+  }
+  .slideTranscript {
+    display: block;
+    padding: 12px 3px 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: pre-line;
+  }
+}
+.tour[data-tour-chapter="refine"] .citation[aria-pressed="true"] {
+  background: transparent;
+  color: var(--tour-ink);
+}
+.outputFigure figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.outputFigure figcaption small {
+  font-size: 12px;
 }

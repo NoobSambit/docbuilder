@@ -52,25 +52,6 @@ export function InlineSuggestion({ demo }: { demo: DemoState }) {
     </div>
   );
 }
-export function SourceReferences() {
-  return (
-    <details className={styles.sourceDisclosure}>
-      <summary>
-        <Link2 size={20} />
-        Sources and references (2)
-        <ChevronRight size={20} />
-      </summary>
-      <div>
-        {sample.sources.map((source, index) => (
-          <a key={source.id} href={source.url} target="_blank" rel="noreferrer">
-            [{index + 1}] {source.title} — {source.publisher}
-            <ExternalLink size={17} />
-          </a>
-        ))}
-      </div>
-    </details>
-  );
-}
 export function RefineInspector({ demo }: { demo: DemoState }) {
   const source = sample.sources[1];
   return (

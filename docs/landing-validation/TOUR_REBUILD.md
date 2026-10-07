@@ -31,3 +31,60 @@ Measured from the four selected 1672 × 941 PNGs at original resolution. Coordin
 `Workspace` is imported only by `LandingPage`; `Brand`, `BriefPreview`, `SourcePreview`, `RefinePreview`, `HistoryPreview`, `GenerationPreview`, `DocumentPaper`, `SlidePreview` and `EnergyIllustration` are also consumed by lower sections. Expanded tour uses separate scoped component/CSS; legacy helper geometry stays unchanged. Shared fixture/hooks supply local state.
 
 Radix Select and Dropdown Menu are the primary primitive approach, fully restyled. Registry verified MIT licenses and React/ReactDOM peers `^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc`; installed React is 18.2.0. No Next/Tailwind peer requirements or stack upgrade. Sources: https://www.radix-ui.com/primitives/docs/components/select, https://www.radix-ui.com/primitives/docs/components/dropdown-menu, https://github.com/radix-ui/primitives/blob/main/LICENSE.
+
+## Delivered source and requirement audit
+
+| Requirement | Current implementation evidence |
+| --- | --- |
+| Persistent projectbar / Brief–Research–Refine–Present track / narration | `Tour.tsx` keeps header/navigation mounted while stage bodies change; `Tour.module.css` uses 60px + 64px chrome and 110/110/94/104px narration bands. |
+| Measured stage-specific pane geometry | Shared CSS uses Brief 29.7/44.6/25.7, Research 28.38/42.63/28.99, Refine 29.5/44.75/25.75 ratios with 5–6px gutters. Present uses 47.3/52.7 output regions. No whole-application scaling. |
+| Editable brief and five-section outline | `BriefComposer`, `BriefOutline`, `SectionInspector`: goal, audience, tone, length, starter; expanded details; local heading/guidance/subsection editing; up to eight sections and six subsections. Dnd-kit pointer/keyboard sorting retains section identity/selection. |
+| Brief contains an outline, with no finished report or duplicate tree | Brief body mounts only composer + outline editor + selected-section inspector. Legacy capability preview helpers stay outside this branch. |
+| Research draft and exactly two evidence records | `TourDraft.tsx` carries the outline into navigation, formats/edits current paragraph, includes/excludes and inspects fixture records. Add source opens the same two-record sample library, never creates a third source. |
+| Citation-to-source connection | Citation buttons inspect their matching record; connector measures actual buttons and rows and updates on resize, pane scroll, font load and draft mutation. Narrow layouts use citation-to-inspector navigation. |
+| Main-editor pending diff, Accept / Discard, source [2] and original preservation | `InlineSuggestion` + `RefineInspector` use the exact storyboard pair. `useDemo` keeps the original, approval state, editor undo/redo and local checkpoint snapshots. Accept/Discard button tests prove the resulting portrait report keeps [2]. |
+| Separate portrait report and logical 16:9 presentation | `TourPresent.tsx` renders a scrollable native report with contents/references, a distinct six-slide deck, four native thumbnails and previous/next paging. `slideViewport` explicitly uses `aspect-ratio: 16 / 9`. |
+| DOCX / Markdown / HTML / browser print / PPTX | Restyled Radix menus use the existing valid sample paths. Prepared files were rebuilt from the canonical fixture with accepted wording; exports explicitly identify prepared files and local-preview differences. |
+| Shared local deterministic state; restart preserves theme | All stages receive one `useDemo` instance. No fetch/provider/project persistence imports. Restart clears sample edits, source inclusion, approval, formatting, slide, timers and history; visit/theme state is separate and untouched. |
+| All five themes, with one implementation | `themes.ts` supplies 15 scoped tour tokens per existing theme. Geometry, type, stages and behavior are shared. Original landing tokens/crops and visit selector are unchanged. |
+| Reversible scroll / chapter navigation / release | `LandingPage.tsx` preserves the existing 0.8-viewport expansion and 0.825-viewport chapter pacing. Buttons use native scroll positions. The stable Workspace root remains mounted; Present releases to existing capabilities. Local query bootstrap adds deterministic review links. |
+| Readable responsive source / keyboard / reduced motion | Below 1000px, chapter/pane controls choose one readable pane; Present stacks outputs and retains 16:9. Below 600px, slide body text sits in a readable transcript beneath the logical slide rather than being squeezed into the frame. Narrow controls use 44px targets. Short/reduced-motion views use a normal-flow tour. Radix manages popup keyboard/focus behavior; drag handles support keyboard sorting; native disclosures, explicit labels and focus styles remain. |
+| Preserve other landing/product surfaces | Diff against `47d2f34` confirms no changes to `LowerSections.tsx`, its CSS, `visit.ts`, global styles, pages, context/auth, backend, original hero art or either Vercel config. Shared helper data follows the approved fixture; helper layout styles remain unchanged except the new scoped outer tour class. |
+| Seven local checkpoints; no push/deploy | First six: `bf2cffc`, `42e1590`, `11d398c`, `7a05571`, `ddab375`, `8ea3d79`. The final evidence/polish commit is HEAD after this report is committed; use `git log 47d2f34..HEAD --oneline --reverse` for all seven IDs. No push, deployment or browser command was run. |
+
+## Actual non-browser checks — 7 October 2026
+
+- `cd frontend && DOCBUILDER_BUILD_DIR=.next-tour npm run build`: PASS. Next 13.4.4 built all eight pages, including unchanged auth/product routes. Build emitted existing stale Browserslist/baseline-data notices; no stack upgrade was made.
+- `cd frontend && npm run lint`: PASS, zero warnings/errors.
+- `cd frontend && npx tsc --noEmit --incremental false`: PASS.
+- `cd frontend && npm run test:tour`: PASS, 19 tests in the existing Jest/jsdom harness. Covers brief/outline editing and identity, adding/reordering, source inclusion, pending/accepted/discarded wording, original/undo/redo, checkpoint restore, restart/theme isolation, local playback, all theme tokens; actual rendered React state tests exercise Accept/Discard → report, source context and deck paging. These are non-browser state tests, with no layout/viewport assertions.
+- `git diff --check`: PASS.
+- Prepared artifact inspection: DOCX/PPTX ZIP integrity and all XML parse; DOCX has accepted sentence and both source hyperlink relationships; PPTX has six slides and 16:9 geometry; Markdown/HTML contain accepted wording and both source URLs. Browser print keeps the existing `?print=1` reading-view mechanism.
+- Installed compatibility: React/ReactDOM 18.2.0, Next 13.4.4 and Tailwind 3.3.2 remain unchanged. Radix Select 2.3.8 / Dropdown Menu 2.1.25 installed without peer conflicts.
+- Color calculation (source tokens, not rendered/a11y-browser verification): body text ranges 12.44–17.60:1; muted text/context 4.62–4.92:1; light text/selected surfaces 4.56–5.40:1; light text/accent actions 7.18–8.23:1.
+- Both Vercel `git.deploymentEnabled` values are still `false`.
+
+## Local visual review
+
+Run:
+
+```sh
+cd /home/noobsambit/Documents/docbuilder/frontend
+npm run dev -- --port 3101
+```
+
+Use the original 1672 × 941 reference size for the user's visual comparison. The landing theme parameter uses the existing deterministic override. `tourChapter` enters the requested stage with native scroll; `tourEdit=accepted` initializes the approved local sample state for Present. Native navigation into Present without approval retains the original wording. `tourEdit=discarded` permits explicit original-state review. Invalid chapter/edit values are ignored. Restart clears preview state and returns to Brief without changing the selected artwork/theme.
+
+| Theme | Brief | Research | Refine (pending) | Present (accepted sample) |
+| --- | --- | --- | --- | --- |
+| Akshara | [Brief](http://localhost:3101/?landingTheme=akshara&tourChapter=brief) | [Research](http://localhost:3101/?landingTheme=akshara&tourChapter=research) | [Refine](http://localhost:3101/?landingTheme=akshara&tourChapter=refine) | [Present](http://localhost:3101/?landingTheme=akshara&tourChapter=present&tourEdit=accepted) |
+| Astra | [Brief](http://localhost:3101/?landingTheme=astra&tourChapter=brief) | [Research](http://localhost:3101/?landingTheme=astra&tourChapter=research) | [Refine](http://localhost:3101/?landingTheme=astra&tourChapter=refine) | [Present](http://localhost:3101/?landingTheme=astra&tourChapter=present&tourEdit=accepted) |
+| Neel | [Brief](http://localhost:3101/?landingTheme=neel&tourChapter=brief) | [Research](http://localhost:3101/?landingTheme=neel&tourChapter=research) | [Refine](http://localhost:3101/?landingTheme=neel&tourChapter=refine) | [Present](http://localhost:3101/?landingTheme=neel&tourChapter=present&tourEdit=accepted) |
+| Sabha | [Brief](http://localhost:3101/?landingTheme=sabha&tourChapter=brief) | [Research](http://localhost:3101/?landingTheme=sabha&tourChapter=research) | [Refine](http://localhost:3101/?landingTheme=sabha&tourChapter=refine) | [Present](http://localhost:3101/?landingTheme=sabha&tourChapter=present&tourEdit=accepted) |
+| Vanam | [Brief](http://localhost:3101/?landingTheme=vanam&tourChapter=brief) | [Research](http://localhost:3101/?landingTheme=vanam&tourChapter=research) | [Refine](http://localhost:3101/?landingTheme=vanam&tourChapter=refine) | [Present](http://localhost:3101/?landingTheme=vanam&tourChapter=present&tourEdit=accepted) |
+
+## Material limits and visual acceptance
+
+No browser automation, screenshots, viewport-testing sessions, visual diff, Lighthouse or browser QA agents were used. Reference inspection/measurement and the source/state gates support implementation delivery; they do not prove browser-verified pixel perfection. Font rasterization, pane scrolling, responsive rendering and the live connector remain for the user's visual review.
+
+The local suggestion is the prepared storyboard edit, not an AI response to arbitrary instructions. The toolbar formats the current section paragraph. Prepared downloads are static reviewed examples; arbitrary preview text, outline ordering, formatting and theme edits do not change them. The prepared PPTX retains an editable schematic illustration. Secondary slide artwork comes from small reference thumbnail crops and will look softer when enlarged in the full-slide viewport; the cover uses the larger approved artwork crop.
