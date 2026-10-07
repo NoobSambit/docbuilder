@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import sample from "./sample.json";
 
 export type UtilityTab = "brief" | "research" | "refine" | "history";
+export type OutlineSection = (typeof sample.sections)[number];
 interface Snapshot {
   id: number;
   label: string;
@@ -9,23 +10,54 @@ interface Snapshot {
   audience: string;
   purpose: string;
   tone: string;
-  titles: string[];
+  length: string;
+  starter: string;
+  sections: OutlineSection[];
+  included: string[];
 }
+const freshSections = () =>
+  sample.sections.map((section) => ({
+    ...section,
+    subsections: [...section.subsections],
+  }));
+const initialVersions = (): Snapshot[] =>
+  ["Outline approved", "Initial draft"].map((label, index) => ({
+    id: index + 1,
+    label,
+    accepted: false,
+    audience: sample.brief.audience,
+    purpose: sample.brief.goal,
+    tone: sample.brief.tone,
+    length: sample.brief.length,
+    starter: "Executive brief",
+    sections: freshSections(),
+    included: ["iea", "doe"],
+  }));
 
+// One local model powers the arrival preview, all tour chapters and capability examples.
 export function useDemo() {
   const [selected, setSelected] = useState(0);
   const [utility, setUtility] = useState<UtilityTab>("research");
   const [mobilePane, setMobilePane] = useState("document");
-  const [inspectedSource, setInspectedSource] = useState("iea");
+  const [inspectedSource, setInspectedSource] = useState("doe");
   const [included, setIncluded] = useState(["iea", "doe"]);
-  const [audience, setAudience] = useState("Leadership");
-  const [purpose, setPurpose] = useState("Explain the energy transition");
-  const [tone, setTone] = useState("Analytical");
-  const [titles, setTitles] = useState(
-    sample.sections.map((section) => section.title),
-  );
+  const [audience, setAudience] = useState(sample.brief.audience);
+  const [purpose, setPurpose] = useState(sample.brief.goal);
+  const [tone, setTone] = useState(sample.brief.tone);
+  const [length, setLength] = useState(sample.brief.length);
+  const [starter, setStarter] = useState("Executive brief");
+  const [sections, setSections] = useState<OutlineSection[]>(freshSections);
+  const titles = sections.map((section) => section.title);
+  const setTitles = (next: string[]) =>
+    setSections((previous) =>
+      previous.map((section, index) => ({
+        ...section,
+        title: next[index] ?? section.title,
+      })),
+    );
   const [accepted, setAccepted] = useState(false);
   const [suggestion, setSuggestion] = useState(true);
+  const [instruction, setInstruction] = useState(sample.refinement.instruction);
   const [preview, setPreview] = useState(false);
   const [output, setOutput] = useState<"document" | "presentation">("document");
   const [slide, setSlide] = useState(0);
@@ -36,84 +68,138 @@ export function useDemo() {
   const [message, setMessage] = useState(
     "Sample loaded. Changes stay in this preview.",
   );
-  const [versions, setVersions] = useState<Snapshot[]>([
-    {
-      id: 1,
-      label: "Outline approved",
-      accepted: false,
-      audience: "Leadership",
-      purpose: "Explain the energy transition",
-      tone: "Analytical",
-      titles: sample.sections.map((section) => section.title),
-    },
-    {
-      id: 2,
-      label: "Initial draft",
-      accepted: false,
-      audience: "Leadership",
-      purpose: "Explain the energy transition",
-      tone: "Analytical",
-      titles: sample.sections.map((section) => section.title),
-    },
-  ]);
+  const [versions, setVersions] = useState<Snapshot[]>(initialVersions);
   useEffect(() => {
     if (generation !== "running") return;
     const timeout = setTimeout(() => {
       const next = generated + 1;
       setGenerated(next);
-      if (next >= sample.sections.length) {
+      if (next >= sections.length) {
         setGeneration("complete");
         setMessage(
           "Sample sequence complete. No content was generated through an API.",
         );
       } else
-        setMessage(
-          `Sample section ${next} of ${sample.sections.length} revealed.`,
-        );
+        setMessage(`Sample section ${next} of ${sections.length} revealed.`);
     }, 1400);
     return () => clearTimeout(timeout);
-  }, [generation, generated]);
+  }, [generation, generated, sections.length]);
   const checkpoint = (
     label = "Named checkpoint",
     change?: Partial<Snapshot>,
   ) => {
-    const snapshot = {
-      id: versions.length + 1,
-      label,
-      accepted,
-      audience,
-      purpose,
-      tone,
-      titles: [...titles],
-      ...change,
-    };
-    setVersions((previous) => [...previous, snapshot]);
+    setVersions((previous) => [
+      ...previous,
+      {
+        id: previous.length + 1,
+        label,
+        accepted,
+        audience,
+        purpose,
+        tone,
+        length,
+        starter,
+        sections: sections.map((section) => ({
+          ...section,
+          subsections: [...section.subsections],
+        })),
+        included: [...included],
+        ...change,
+      },
+    ]);
     setMessage(`${label} added to sample history in this preview.`);
   };
   const accept = () => {
-    setSelected(0);
+    setSelected(
+      Math.max(
+        0,
+        sections.findIndex((section) => section.id === "executive"),
+      ),
+    );
     setPreview(false);
     setAccepted(true);
     setSuggestion(false);
     checkpoint("Refinement accepted", { accepted: true });
   };
   const discard = () => {
+    setAccepted(false);
     setSuggestion(false);
     setMessage("Suggestion discarded. The original text is preserved.");
   };
+  const undo = () => {
+    setAccepted(false);
+    setSuggestion(true);
+    setMessage("Original wording restored. The suggestion is pending again.");
+  };
+  const suggest = () => {
+    setSuggestion(true);
+    setMessage(
+      "Prepared concise suggestion ready. Source [2] retained; no AI request was made.",
+    );
+  };
   const restore = (version: Snapshot) => {
     setAccepted(version.accepted);
+    setSuggestion(false);
     setAudience(version.audience);
     setPurpose(version.purpose);
     setTone(version.tone);
-    setTitles([...version.titles]);
+    setLength(version.length);
+    setStarter(version.starter);
+    setSections(
+      version.sections.map((section) => ({
+        ...section,
+        subsections: [...section.subsections],
+      })),
+    );
+    setIncluded([...version.included]);
+    setSelected(0);
     checkpoint(`Restored ${version.label}`, {
-      accepted: version.accepted,
-      audience: version.audience,
-      purpose: version.purpose,
-      tone: version.tone,
-      titles: [...version.titles],
+      ...version,
+      id: versions.length + 1,
+      label: `Restored ${version.label}`,
     });
+  };
+  const updateSection = (id: string, changes: Partial<OutlineSection>) => {
+    setSections((previous) =>
+      previous.map((section) =>
+        section.id === id ? { ...section, ...changes } : section,
+      ),
+    );
+  };
+  const addSection = () => {
+    if (sections.length >= 8) return;
+    const section: OutlineSection = {
+      id: `custom-${sections.length + 1}`,
+      title: "Additional considerations",
+      description: "Add context for your readers",
+      guidance: "Describe the questions this section should answer.",
+      subsections: ["Questions to consider"],
+      text: "Add your own context to this local preview.",
+      bullets: ["Review the linked evidence."],
+      sourceIds: [],
+    };
+    setSections((previous) => [...previous, section]);
+    setSelected(sections.length);
+    setMessage(
+      "Section added. Edit its heading and guidance in the inspector.",
+    );
+  };
+  const reorderSections = (from: number, to: number) => {
+    if (to < 0 || to >= sections.length || from === to) return;
+    const next = [...sections];
+    const [item] = next.splice(from, 1);
+    next.splice(to, 0, item);
+    const selectedId = sections[selected].id;
+    setSections(next);
+    setSelected(next.findIndex((section) => section.id === selectedId));
+    setMessage("Outline order updated in this preview.");
+  };
+  const generateOutline = () => {
+    // The prepared structure is deterministic; custom edits are kept.
+    checkpoint("Brief approved");
+    setMessage(
+      `${sections.length}-section ${starter.toLowerCase()} ready for ${audience.toLowerCase()}. Edit or reorder before drafting.`,
+    );
   };
   const toggleSource = (id: string) => {
     setIncluded((previous) =>
@@ -139,6 +225,29 @@ export function useDemo() {
       );
     }
   };
+  const restart = () => {
+    setSelected(0);
+    setUtility("brief");
+    setMobilePane("document");
+    setInspectedSource("doe");
+    setIncluded(["iea", "doe"]);
+    setAudience(sample.brief.audience);
+    setPurpose(sample.brief.goal);
+    setTone(sample.brief.tone);
+    setLength(sample.brief.length);
+    setStarter("Executive brief");
+    setSections(freshSections());
+    setAccepted(false);
+    setSuggestion(true);
+    setInstruction(sample.refinement.instruction);
+    setPreview(false);
+    setOutput("document");
+    setSlide(0);
+    setGeneration("paused");
+    setGenerated(3);
+    setVersions(initialVersions());
+    setMessage("Sample restarted. Your selected artwork theme is preserved.");
+  };
   return {
     selected,
     setSelected,
@@ -156,13 +265,26 @@ export function useDemo() {
     setPurpose,
     tone,
     setTone,
+    length,
+    setLength,
+    starter,
+    setStarter,
     titles,
     setTitles,
+    sections,
+    updateSection,
+    addSection,
+    reorderSections,
+    generateOutline,
     accepted,
     suggestion,
     setSuggestion,
+    instruction,
+    setInstruction,
     accept,
     discard,
+    undo,
+    suggest,
     preview,
     setPreview,
     output,
@@ -177,6 +299,7 @@ export function useDemo() {
     versions,
     checkpoint,
     restore,
+    restart,
   };
 }
 export type DemoState = ReturnType<typeof useDemo>;

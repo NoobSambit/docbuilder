@@ -5,7 +5,7 @@
     {
       "id": "iea",
       "title": "Renewables 2025",
-      "publisher": "International Energy Agency",
+      "publisher": "IEA",
       "url": "https://www.iea.org/reports/renewables-2025",
       "excerpt": "The report examines renewable deployment through 2030 across electricity, transport and heat, together with policy and market conditions.",
       "kind": "Summary of report overview"
@@ -22,19 +22,35 @@
   "sections": [
     {
       "title": "Executive summary",
-      "text": "Renewable deployment is shaped by policy and market conditions. The IEA’s Renewables 2025 examines electricity, transport and heat through 2030. [1] Storage gives variable wind and solar generation a way to serve demand at other times. The US Department of Energy describes both battery research and pumped storage hydropower. [2]",
+      "text": "Renewable deployment is shaped by policy and market conditions. The IEA’s Renewables 2025 examines electricity, transport and heat through 2030. [1] Energy storage helps save renewable electricity for times when wind and solar output is lower. [2] This brief considers the transition, the role of storage and questions for leadership.",
       "bullets": [
         "Review the policy assumptions behind an outlook.",
         "Consider storage alongside renewable generation.",
         "Keep source evidence attached to the briefing."
       ],
-      "sourceIds": ["iea", "doe"]
+      "sourceIds": ["iea", "doe"],
+      "id": "executive",
+      "description": "The transition and why it matters",
+      "subsections": [
+        "What is changing",
+        "Why storage matters",
+        "What leadership should review"
+      ],
+      "guidance": "Explain the transition and the role of storage for leadership."
     },
     {
       "title": "Market landscape",
       "text": "The IEA considers policy changes, manufacturing trends and the financial health of renewable industries. Its outlook spans multiple energy uses rather than electricity alone. [1]",
       "bullets": ["Electricity", "Transport", "Heat"],
-      "sourceIds": ["iea"]
+      "sourceIds": ["iea"],
+      "id": "market",
+      "description": "How the energy landscape is changing",
+      "subsections": [
+        "Current energy landscape",
+        "Policy context",
+        "Questions to research"
+      ],
+      "guidance": "Review the policy and market conditions in the IEA outlook."
     },
     {
       "title": "Storage and flexibility",
@@ -43,7 +59,11 @@
         "Batteries retain energy for later use.",
         "Pumped storage uses water and elevation."
       ],
-      "sourceIds": ["doe"]
+      "sourceIds": ["doe"],
+      "id": "storage",
+      "description": "Connecting renewable supply with demand",
+      "subsections": ["Batteries", "Pumped storage", "Supply and demand"],
+      "guidance": "Explain how storage connects renewable supply with demand."
     },
     {
       "title": "Risks and considerations",
@@ -52,7 +72,11 @@
         "Separate a forecast from an observed result.",
         "Review local policy and project constraints."
       ],
-      "sourceIds": ["iea"]
+      "sourceIds": ["iea"],
+      "id": "risks",
+      "description": "Trade-offs to examine",
+      "subsections": ["Forecast assumptions", "Local constraints"],
+      "guidance": "Separate forecasts from observed results and review local constraints."
     },
     {
       "title": "Next steps",
@@ -61,35 +85,39 @@
         "Read the original sources.",
         "Document assumptions for the decision."
       ],
-      "sourceIds": []
+      "sourceIds": [],
+      "id": "next",
+      "description": "Questions and actions for leadership",
+      "subsections": ["Read the sources", "Document assumptions"],
+      "guidance": "End with useful next steps for leadership."
     }
   ],
   "refinement": {
-    "original": "Storage gives variable wind and solar generation a way to serve demand at other times.",
-    "suggestion": "Storage retains wind and solar energy for use when those resources are unavailable.",
-    "instruction": "Make the storage explanation more concise. Preserve the source."
+    "original": "Energy storage helps save renewable electricity for times when wind and solar output is lower.",
+    "suggestion": "Storage saves renewable electricity for later use.",
+    "instruction": "Make this more concise. Keep the citation."
   },
   "slides": [
     {
       "title": "Clean Energy Outlook",
       "eyebrow": "Leadership briefing",
-      "body": "Renewables and the role of storage",
+      "body": "A more resilient energy system.",
       "sourceIds": ["iea", "doe"]
     },
     {
-      "title": "The scope of the outlook",
+      "title": "Market landscape",
       "eyebrow": "Renewable deployment",
       "body": "Electricity, transport and heat\nPolicy and market conditions\nTechnology deployment through 2030",
       "sourceIds": ["iea"]
     },
     {
-      "title": "Storage connects supply and demand",
+      "title": "Storage and flexibility",
       "eyebrow": "Energy flexibility",
       "body": "Retain energy from wind and solar\nUse it when those resources are unavailable\nReview batteries and pumped storage",
       "sourceIds": ["doe"]
     },
     {
-      "title": "Decisions need local context",
+      "title": "Risks and considerations",
       "eyebrow": "Leadership considerations",
       "body": "Review forecast assumptions\nAssess local policy and constraints\nDocument project-specific storage needs",
       "sourceIds": ["iea", "doe"]
@@ -100,5 +128,11 @@
       "body": "Renewables 2025\nInternational Energy Agency\n\nEnergy Storage\nUS Department of Energy",
       "sourceIds": ["iea", "doe"]
     }
-  ]
+  ],
+  "brief": {
+    "goal": "Explain the clean energy transition to leadership.",
+    "audience": "Leadership",
+    "tone": "Analytical",
+    "length": "Executive brief"
+  }
 }

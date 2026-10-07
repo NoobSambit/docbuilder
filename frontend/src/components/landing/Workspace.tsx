@@ -18,7 +18,7 @@ import sample from "./sample.json";
 import { DemoState, UtilityTab } from "./useDemo";
 import styles from "./Workspace.module.css";
 
-export const CHAPTERS = ["Shape", "Research", "Refine", "Present"] as const;
+export const CHAPTERS = ["Brief", "Research", "Refine", "Present"] as const;
 export const CHAPTER_COPY = [
   "Give the draft a clear direction.",
   "Know what the draft is built on.",
@@ -381,7 +381,7 @@ export function DocumentPaper({
   demo: DemoState;
   full?: boolean;
 }) {
-  const sections = full ? sample.sections : [sample.sections[demo.selected]];
+  const sections = full ? demo.sections : [demo.sections[demo.selected]];
   return (
     <article
       className={styles.paper}
@@ -405,9 +405,9 @@ export function DocumentPaper({
         </>
       )}
       {sections.map((section) => {
-        const index = sample.sections.indexOf(section);
+        const index = demo.sections.indexOf(section);
         const text =
-          index === 0 && demo.accepted
+          section.id === "executive" && demo.accepted
             ? section.text.replace(
                 sample.refinement.original,
                 sample.refinement.suggestion,
@@ -431,16 +431,12 @@ export function DocumentPaper({
       {!full && (
         <div className={styles.documentContinuation}>
           <h3>
-            {
-              sample.sections[(demo.selected + 1) % sample.sections.length]
-                .title
-            }
+            {demo.sections[(demo.selected + 1) % demo.sections.length].title}
           </h3>
           <p>
             <CitationText
               text={
-                sample.sections[(demo.selected + 1) % sample.sections.length]
-                  .text
+                demo.sections[(demo.selected + 1) % demo.sections.length].text
               }
             />
           </p>
