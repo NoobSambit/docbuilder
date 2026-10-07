@@ -122,3 +122,9 @@ The user's final sizing correction requires the completed window to return to it
 
 
 Final follow-up checks: production build, lint, TypeScript, all 23 focused non-browser state tests and `git diff --check` passed after the normal-size restoration. A separate local checkpoint `79843f4` appeared while these changes were being made; its history is preserved. The latest release/normal-size corrections remain in the working tree, with no extra commit, push or deployment.
+
+### Avoid flattening the completed Present preview
+
+The user's next screenshot showed that restoring the fixed 72svh arrival height compressed the wider completed Present preview and hid its filmstrip. Arrival geometry remains unchanged. The return-to-normal frame now retains at least the pinned window's height while restoring its normal 93% width and removing modal treatment; it no longer collapses vertically on exit. Text/control sizes, slide 16:9 geometry and demo state are unchanged.
+
+The presentation viewport also fits its width to the actual pane height, reserving space for the native four-thumbnail filmstrip and paging. Its logical aspect ratio stays 16:9; typography rules are unchanged. This prevents the wider normal-state pane from pushing the filmstrip below the visible region.

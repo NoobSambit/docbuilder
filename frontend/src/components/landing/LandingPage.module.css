@@ -596,7 +596,11 @@
     --tour-pinned-height: calc(var(--tour-pinned-width) * 9 / 16);
     --tour-pinned-top: calc((100svh - var(--tour-pinned-height)) / 2);
     --tour-normal-height: max(72svh, 550px);
-    --tour-normal-top: calc((100svh - var(--tour-normal-height)) / 2);
+    --tour-return-height: max(
+      var(--tour-normal-height),
+      var(--tour-pinned-height)
+    );
+    --tour-normal-top: calc((100svh - var(--tour-return-height)) / 2);
   }
   .workspaceFrame {
     top: calc(
@@ -612,8 +616,12 @@
         var(--tour-window-focus)
     );
     height: calc(
-      var(--tour-normal-height) * (1 - var(--tour-window-focus)) +
-        var(--tour-pinned-height) * var(--tour-window-focus)
+      var(--tour-normal-height) * (1 - var(--expansion)) +
+        (
+          var(--tour-pinned-height) * (1 - var(--tour-release)) +
+            var(--tour-return-height) * var(--tour-release)
+        ) *
+        var(--expansion)
     );
     min-height: 0;
     border-radius: calc(12px + 4px * var(--tour-window-focus));

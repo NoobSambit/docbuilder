@@ -2961,3 +2961,17 @@
     min-height: var(--tour-control-height);
   }
 }
+@media (min-width: 1001px) {
+  /* Fit the 16:9 slide and its four-thumb filmstrip into the actual pane height.
+     The reserve follows thumbnail width (four 16:9 cells) plus paging/gutters. */
+  .tour .deckViewer {
+    container-type: size;
+  }
+  .tour .slideViewport {
+    width: min(
+      100%,
+      calc((100cqh - (100cqw - 172px) * 9 / 64 - 18px) * 16 / 9)
+    );
+    margin-inline: auto;
+  }
+}
