@@ -10,7 +10,11 @@
 }
 .capabilities.loaded {
   background-image:
-    linear-gradient(#fffefa25, #fffefa18), var(--capabilities-art);
+    linear-gradient(
+      color-mix(in srgb, var(--tour-shell) 68%, transparent),
+      color-mix(in srgb, var(--tour-shell) 58%, transparent)
+    ),
+    var(--capabilities-art);
 }
 .outputs.loaded {
   background-image: linear-gradient(#fffefa15, #fffefa35), var(--outputs-art);
@@ -42,38 +46,9 @@
   font-size: 12px;
   color: var(--muted);
 }
-.capabilityGrid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 24px;
-  align-items: start;
-}
-.wideFeature {
-  grid-column: span 3;
-}
-.smallFeature {
-  grid-column: span 2;
-}
-.capabilityGrid figure,
 .outputGrid figure {
   margin: 0;
   min-width: 0;
-}
-.featureSurface {
-  background: #fffefa;
-  border: 1px solid #d3d7ca;
-  box-shadow: 0 4px 12px #342b1915;
-  border-radius: 5px;
-  padding: 16px;
-  color: var(--ink);
-  font-size: 12px;
-  min-width: 0;
-}
-.briefSurface {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 22px;
-  min-height: 304px;
 }
 .surfaceToolbar {
   display: flex;
@@ -93,117 +68,17 @@
 .surfaceToolbar strong {
   font-size: 11px;
 }
-.outlinePreview {
-  padding: 24px 0 0;
-}
-.outlinePreview > span {
-  display: block;
-  font-size: 10px;
-  color: var(--muted);
-}
-.outlinePreview > strong {
-  display: block;
-  font-size: 12px;
-  margin: 7px 0 14px;
-}
-.outlinePreview button {
-  display: flex;
-  text-align: left;
-  gap: 7px;
-  align-items: center;
-  min-height: 35px;
-  padding: 6px 8px;
-  font-size: 11px;
-  width: 100%;
-  border-radius: 3px;
-}
-.outlinePreview button[aria-pressed="true"] {
-  background: var(--tint);
-}
-.outlinePreview svg {
-  color: var(--accent);
-}
-.researchSurface {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 18px;
-  height: 304px;
-  overflow: auto;
-}
-.sourceDraft h4 {
-  font:
-    600 18px Georgia,
-    serif;
-  margin: 20px 0 10px;
-}
-.sourceDraft p {
-  font:
-    13px/1.8 Georgia,
-    serif;
-}
-.inlineSource {
-  font-size: 9px;
-  display: block;
-  margin-top: 17px;
-  color: var(--accent);
-}
-.researchSurface > div:last-child {
-  background: var(--tint);
-  margin: -16px -16px -16px 0;
-  padding: 16px;
-}
-.smallSurface {
-  min-height: 258px;
-  height: 258px;
-  overflow: auto;
-}
-.archiveBackdrop {
-  padding: 15px 22px;
-  background: var(--rail);
-  border-radius: 5px;
-}
-.loaded .archiveBackdrop {
-  background-image: var(--archive-art);
-  background-size: cover;
-  background-position: center;
-}
-.archiveBackdrop .smallSurface {
-  height: 228px;
-  min-height: 228px;
-}
-.smallSurface [class*="versionList"] {
-  max-height: 120px;
-}
-.smallSurface [class*="helper"] {
-  font-size: 10px;
-}
-.smallSurface [class*="panelHeading"] {
-  margin-bottom: 10px;
-}
-.smallSurface [class*="diff"] {
-  font-size: 11px;
-  margin: 7px 0;
-}
-.smallSurface [class*="actions"] {
-  margin-top: 10px;
-}
-.smallSurface [class*="eyebrow"] {
-  display: none;
-}
-.capabilityGrid figcaption,
 .outputGrid figcaption {
   padding: 10px 12px;
   margin-top: 8px;
   border-radius: 3px;
   background: #fffdf2;
 }
-.capabilityGrid h3,
 .outputGrid h3 {
   font-size: 13px;
   font-weight: 650;
   margin: 0 0 3px;
 }
-.capabilityGrid figcaption p,
 .outputGrid figcaption p {
   font-size: 10px;
   color: var(--muted);
@@ -404,38 +279,6 @@
   white-space: nowrap;
 }
 @media (max-width: 1100px) and (min-width: 1001px) {
-  .capabilityGrid {
-    gap: 16px;
-  }
-  .briefSurface {
-    gap: 10px;
-    padding: 12px;
-  }
-  .outlinePreview button {
-    font-size: 10px;
-    padding: 6px 0;
-  }
-  .researchSurface {
-    gap: 10px;
-    padding: 12px;
-  }
-  .researchSurface > div:last-child {
-    padding: 12px;
-    margin: -12px -12px -12px 0;
-  }
-  .researchSurface [class*="sourceDetail"] {
-    padding: 10px;
-  }
-  .smallSurface {
-    padding: 12px;
-    height: 285px;
-  }
-  .archiveBackdrop {
-    padding: 15px;
-  }
-  .archiveBackdrop .smallSurface {
-    height: 255px;
-  }
   .outputGrid {
     grid-template-columns: 1fr 1fr;
   }
@@ -480,78 +323,12 @@
     line-height: 1.6;
     margin-top: 9px;
   }
-  .capabilityGrid {
-    grid-template-columns: 1fr;
-    gap: 23px;
-  }
-  .wideFeature,
-  .smallFeature {
-    grid-column: auto;
-  }
-  .briefSurface {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    min-height: 0;
-    padding: 18px;
-  }
-  .outlinePreview {
-    padding: 0;
-    border-top: 1px solid #c3cdbd;
-    padding-top: 15px;
-  }
-  .outlinePreview button {
-    min-height: 44px;
-    font-size: 13px;
-  }
-  .researchSurface {
-    grid-template-columns: 1fr;
-    height: auto;
-    padding: 18px;
-    gap: 22px;
-  }
-  .sourceDraft h4 {
-    font-size: 21px;
-  }
-  .sourceDraft p {
-    font-size: 15px;
-  }
-  .researchSurface > div:last-child {
-    margin: 0 -18px -18px;
-    padding: 20px 18px;
-  }
-  .inlineSource {
-    font-size: 11px;
-  }
-  .smallSurface {
-    height: auto;
-    min-height: 0;
-    padding: 20px;
-  }
-  .smallSurface [class*="diff"] {
-    font-size: 14px;
-  }
-  .smallSurface [class*="helper"] {
-    font-size: 12px;
-  }
-  .archiveBackdrop {
-    padding: 18px;
-  }
-  .archiveBackdrop .smallSurface {
-    height: auto;
-    min-height: 0;
-  }
-  .smallSurface [class*="versionList"] {
-    max-height: 200px;
-  }
-  .capabilityGrid figcaption,
   .outputGrid figcaption {
     padding: 13px;
   }
-  .capabilityGrid h3,
   .outputGrid h3 {
     font-size: 15px;
   }
-  .capabilityGrid figcaption p,
   .outputGrid figcaption p {
     font-size: 12px;
     margin-top: 4px;
@@ -691,29 +468,6 @@
   .sectionHeading h2 {
     margin: 0 0 7px;
   }
-  .capabilityGrid {
-    gap: 20px;
-  }
-  .briefSurface {
-    min-height: 270px;
-  }
-  .researchSurface {
-    height: 270px;
-  }
-  .smallSurface {
-    min-height: 220px;
-    height: 220px;
-  }
-  .archiveBackdrop {
-    padding: 12px 18px;
-  }
-  .archiveBackdrop .smallSurface {
-    min-height: 196px;
-    height: 196px;
-  }
-  .smallSurface [class*="versionList"] {
-    max-height: 82px;
-  }
 }
 .capabilities::before,
 .outputs::before {
@@ -738,27 +492,6 @@
 }
 .deckReading [class*="slide"] p {
   line-height: 1.7;
-}
-@media (min-width: 1101px) {
-  .briefSurface {
-    min-height: 270px;
-    height: 270px;
-    overflow: auto;
-  }
-  .smallSurface {
-    min-height: 240px;
-    height: 240px;
-  }
-  .archiveBackdrop .smallSurface {
-    min-height: 216px;
-    height: 216px;
-  }
-  .smallSurface [class*="generation"] > p {
-    margin: 5px 0;
-  }
-  .smallSurface [class*="generation"] > button {
-    margin-top: 7px;
-  }
 }
 @media (max-width: 1000px) {
   .deckReading [class*="slide"] h3 {

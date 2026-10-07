@@ -1,16 +1,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Check, FileText, Presentation } from "lucide-react";
-import {
-  BriefPreview,
-  DocumentPaper,
-  ExportControl,
-  GenerationPreview,
-  HistoryPreview,
-  RefinePreview,
-  SlidePreview,
-  SourcePreview,
-} from "./Workspace";
+import { ArrowRight, FileText, Presentation } from "lucide-react";
+import { DocumentPaper, ExportControl, SlidePreview } from "./Workspace";
+import CapabilityPreviews from "./CapabilityPreviews";
 import { DemoState } from "./useDemo";
 import sample from "./sample.json";
 import styles from "./LowerSections.module.css";
@@ -78,109 +70,7 @@ export default function LowerSections({
         aria-labelledby="capabilities-heading"
       >
         <div className={styles.container}>
-          <header className={styles.sectionHeading}>
-            <span>THE DETAILS MAKE THE DIFFERENCE</span>
-            <h2 id="capabilities-heading">
-              Built for the work between idea and final draft.
-            </h2>
-            <p>
-              Set the direction. Inspect the sources. Keep control of the
-              changes.
-            </p>
-          </header>
-          <div className={styles.capabilityGrid}>
-            <figure className={styles.wideFeature}>
-              <div
-                className={`${styles.featureSurface} ${styles.briefSurface}`}
-              >
-                <div>
-                  <div className={styles.surfaceToolbar}>
-                    <FileText size={13} aria-hidden="true" />
-                    <strong>New document</strong>
-                    <span>Sample brief</span>
-                  </div>
-                  <BriefPreview demo={demo} compact />
-                </div>
-                <div className={styles.outlinePreview}>
-                  <span>Starter structure</span>
-                  <strong>Research brief</strong>
-                  {demo.titles.map((title, index) => (
-                    <button
-                      key={index}
-                      aria-pressed={demo.selected === index}
-                      onClick={() => demo.setSelected(index)}
-                    >
-                      <Check size={12} aria-hidden="true" />
-                      <span>{title}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <figcaption>
-                <h3>Start with a clear direction.</h3>
-                <p>Shape the brief and outline before the draft begins.</p>
-              </figcaption>
-            </figure>
-            <figure className={styles.wideFeature}>
-              <div
-                className={`${styles.featureSurface} ${styles.researchSurface}`}
-              >
-                <div className={styles.sourceDraft}>
-                  <div className={styles.surfaceToolbar}>
-                    <strong>Clean energy transition</strong>
-                    <span>Draft</span>
-                  </div>
-                  <h4>Storage and flexibility</h4>
-                  <p>{sample.sections[2].text}</p>
-                  <span className={styles.inlineSource}>
-                    [2] Energy Storage · US Department of Energy
-                  </span>
-                </div>
-                <SourcePreview demo={demo} compact />
-              </div>
-              <figcaption>
-                <h3>Know what the draft is built on.</h3>
-                <p>Inspect the evidence and choose the sources you keep.</p>
-              </figcaption>
-            </figure>
-            <figure className={styles.smallFeature}>
-              <div
-                className={`${styles.featureSurface} ${styles.smallSurface}`}
-              >
-                <RefinePreview demo={demo} compact />
-              </div>
-              <figcaption>
-                <h3>Review before you replace.</h3>
-                <p>See the change before applying it.</p>
-              </figcaption>
-            </figure>
-            <figure
-              className={`${styles.smallFeature} ${styles.archiveFeature}`}
-            >
-              <div className={styles.archiveBackdrop}>
-                <div
-                  className={`${styles.featureSurface} ${styles.smallSurface}`}
-                >
-                  <HistoryPreview demo={demo} />
-                </div>
-              </div>
-              <figcaption>
-                <h3>A version to come back to.</h3>
-                <p>Name checkpoints and restore earlier work.</p>
-              </figcaption>
-            </figure>
-            <figure className={styles.smallFeature}>
-              <div
-                className={`${styles.featureSurface} ${styles.smallSurface}`}
-              >
-                <GenerationPreview demo={demo} />
-              </div>
-              <figcaption>
-                <h3>Continue where you left off.</h3>
-                <p>Pause between sections. Resume from the checkpoint.</p>
-              </figcaption>
-            </figure>
-          </div>
+          <CapabilityPreviews artReady={capabilities.visible} />
         </div>
       </section>
       <section
