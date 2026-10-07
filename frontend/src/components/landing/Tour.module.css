@@ -1447,3 +1447,330 @@
     display: none;
   }
 }
+.tour[data-tour-chapter="refine"] .narration {
+  height: 94px;
+  padding-top: 9px;
+}
+.tour[data-tour-chapter="refine"] .draftEditor {
+  padding-top: 10px;
+}
+.tour[data-tour-chapter="refine"] .draftEditor > h3 {
+  margin: 0 0 8px;
+}
+.tour[data-tour-chapter="refine"] .formatting {
+  border: 1px solid var(--tour-border);
+  border-radius: 6px;
+  padding: 3px 8px;
+  min-height: 50px;
+  margin-bottom: 15px;
+}
+.tour[data-tour-chapter="refine"] .formatting .select {
+  background: transparent;
+  border: 0;
+}
+.tour[data-tour-chapter="refine"] .carriedBrief {
+  margin-top: 19px;
+}
+.inlineDiff {
+  background: var(--tour-soft);
+  border-radius: 6px;
+  padding: 8px 14px;
+  margin: 10px -1px 14px;
+}
+.diffLabel {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+}
+.diffLabel svg {
+  color: var(--tour-accent);
+}
+.inlineDiff p {
+  padding: 8px 19px;
+  border-radius: 5px;
+  line-height: 1.4;
+  margin: 8px 0;
+}
+.removed {
+  background: var(--tour-removed);
+}
+.removed del {
+  text-decoration-color: var(--tour-removed-ink);
+  text-decoration-thickness: 2px;
+}
+.added {
+  background: var(--tour-added);
+}
+.added ins {
+  text-decoration: none;
+}
+.inlineDiff small {
+  display: block;
+  font-size: 15px;
+  color: var(--tour-muted);
+  padding: 0 1px;
+}
+.tour[data-tour-chapter="refine"] .takeaways {
+  list-style: disc;
+  padding-left: 23px;
+  margin-bottom: 16px;
+}
+.tour[data-tour-chapter="refine"] .takeaways li {
+  display: list-item;
+}
+.tour[data-tour-chapter="refine"] .takeaways li::before {
+  content: none;
+}
+.tour[data-tour-chapter="refine"] .draftContinuation h3 {
+  font-size: 24px;
+  margin-top: 8px;
+}
+.refineInspector h3 {
+  font-size: 26px;
+  font-weight: 650;
+  letter-spacing: -0.65px;
+  line-height: 1.25;
+}
+.excerptLabel {
+  color: var(--tour-muted);
+  font-size: 16px;
+  padding: 6px 0;
+}
+.instructionField {
+  display: block;
+  margin-bottom: 10px;
+}
+.instructionField input {
+  font-size: 16px;
+  min-height: 44px;
+}
+.refineInspector .primary {
+  background: var(--tour-selected);
+}
+.suggestionResult {
+  border-top: 1px solid var(--tour-border);
+  margin-top: 15px;
+  padding-top: 8px;
+}
+.suggestionResult .ready {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-size: 15px;
+  color: var(--tour-muted);
+  margin-bottom: 7px;
+}
+.suggestionResult label {
+  font-size: 16px;
+  color: var(--tour-muted);
+}
+.suggestedText {
+  background: var(--tour-paper);
+  color: var(--tour-ink);
+  border: 1px solid var(--tour-border);
+  border-radius: 6px;
+  padding: 8px 15px;
+  margin-top: 2px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+.diffActions {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 10px;
+  margin-top: 13px;
+}
+.diffActions .primary,
+.diffActions .secondary {
+  min-height: 43px;
+  padding: 6px 12px;
+  font-size: 16px;
+}
+.tour .originalNote {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--tour-muted);
+  margin: 10px 0;
+}
+.refineDetails {
+  border-radius: 5px;
+  background: var(--tour-shell);
+  margin-top: 12px;
+}
+.refineDetails details + details {
+  border-top: 1px solid var(--tour-border);
+}
+.refineDetails summary,
+.beforeRefinement summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 6px 16px;
+  min-height: 37px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.refineDetails summary::-webkit-details-marker,
+.beforeRefinement summary::-webkit-details-marker,
+.sourceDisclosure summary::-webkit-details-marker {
+  display: none;
+}
+.refineDetails summary > svg:last-child {
+  margin-left: auto;
+}
+.refineDetails details[open] summary > svg:last-child {
+  transform: rotate(90deg);
+}
+.refineDetails p {
+  padding: 5px 16px 12px;
+  font-size: 14px;
+  color: var(--tour-muted);
+}
+.linkedSource {
+  border: 1px solid var(--tour-border);
+  border-radius: 6px;
+  background: var(--tour-shell);
+  padding: 6px 12px;
+  margin-top: 10px;
+}
+.linkedSource > span {
+  display: block;
+  font-size: 14px;
+  color: var(--tour-muted);
+}
+.linkedSource a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 4px 2px;
+  font-size: 14px;
+}
+.linkedSource a > span:nth-last-child(2) {
+  margin-left: auto;
+}
+.linkedSource strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+}
+.linkedSource small {
+  display: block;
+  font-size: 14px;
+  color: var(--tour-muted);
+}
+.beforeRefinement {
+  border: 1px solid var(--tour-border);
+  border-radius: 6px;
+  background: var(--tour-shell);
+  margin-top: 15px;
+}
+.beforeRefinement summary {
+  min-height: 43px;
+}
+.beforeRefinement p {
+  font-size: 14px;
+  padding: 8px 15px;
+}
+.beforeRefinement .secondary {
+  margin: 4px 15px 12px;
+}
+.tourHistory {
+  padding: 6px 12px;
+}
+.tour .tourHistory button {
+  width: 100%;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 14px;
+  padding: 7px 5px;
+  border-top: 1px solid var(--tour-border);
+}
+.sourceDisclosure {
+  border-top: 1px solid var(--tour-border);
+  margin-top: 6px;
+}
+.sourceDisclosure summary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 39px;
+  cursor: pointer;
+  font-size: 16px;
+  list-style: none;
+}
+.sourceDisclosure summary > svg:last-child {
+  margin-left: auto;
+}
+.sourceDisclosure[open] summary > svg:last-child {
+  transform: rotate(90deg);
+}
+.sourceDisclosure a {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 3px;
+  font-size: 14px;
+  color: var(--tour-muted);
+}
+.resolvedEdit {
+  background: var(--tour-added);
+  border-radius: 6px;
+  padding: 8px 14px;
+  margin: 10px 0;
+}
+.resolvedEdit small {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--tour-added-ink);
+}
+.tour .resolvedEdit button {
+  font-size: 14px;
+  margin-top: 5px;
+  padding: 4px;
+}
+@media (max-width: 1500px) and (min-width: 1001px) {
+  .refineInspector h3 {
+    font-size: 23px;
+  }
+  .instructionField input {
+    font-size: 14px;
+  }
+  .suggestedText {
+    font-size: 16px;
+  }
+  .inlineDiff p {
+    padding: 8px 12px;
+  }
+  .refineDetails summary,
+  .beforeRefinement summary {
+    gap: 15px;
+    padding: 6px 12px;
+  }
+}
+@media (max-width: 1000px) {
+  .tour[data-tour-chapter="refine"] .narration {
+    height: auto;
+    padding: 20px 18px;
+  }
+  .tour[data-tour-chapter="refine"] .draftEditor {
+    padding-top: 20px;
+  }
+  .inlineDiff p {
+    padding: 8px 10px;
+  }
+  .refineDetails summary,
+  .beforeRefinement summary,
+  .sourceDisclosure summary {
+    min-height: 44px;
+  }
+  .instructionField input {
+    font-size: 16px;
+  }
+  .refineInspector h3 {
+    font-size: 25px;
+  }
+}

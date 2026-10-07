@@ -18,6 +18,7 @@ import {
 import sample from "./sample.json";
 import { DemoState } from "./useDemo";
 import { MenuAction, TourMenu, TourSelect } from "./TourPrimitives";
+import { SourceReferences } from "./TourRefine";
 import styles from "./Tour.module.css";
 
 export function OutlineNavigation({

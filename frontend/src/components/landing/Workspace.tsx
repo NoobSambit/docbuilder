@@ -575,7 +575,7 @@ export default function Workspace({
     // Deliberately only tied to chapter transitions, so manual controls remain usable between them.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapter, expanded]);
-  if (expanded && chapter <= 1)
+  if (expanded && chapter <= 2)
     return (
       <div className={styles.workspace} data-workspace="stable-shell">
         <Tour

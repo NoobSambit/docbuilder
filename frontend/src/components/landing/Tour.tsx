@@ -28,6 +28,11 @@ import {
   OutlineNavigation,
   SourcesInspector,
 } from "./TourDraft";
+import {
+  InlineSuggestion,
+  RefineInspector,
+  SourceReferences,
+} from "./TourRefine";
 import styles from "./Tour.module.css";
 
 export const TOUR_CHAPTERS = [
@@ -400,6 +405,13 @@ export default function Tour({
   const [expandedItems, setExpandedItems] = useState(["executive", "market"]);
   useEffect(() => {
     demo.setMobilePane("document");
+    if (chapter === 2)
+      demo.setSelected(
+        Math.max(
+          0,
+          demo.sections.findIndex((section) => section.id === "executive"),
+        ),
+      );
   }, [chapter]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div
@@ -481,7 +493,9 @@ export default function Tour({
                   : "Draft"
                 : chapter === 0
                   ? "Section details"
-                  : "Sources"}
+                  : chapter === 2
+                    ? "Refine"
+                    : "Sources"}
           </button>
         ))}
       </nav>
@@ -509,13 +523,21 @@ export default function Tour({
         ) : (
           <>
             <OutlineNavigation demo={demo} onChapter={onChapter} />
-            <DraftEditor demo={demo} />
-            <SourcesInspector demo={demo} />
-            <CitationConnector
-              host={panes}
-              sourceId={demo.inspectedSource}
-              selected={demo.selected}
-            />
+            <DraftEditor demo={demo} refine={chapter === 2}>
+              {chapter === 2 && <InlineSuggestion demo={demo} />}
+            </DraftEditor>
+            {chapter === 2 ? (
+              <RefineInspector demo={demo} />
+            ) : (
+              <SourcesInspector demo={demo} />
+            )}
+            {chapter === 1 && (
+              <CitationConnector
+                host={panes}
+                sourceId={demo.inspectedSource}
+                selected={demo.selected}
+              />
+            )}
           </>
         )}
       </div>
