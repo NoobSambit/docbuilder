@@ -47,8 +47,6 @@
 .surfaceToolbar { position: relative; z-index: 2; display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 18px; font-size: 12px; }
 .surfaceToolbar strong { font-weight: 500; }
 
-.deckReading { padding: 0 14px 12px; }
-.deckSources { display: flex; gap: 16px; font-size: 10px; }
 .outputGrid figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 10px 8px 0; position: relative; }
 .outputGrid h3 { font-size: clamp(12px, 1vw, 16px); line-height: 1.5; font-weight: 500; margin: 0; }
 .outputGrid figcaption p { font-size: 11px; color: var(--muted); white-space: nowrap; }

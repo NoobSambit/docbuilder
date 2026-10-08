@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Presentation } from "lucide-react";
-import { ExportControl, SlidePreview } from "./Workspace";
-import { ReportPreview, ReportToolbar } from "./OutputPresenters";
+import { ArrowRight } from "lucide-react";
+import { DeckPreview, DeckToolbar, ReportPreview, ReportToolbar } from "./OutputPresenters";
 import CapabilityPreviews from "./CapabilityPreviews";
 import { DemoState } from "./useDemo";
-import sample from "./sample.json";
 import styles from "./LowerSections.module.css";
 
 function useNearViewport() {
@@ -59,6 +57,7 @@ export default function LowerSections({
 }) {
   const capabilities = useNearViewport();
   const outputs = useNearViewport();
+  const [treatment, setTreatment] = useState("Editorial");
   return (
     <>
       <section
@@ -99,27 +98,9 @@ export default function LowerSections({
             <figure className={styles.presentationOutput}>
               <div className={styles.outputSurface}>
                 <div className={styles.surfaceToolbar}>
-                  <Presentation size={14} aria-hidden="true" />
-                  <strong>Presentation</strong>
-                  
-                  <ExportControl output="presentation" />
+                  <DeckToolbar treatment={treatment} onTreatment={setTreatment} />
                 </div>
-                <div className={styles.deckReading}>
-                  <SlidePreview demo={demo} />
-                  <div className={styles.deckSources}>
-                    {sample.sources.map((source) => (
-                      <a
-                        key={source.id}
-                        href={source.url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {source.title}{" "}
-                        <ArrowRight size={11} aria-hidden="true" />
-                      </a>
-                    ))}
-                  </div>
-                </div>
+                <DeckPreview demo={demo} treatment={treatment} />
               </div>
               <figcaption>
                 <h3>A presentation you can make your own.</h3>

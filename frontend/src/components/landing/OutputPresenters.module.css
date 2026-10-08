@@ -41,3 +41,62 @@
  .secondPage { left: 65%; width: 30%; }
  .export summary, .previewLink { min-height: 44px; }
 }
+.treatment { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+.treatment select { appearance: none; cursor: pointer; min-height: 36px; padding: 0 3px; background: transparent; font-size: 12px; color: inherit; }
+.treatment option { background: var(--tour-paper); color: var(--ink); }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.deckFrame { min-width: 0; min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 10px; padding: 2px 14px 10px; }
+.slideViewport { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; min-height: 0; align-self: start; overflow: hidden; border-radius: 4px; box-shadow: 0 1px 3px #241e2715; container-type: inline-size; }
+.slide { display: grid; grid-template-columns: 43% 57%; width: 100%; height: 100%; font-family: Georgia, "Times New Roman", serif; }
+.slideText { min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 6% 12%; }
+.cover .slideText { position: relative; color: #fff9ec; background: var(--rail); }
+.cover .slideText::before { content: ""; position: absolute; left: 10%; top: 15%; bottom: 15%; width: 1px; background: #cba253; }
+.cover .slideText { padding-left: 22%; padding-right: 10%; }
+.slide h4 { font-size: 7.1cqw; font-weight: 500; letter-spacing: -0.8px; line-height: 1.04; }
+.cover h4 span { display: block; }
+.slideRule { width: 30px; height: 2px; background: #cba253; margin: 16px 0; flex-shrink: 0; }
+.slide p { font-size: 2.1cqw; line-height: 1.35; white-space: pre-line; }
+.slideArt { min-width: 0; background-position: center; background-size: cover; }
+.content .slideText { background: var(--tour-paper); color: var(--tour-ink); padding: 9%; }
+.content h4 { font-size: 4.3cqw; line-height: 1.12; letter-spacing: -0.5px; }
+.content p { font: 2.05cqw/1.6 var(--font-inter, Arial), Arial, sans-serif; }
+.content small { font: 1.3cqw/1.4 var(--font-inter, Arial), Arial, sans-serif; color: var(--tour-muted); margin-top: 12px; }
+.slide[data-treatment="Minimal"] .slideText { background: var(--tour-paper); color: var(--tour-ink); }
+.slide[data-treatment="Minimal"] h4 { font-family: var(--font-jakarta, Arial), Arial, sans-serif; font-weight: 600; font-size: 6.3cqw; }
+.slide[data-treatment="Minimal"].content h4 { font-size: 4.1cqw; }
+.filmstrip { display: flex; gap: 12px; align-items: center; min-width: 0; }
+.thumbnails { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; flex: 1; min-width: 0; }
+.thumbnails > button { min-width: 0; padding: 0; text-align: center; }
+.miniatureViewport { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 3px; border: 1px solid color-mix(in srgb, var(--ink) 15%, transparent); box-shadow: 0 1px 3px #241e271a; container-type: inline-size; }
+.thumbnails > button[aria-pressed="true"] .miniatureViewport { outline: 2px solid var(--accent); outline-offset: 2px; }
+.thumbnails > button > span { display: block; font-size: 12px; line-height: 1.4; margin-top: 6px; font-variant-numeric: tabular-nums; }
+.miniature .slideText { padding: 10%; justify-content: flex-start; }
+.miniature h4 { font-size: 8cqw; letter-spacing: -0.2px; }
+.miniature.content h4 { font-size: 6.3cqw; }
+.miniatureLines { display: grid; gap: 4px; margin-top: 6px; }
+.miniatureLines i { width: 100%; height: 1px; background: var(--tour-border); }
+.miniatureLines i:last-child { width: 70%; }
+.paging { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.paging > div { display: flex; gap: 4px; }
+.paging button { display: grid; place-items: center; width: 28px; height: 32px; border-radius: 50%; background: var(--tour-paper); box-shadow: 0 2px 4px #241e271a; }
+.paging button:disabled { opacity: 0.35; cursor: default; box-shadow: none; }
+.paging span { font-size: 11px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+@media (min-width: 1001px) {
+ /* The panel ratio reserves 42px chrome plus 94px filmstrip. The slide keeps
+    its 16:9 ratio when compact desktop chrome needs more room than the artwork. */
+ .slideViewport { max-width: min(100%, calc((35.1156cqw - 148px) * 16 / 9)); justify-self: center; }
+}
+@media (max-width: 1000px) {
+ .deckFrame { display: flex; flex-direction: column; padding: 2px 14px 14px; gap: 12px; }
+ .slideViewport { width: 100%; }
+ .paging button { width: 32px; height: 40px; }
+}
+@media (max-width: 480px) {
+ .treatment select { font-size: 11px; min-height: 44px; }
+ .deckFrame { padding: 2px 8px 12px; }
+ .filmstrip { flex-wrap: wrap; gap: 8px; }
+ .thumbnails { flex-basis: 100%; gap: 8px; }
+ .paging { width: 100%; flex-direction: row; justify-content: flex-end; }
+ .paging button { width: 40px; height: 44px; }
+ .slideRule { margin: 8px 0; width: 20px; height: 1px; }
+}
