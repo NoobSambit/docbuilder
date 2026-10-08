@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, FileText, Presentation } from "lucide-react";
-import { DocumentPaper, ExportControl, SlidePreview } from "./Workspace";
+import { ArrowRight, Presentation } from "lucide-react";
+import { ExportControl, SlidePreview } from "./Workspace";
+import { ReportPreview, ReportToolbar } from "./OutputPresenters";
 import CapabilityPreviews from "./CapabilityPreviews";
 import { DemoState } from "./useDemo";
 import sample from "./sample.json";
@@ -86,14 +87,9 @@ export default function LowerSections({
             <figure className={styles.documentOutput}>
               <div className={styles.outputSurface}>
                 <div className={styles.surfaceToolbar}>
-                  <FileText size={14} aria-hidden="true" />
-                  <strong>Document</strong>
-                  
-                  <ExportControl />
+                  <ReportToolbar />
                 </div>
-                <div className={styles.documentReading}>
-                  <DocumentPaper demo={demo} full />
-                </div>
+                <ReportPreview demo={demo} />
               </div>
               <figcaption>
                 <h3>A document with its structure intact.</h3>

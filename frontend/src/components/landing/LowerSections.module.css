@@ -43,12 +43,10 @@
 .sectionHeading p { font-size: clamp(12px, 1.15vw, 18px); color: var(--muted); }
 .outputGrid { display: grid; grid-template-columns: 708fr 654fr; gap: 1.59%; align-items: stretch; container-type: inline-size; }
 .outputGrid figure { margin: 0; min-width: 0; display: flex; flex-direction: column; }
-.outputSurface { flex: 1; min-width: 0; border: 1px solid color-mix(in srgb, var(--accent) 14%, transparent); border-radius: 8px; background: color-mix(in srgb, var(--tint) 73%, transparent); box-shadow: 0 4px 14px #342b1910; }
+.outputSurface { display: grid; grid-template-rows: 42px minmax(0, 1fr); height: max(380px, 35.1156cqw); min-width: 0; border: 1px solid color-mix(in srgb, var(--accent) 14%, transparent); border-radius: 8px; background: color-mix(in srgb, var(--tint) 73%, transparent); box-shadow: 0 4px 14px #342b1910; }
 .surfaceToolbar { position: relative; z-index: 2; display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 18px; font-size: 12px; }
 .surfaceToolbar strong { font-weight: 500; }
-.surfaceToolbar > details { margin-left: auto; }
-.documentReading { height: 418px; overflow: auto; padding: 18px 32px; }
-.documentReading > article { padding: 24px 28px 18px; min-height: 0; }
+
 .deckReading { padding: 0 14px 12px; }
 .deckSources { display: flex; gap: 16px; font-size: 10px; }
 .outputGrid figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 10px 8px 0; position: relative; }
@@ -70,6 +68,7 @@
  .capabilities, .outputs { padding: 28px 18px; }
  .sectionHeading { margin: 0 0 20px; }
  .outputGrid { grid-template-columns: 1fr; gap: 24px; }
+ .outputSurface { height: auto; grid-template-rows: 44px auto; }
  .outputGrid figcaption { flex-wrap: wrap; gap: 4px 12px; }
  .outputGrid h3 { font-size: 15px; }
  .faq { grid-template-columns: 1fr; gap: 12px; }
