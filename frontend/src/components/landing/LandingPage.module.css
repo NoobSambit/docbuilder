@@ -70,7 +70,8 @@
   top: 16px;
 }
 .story {
-  height: 510svh;
+  /* One viewport for the stage + 0.8 for arrival + four 0.675 chapter spans. */
+  height: 450svh;
   position: relative;
   scroll-margin-top: 0;
 }

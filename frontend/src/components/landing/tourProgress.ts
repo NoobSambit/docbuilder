@@ -1,5 +1,5 @@
 export const TOUR_EXPANSION_SPAN = 0.8;
-export const TOUR_CHAPTER_SPAN = 0.825;
+export const TOUR_CHAPTER_SPAN = 0.675;
 const RELEASE_SPAN = 0.15;
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
 
