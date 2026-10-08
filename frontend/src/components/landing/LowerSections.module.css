@@ -313,3 +313,24 @@
     min-height: 44px;
   }
 }
+
+@media (min-width: 1101px) {
+  .capabilities {
+    padding-top: 28px;
+  }
+}
+@media (max-width: 380px) {
+  .outputSurface {
+    grid-template-rows: auto auto;
+  }
+  .surfaceToolbar:has(select) {
+    display: grid;
+    grid-template-columns: 17px 1fr auto;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    row-gap: 0;
+  }
+  .surfaceToolbar:has(select) > details {
+    grid-column: 2 / 4;
+  }
+}

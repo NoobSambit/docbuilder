@@ -71,7 +71,7 @@
   position: relative;
   z-index: 1;
   width: 59%;
-  min-height: 141.4%;
+  aspect-ratio: 1 / 1.414;
   margin-left: 15%;
   padding: 5.3% 6.8% 6%;
   background: #fffdfa;
@@ -527,13 +527,23 @@
   .content .slideText {
     padding: 7%;
   }
-  .content h4 {
+  .slideViewport .content h4 {
     font-size: max(14px, 4.3cqw);
   }
   .content small {
     display: none;
   }
-  .slide[data-treatment="Minimal"].content h4 {
+  .slideViewport .slide[data-treatment="Minimal"].content h4 {
     font-size: max(13px, 4.1cqw);
+  }
+}
+
+@media (max-width: 380px) {
+  .treatment {
+    grid-column: 3;
+    margin: 0;
+  }
+  .export {
+    justify-self: end;
   }
 }
