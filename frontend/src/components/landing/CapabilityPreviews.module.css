@@ -56,8 +56,7 @@
   line-height: 1.5;
 }
 /* Calm reading areas belong to each copy block, rather than each text line. */
-.heading::before,
-.grid figcaption::before {
+.heading::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -68,8 +67,8 @@
     color-mix(in srgb, var(--preview-shell) 82%, transparent),
     color-mix(in srgb, var(--preview-shell) 70%, transparent)
   );
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   mask-image:
     linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent),
     linear-gradient(
@@ -116,7 +115,8 @@
   display: flex;
   padding: 22px;
   background: color-mix(in srgb, var(--preview-context) 45%, transparent);
-  border-radius: 8px;
+  border-radius: 8px 8px 8px 0;
+  border: 1px solid color-mix(in srgb, var(--preview-paper) 35%, transparent);
   min-width: 0;
 }
 .brief,
@@ -613,7 +613,17 @@
 .grid figcaption {
   position: relative;
   isolation: isolate;
-  padding: 14px 3px 2px;
+  align-self: flex-start;
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 16px;
+  background: color-mix(in srgb, var(--preview-shell) 48%, transparent);
+  border: 1px solid color-mix(in srgb, var(--preview-paper) 45%, transparent);
+  border-top: 0;
+  border-radius: 0 0 10px 10px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 3px 10px #18201c0c;
 }
 .grid figcaption h3 {
   font-size: 18px;

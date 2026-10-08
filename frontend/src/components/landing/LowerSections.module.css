@@ -21,8 +21,8 @@
   right: 0;
   height: 56px;
   pointer-events: none;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   mask-image: linear-gradient(transparent, #000 35%, #000 60%, transparent);
   -webkit-mask-image: linear-gradient(
     transparent,
@@ -34,8 +34,59 @@
 .capabilities > .container {
   z-index: 1;
 }
-.outputs.loaded {
-  background-image: var(--outputs-art);
+/* Artwork size follows width alone, never the disclosure/content height. */
+.outputs {
+  isolation: isolate;
+}
+.outputs.loaded::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--outputs-art) center top / 100% auto no-repeat;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 48px,
+    #000 78%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 48px,
+    #000 78%,
+    transparent
+  );
+}
+/* Feather both scenes at their shared edge without blurring any content. */
+.outputs.loaded::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  top: -40px;
+  left: 0;
+  right: 0;
+  height: 96px;
+  background: linear-gradient(
+    transparent,
+    color-mix(in srgb, var(--canvas) 45%, transparent),
+    transparent
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  mask-image: linear-gradient(transparent, #000 35%, #000 65%, transparent);
+  -webkit-mask-image: linear-gradient(
+    transparent,
+    #000 35%,
+    #000 65%,
+    transparent
+  );
 }
 .container {
   position: relative;
@@ -43,11 +94,14 @@
   margin: 0 auto;
 }
 .outputs > .container {
-  max-width: 1384px;
+  z-index: 2;
+  max-width: 1540px;
 }
 .sectionHeading {
-  margin: 0 18px 18px;
+  margin: 0 0 20px;
+  padding: 12px 18px;
   width: fit-content;
+  max-width: 100%;
   position: relative;
 }
 .sectionHeading > span {
@@ -104,7 +158,8 @@
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  padding: 10px 8px 0;
+  padding: 8px 12px;
+  margin-top: 8px;
   position: relative;
 }
 .outputGrid figcaption h3 {
@@ -123,8 +178,7 @@
   grid-template-columns: 1fr 1.8fr;
   gap: 40px;
   margin-top: 20px;
-  padding: 18px 8px 0;
-  border-top: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
+  padding: 14px 18px;
 }
 .faq h2 {
   font-size: clamp(25px, 2vw, 32px);
@@ -167,9 +221,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 35px;
-  padding: 20px 8px;
-  margin-top: 8px;
-  border-top: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
+  padding: 14px 18px;
+  margin-top: 18px;
 }
 .closing h2 {
   font-size: clamp(25px, 1.9vw, 30px);
@@ -241,34 +294,14 @@
 .outputGrid figcaption,
 .faq,
 .closing {
-  isolation: isolate;
-}
-.sectionHeading::before,
-.outputGrid figcaption::before,
-.faq::before,
-.closing::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  pointer-events: none;
-  inset: -12px -22px;
-  background: color-mix(in srgb, var(--tour-paper) 78%, transparent);
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 5%,
-    #000 85%,
-    transparent
-  );
-}
-.faq,
-.closing {
   position: relative;
-}
-.faq::before,
-.closing::before {
-  inset: 0 -22px;
-  background: color-mix(in srgb, var(--tour-paper) 62%, transparent);
+  isolation: isolate;
+  background: color-mix(in srgb, var(--tour-paper) 34%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tour-paper) 55%, transparent);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 3px 14px color-mix(in srgb, var(--ink) 6%, transparent);
 }
 .closing > div {
   display: flex;
@@ -304,7 +337,7 @@
     font-size: 11px;
   }
   .outputGrid figcaption {
-    padding: 10px 2px 0;
+    padding: 8px 12px;
   }
   .outputGrid figcaption p {
     font-size: 11px;
@@ -332,5 +365,13 @@
   }
   .surfaceToolbar:has(select) > details {
     grid-column: 2 / 4;
+  }
+}
+
+@media (max-width: 1000px) {
+  .sectionHeading,
+  .faq,
+  .closing {
+    padding: 12px 14px;
   }
 }
