@@ -58,9 +58,6 @@ export default function LowerSections({
 }) {
   const capabilities = useNearViewport();
   const outputs = useNearViewport();
-  const [outputFocus, setOutputFocus] = useState<"document" | "presentation">(
-    "document",
-  );
   return (
     <>
       <section
@@ -85,31 +82,13 @@ export default function LowerSections({
             <h2 id="outputs-heading">Ready to leave the workspace.</h2>
             <p>Review the result. Choose the format. Make it yours.</p>
           </header>
-          <div
-            className={styles.outputSelector}
-            aria-label="Choose a finished example"
-          >
-            <button
-              aria-pressed={outputFocus === "document"}
-              onClick={() => setOutputFocus("document")}
-            >
-              <FileText size={14} aria-hidden="true" /> Document
-            </button>
-            <button
-              aria-pressed={outputFocus === "presentation"}
-              onClick={() => setOutputFocus("presentation")}
-            >
-              <Presentation size={14} aria-hidden="true" /> Presentation
-            </button>
-            <span>Two separately authored sample projects</span>
-          </div>
-          <div className={styles.outputGrid} data-output-focus={outputFocus}>
+          <div className={styles.outputGrid}>
             <figure className={styles.documentOutput}>
               <div className={styles.outputSurface}>
                 <div className={styles.surfaceToolbar}>
                   <FileText size={14} aria-hidden="true" />
                   <strong>Document</strong>
-                  <span>Reading view</span>
+                  
                   <ExportControl />
                 </div>
                 <div className={styles.documentReading}>
@@ -118,7 +97,7 @@ export default function LowerSections({
               </div>
               <figcaption>
                 <h3>A document with its structure intact.</h3>
-                <p>Word · Markdown · HTML · Print</p>
+                <p>DOCX / Markdown / HTML / Print</p>
               </figcaption>
             </figure>
             <figure className={styles.presentationOutput}>
@@ -126,7 +105,7 @@ export default function LowerSections({
                 <div className={styles.surfaceToolbar}>
                   <Presentation size={14} aria-hidden="true" />
                   <strong>Presentation</strong>
-                  <span>16:9</span>
+                  
                   <ExportControl output="presentation" />
                 </div>
                 <div className={styles.deckReading}>
@@ -148,7 +127,7 @@ export default function LowerSections({
               </div>
               <figcaption>
                 <h3>A presentation you can make your own.</h3>
-                <p>Reviewed slide outline · Editable PowerPoint</p>
+                <p>Theme / Layout / PPTX</p>
               </figcaption>
             </figure>
           </div>
