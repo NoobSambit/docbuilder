@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { DeckPreview, DeckToolbar, ReportPreview, ReportToolbar } from "./OutputPresenters";
+import {
+  DeckPreview,
+  DeckToolbar,
+  ReportPreview,
+  ReportToolbar,
+} from "./OutputPresenters";
 import CapabilityPreviews from "./CapabilityPreviews";
 import { DemoState } from "./useDemo";
 import styles from "./LowerSections.module.css";
@@ -83,7 +88,7 @@ export default function LowerSections({
             <p>Review the result. Choose the format. Make it yours.</p>
           </header>
           <div className={styles.outputGrid}>
-            <figure className={styles.documentOutput}>
+            <figure>
               <div className={styles.outputSurface}>
                 <div className={styles.surfaceToolbar}>
                   <ReportToolbar />
@@ -95,10 +100,13 @@ export default function LowerSections({
                 <p>DOCX / Markdown / HTML / Print</p>
               </figcaption>
             </figure>
-            <figure className={styles.presentationOutput}>
+            <figure>
               <div className={styles.outputSurface}>
                 <div className={styles.surfaceToolbar}>
-                  <DeckToolbar treatment={treatment} onTreatment={setTreatment} />
+                  <DeckToolbar
+                    treatment={treatment}
+                    onTreatment={setTreatment}
+                  />
                 </div>
                 <DeckPreview demo={demo} treatment={treatment} />
               </div>
@@ -115,8 +123,8 @@ export default function LowerSections({
           >
             <h2 id="faq-heading">A few things to know.</h2>
             <div>
-              {faqs.map(([question, answer]) => (
-                <details key={question}>
+              {faqs.map(([question, answer], index) => (
+                <details key={question} open={index === 0}>
                   <summary>
                     {question}
                     <span aria-hidden="true">+</span>
